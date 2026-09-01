@@ -5,6 +5,7 @@
 
 ## 能力
 - **任务类型**：generate、edit、extend
+- **生成场景**：t2v、i2v-first-frame
 - **接受输入**：reference_image、reference_video、audio
 - **生成音频**：支持
 - **备注**：Lightricks 开源 LTX-2 音视频基础模型（当前推荐 checkpoint 为 LTX-2.5，22B）。单模型支持文生视频、图生视频、音生视频(A2Vid)、视频转视频(IC-LoRA)、关键帧插值、局部重生成(Retake)、配音(DubIt)、文生音频(T2A)；同步生成音频与视频，原生 4K、最高 50fps、最长约 10 秒（带同步音频）。视频延长（前向/后向）见 LTX-Video 系列 README。
@@ -53,5 +54,5 @@
 
 ## 错误码
 
-待补充（开源无错误码。）
+待补充（开源模型无 API 错误码（本无）。）
 

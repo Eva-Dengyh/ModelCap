@@ -5,19 +5,52 @@
   "fetched_at": "2026-09-01",
   "source_url": "https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5",
   "ability": {
-    "tasks": ["generate"],
-    "inputs": ["reference_image"],
-    "note": "Runway Gen-4.5，支持文生视频（Text）与图生视频（Image）；更多输入类型即将支持。文档未提及音频生成能力。"
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "note": "Runway Gen-4.5，支持文生视频（Text）与图生视频（Image）；更多输入类型即将支持。文档未提及音频生成能力。",
+    "scenes": [
+      "t2v",
+      "i2v-first-frame"
+    ],
+    "capabilities": []
   },
   "input_limits": {
     "max_reference_images": 1,
-    "image": { "_missing": true }
+    "image": {
+      "formats": [
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "max_bytes": 16777216,
+      "min_side_px": null,
+      "max_side_px": null,
+      "min_ratio": 0.5,
+      "max_ratio": 2,
+      "note": "来源 Runway Dev API 文档（docs.dev.runwayml.com/assets/inputs）：支持 JPEG/PNG/WebP（GIF 不支持）；URL 上传上限 16MB、Data URI 上限 5MB；宽高比 0.5~2；官方建议图片 ≥640×640px 且 ≤4K（非硬性限制）。"
+    }
   },
   "rules": {
     "generate": {
-      "duration_seconds": { "min": 2, "max": 10 },
-      "resolution": ["720p"],
-      "aspect_ratio": ["16:9", "9:16", "1:1", "4:3", "3:4", "21:9"],
+      "duration_seconds": {
+        "min": 2,
+        "max": 10
+      },
+      "resolution": [
+        "720p"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "note": "Text to Video 仅 16:9(1280x720)；Image to Video 支持 6 种比例；输出 720p；FPS 24/25；12 credits/秒。"
@@ -29,11 +62,76 @@
   },
   "pricing": {
     "unit": "second",
-    "tiers": { "720p": 12 },
+    "tiers": {
+      "720p": 12
+    },
     "note": "计费单位为 Runway credits（非 CNY/USD）；12 credits/秒；ProRes/PNG 序列导出另加 5 credits/秒。"
   },
   "errors": {
-    "_missing": true,
-    "note": "帮助文档未提供错误码。"
+    "400": {
+      "standard": "invalid_parameter",
+      "user_message": "请求输入有误，请检查参数"
+    },
+    "401": {
+      "standard": "access_denied",
+      "user_message": "API Key 无效"
+    },
+    "404": {
+      "standard": "invalid_parameter",
+      "user_message": "引用的资源不存在"
+    },
+    "405": {
+      "standard": "invalid_parameter",
+      "user_message": "接口方法不支持"
+    },
+    "429": {
+      "standard": "quota_exceeded",
+      "user_message": "请求过于频繁，请稍后重试"
+    },
+    "502": {
+      "standard": "provider_failed",
+      "user_message": "服务负载过高，请稍后重试"
+    },
+    "503": {
+      "standard": "provider_failed",
+      "user_message": "服务负载过高，请稍后重试"
+    },
+    "504": {
+      "standard": "timeout",
+      "user_message": "服务超时，请稍后重试"
+    },
+    "SAFETY.INPUT": {
+      "standard": "content_violation.safety",
+      "user_message": "输入内容未通过安全审核"
+    },
+    "SAFETY.OUTPUT": {
+      "standard": "content_violation.safety",
+      "user_message": "输出内容未通过安全审核"
+    },
+    "INTERNAL.BAD_OUTPUT": {
+      "standard": "output_processing_failed",
+      "user_message": "生成结果质量不合格，请调整提示词后重试"
+    },
+    "INPUT_PREPROCESSING.SAFETY.TEXT": {
+      "standard": "content_violation.safety",
+      "user_message": "提示词文本未通过安全审核"
+    },
+    "INPUT_PREPROCESSING.INTERNAL": {
+      "standard": "provider_failed",
+      "user_message": "内容审核服务异常，请稍后重试"
+    },
+    "ASSET.INVALID": {
+      "standard": "invalid_parameter",
+      "user_message": "输入素材不符合要求（尺寸/时长/属性），请更换"
+    },
+    "THIRD_PARTY.UNAVAILABLE": {
+      "standard": "provider_failed",
+      "user_message": "第三方模型暂不可用，请稍后重试"
+    },
+    "INTERNAL": {
+      "standard": "provider_failed",
+      "user_message": "服务内部错误，请稍后重试"
+    },
+    "note": "来源 Runway Dev API 文档（docs.dev.runwayml.com/errors）。HTTP 状态码为接口级错误；failureCode 为任务失败码：SAFETY.INPUT.* 表示输入未通过内容审核（不退还 credits），SAFETY.OUTPUT.* 表示输出未通过审核；INTERNAL.BAD_OUTPUT.* 为内部质量拒收。"
   }
 }

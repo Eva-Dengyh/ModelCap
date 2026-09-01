@@ -22,6 +22,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const TASKS = ['generate', 'edit', 'extend']
 const INPUTS = ['reference_video', 'reference_image', 'model_reference', 'audio']
+const SCENES = ['t2v', 'i2v-first-frame', 'i2v-first-last-frame', 'i2v-middle-frame', 'r2v']
+const CAPABILITIES = ['lip-sync', 'portrait', 'multi-shot', 'camera-control']
 const STANDARD_ERRORS = [
   'content_violation.real_person', 'content_violation.safety', 'content_violation.audio',
   'content_violation.copyright', 'invalid_parameter', 'quota_exceeded', 'timeout',
@@ -47,6 +49,12 @@ function validateProblems(entry) {
     }
     for (const input of entry.ability.inputs || []) {
       if (!INPUTS.includes(input)) out.push(`ability.inputs 非法枚举: ${input}`)
+    }
+    for (const scene of entry.ability.scenes || []) {
+      if (!SCENES.includes(scene)) out.push(`ability.scenes 非法枚举: ${scene}`)
+    }
+    for (const cap of entry.ability.capabilities || []) {
+      if (!CAPABILITIES.includes(cap)) out.push(`ability.capabilities 非法枚举: ${cap}`)
     }
   }
 
@@ -146,6 +154,8 @@ function mdAbility(entry) {
   const a = entry.ability || {}
   const tasks = cell(a.tasks)
   const inputs = cell(a.inputs)
+  const scenes = cell(a.scenes)
+  const capabilities = cell(a.capabilities)
   const audio = isMissing(a.audio) ? MISSING : a.audio ? '支持' : '不支持'
   const note = cell(a.note)
 
@@ -153,8 +163,10 @@ function mdAbility(entry) {
     '## 能力',
     '',
     `- **任务类型**：${tasks}`,
+    `- **生成场景**：${scenes}`,
     `- **接受输入**：${inputs}`,
     `- **生成音频**：${audio}`,
+    capabilities && capabilities !== MISSING ? `- **特色能力**：${capabilities}` : '',
     note && note !== MISSING ? `- **备注**：${note}` : '',
     '',
   ].filter(Boolean).join('\n')

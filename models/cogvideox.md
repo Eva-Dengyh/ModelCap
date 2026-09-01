@@ -5,6 +5,7 @@
 
 ## 能力
 - **任务类型**：generate、extend
+- **生成场景**：t2v、i2v-first-frame
 - **接受输入**：reference_image、reference_video
 - **生成音频**：不支持
 - **备注**：智谱开源 CogVideoX 系列视频生成模型。支持文生视频(T2V)、图生视频(I2V)、视频续写(video continuation)；不生成音频。最新 CogVideoX1.5-5B 输出 5 或 10 秒、16fps、1360×768；CogVideoX-2B/5B/5B-I2V 输出 6 秒、8fps、720×480。仅支持英文提示词。
@@ -49,5 +50,5 @@
 
 ## 错误码
 
-待补充（开源本地推理，无 API 错误码。）
+待补充（开源模型无 API 错误码（本无）。）
 

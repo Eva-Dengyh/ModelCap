@@ -5,6 +5,7 @@
 
 ## 能力
 - **任务类型**：generate
+- **生成场景**：t2v、r2v
 - **接受输入**：reference_image
 - **生成音频**：支持
 - **备注**：生数科技 Vidu Q2（标准版 viduq2）。支持文生视频(Text To Video)与参考生视频(Reference To Video)，时长 1-10s、分辨率 540p/720p/1080p；图生视频(Image To Video)与首尾帧(Start End To Video)任务需用 viduq2-pro / viduq2-turbo / viduq2-pro-fast 变体。

@@ -23,30 +23,30 @@
 
 ## 收录 / 关注模型（视频生成）
 
-> 下表为热度排名榜单，20 个模型已全部收录进 `models/`（每个版本一个 JSON 条目）。
+> 热度排名榜单，与 `models/` 目录一一对应（共 20 个版本条目）。「分类」按能力划分：文生（文本转视频）、图生（图像转视频）、编辑（视频编辑）；一个模型可同时属于多类，并列在单元格里。
 
-| 排名 | 模型 | 公司 | 一句话说明 |
-| --- | --- | --- | --- |
-| 1 | Veo 3.1 | Google DeepMind | 质量天花板，原生音频+唇形同步，经 Gemini/YouTube 海量分发 |
-| 2 | Kling 3.0 可灵 | 快手 | 用户规模最大（6000万+创作者、约2.4亿美元ARR），音画同步 |
-| 3 | Seedance 2.5 | 字节跳动 | 2026年7月底发布，原生30秒+多模态联合生成，连 Runway 都接入 |
-| 4 | Runway Gen-4.5 | Runway | 西方影视创作第一，电影级镜头编排，好莱坞采用 |
-| 5 | Hailuo H3 海螺 | MiniMax | 原生2K+首尾帧/参考控制，性价比高，VBench 曾登顶 |
-| 6 | HappyHorse 快乐小马 | 阿里 ATH | 2026开源黑马，一次同出1080p视频+音频，Arena 第一 |
-| 7 | Wan 3.0/2.x 万相 | 阿里云 | 开源生态之王（GitHub 3.4万+ star），原生30秒 |
-| 8 | Sora / Sora 2 | OpenAI | 历史影响力第一，但2026年3月已关停 |
-| 9 | HunyuanVideo 1.5 混元 | 腾讯 | 开源轻量标杆（8.3B），部署门槛低 |
-| 10 | CogVideoX | 智谱 | 开源最早的中国视频模型之一，开发者生态广 |
-| 11 | PixVerse V6 | 爱诗科技 | 15秒+原生音频+20+电影镜头控制，出海表现强 |
-| 12 | Vidu Q2 | 生数科技+清华 | 参考生视频开创者，音画同步、口型误差±15ms |
-| 13 | Luma Ray 2 | Luma AI | Dream Machine 续作，1080p 图生视频强 |
-| 14 | Pika 2.2 | Pika Labs | 消费级先行者，首尾帧+特效模板，热度已回落 |
-| 15 | Firefly Video | Adobe | 商业安全（授权数据训练），深度整合 Premiere/AE |
-| 16 | 即梦 Dreamina | 字节剪映 | 依托剪映庞大用户盘，短视频+数字人一体化 |
-| 17 | LTX-2 / LTX-Video | Lightricks | 开源实时视频生成，实时预览体验领先 |
-| 18 | Mochi 1 | Genmo | 2024开源先驱，现已边缘化 |
-| 19 | Stable Video Diffusion | Stability AI | 开源开拓者，但公司已转音频，视频线停滞 |
-| 20 | MAGI-1 | Sand.ai（吴恩达团队） | 开源自回归视频模型，规模化自回归路线代表 |
+| 排名 | 模型 | 公司 | 分类 | 一句话说明 |
+| --- | --- | --- | --- | --- |
+| 1 | Veo 3.1 | Google DeepMind | 图生 | 质量天花板，原生音频+唇形同步，经 Gemini/YouTube 海量分发 |
+| 2 | Kling 3.0 可灵 | 快手 | 文生、图生、编辑 | 用户规模最大（6000万+创作者、约2.4亿美元ARR），音画同步 |
+| 3 | Seedance 2.5 | 字节跳动 | 文生、图生、编辑 | 2026年7月底发布，原生30秒+多模态联合生成，连 Runway 都接入 |
+| 4 | Seedance 2.0 | 字节跳动 | 文生、图生、编辑 | 2.5 的前一代主模型，同系列另有 Fast/Mini 降配版 |
+| 5 | Runway Gen-4.5 | Runway | 文生、图生 | 西方影视创作第一，电影级镜头编排，好莱坞采用 |
+| 6 | Hailuo H3 海螺 | MiniMax | 文生、图生 | 原生2K+首尾帧/参考控制，性价比高，VBench 曾登顶 |
+| 7 | HappyHorse 快乐小马 | 阿里 ATH | 文生、图生 | 2026开源黑马，一次同出1080p视频+音频，Arena 第一 |
+| 8 | Wan 3.0 万相 | 阿里云 | 文生、图生 | 开源生态之王（GitHub 3.4万+ star），原生30秒 |
+| 9 | HunyuanVideo 1.5 混元 | 腾讯 | 文生、图生 | 开源轻量标杆（8.3B），部署门槛低 |
+| 10 | CogVideoX | 智谱 | 文生、图生、编辑 | 开源最早的中国视频模型之一，开发者生态广 |
+| 11 | PixVerse V6 | 爱诗科技 | 文生、图生、编辑 | 15秒+原生音频+20+电影镜头控制，出海表现强 |
+| 12 | Vidu Q2 | 生数科技+清华 | 文生、图生 | 参考生视频开创者，音画同步、口型误差±15ms |
+| 13 | Luma Ray 2 | Luma AI | 文生、图生、编辑 | Dream Machine 续作，1080p 图生视频强 |
+| 14 | Pika 2.2 | Pika Labs | 文生、图生 | 消费级先行者，首尾帧+特效模板，热度已回落 |
+| 15 | Firefly Video | Adobe | 文生、图生 | 商业安全（授权数据训练），深度整合 Premiere/AE |
+| 16 | 即梦 Dreamina | 字节剪映 | 文生、图生 | 依托剪映庞大用户盘，短视频+数字人一体化 |
+| 17 | LTX-2 | Lightricks | 文生、图生、编辑 | 开源实时视频生成，实时预览体验领先 |
+| 18 | Mochi 1 | Genmo | 文生 | 2024开源先驱，现已边缘化 |
+| 19 | Stable Video Diffusion | Stability AI | 图生 | 开源开拓者，但公司已转音频，视频线停滞 |
+| 20 | MAGI-1 | Sand.ai（吴恩达团队） | 文生、图生、编辑 | 开源自回归视频模型，规模化自回归路线代表 |
 
 ## 怎么用
 
@@ -55,6 +55,17 @@
 **程序校验**（示例）：按 `rules[task]` 校验请求参数是否合法——同一参数在不同任务下约束可能不同（如编辑任务时长强制 -1）。
 
 **录入新模型**：见 [skill/SKILL.md](skill/SKILL.md)——用 AI 打开官方文档、按 schema 写 JSON、`skill/scripts/tools.mjs` 校验并渲染。
+
+## 能力分类
+
+每个模型条目从四个维度描述能力：
+
+| 维度 | 字段 | 取值 |
+| --- | --- | --- |
+| 任务类型 | `ability.tasks` | generate（生成）、edit（编辑）、extend（延长） |
+| 输入模态 | `ability.inputs` | reference_image（图）、reference_video（视频）、audio（音频） |
+| 生成场景 | `ability.scenes` | t2v（文生）、i2v-first-frame（首帧）、i2v-first-last-frame（首尾帧）、i2v-middle-frame（中帧）、r2v（参考生视频） |
+| 特色能力 | `ability.capabilities` | lip-sync（口型同步）、portrait（数字人肖像）、multi-shot（多镜头分镜）、camera-control（运镜控制） |
 
 ## 约定
 

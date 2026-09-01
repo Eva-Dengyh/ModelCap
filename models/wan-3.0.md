@@ -5,6 +5,7 @@
 
 ## 能力
 - **任务类型**：generate
+- **生成场景**：t2v、i2v-first-frame、i2v-first-last-frame、r2v
 - **接受输入**：reference_video、reference_image、audio
 - **生成音频**：支持
 - **备注**：阿里云万相 Wan 3.0（模型名 wan3.0-video，另有高速版 wan3.0-video-prime）。支持文生视频、图生视频（首帧/首尾帧）、参考生视频（参考图/视频/音频混合）；原生 30 秒，带声音（默认 audio=true）。开发者文章另称支持视频编辑与文生图，但本 API 参考页仅覆盖视频生成参数。

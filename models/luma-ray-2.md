@@ -5,6 +5,7 @@
 
 ## 能力
 - **任务类型**：generate、edit、extend
+- **生成场景**：t2v、i2v-first-frame、i2v-first-last-frame
 - **接受输入**：reference_image
 - **生成音频**：支持
 - **备注**：Luma AI Dream Machine（ray-2 / ray-flash-2）。视频生成（text-to-video / image-to-video / keyframes 首尾帧）、延长（keyframes 引用已有 generation 正/反向）、编辑（modify_video 风格迁移/提示词编辑、reframe_video 改比例）；音频由独立 /generations/{id}/audio 接口生成。
@@ -25,7 +26,7 @@
 | 时长模式 | client_choice |
 | 生成音频 | 不支持 |
 
-> 备注：duration 与 resolution 来自 OpenAPI 共享枚举 VideoModelOutputDuration（仅 5s/9s 两档）与 VideoModelOutputResolution（540p/720p/1080p/4k），均为 anyOf 含自由字符串的非硬约束，且非 ray-2 专属。aspect_ratio 共享枚举默认 16:9；keyframes 支持 frame0/frame1（image 或 generation 引用），loop 可选。音频由独立接口生成。
+> 备注：duration 与 resolution 来自 OpenAPI 共享枚举 VideoModelOutputDuration（仅 5s/9s 两档）与 VideoModelOutputResolution（540p/720p/1080p/4k），均为 anyOf 含自由字符串的非硬约束，且非 ray-2 专属。aspect_ratio 共享枚举默认 16:9；keyframes 支持 frame0/frame1（image 或 generation 引用），loop 可选。视频生成请求无音频字段（generate_audio=false），音频由独立 /generations/{id}/audio 接口生成（AudioGenerationRequest 仅 prompt/negative_prompt，无参考音频，故 max_reference_audios 无值；音频额外计费官方文档未提供）。
 
 ### 任务：edit
 
@@ -51,7 +52,7 @@
 | 时长模式 | client_choice |
 | 生成音频 | 不支持 |
 
-> 备注：extend 通过 keyframes 将 frame0/frame1 设为已存在 generation 引用（正向/反向延长），复用 /generations/video 的 GenerationRequest，故 duration/resolution 与 generate 同源（共享枚举）。
+> 备注：extend 通过 keyframes 将 frame0/frame1 设为已存在 generation 引用（正向/反向延长），复用 /generations/video 的 GenerationRequest，故 duration/resolution 与 generate 同源（共享枚举）。请求无音频字段（generate_audio=false），音频由独立 /generations/{id}/audio 接口生成（无参考音频、音频额外计费官方文档未提供）。
 
 ## 输出限制
 

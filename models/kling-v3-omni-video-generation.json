@@ -5,17 +5,33 @@
   "fetched_at": "2026-09-01",
   "source_url": "https://help.aliyun.com/en/model-studio/kling-video-generation-api-reference/",
   "ability": {
-    "tasks": ["generate", "edit"],
-    "inputs": ["reference_video", "reference_image"],
+    "tasks": [
+      "generate",
+      "edit"
+    ],
+    "inputs": [
+      "reference_video",
+      "reference_image"
+    ],
     "audio": true,
-    "note": "Kling v3 Omni（可灵 v3），经阿里云百炼 Model Studio 提供。支持文生/首帧/首尾帧/参考生视频与视频编辑。同系列另有 v3（无参考生视频/编辑）、v3-turbo（无 4k、仅首帧）。"
+    "note": "Kling v3 Omni（可灵 v3），经阿里云百炼 Model Studio 提供。支持文生/首帧/首尾帧/参考生视频与视频编辑。同系列另有 v3（无参考生视频/编辑）、v3-turbo（无 4k、仅首帧）。",
+    "scenes": [
+      "t2v",
+      "i2v-first-frame",
+      "i2v-first-last-frame",
+      "r2v"
+    ],
+    "capabilities": []
   },
   "input_limits": {
     "max_reference_images": 7,
     "max_reference_videos": 1,
     "image": {
       "max_bytes": 10485760,
-      "formats": ["jpeg", "png"],
+      "formats": [
+        "jpeg",
+        "png"
+      ],
       "min_side_px": 300,
       "max_side_px": 8000,
       "min_ratio": 0.4,
@@ -24,14 +40,28 @@
     "video": {
       "min_duration_seconds": 3,
       "max_duration_seconds": 15,
-      "formats": ["mp4", "mov"]
+      "formats": [
+        "mp4",
+        "mov"
+      ]
     }
   },
   "rules": {
     "generate": {
-      "duration_seconds": { "min": 3, "max": 15 },
-      "resolution": ["720p", "1080p", "4k"],
-      "aspect_ratio": ["16:9", "9:16", "1:1"],
+      "duration_seconds": {
+        "min": 3,
+        "max": 15
+      },
+      "resolution": [
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "generate_audio": true,
@@ -39,8 +69,16 @@
     },
     "edit": {
       "duration_seconds": -1,
-      "resolution": ["720p", "1080p", "4k"],
-      "aspect_ratio": ["16:9", "9:16", "1:1"],
+      "resolution": [
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
       "ratio_mode": "inherit_from_reference_video",
       "duration_mode": "inherit_from_reference_video",
       "generate_audio": true,
@@ -52,41 +90,149 @@
     "aspect_ratio_mode": "client_choice"
   },
   "errors": {
-    "InvalidParameter": { "standard": "invalid_parameter", "user_message": "请求参数不合法，请检查参数取值" },
-    "InvalidParameter.DataInspection": { "standard": "invalid_parameter", "user_message": "媒体资源下载失败，请检查图片/视频 URL 是否可访问" },
-    "DataInspectionFailed": { "standard": "content_violation.safety", "user_message": "输入或输出含疑似敏感内容被拦截，请修改输入后重试" },
-    "BadRequest.EmptyInput": { "standard": "invalid_parameter", "user_message": "缺少必填参数" },
-    "BadRequest.EmptyModel": { "standard": "invalid_parameter", "user_message": "缺少模型参数" },
-    "BadRequest.IllegalInput": { "standard": "invalid_parameter", "user_message": "请求体需为合法 JSON" },
-    "BadRequest.TooLarge": { "standard": "invalid_parameter", "user_message": "请求体过大" },
-    "BadRequest.UnsupportedFileFormat": { "standard": "invalid_parameter", "user_message": "文件格式不支持" },
-    "BadRequest.InputDownloadFailed": { "standard": "invalid_parameter", "user_message": "输入文件下载失败" },
-    "InvalidFile.Size": { "standard": "invalid_parameter", "user_message": "文件大小超限（视频 ≤200MB）" },
-    "InvalidFile.Duration": { "standard": "invalid_parameter", "user_message": "视频/音频时长超限" },
-    "InvalidFile.Format": { "standard": "invalid_parameter", "user_message": "文件格式不支持" },
-    "InvalidFile.FPS": { "standard": "invalid_parameter", "user_message": "视频 FPS 不合法" },
-    "InvalidFile.Resolution": { "standard": "invalid_parameter", "user_message": "图像分辨率不合法" },
-    "InvalidFile.AspectRatio": { "standard": "invalid_parameter", "user_message": "文件宽高比不合法" },
-    "InvalidImage.ImageSize": { "standard": "invalid_parameter", "user_message": "图片大小超限" },
-    "InvalidImage.FileFormat": { "standard": "invalid_parameter", "user_message": "图片格式不支持" },
-    "InvalidImage.NoHumanFace": { "standard": "invalid_parameter", "user_message": "未检测到人脸" },
-    "InvalidFile.NoHuman": { "standard": "invalid_parameter", "user_message": "输入图/视频无人像" },
-    "InvalidFile.MultiHuman": { "standard": "invalid_parameter", "user_message": "输入图含多人像" },
-    "InvalidURL.ConnectionRefused": { "standard": "invalid_parameter", "user_message": "下载媒体资源连接被拒绝" },
-    "InvalidURL.Timeout": { "standard": "invalid_parameter", "user_message": "下载媒体资源超时" },
-    "Throttling": { "standard": "quota_exceeded", "user_message": "触发限流，请稍后重试" },
-    "Throttling.RateQuota": { "standard": "quota_exceeded", "user_message": "请求频率超出配额" },
-    "Throttling.BurstRate": { "standard": "quota_exceeded", "user_message": "请求增长过快，请平滑请求节奏" },
-    "Throttling.AllocationQuota": { "standard": "quota_exceeded", "user_message": "配额已用完" },
-    "Throttling.Concurrency": { "standard": "quota_exceeded", "user_message": "并发请求超出上限" },
-    "InternalError": { "standard": "provider_failed", "user_message": "服务端内部错误" },
-    "InternalError.FileUpload": { "standard": "provider_failed", "user_message": "OSS 上传失败" },
-    "InternalError.Upload": { "standard": "provider_failed", "user_message": "结果上传失败" },
-    "InternalError.Algo": { "standard": "provider_failed", "user_message": "算法推理内部错误" },
-    "InternalError.Timeout": { "standard": "timeout", "user_message": "内部执行超时" },
-    "AccessDenied.Unpurchased": { "standard": "access_denied", "user_message": "未开通服务或无模型使用权限" },
-    "Model.AccessDenied": { "standard": "access_denied", "user_message": "模型访问被拒绝" },
-    "Arrearage": { "standard": "settlement_failed", "user_message": "账户欠费，请充值后重试" },
-    "AllocationQuota.FreeTierOnly": { "standard": "quota_exceeded", "user_message": "免费额度已用完" }
+    "InvalidParameter": {
+      "standard": "invalid_parameter",
+      "user_message": "请求参数不合法，请检查参数取值"
+    },
+    "InvalidParameter.DataInspection": {
+      "standard": "invalid_parameter",
+      "user_message": "媒体资源下载失败，请检查图片/视频 URL 是否可访问"
+    },
+    "DataInspectionFailed": {
+      "standard": "content_violation.safety",
+      "user_message": "输入或输出含疑似敏感内容被拦截，请修改输入后重试"
+    },
+    "BadRequest.EmptyInput": {
+      "standard": "invalid_parameter",
+      "user_message": "缺少必填参数"
+    },
+    "BadRequest.EmptyModel": {
+      "standard": "invalid_parameter",
+      "user_message": "缺少模型参数"
+    },
+    "BadRequest.IllegalInput": {
+      "standard": "invalid_parameter",
+      "user_message": "请求体需为合法 JSON"
+    },
+    "BadRequest.TooLarge": {
+      "standard": "invalid_parameter",
+      "user_message": "请求体过大"
+    },
+    "BadRequest.UnsupportedFileFormat": {
+      "standard": "invalid_parameter",
+      "user_message": "文件格式不支持"
+    },
+    "BadRequest.InputDownloadFailed": {
+      "standard": "invalid_parameter",
+      "user_message": "输入文件下载失败"
+    },
+    "InvalidFile.Size": {
+      "standard": "invalid_parameter",
+      "user_message": "文件大小超限（视频 ≤200MB）"
+    },
+    "InvalidFile.Duration": {
+      "standard": "invalid_parameter",
+      "user_message": "视频/音频时长超限"
+    },
+    "InvalidFile.Format": {
+      "standard": "invalid_parameter",
+      "user_message": "文件格式不支持"
+    },
+    "InvalidFile.FPS": {
+      "standard": "invalid_parameter",
+      "user_message": "视频 FPS 不合法"
+    },
+    "InvalidFile.Resolution": {
+      "standard": "invalid_parameter",
+      "user_message": "图像分辨率不合法"
+    },
+    "InvalidFile.AspectRatio": {
+      "standard": "invalid_parameter",
+      "user_message": "文件宽高比不合法"
+    },
+    "InvalidImage.ImageSize": {
+      "standard": "invalid_parameter",
+      "user_message": "图片大小超限"
+    },
+    "InvalidImage.FileFormat": {
+      "standard": "invalid_parameter",
+      "user_message": "图片格式不支持"
+    },
+    "InvalidImage.NoHumanFace": {
+      "standard": "invalid_parameter",
+      "user_message": "未检测到人脸"
+    },
+    "InvalidFile.NoHuman": {
+      "standard": "invalid_parameter",
+      "user_message": "输入图/视频无人像"
+    },
+    "InvalidFile.MultiHuman": {
+      "standard": "invalid_parameter",
+      "user_message": "输入图含多人像"
+    },
+    "InvalidURL.ConnectionRefused": {
+      "standard": "invalid_parameter",
+      "user_message": "下载媒体资源连接被拒绝"
+    },
+    "InvalidURL.Timeout": {
+      "standard": "invalid_parameter",
+      "user_message": "下载媒体资源超时"
+    },
+    "Throttling": {
+      "standard": "quota_exceeded",
+      "user_message": "触发限流，请稍后重试"
+    },
+    "Throttling.RateQuota": {
+      "standard": "quota_exceeded",
+      "user_message": "请求频率超出配额"
+    },
+    "Throttling.BurstRate": {
+      "standard": "quota_exceeded",
+      "user_message": "请求增长过快，请平滑请求节奏"
+    },
+    "Throttling.AllocationQuota": {
+      "standard": "quota_exceeded",
+      "user_message": "配额已用完"
+    },
+    "Throttling.Concurrency": {
+      "standard": "quota_exceeded",
+      "user_message": "并发请求超出上限"
+    },
+    "InternalError": {
+      "standard": "provider_failed",
+      "user_message": "服务端内部错误"
+    },
+    "InternalError.FileUpload": {
+      "standard": "provider_failed",
+      "user_message": "OSS 上传失败"
+    },
+    "InternalError.Upload": {
+      "standard": "provider_failed",
+      "user_message": "结果上传失败"
+    },
+    "InternalError.Algo": {
+      "standard": "provider_failed",
+      "user_message": "算法推理内部错误"
+    },
+    "InternalError.Timeout": {
+      "standard": "timeout",
+      "user_message": "内部执行超时"
+    },
+    "AccessDenied.Unpurchased": {
+      "standard": "access_denied",
+      "user_message": "未开通服务或无模型使用权限"
+    },
+    "Model.AccessDenied": {
+      "standard": "access_denied",
+      "user_message": "模型访问被拒绝"
+    },
+    "Arrearage": {
+      "standard": "settlement_failed",
+      "user_message": "账户欠费，请充值后重试"
+    },
+    "AllocationQuota.FreeTierOnly": {
+      "standard": "quota_exceeded",
+      "user_message": "免费额度已用完"
+    }
   }
 }

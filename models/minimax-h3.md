@@ -5,6 +5,7 @@
 
 ## 能力
 - **任务类型**：generate
+- **生成场景**：t2v、i2v-first-frame、i2v-first-last-frame、i2v-middle-frame、r2v
 - **接受输入**：reference_video、reference_image、audio
 - **生成音频**：支持
 - **备注**：MiniMax-H3（海螺 H3）。支持文生视频、图生视频（首/中/尾帧）、参考生视频；输出 768P/2K，4-15s。同系列 MiniMax-H3-Max 为快速版（仅 480P/768P、5-15s，无中帧与参考生视频）。

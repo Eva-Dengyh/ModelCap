@@ -5,8 +5,10 @@
 
 ## 能力
 - **任务类型**：generate、extend
+- **生成场景**：t2v、i2v-first-frame、i2v-first-last-frame、r2v
 - **接受输入**：reference_video、reference_image
 - **生成音频**：支持
+- **特色能力**：multi-shot
 - **备注**：爱诗科技 PixVerse V6。支持文生视频、图生视频、首尾帧转场、参考生视频(Fusion)、视频延长；quality 360p/540p/720p/1080p，duration 1-15s；支持 inline 音频生成(generate_audio_switch)与多镜头(generate_multi_clip_switch)。视频编辑(Modify/Restyle/Swap)走独立 endpoint，不属于 V6 模型本体。
 ## 输入限制
 

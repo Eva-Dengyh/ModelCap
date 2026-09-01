@@ -5,6 +5,7 @@
 
 ## 能力
 - **任务类型**：generate
+- **生成场景**：t2v、i2v-first-frame、i2v-first-last-frame
 - **接受输入**：reference_image
 - **生成音频**：待补充
 - **备注**：Adobe Firefly Video Model，经 Firefly API /v3/videos/generate 提供文生视频，并可用图片作为首帧(position 0)或尾帧(position 1)关键帧引导生成。输出固定 5 秒。OpenAPI 规范中无 audio 字段，未提及音频生成。端点 /v3/videos/generate 详情见 static/firefly-api.json（GitHub: AdobeDocs/ffs-firefly-api）。
@@ -13,6 +14,8 @@
 | 项目 | 限制 |
 | --- | --- |
 | 参考图上限（张） | 1 |
+| 图片大小上限 | 15728640 字节 |
+| 图片格式 | jpeg、png、webp、tiff |
 
 ## 参数规矩（按任务）
 

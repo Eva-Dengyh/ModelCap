@@ -5,6 +5,7 @@
 
 ## 能力
 - **任务类型**：generate
+- **生成场景**：i2v-first-frame
 - **接受输入**：reference_image
 - **生成音频**：不支持
 - **备注**：Stable Video Diffusion（SVD），Stability AI 开源图生视频模型（研究用途，2023-11-21 发布）。SVD 生成 14 帧、SVD-XT 微调为 25 帧，固定分辨率 576x1024，仅输出画面无音频。模型已停滞，无活跃 API 文档，按 GitHub README 与推理脚本 simple_video_sample.py 录入。
@@ -35,5 +36,5 @@
 
 ## 错误码
 
-待补充（开源无错误码。）
+待补充（开源模型无 API 错误码（本无）。）
 

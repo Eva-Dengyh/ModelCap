@@ -5,15 +5,30 @@
   "fetched_at": "2026-09-01",
   "source_url": "https://www.volcengine.com/docs/85621/1792707",
   "ability": {
-    "tasks": ["generate"],
-    "inputs": ["reference_image"],
-    "note": "即梦视频3.0（字节剪映/即梦同源），经火山引擎视觉智能(visual.volcengineapi.com)提供。支持文生视频、图生视频-首帧、图生视频-首尾帧、图生视频-运镜四种生成方式；720P / 1080P 两档清晰度；5s / 10s 时长。文档未提及音频生成能力（无音频参考参数）。同系列 3.0 Pro 为更高档（1 元/秒）。"
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "note": "即梦视频3.0（字节剪映/即梦同源），经火山引擎视觉智能(visual.volcengineapi.com)提供。支持文生视频、图生视频-首帧、图生视频-首尾帧、图生视频-运镜四种生成方式；720P / 1080P 两档清晰度；5s / 10s 时长。文档未提及音频生成能力（无音频参考参数）。同系列 3.0 Pro 为更高档（1 元/秒）。",
+    "scenes": [
+      "t2v",
+      "i2v-first-frame",
+      "i2v-first-last-frame"
+    ],
+    "capabilities": [
+      "camera-control"
+    ]
   },
   "input_limits": {
     "max_reference_images": 2,
     "image": {
       "max_bytes": 4928307,
-      "formats": ["jpeg", "png"],
+      "formats": [
+        "jpeg",
+        "png"
+      ],
       "min_side_px": 320,
       "max_side_px": 4096,
       "min_ratio": 0.333,
@@ -22,9 +37,23 @@
   },
   "rules": {
     "generate": {
-      "duration_seconds": { "min": 5, "max": 10, "step": 5 },
-      "resolution": ["720p", "1080p"],
-      "aspect_ratio": ["16:9", "4:3", "1:1", "3:4", "9:16", "21:9"],
+      "duration_seconds": {
+        "min": 5,
+        "max": 10,
+        "step": 5
+      },
+      "resolution": [
+        "720p",
+        "1080p"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16",
+        "21:9"
+      ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "note": "24fps，总帧数 = 24*n+1，n∈{5,10}（frames∈{121,241}）。aspect_ratio 默认 16:9。prompt 建议 ≤400 字、上限 800 字。720P / 1080P 为独立 req_key（jimeng_t2v_v30 等）。首尾帧任务需 2 张图且尾帧与首帧同比例。图片原文约束：最大 4.7MB、最大 4096×4096、最短边 ≥320、长边:短边 ≤3。"
@@ -37,16 +66,41 @@
   "pricing": {
     "currency": "CNY",
     "unit": "second",
-    "tiers": { "720p": 28, "1080p": 63, "1080p-pro": 100 },
+    "tiers": {
+      "720p": 28,
+      "1080p": 63,
+      "1080p-pro": 100
+    },
     "note": "按秒计费：720P 0.28 元/秒、1080P 0.63 元/秒、3.0 Pro 1.00 元/秒；tiers 整数单位为分/秒（1 元=100 分）。并发：免费状态 1、付费状态 2。"
   },
   "errors": {
-    "50411": { "standard": "content_violation.safety", "user_message": "输入图片前审核未通过" },
-    "50413": { "standard": "content_violation.safety", "user_message": "输入文本含敏感词、版权词等审核不通过" },
-    "50518": { "standard": "content_violation.copyright", "user_message": "输入版权图前审核未通过" },
-    "50429": { "standard": "quota_exceeded", "user_message": "QPS 超限，请降低请求频率" },
-    "50430": { "standard": "quota_exceeded", "user_message": "并发超限" },
-    "50500": { "standard": "provider_failed", "user_message": "内部错误" },
-    "50501": { "standard": "provider_failed", "user_message": "内部算法错误" }
+    "50411": {
+      "standard": "content_violation.safety",
+      "user_message": "输入图片前审核未通过"
+    },
+    "50413": {
+      "standard": "content_violation.safety",
+      "user_message": "输入文本含敏感词、版权词等审核不通过"
+    },
+    "50518": {
+      "standard": "content_violation.copyright",
+      "user_message": "输入版权图前审核未通过"
+    },
+    "50429": {
+      "standard": "quota_exceeded",
+      "user_message": "QPS 超限，请降低请求频率"
+    },
+    "50430": {
+      "standard": "quota_exceeded",
+      "user_message": "并发超限"
+    },
+    "50500": {
+      "standard": "provider_failed",
+      "user_message": "内部错误"
+    },
+    "50501": {
+      "standard": "provider_failed",
+      "user_message": "内部算法错误"
+    }
   }
 }

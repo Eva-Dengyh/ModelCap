@@ -5,10 +5,25 @@
   "fetched_at": "2026-09-01",
   "source_url": "https://docs.volcengine.com/docs/82379/2291680?lang=zh",
   "ability": {
-    "tasks": ["generate", "edit", "extend"],
-    "inputs": ["reference_video", "reference_image", "audio"],
+    "tasks": [
+      "generate",
+      "edit",
+      "extend"
+    ],
+    "inputs": [
+      "reference_video",
+      "reference_image",
+      "audio"
+    ],
     "audio": true,
-    "note": "Doubao Seedance 2.0 系列主模型。同系列另有 Fast、Mini 降配版（能力基本一致，仅输出分辨率限于 480p/720p，品质与成本取舍不同）。"
+    "note": "Doubao Seedance 2.0 系列主模型。同系列另有 Fast、Mini 降配版（能力基本一致，仅输出分辨率限于 480p/720p，品质与成本取舍不同）。",
+    "scenes": [
+      "t2v",
+      "i2v-first-frame",
+      "i2v-first-last-frame",
+      "r2v"
+    ],
+    "capabilities": []
   },
   "input_limits": {
     "max_reference_images": 9,
@@ -16,7 +31,16 @@
     "max_reference_audios": 3,
     "image": {
       "max_bytes": 31457280,
-      "formats": ["jpeg", "png", "webp", "bmp", "tiff", "gif", "heic", "heif"],
+      "formats": [
+        "jpeg",
+        "png",
+        "webp",
+        "bmp",
+        "tiff",
+        "gif",
+        "heic",
+        "heif"
+      ],
       "min_side_px": 300,
       "max_side_px": 6000,
       "min_ratio": 0.4,
@@ -25,38 +49,95 @@
     "video": {
       "min_duration_seconds": 2,
       "max_duration_seconds": 15,
-      "formats": ["mp4", "mov"]
+      "formats": [
+        "mp4",
+        "mov"
+      ]
     }
   },
   "rules": {
     "generate": {
-      "duration_seconds": { "min": 4, "max": 15 },
-      "resolution": ["480p", "720p", "1080p", "4k"],
-      "aspect_ratio": ["21:9", "16:9", "4:3", "1:1", "3:4", "9:16"],
+      "duration_seconds": {
+        "min": 4,
+        "max": 15
+      },
+      "resolution": [
+        "480p",
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "aspect_ratio": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "generate_audio": true,
-      "audio": { "max_reference_audios": 3, "extra_charge": false },
+      "audio": {
+        "max_reference_audios": 3,
+        "extra_charge": false
+      },
       "note": "全模态参考：可组合文本/图片(0~9)/视频(0~3)/音频(0~3)；不支持“文本+音频”与“纯音频”输入；4k 仅标准版支持（10bit/H.265），4k 场景 ratio 可用 adaptive；生成音频不额外计费（价格按分辨率与输入是否含视频区分，有声/无声同价）。"
     },
     "edit": {
-      "duration_seconds": { "min": 4, "max": 15 },
-      "resolution": ["480p", "720p", "1080p", "4k"],
-      "aspect_ratio": ["21:9", "16:9", "4:3", "1:1", "3:4", "9:16"],
+      "duration_seconds": {
+        "min": 4,
+        "max": 15
+      },
+      "resolution": [
+        "480p",
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "aspect_ratio": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "generate_audio": true,
-      "audio": { "max_reference_audios": 3, "extra_charge": false },
+      "audio": {
+        "max_reference_audios": 3,
+        "extra_charge": false
+      },
       "note": "生成音频不额外计费（价格按分辨率与输入是否含视频区分，有声/无声同价）。"
     },
     "extend": {
-      "duration_seconds": { "min": 4, "max": 15 },
-      "resolution": ["480p", "720p", "1080p", "4k"],
-      "aspect_ratio": ["21:9", "16:9", "4:3", "1:1", "3:4", "9:16"],
+      "duration_seconds": {
+        "min": 4,
+        "max": 15
+      },
+      "resolution": [
+        "480p",
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "aspect_ratio": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "generate_audio": true,
-      "audio": { "max_reference_audios": 3, "extra_charge": false },
+      "audio": {
+        "max_reference_audios": 3,
+        "extra_charge": false
+      },
       "note": "支持向前/向后延长 1 段视频，或最多 3 段视频串联补全过渡；生成音频不额外计费（价格按分辨率与输入是否含视频区分，有声/无声同价）。"
     }
   },

@@ -5,10 +5,16 @@
   "fetched_at": "2026-09-01",
   "source_url": "https://github.com/genmoai/mochi",
   "ability": {
-    "tasks": ["generate"],
+    "tasks": [
+      "generate"
+    ],
     "inputs": [],
     "audio": false,
-    "note": "Genmo 开源 Mochi 1（preview，10B AsymmDiT）文生视频模型，仅接受文本提示词，不接受图片/视频/音频参考，不生成音频。输出 480p、30fps、最长 5.4 秒。Apache 2.0 许可。"
+    "note": "Genmo 开源 Mochi 1（preview，10B AsymmDiT）文生视频模型，仅接受文本提示词，不接受图片/视频/音频参考，不生成音频。输出 480p、30fps、最长 5.4 秒。Apache 2.0 许可。",
+    "scenes": [
+      "t2v"
+    ],
+    "capabilities": []
   },
   "input_limits": {
     "additional_prompt": {
@@ -18,8 +24,12 @@
   },
   "rules": {
     "generate": {
-      "duration_seconds": { "max": 5 },
-      "resolution": ["480p"],
+      "duration_seconds": {
+        "max": 5
+      },
+      "resolution": [
+        "480p"
+      ],
       "generate_audio": false,
       "note": "480p 基础模型，30fps，最长 5.4 秒（取整为 5 秒档）。示例推理 848×480、num_frames=31；帧数/分辨率可自定义，但官方未给出明确上限枚举。提示词由 T5-XXL 编码，未见文档化的 token 上限。"
     }
@@ -29,6 +39,6 @@
   },
   "errors": {
     "_missing": true,
-    "note": "开源无错误码。"
+    "note": "开源模型无 API 错误码（本无）。"
   }
 }

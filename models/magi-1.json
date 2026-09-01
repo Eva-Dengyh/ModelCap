@@ -5,10 +5,21 @@
   "fetched_at": "2026-09-01",
   "source_url": "https://github.com/SandAI-org/MAGI-1",
   "ability": {
-    "tasks": ["generate", "extend"],
-    "inputs": ["reference_image", "reference_video"],
+    "tasks": [
+      "generate",
+      "extend"
+    ],
+    "inputs": [
+      "reference_image",
+      "reference_video"
+    ],
     "audio": false,
-    "note": "MAGI-1，Sand.ai 开源自回归视频生成模型（Apache 2.0）。支持 t2v（文生视频）/ i2v（图生视频）/ v2v（给定前缀视频续写）三种模式。逐 chunk（24 帧）自回归去噪，支持流式生成；VAE 8x 空间 / 4x 时间压缩。开源自托管，无 API 定价与错误码。"
+    "note": "MAGI-1，Sand.ai 开源自回归视频生成模型（Apache 2.0）。支持 t2v（文生视频）/ i2v（图生视频）/ v2v（给定前缀视频续写）三种模式。逐 chunk（24 帧）自回归去噪，支持流式生成；VAE 8x 空间 / 4x 时间压缩。开源自托管，无 API 定价与错误码。",
+    "scenes": [
+      "t2v",
+      "i2v-first-frame"
+    ],
+    "capabilities": []
   },
   "input_limits": {
     "max_reference_images": 1,
@@ -44,6 +55,6 @@
   },
   "errors": {
     "_missing": true,
-    "note": "开源无错误码。"
+    "note": "开源模型无 API 错误码（本无）。"
   }
 }

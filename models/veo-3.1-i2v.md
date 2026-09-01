@@ -5,8 +5,10 @@
 
 ## 能力
 - **任务类型**：generate
+- **生成场景**：i2v-first-frame
 - **接受输入**：reference_image
 - **生成音频**：支持
+- **特色能力**：lip-sync
 - **备注**：Google Veo 3.1 image-to-video（模型标识 google/veo-3.1-i2v），经 AIML API 提供。生成 8 秒 720p/1080p 视频，带音频，支持多风格与对白。
 ## 输入限制
 

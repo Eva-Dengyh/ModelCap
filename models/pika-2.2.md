@@ -5,6 +5,7 @@
 
 ## 能力
 - **任务类型**：generate
+- **生成场景**：t2v、i2v-first-frame
 - **接受输入**：reference_image
 - **生成音频**：待补充
 - **备注**：Pika 2.2（Pika Labs）。经官方 API 合作方 fal.ai 提供文生视频(text-to-video)与图生视频(image-to-video，首帧)。文生视频为「文生图 + 图生视频」两阶段。API 文档未提及音频生成能力。官方直连站点 pika.art / docs.pika.art 在当前网络环境不可达，参数以 fal.ai 官方 llms.txt 与 OpenAPI 为准。任务建议的 Pika 2.5 未在可达 API 中发现（当前仅 v2.1 / v2.2）。

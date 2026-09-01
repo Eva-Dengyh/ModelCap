@@ -5,43 +5,104 @@
   "fetched_at": "2026-09-01",
   "source_url": "https://github.com/lumalabs/lumaai-api/blob/main/openapi.yaml",
   "ability": {
-    "tasks": ["generate", "edit", "extend"],
-    "inputs": ["reference_image"],
+    "tasks": [
+      "generate",
+      "edit",
+      "extend"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
     "audio": true,
-    "note": "Luma AI Dream Machine（ray-2 / ray-flash-2）。视频生成（text-to-video / image-to-video / keyframes 首尾帧）、延长（keyframes 引用已有 generation 正/反向）、编辑（modify_video 风格迁移/提示词编辑、reframe_video 改比例）；音频由独立 /generations/{id}/audio 接口生成。"
+    "note": "Luma AI Dream Machine（ray-2 / ray-flash-2）。视频生成（text-to-video / image-to-video / keyframes 首尾帧）、延长（keyframes 引用已有 generation 正/反向）、编辑（modify_video 风格迁移/提示词编辑、reframe_video 改比例）；音频由独立 /generations/{id}/audio 接口生成。",
+    "scenes": [
+      "t2v",
+      "i2v-first-frame",
+      "i2v-first-last-frame"
+    ],
+    "capabilities": []
   },
   "input_limits": {
-    "image": { "_missing": true, "note": "OpenAPI 仅定义图片以 URL(ImageReference) 传入 keyframes(frame0/frame1)，未给出尺寸/格式/大小约束。" }
+    "image": {
+      "_missing": true,
+      "note": "OpenAPI 仅定义图片以 URL(ImageReference) 传入 keyframes(frame0/frame1)，未给出尺寸/格式/大小约束。"
+    }
   },
   "rules": {
     "generate": {
-      "duration_seconds": { "min": 5, "max": 9 },
-      "resolution": ["540p", "720p", "1080p", "4k"],
-      "aspect_ratio": ["1:1", "16:9", "9:16", "4:3", "3:4", "21:9", "9:21"],
+      "duration_seconds": {
+        "min": 5,
+        "max": 9
+      },
+      "resolution": [
+        "540p",
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "aspect_ratio": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "21:9",
+        "9:21"
+      ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
-      "generate_audio": null,
-      "audio": { "max_reference_audios": null, "extra_charge": null },
-      "note": "duration 与 resolution 来自 OpenAPI 共享枚举 VideoModelOutputDuration（仅 5s/9s 两档）与 VideoModelOutputResolution（540p/720p/1080p/4k），均为 anyOf 含自由字符串的非硬约束，且非 ray-2 专属。aspect_ratio 共享枚举默认 16:9；keyframes 支持 frame0/frame1（image 或 generation 引用），loop 可选。音频由独立接口生成。"
+      "generate_audio": false,
+      "audio": {
+        "max_reference_audios": null,
+        "extra_charge": null
+      },
+      "note": "duration 与 resolution 来自 OpenAPI 共享枚举 VideoModelOutputDuration（仅 5s/9s 两档）与 VideoModelOutputResolution（540p/720p/1080p/4k），均为 anyOf 含自由字符串的非硬约束，且非 ray-2 专属。aspect_ratio 共享枚举默认 16:9；keyframes 支持 frame0/frame1（image 或 generation 引用），loop 可选。视频生成请求无音频字段（generate_audio=false），音频由独立 /generations/{id}/audio 接口生成（AudioGenerationRequest 仅 prompt/negative_prompt，无参考音频，故 max_reference_audios 无值；音频额外计费官方文档未提供）。"
     },
     "edit": {
       "duration_seconds": null,
       "resolution": null,
-      "aspect_ratio": ["1:1", "16:9", "9:16", "4:3", "3:4", "21:9", "9:21"],
+      "aspect_ratio": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "21:9",
+        "9:21"
+      ],
       "ratio_mode": null,
       "duration_mode": null,
-      "generate_audio": null,
+      "generate_audio": false,
       "note": "modify_video（mode adhere_1/2/3、flex_1/2/3、reimagine_1/2/3，风格迁移/提示词编辑）与 reframe_video（aspect_ratio 必填，改比例重构图）请求体均无 duration/resolution/ratio_mode/duration_mode/generate_audio 字段（该接口无此字段）；aspect_ratio 枚举仅 reframe_video 使用（必填，默认 16:9），modify_video 无 aspect_ratio；模型为 ray-2 / ray-flash-2。"
     },
     "extend": {
-      "duration_seconds": { "min": 5, "max": 9 },
-      "resolution": ["540p", "720p", "1080p", "4k"],
-      "aspect_ratio": ["1:1", "16:9", "9:16", "4:3", "3:4", "21:9", "9:21"],
+      "duration_seconds": {
+        "min": 5,
+        "max": 9
+      },
+      "resolution": [
+        "540p",
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "aspect_ratio": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "21:9",
+        "9:21"
+      ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
-      "generate_audio": null,
-      "audio": { "max_reference_audios": null, "extra_charge": null },
-      "note": "extend 通过 keyframes 将 frame0/frame1 设为已存在 generation 引用（正向/反向延长），复用 /generations/video 的 GenerationRequest，故 duration/resolution 与 generate 同源（共享枚举）。"
+      "generate_audio": false,
+      "audio": {
+        "max_reference_audios": null,
+        "extra_charge": null
+      },
+      "note": "extend 通过 keyframes 将 frame0/frame1 设为已存在 generation 引用（正向/反向延长），复用 /generations/video 的 GenerationRequest，故 duration/resolution 与 generate 同源（共享枚举）。请求无音频字段（generate_audio=false），音频由独立 /generations/{id}/audio 接口生成（无参考音频、音频额外计费官方文档未提供）。"
     }
   },
   "output_limits": {

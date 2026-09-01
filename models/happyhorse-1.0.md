@@ -5,8 +5,10 @@
 
 ## 能力
 - **任务类型**：generate
+- **生成场景**：t2v、i2v-first-frame
 - **接受输入**：reference_image
 - **生成音频**：支持
+- **特色能力**：lip-sync
 - **备注**：HappyHorse 快乐小马 1.0（阿里巴巴 ATH/淘天，开源）。支持文生视频与图生视频（首帧）；原生音视频协同 + 7 语言口型同步（中/英/粤/日/韩/德/法）。本条目为开源 1.0 版；参考生视频与视频编辑属百炼 HappyHorse 1.1 / happyhorse-1.0-video-edit 能力（见 developer.aliyun.com/article/1743772），1.0 开源模型卡未覆盖。约 15B 参数单流 Transformer。
 ## 输入限制
 
@@ -42,5 +44,5 @@
 
 ## 错误码
 
-待补充（开源无错误码。）
+待补充（开源模型无 API 错误码（本无）。）
 

@@ -5,6 +5,7 @@
 
 ## 能力
 - **任务类型**：generate、edit、extend
+- **生成场景**：t2v、i2v-first-frame、i2v-first-last-frame、r2v
 - **接受输入**：reference_video、reference_image、audio
 - **生成音频**：支持
 - **备注**：新一代视频创作模型：单次生成 30 秒并支持多轮延长，单次参考多模态素材上限 50 个（30 图 + 10 视频 + 10 音频），支持纯音频参考，新增 mov 输出与原生多语言。

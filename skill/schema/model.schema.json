@@ -51,6 +51,16 @@
           "type": "boolean",
           "description": "是否支持生成音频。"
         },
+        "scenes": {
+          "type": "array",
+          "description": "生成场景（generate 任务的细分）。",
+          "items": { "enum": ["t2v", "i2v-first-frame", "i2v-first-last-frame", "i2v-middle-frame", "r2v"] }
+        },
+        "capabilities": {
+          "type": "array",
+          "description": "特色能力。",
+          "items": { "enum": ["lip-sync", "portrait", "multi-shot", "camera-control"] }
+        },
         "note": { "type": "string" }
       }
     },

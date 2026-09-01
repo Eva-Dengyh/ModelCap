@@ -5,6 +5,7 @@
 
 ## 能力
 - **任务类型**：generate、edit、extend
+- **生成场景**：t2v、i2v-first-frame、i2v-first-last-frame、r2v
 - **接受输入**：reference_video、reference_image、audio
 - **生成音频**：支持
 - **备注**：Doubao Seedance 2.0 系列主模型。同系列另有 Fast、Mini 降配版（能力基本一致，仅输出分辨率限于 480p/720p，品质与成本取舍不同）。

@@ -5,22 +5,47 @@
   "fetched_at": "2026-09-01",
   "source_url": "https://fal.ai/models/fal-ai/pika/v2.2/text-to-video",
   "ability": {
-    "tasks": ["generate"],
-    "inputs": ["reference_image"],
-    "note": "Pika 2.2（Pika Labs）。经官方 API 合作方 fal.ai 提供文生视频(text-to-video)与图生视频(image-to-video，首帧)。文生视频为「文生图 + 图生视频」两阶段。API 文档未提及音频生成能力。官方直连站点 pika.art / docs.pika.art 在当前网络环境不可达，参数以 fal.ai 官方 llms.txt 与 OpenAPI 为准。任务建议的 Pika 2.5 未在可达 API 中发现（当前仅 v2.1 / v2.2）。"
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "note": "Pika 2.2（Pika Labs）。经官方 API 合作方 fal.ai 提供文生视频(text-to-video)与图生视频(image-to-video，首帧)。文生视频为「文生图 + 图生视频」两阶段。API 文档未提及音频生成能力。官方直连站点 pika.art / docs.pika.art 在当前网络环境不可达，参数以 fal.ai 官方 llms.txt 与 OpenAPI 为准。任务建议的 Pika 2.5 未在可达 API 中发现（当前仅 v2.1 / v2.2）。",
+    "scenes": [
+      "t2v",
+      "i2v-first-frame"
+    ],
+    "capabilities": []
   },
   "input_limits": {
     "max_reference_images": 1,
     "image": {
       "formats": null,
-      "_missing": true
+      "_missing": true,
+      "note": "官方文档未提供图片格式/大小/像素约束：image-to-video 接口仅接受 image_url（URL 字符串），无格式枚举或大小上限说明。"
     }
   },
   "rules": {
     "generate": {
-      "duration_seconds": { "min": 5, "max": 10, "step": 5 },
-      "resolution": ["720p", "1080p"],
-      "aspect_ratio": ["16:9", "9:16", "1:1", "4:5", "5:4", "3:2", "2:3"],
+      "duration_seconds": {
+        "min": 5,
+        "max": 10,
+        "step": 5
+      },
+      "resolution": [
+        "720p",
+        "1080p"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:5",
+        "5:4",
+        "3:2",
+        "2:3"
+      ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "note": "文生视频支持 7 种 aspect_ratio（默认 16:9）；图生视频无 aspect_ratio 参数（比例继承首帧图）。resolution 默认 720p；duration 可选 5 / 10 秒，默认 5；negative_prompt、seed 可选。输出为 mp4（File.url）。"
@@ -33,7 +58,10 @@
   "pricing": {
     "currency": "USD",
     "unit": "second",
-    "tiers": { "720p": 4, "1080p": 9 },
+    "tiers": {
+      "720p": 4,
+      "1080p": 9
+    },
     "note": "fal.ai 官方给出 5 秒成片价格：720p $0.20、1080p $0.45；此处按秒折算为 4 / 9 美分/秒（tiers 整数单位为美分）。"
   },
   "errors": {

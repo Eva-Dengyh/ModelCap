@@ -5,6 +5,7 @@
 
 ## 能力
 - **任务类型**：generate、edit
+- **生成场景**：t2v、i2v-first-frame、i2v-first-last-frame、r2v
 - **接受输入**：reference_video、reference_image
 - **生成音频**：支持
 - **备注**：Kling v3 Omni（可灵 v3），经阿里云百炼 Model Studio 提供。支持文生/首帧/首尾帧/参考生视频与视频编辑。同系列另有 v3（无参考生视频/编辑）、v3-turbo（无 4k、仅首帧）。
