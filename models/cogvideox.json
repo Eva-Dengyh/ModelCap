@@ -1,0 +1,45 @@
+{
+  "model_id": "cogvideox",
+  "provider": "zhipu",
+  "version": "1.5",
+  "fetched_at": "2026-09-01",
+  "source_url": "https://github.com/THUDM/CogVideo",
+  "ability": {
+    "tasks": ["generate", "extend"],
+    "inputs": ["reference_image", "reference_video"],
+    "audio": false,
+    "note": "智谱开源 CogVideoX 系列视频生成模型。支持文生视频(T2V)、图生视频(I2V)、视频续写(video continuation)；不生成音频。最新 CogVideoX1.5-5B 输出 5 或 10 秒、16fps、1360×768；CogVideoX-2B/5B/5B-I2V 输出 6 秒、8fps、720×480。仅支持英文提示词。"
+  },
+  "input_limits": {
+    "max_reference_images": 1,
+    "max_reference_videos": 1,
+    "image": {
+      "min_side_px": 768,
+      "max_side_px": 1360,
+      "note": "CogVideoX1.5-5B-I2V 支持任意分辨率：Min(W,H)=768、768≤Max(W,H)≤1360、Max(W,H)%16=0；旧 CogVideoX-5B-I2V 固定 720×480。README 未给出图片格式与大小上限。"
+    },
+    "video": {
+      "_missing": true,
+      "note": "视频续写（video continuation）的输入视频格式/时长/分辨率约束，README 未给出。"
+    }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": { "min": 5, "max": 10 },
+      "resolution": ["480p", "768p"],
+      "generate_audio": false,
+      "note": "CogVideoX1.5-5B 时长仅 5 或 10 秒（16fps，帧数 16N+1、N≤10，默认 81）；CogVideoX-2B/5B/5B-I2V 为 6 秒（8fps，帧数 8N+1、N≤6，720×480≈480p）。1.5-5B 固定 1360×768（≈768p）；1.5-5B-I2V 任意分辨率（Min(W,H)=768、768≤Max(W,H)≤1360、Max%16=0）。提示词上限 224（1.5）/226（2B/5B）tokens，仅英文。"
+    },
+    "extend": {
+      "duration_seconds": { "min": 5, "max": 10 },
+      "note": "视频续写（video continuation）由 5B 系列支持，参数约束与生成任务同源；时长按所用 checkpoint 而定（1.5 系列 5/10 秒，5B 系列 6 秒）。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 10
+  },
+  "errors": {
+    "_missing": true,
+    "note": "开源本地推理，无 API 错误码。"
+  }
+}

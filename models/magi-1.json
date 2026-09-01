@@ -1,0 +1,49 @@
+{
+  "model_id": "magi-1",
+  "provider": "sand-ai",
+  "version": "1",
+  "fetched_at": "2026-09-01",
+  "source_url": "https://github.com/SandAI-org/MAGI-1",
+  "ability": {
+    "tasks": ["generate", "extend"],
+    "inputs": ["reference_image", "reference_video"],
+    "audio": false,
+    "note": "MAGI-1，Sand.ai 开源自回归视频生成模型（Apache 2.0）。支持 t2v（文生视频）/ i2v（图生视频）/ v2v（给定前缀视频续写）三种模式。逐 chunk（24 帧）自回归去噪，支持流式生成；VAE 8x 空间 / 4x 时间压缩。开源自托管，无 API 定价与错误码。"
+  },
+  "input_limits": {
+    "max_reference_images": 1,
+    "max_reference_videos": 1,
+    "image": {
+      "_missing": true,
+      "note": "README 未给出图片输入的格式/尺寸/比例硬约束；模型支持任意分辨率（4.5B 默认 720×720，24B 默认 720×1280）。"
+    },
+    "video": {
+      "_missing": true,
+      "note": "v2v 通过 --prefix_video_path 传入前缀视频，README 未给出其格式/时长/帧数/分辨率硬约束。"
+    }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": null,
+      "resolution": null,
+      "aspect_ratio": null,
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": false,
+      "note": "t2v / i2v。任意分辨率/帧数控制，无固定枚举：分辨率默认 720×720（4.5B）/ 720×1280（24B）；时长由 num_frames 控制（默认 96，fps 默认 24≈4s），流式无固定上限；cfg_number 基础模型=3、distill/quant=1。故 duration_seconds / resolution / aspect_ratio 置 null。"
+    },
+    "extend": {
+      "duration_seconds": null,
+      "resolution": null,
+      "aspect_ratio": null,
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": false,
+      "note": "v2v 视频续写：输入前缀视频（--prefix_video_path）作为条件，自回归继续生成后续 chunk。任意分辨率/帧数控制，无固定枚举，duration_seconds / resolution / aspect_ratio 置 null。"
+    }
+  },
+  "errors": {
+    "_missing": true,
+    "note": "开源无错误码。"
+  }
+}

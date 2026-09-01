@@ -1,0 +1,34 @@
+{
+  "model_id": "stable-video-diffusion",
+  "provider": "stability",
+  "version": "1.0",
+  "fetched_at": "2026-09-01",
+  "source_url": "https://github.com/Stability-AI/generative-models",
+  "ability": {
+    "tasks": ["generate"],
+    "inputs": ["reference_image"],
+    "audio": false,
+    "note": "Stable Video Diffusion（SVD），Stability AI 开源图生视频模型（研究用途，2023-11-21 发布）。SVD 生成 14 帧、SVD-XT 微调为 25 帧，固定分辨率 576x1024，仅输出画面无音频。模型已停滞，无活跃 API 文档，按 GitHub README 与推理脚本 simple_video_sample.py 录入。"
+  },
+  "input_limits": {
+    "max_reference_images": 1,
+    "image": {
+      "min_side_px": 576,
+      "max_side_px": 1024,
+      "note": "context frame 需与训练分辨率同尺寸 576×1024（9:16），推理脚本会自动缩放/裁剪到该尺寸；README 未给出图片格式与大小上限。"
+    }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": null,
+      "resolution": null,
+      "aspect_ratio": ["9:16"],
+      "generate_audio": false,
+      "note": "帧数控制（SVD 14 帧 / SVD-XT 25 帧），固定 576×1024，无秒级时长枚举：fps_id 默认 6（可设 5~30），时长=帧数/fps 无固定秒数档位；单张参考图（context frame）。分辨率 576×1024 不在 schema 清晰度枚举内，故 resolution 置 null、duration_seconds 置 null。"
+    }
+  },
+  "errors": {
+    "_missing": true,
+    "note": "开源无错误码。"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "model_id": "veo-3.1-i2v",
+  "provider": "aimlapi",
+  "version": "3.1",
+  "fetched_at": "2026-09-01",
+  "source_url": "https://docs.aimlapi.com/api-references/video-models/google/veo-3-1-image-to-video",
+  "ability": {
+    "tasks": ["generate"],
+    "inputs": ["reference_image"],
+    "audio": true,
+    "note": "Google Veo 3.1 image-to-video（模型标识 google/veo-3.1-i2v），经 AIML API 提供。生成 8 秒 720p/1080p 视频，带音频，支持多风格与对白。"
+  },
+  "input_limits": {
+    "max_reference_images": 1,
+    "image": { "_missing": true }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": { "min": 4, "max": 8 },
+      "resolution": ["720p", "1080p"],
+      "aspect_ratio": ["16:9", "9:16"],
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": true,
+      "note": "duration 仅支持 4/6/8 三档（默认 8）；resolution 默认 1080p；generate_audio 默认 true；输入图片需 720p 或更高分辨率。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 8,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "errors": {
+    "_missing": true,
+    "note": "本页未提供错误码表；响应含 error 对象但无具体错误码枚举。"
+  }
+}

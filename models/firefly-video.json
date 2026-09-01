@@ -1,0 +1,48 @@
+{
+  "model_id": "firefly-video",
+  "provider": "adobe",
+  "version": "3.0",
+  "fetched_at": "2026-09-01",
+  "source_url": "https://developer.adobe.com/firefly-services/docs/firefly-api/getting-started/usage-notes/",
+  "ability": {
+    "tasks": ["generate"],
+    "inputs": ["reference_image"],
+    "note": "Adobe Firefly Video Model，经 Firefly API /v3/videos/generate 提供文生视频，并可用图片作为首帧(position 0)或尾帧(position 1)关键帧引导生成。输出固定 5 秒。OpenAPI 规范中无 audio 字段，未提及音频生成。端点 /v3/videos/generate 详情见 static/firefly-api.json（GitHub: AdobeDocs/ffs-firefly-api）。"
+  },
+  "input_limits": {
+    "max_reference_images": 1,
+    "image": {
+      "_missing": true,
+      "note": "官方文档未提供：OpenAPI 仅定义图片以 URL(uploadId) 传入（PublicBinaryInputV3/ImageConditionV3），未给出大小/格式/像素约束；仅允许 amazonaws.com/windows.net/dropboxusercontent.com/storage.googleapis.com 域名。"
+    }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": { "min": 5, "max": 5 },
+      "resolution": ["720p", "1080p"],
+      "aspect_ratio": ["16:9", "9:16", "1:1"],
+      "ratio_mode": "client_choice",
+      "duration_mode": "explicit",
+      "note": "时长固定 5 秒（接口描述「Generate a five second video」，无 duration 参数）。sizes 按宽高指定：16:9(1920x1080 / 1280x720 / 960x540)、9:16(1080x1920 / 720x1280 / 540x960)、1:1(1080x1080 / 720x720 / 540x540)，最高 1080P；另有 960x540（约 540P）档位，超出目录清晰度枚举。seeds 恰好 1 个；bitRateFactor 0-63（默认 18，建议 17-23）；videoSettings 支持运镜(8)、风格(10)、机位(5)、景别(5)。限流 4 RPM / 9000 RPD（按组织）。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 5,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "pricing": {
+    "_missing": true,
+    "note": "官方文档未提供视频生成价格：AdobeDocs/ffs-firefly-api OpenAPI 与 usage-notes 均未列出视频生成积分单价；Firefly 采用积分(credits)计费，具体价格需登录控制台查看。"
+  },
+  "errors": {
+    "validation_error": { "standard": "invalid_parameter", "user_message": "请求参数校验失败，请检查参数取值" },
+    "bad_request": { "standard": "invalid_parameter", "user_message": "请求格式错误，请检查请求体" },
+    "invalid_content_type": { "standard": "invalid_parameter", "user_message": "不支持的媒体类型" },
+    "empty_input_body": { "standard": "invalid_parameter", "user_message": "请求体为空" },
+    "rate_limited": { "standard": "quota_exceeded", "user_message": "触发限流（默认 4 次/分钟），请降低频率或稍后重试" },
+    "timeout_error": { "standard": "timeout", "user_message": "任务处理超时" },
+    "access_error": { "standard": "access_denied", "user_message": "无权访问，请检查凭证与权限" },
+    "runtime_error": { "standard": "provider_failed", "user_message": "服务端运行错误" },
+    "cai_assertion_violation_error": { "standard": "content_violation.safety", "user_message": "内容断言违规（可能涉及内容政策）" }
+  }
+}

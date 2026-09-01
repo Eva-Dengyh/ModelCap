@@ -1,0 +1,44 @@
+{
+  "model_id": "ltx-2",
+  "provider": "lightricks",
+  "version": "2.5",
+  "fetched_at": "2026-09-01",
+  "source_url": "https://github.com/Lightricks/LTX-2",
+  "ability": {
+    "tasks": ["generate", "edit", "extend"],
+    "inputs": ["reference_image", "reference_video", "audio"],
+    "audio": true,
+    "note": "Lightricks 开源 LTX-2 音视频基础模型（当前推荐 checkpoint 为 LTX-2.5，22B）。单模型支持文生视频、图生视频、音生视频(A2Vid)、视频转视频(IC-LoRA)、关键帧插值、局部重生成(Retake)、配音(DubIt)、文生音频(T2A)；同步生成音频与视频，原生 4K、最高 50fps、最长约 10 秒（带同步音频）。视频延长（前向/后向）见 LTX-Video 系列 README。"
+  },
+  "input_limits": {
+    "max_reference_audios": 1,
+    "image": {
+      "_missing": true,
+      "note": "README 未给出图片输入的格式/尺寸/大小硬约束；生成分辨率须为 64 的倍数（spatial-upscalings=2 时为 128 的倍数），详见 rules.generate.note。"
+    },
+    "video": {
+      "_missing": true,
+      "note": "README 未给出输入视频的格式/时长/大小硬约束；源视频帧数须满足 8k+1、分辨率须为 32 的倍数，详见 rules.edit.note。"
+    }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": { "max": 10 },
+      "generate_audio": true,
+      "note": "官方公告最长约 10 秒（带同步音频）；默认 121 帧 @24fps≈5.04 秒，帧数须满足 8k+1 网格。分辨率须为 64 的倍数（spatial-upscalings=2 时为 128 的倍数），最高 4K（3840×2176），默认 1024×1536；fps 默认 24，可时间升采样到 48/96fps（最高约 50fps）。"
+    },
+    "edit": {
+      "note": "视频转视频(IC-LoRA)、Retake（局部时间窗口重生成，须指定 start/end time）、DubIt（配音/重新措辞并匹配唇形）、关键帧插值。源视频帧数须满足 8k+1（如 97、193）、分辨率须为 32 的倍数。"
+    },
+    "extend": {
+      "note": "官方 LTX-Video 系列 README 声明支持视频延长（前向/后向）；LTX-2 仓库 pipeline 列表未单列延长任务，具体时长/分辨率约束待补充。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 10
+  },
+  "errors": {
+    "_missing": true,
+    "note": "开源无错误码。"
+  }
+}

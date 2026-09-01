@@ -1,0 +1,68 @@
+{
+  "model_id": "vidu-q2",
+  "provider": "shengshu",
+  "version": "q2",
+  "fetched_at": "2026-09-01",
+  "source_url": "https://docs.platform.vidu.com/334383376e0",
+  "ability": {
+    "tasks": ["generate"],
+    "inputs": ["reference_image"],
+    "audio": true,
+    "note": "生数科技 Vidu Q2（标准版 viduq2）。支持文生视频(Text To Video)与参考生视频(Reference To Video)，时长 1-10s、分辨率 540p/720p/1080p；图生视频(Image To Video)与首尾帧(Start End To Video)任务需用 viduq2-pro / viduq2-turbo / viduq2-pro-fast 变体。"
+  },
+  "input_limits": {
+    "image": {
+      "max_bytes": 52428800,
+      "formats": ["jpeg", "png", "webp"],
+      "min_side_px": 128,
+      "min_ratio": 0.25,
+      "max_ratio": 4
+    },
+    "additional_prompt": { "max_chars": 1500 }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": { "min": 1, "max": 10 },
+      "resolution": ["540p", "720p", "1080p"],
+      "aspect_ratio": ["16:9", "9:16", "3:4", "4:3", "1:1"],
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": true,
+      "audio": { "max_reference_audios": null, "extra_charge": null },
+      "note": "文生视频时长 1-10s（默认 5s），分辨率默认 720p、可选 540p/720p/1080p；3:4 与 4:3 仅 q2 系列支持。style(general/anime)对 q2 不生效；movement_amplitude 取值 auto/small/medium/large。参考生视频图 1-7 张（图需 ≥128x128px、比例 1:4~4:1、单张 ≤50MB、PNG/JPEG/JPG/WebP）。音频仅 bgm(boolean, 自动配乐) 参数；官方文档未提供参考音频数量上限与音频额外计费（credits 为整次调用消耗积分，未拆分音频档）。变体：viduq2-pro 与 viduq2-turbo 用于图生视频/首尾帧（时长 1-10s/2-8s、540p/720p/1080p），viduq2-pro-fast 更快（1-10s/1-8s、720p/1080p）。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 10
+  },
+  "errors": {
+    "BadRequest": { "standard": "invalid_parameter", "user_message": "请求无效" },
+    "FieldLacking": { "standard": "invalid_parameter", "user_message": "缺少必填字段" },
+    "FieldUnwanted": { "standard": "invalid_parameter", "user_message": "含多余字段" },
+    "FieldItemCountOutOfRange": { "standard": "invalid_parameter", "user_message": "字段元素数量超限" },
+    "PageSizeOutOfRange": { "standard": "invalid_parameter", "user_message": "图片大小/格式/比例不合规（≤50MB、JPG/PNG/JPEG/WEBP、比例 <1:4 或 >4:1）" },
+    "ImageDownloadFailure": { "standard": "invalid_parameter", "user_message": "图片链接下载失败，请检查 URL 有效性" },
+    "OperationInProcess": { "standard": "provider_failed", "user_message": "请求正在处理中，请稍后重试" },
+    "ImageFormatInvalid": { "standard": "invalid_parameter", "user_message": "图片格式不符合要求" },
+    "AuditSubmitIllegal": { "standard": "content_violation.safety", "user_message": "输入未通过安全审核" },
+    "CreditInsufficient": { "standard": "quota_exceeded", "user_message": "积分不足" },
+    "CreationPolicyViolation": { "standard": "content_violation.safety", "user_message": "生成内容触发策略违规" },
+    "ModelUnavailable": { "standard": "provider_failed", "user_message": "模型不可用，请检查模型类型" },
+    "UserCancelled": { "standard": "interrupted", "user_message": "用户手动终止任务" },
+    "FieldInvalid": { "standard": "invalid_parameter", "user_message": "传入参数未通过有效性校验" },
+    "ImageCheckBodyJointsFailed": { "standard": "invalid_parameter", "user_message": "输入图片人体检测失败，请重新上传" },
+    "ImageCheckFaceFailed": { "standard": "invalid_parameter", "user_message": "输入图片人脸检测失败，请重新上传" },
+    "ImageObjectsUndetected": { "standard": "invalid_parameter", "user_message": "输入图片人体/人脸遮挡过多，请重新上传" },
+    "Unauthorized": { "standard": "access_denied", "user_message": "未授权（Token 无效）" },
+    "Forbidden": { "standard": "access_denied", "user_message": "请求被禁止" },
+    "TaskNotFound": { "standard": "invalid_parameter", "user_message": "任务 ID 不存在" },
+    "CreationNotFound": { "standard": "invalid_parameter", "user_message": "成片 ID 不存在" },
+    "NotFound": { "standard": "invalid_parameter", "user_message": "请求的资源不存在" },
+    "Conflict": { "standard": "provider_failed", "user_message": "资源键冲突" },
+    "QuotaExceeded": { "standard": "quota_exceeded", "user_message": "超出并发上限，请联系支持" },
+    "TooManyRequests": { "standard": "quota_exceeded", "user_message": "请求过于频繁" },
+    "SystemThrottling": { "standard": "quota_exceeded", "user_message": "超出资源限制" },
+    "Canceled": { "standard": "interrupted", "user_message": "请求被取消" },
+    "InternalServiceFailure": { "standard": "provider_failed", "user_message": "服务端内部错误，请稍后重试" }
+  }
+}

@@ -10,7 +10,7 @@ A machine-readable knowledge base of AI model capabilities — **one JSON entry 
 
 ```
 ├── models/                 ← output: one json + md per model version
-│   ├── seedance-2-5.{json,md}
+│   ├── doubao-seedance-2-5-260628.{json,md}
 │   └── doubao-seedance-2-0-260128.{json,md}
 └── skill/                  ← entry tooling (for AI)
     ├── SKILL.md            ← entry workflow
@@ -23,7 +23,7 @@ A machine-readable knowledge base of AI model capabilities — **one JSON entry 
 
 ## Tracked / Watched Models (video generation)
 
-> The actual entries under `models/` are the source of truth; the table below is the watch list, populated incrementally.
+> All 20 models below are now catalogued under `models/` (one JSON entry per model version). The table is the ranked list.
 
 | Rank | Model | Company | One-liner |
 | --- | --- | --- | --- |
@@ -38,9 +38,9 @@ A machine-readable knowledge base of AI model capabilities — **one JSON entry 
 | 9 | HunyuanVideo 1.5 | Tencent | Lightweight open-source benchmark (8.3B); low deployment barrier |
 | 10 | CogVideoX | Zhipu | Among the earliest Chinese open-source video models; wide dev ecosystem |
 | 11 | PixVerse V6 | Aishi Technology | 15s + native audio + 20+ cinematic camera controls; strong overseas traction |
-| 12 | Vidu Q3 | ShengShu + Tsinghua | Reference-to-video pioneer; audio-video sync; lip-sync error ±15ms |
-| 13 | Luma Ray 3 | Luma AI | Dream Machine successor; strong 1080p image-to-video |
-| 14 | Pika 2.2/2.5 | Pika Labs | Consumer pioneer; first/last-frame + effect templates; hype cooled |
+| 12 | Vidu Q2 | ShengShu + Tsinghua | Reference-to-video pioneer; audio-video sync; lip-sync error ±15ms |
+| 13 | Luma Ray 2 | Luma AI | Dream Machine successor; strong 1080p image-to-video |
+| 14 | Pika 2.2 | Pika Labs | Consumer pioneer; first/last-frame + effect templates; hype cooled |
 | 15 | Firefly Video | Adobe | Commercially safe (licensed data); deep Premiere/AE integration |
 | 16 | Dreamina / Jimeng | ByteDance (CapCut) | Rides CapCut's huge user base; short video + digital human |
 | 17 | LTX-2 / LTX-Video | Lightricks | Open-source real-time video; leading real-time preview |

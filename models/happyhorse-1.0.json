@@ -1,0 +1,39 @@
+{
+  "model_id": "happyhorse-1.0",
+  "provider": "alibaba",
+  "version": "1.0",
+  "fetched_at": "2026-09-01",
+  "source_url": "https://happy-horse.art/zh/",
+  "ability": {
+    "tasks": ["generate"],
+    "inputs": ["reference_image"],
+    "audio": true,
+    "note": "HappyHorse 快乐小马 1.0（阿里巴巴 ATH/淘天，开源）。支持文生视频与图生视频（首帧）；原生音视频协同 + 7 语言口型同步（中/英/粤/日/韩/德/法）。本条目为开源 1.0 版；参考生视频与视频编辑属百炼 HappyHorse 1.1 / happyhorse-1.0-video-edit 能力（见 developer.aliyun.com/article/1743772），1.0 开源模型卡未覆盖。约 15B 参数单流 Transformer。"
+  },
+  "input_limits": {
+    "max_reference_images": 1,
+    "image": {
+      "_missing": true,
+      "note": "开源 1.0 模型卡未给出图生视频首帧图的格式/大小/边长硬约束；百炼 1.1 API 为 jpeg/jpg/png/webp ≤20MB、单边 ≥300px、比例 2:5~5:2（非本开源 1.0 条目）。"
+    }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": { "min": 4, "max": 12 },
+      "resolution": ["720p", "1080p"],
+      "aspect_ratio": ["16:9", "9:16", "4:3", "3:4", "21:9", "1:1"],
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": true,
+      "note": "时长口径各来源不一：生成器默认 4s、教程 5~8s、FAQ 5~12s（此处取 4~12s）；百炼 1.1 版为 3~15s。分辨率 1080p（另有 720p 标准档），FAQ 所称“原生 2K”未获核实。图生视频首帧图硬约束（格式/大小/边长）开源模型卡未给出；百炼 1.1 为 jpeg/jpg/png/webp ≤20MB、单边 ≥300px、比例 2:5~5:2。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 12,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "errors": {
+    "_missing": true,
+    "note": "开源无错误码。"
+  }
+}

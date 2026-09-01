@@ -1,0 +1,39 @@
+{
+  "model_id": "gen-4.5",
+  "provider": "runway",
+  "version": "4.5",
+  "fetched_at": "2026-09-01",
+  "source_url": "https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5",
+  "ability": {
+    "tasks": ["generate"],
+    "inputs": ["reference_image"],
+    "note": "Runway Gen-4.5，支持文生视频（Text）与图生视频（Image）；更多输入类型即将支持。文档未提及音频生成能力。"
+  },
+  "input_limits": {
+    "max_reference_images": 1,
+    "image": { "_missing": true }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": { "min": 2, "max": 10 },
+      "resolution": ["720p"],
+      "aspect_ratio": ["16:9", "9:16", "1:1", "4:3", "3:4", "21:9"],
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "note": "Text to Video 仅 16:9(1280x720)；Image to Video 支持 6 种比例；输出 720p；FPS 24/25；12 credits/秒。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 10,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "pricing": {
+    "unit": "second",
+    "tiers": { "720p": 12 },
+    "note": "计费单位为 Runway credits（非 CNY/USD）；12 credits/秒；ProRes/PNG 序列导出另加 5 credits/秒。"
+  },
+  "errors": {
+    "_missing": true,
+    "note": "帮助文档未提供错误码。"
+  }
+}

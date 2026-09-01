@@ -95,7 +95,7 @@
           "description": "图片硬性约束。",
           "properties": {
             "max_bytes": { "type": ["integer", "null"] },
-            "formats": { "type": ["array", "null"], "items": { "enum": ["jpeg", "png", "webp"] } },
+            "formats": { "type": ["array", "null"], "items": { "enum": ["jpeg", "png", "webp", "bmp", "tiff", "gif", "heic", "heif"] } },
             "min_side_px": { "type": ["integer", "null"] },
             "max_side_px": { "type": ["integer", "null"] },
             "min_ratio": { "type": ["number", "null"] },
@@ -142,7 +142,7 @@
               }
             ]
           },
-          "resolution": { "type": ["array", "null"], "items": { "enum": ["480p", "720p", "1080p", "768p", "2k"] } },
+          "resolution": { "type": ["array", "null"], "items": { "enum": ["480p", "720p", "1080p", "768p", "2k", "4k"] } },
           "aspect_ratio": { "type": ["array", "null"], "items": { "type": "string" } },
           "ratio_mode": { "enum": ["inherit_from_reference_video", "client_choice"] },
           "duration_mode": { "enum": ["inherit_from_reference_video", "client_choice", "explicit"] },

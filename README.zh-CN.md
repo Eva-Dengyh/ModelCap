@@ -10,7 +10,7 @@
 
 ```
 ├── models/                 ← 结果：一个模型版本一个 json + md
-│   ├── seedance-2-5.{json,md}
+│   ├── doubao-seedance-2-5-260628.{json,md}
 │   └── doubao-seedance-2-0-260128.{json,md}
 └── skill/                  ← 录入工具（AI 用）
     ├── SKILL.md            ← 录入流程说明
@@ -23,7 +23,7 @@
 
 ## 收录 / 关注模型（视频生成）
 
-> 当前 `models/` 已收录的条目以实际文件为准；下表是关注清单，逐步录入。
+> 下表为热度排名榜单，20 个模型已全部收录进 `models/`（每个版本一个 JSON 条目）。
 
 | 排名 | 模型 | 公司 | 一句话说明 |
 | --- | --- | --- | --- |
@@ -38,9 +38,9 @@
 | 9 | HunyuanVideo 1.5 混元 | 腾讯 | 开源轻量标杆（8.3B），部署门槛低 |
 | 10 | CogVideoX | 智谱 | 开源最早的中国视频模型之一，开发者生态广 |
 | 11 | PixVerse V6 | 爱诗科技 | 15秒+原生音频+20+电影镜头控制，出海表现强 |
-| 12 | Vidu Q3 | 生数科技+清华 | 参考生视频开创者，音画同步、口型误差±15ms |
-| 13 | Luma Ray 3 | Luma AI | Dream Machine 续作，1080p 图生视频强 |
-| 14 | Pika 2.2/2.5 | Pika Labs | 消费级先行者，首尾帧+特效模板，热度已回落 |
+| 12 | Vidu Q2 | 生数科技+清华 | 参考生视频开创者，音画同步、口型误差±15ms |
+| 13 | Luma Ray 2 | Luma AI | Dream Machine 续作，1080p 图生视频强 |
+| 14 | Pika 2.2 | Pika Labs | 消费级先行者，首尾帧+特效模板，热度已回落 |
 | 15 | Firefly Video | Adobe | 商业安全（授权数据训练），深度整合 Premiere/AE |
 | 16 | 即梦 Dreamina | 字节剪映 | 依托剪映庞大用户盘，短视频+数字人一体化 |
 | 17 | LTX-2 / LTX-Video | Lightricks | 开源实时视频生成，实时预览体验领先 |

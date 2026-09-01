@@ -1,0 +1,38 @@
+{
+  "model_id": "hunyuanvideo-1.5",
+  "provider": "tencent",
+  "version": "1.5",
+  "fetched_at": "2026-09-01",
+  "source_url": "https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5",
+  "ability": {
+    "tasks": ["generate"],
+    "inputs": ["reference_image"],
+    "audio": false,
+    "note": "腾讯混元开源视频生成模型 HunyuanVideo-1.5（8.3B 参数，可运行于消费级 GPU）。仅支持文生视频（T2V）与图生视频（I2V）两类生成任务，无视频编辑/延长任务，不生成音频（视频编辑等能力在同系列 OmniWeaving 模型，非本模型）。基础生成分辨率 480p/720p，超分网络（--sr）可上采样至 1080p。"
+  },
+  "input_limits": {
+    "max_reference_images": 1,
+    "image": {
+      "_missing": true,
+      "note": "README 仅说明 --image_path 传 1 张参考图（首帧）启用 I2V，未给出图片格式/尺寸/比例硬约束。"
+    }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": null,
+      "resolution": ["480p", "720p"],
+      "aspect_ratio": null,
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": false,
+      "note": "--resolution 仅接受 480p/720p；可选 --sr 超分将输出上采样至 1080p。--aspect_ratio 仅默认值 16:9（由客户端传入），README 无比例枚举；--video_length 仅默认值 121 帧（约 5 秒 @24fps），帧数由客户端设置，README 无秒级时长枚举，故 aspect_ratio / duration_seconds 置 null。--num_inference_steps 默认 50（cfg-distill 模型须固定 50 步）。--image_path 传 1 张参考图（首帧）即启用 I2V，不传则为 T2V。"
+    }
+  },
+  "output_limits": {
+    "aspect_ratio_mode": "client_choice"
+  },
+  "errors": {
+    "_missing": true,
+    "note": "开源无错误码。"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "model_id": "luma-ray-2",
+  "provider": "luma",
+  "version": "ray-2",
+  "fetched_at": "2026-09-01",
+  "source_url": "https://github.com/lumalabs/lumaai-api/blob/main/openapi.yaml",
+  "ability": {
+    "tasks": ["generate", "edit", "extend"],
+    "inputs": ["reference_image"],
+    "audio": true,
+    "note": "Luma AI Dream Machine（ray-2 / ray-flash-2）。视频生成（text-to-video / image-to-video / keyframes 首尾帧）、延长（keyframes 引用已有 generation 正/反向）、编辑（modify_video 风格迁移/提示词编辑、reframe_video 改比例）；音频由独立 /generations/{id}/audio 接口生成。"
+  },
+  "input_limits": {
+    "image": { "_missing": true, "note": "OpenAPI 仅定义图片以 URL(ImageReference) 传入 keyframes(frame0/frame1)，未给出尺寸/格式/大小约束。" }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": { "min": 5, "max": 9 },
+      "resolution": ["540p", "720p", "1080p", "4k"],
+      "aspect_ratio": ["1:1", "16:9", "9:16", "4:3", "3:4", "21:9", "9:21"],
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": null,
+      "audio": { "max_reference_audios": null, "extra_charge": null },
+      "note": "duration 与 resolution 来自 OpenAPI 共享枚举 VideoModelOutputDuration（仅 5s/9s 两档）与 VideoModelOutputResolution（540p/720p/1080p/4k），均为 anyOf 含自由字符串的非硬约束，且非 ray-2 专属。aspect_ratio 共享枚举默认 16:9；keyframes 支持 frame0/frame1（image 或 generation 引用），loop 可选。音频由独立接口生成。"
+    },
+    "edit": {
+      "duration_seconds": null,
+      "resolution": null,
+      "aspect_ratio": ["1:1", "16:9", "9:16", "4:3", "3:4", "21:9", "9:21"],
+      "ratio_mode": null,
+      "duration_mode": null,
+      "generate_audio": null,
+      "note": "modify_video（mode adhere_1/2/3、flex_1/2/3、reimagine_1/2/3，风格迁移/提示词编辑）与 reframe_video（aspect_ratio 必填，改比例重构图）请求体均无 duration/resolution/ratio_mode/duration_mode/generate_audio 字段（该接口无此字段）；aspect_ratio 枚举仅 reframe_video 使用（必填，默认 16:9），modify_video 无 aspect_ratio；模型为 ray-2 / ray-flash-2。"
+    },
+    "extend": {
+      "duration_seconds": { "min": 5, "max": 9 },
+      "resolution": ["540p", "720p", "1080p", "4k"],
+      "aspect_ratio": ["1:1", "16:9", "9:16", "4:3", "3:4", "21:9", "9:21"],
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": null,
+      "audio": { "max_reference_audios": null, "extra_charge": null },
+      "note": "extend 通过 keyframes 将 frame0/frame1 设为已存在 generation 引用（正向/反向延长），复用 /generations/video 的 GenerationRequest，故 duration/resolution 与 generate 同源（共享枚举）。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 9,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "errors": {
+    "_missing": true,
+    "note": "官方文档未提供错误码语义表：OpenAPI 仅定义 Error 对象（detail 字符串，示例 'Invalid API key is provided'）与 default HTTP 响应，未展开具体错误码枚举。"
+  }
+}
