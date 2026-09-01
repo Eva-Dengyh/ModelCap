@@ -1,0 +1,9 @@
+# 本地配置（webhook/签名密钥等），禁止提交
+config.json
+*.local.json
+
+# 抓取正文的临时缓存（不入库）
+models/.raw/
+
+# OS
+.DS_Store

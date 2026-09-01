@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://model-catalog.dev/schema/model.schema.json",
+  "title": "AI Model Capability Catalog",
+  "description": "一个模型版本一个 JSON 条目。JSON 是唯一事实源；markdown 由本文件渲染生成，禁止手写第二份。缺失字段必须为 null 并打 _missing 标，禁止编造。",
+  "type": "object",
+  "required": [
+    "model_id", "provider", "version", "fetched_at", "source_url",
+    "ability", "input_limits", "rules", "errors"
+  ],
+  "properties": {
+    "model_id": {
+      "type": "string",
+      "description": "唯一标识，版本编进 id，如 seedance-2-5、kling-v2。不同版本 = 不同文件。"
+    },
+    "provider": {
+      "type": "string",
+      "description": "供应商：volcengine / kling / minimax / wan / ..."
+    },
+    "version": {
+      "type": "string",
+      "description": "模型版本号，如 2.5。与 model_id 保持一致。"
+    },
+    "fetched_at": {
+      "type": "string",
+      "format": "date",
+      "description": "本次核实的日期（YYYY-MM-DD）。信息会过期，靠它判断新鲜度。"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "官方文档链接，可追溯。"
+    },
+
+    "ability": {
+      "type": "object",
+      "description": "这个模型能干什么、接受什么输入。",
+      "required": ["tasks", "inputs"],
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "description": "支持的任务类型。不同任务参数规矩不同（见 rules）。",
+          "items": { "enum": ["generate", "edit", "extend"] }
+        },
+        "inputs": {
+          "type": "array",
+          "description": "接受的输入类型。",
+          "items": { "enum": ["reference_video", "reference_image", "model_reference", "audio"] }
+        },
+        "audio": {
+          "type": "boolean",
+          "description": "是否支持生成音频。"
+        },
+        "note": { "type": "string" }
+      }
+    },
+
+    "input_limits": {
+      "type": "object",
+      "description": "输入素材的硬性约束。超限直接拒绝，这是校验的第一道关。",
+      "properties": {
+        "model_reference": {
+          "type": "object",
+          "description": "模特图数量范围（视频换装类 0~1 张）。",
+          "properties": {
+            "min": { "type": "integer" },
+            "max": { "type": ["integer", "null"] }
+          }
+        },
+        "garment_references": {
+          "type": "object",
+          "description": "服装参考图数量范围（必填 ≥1）。",
+          "properties": {
+            "min": { "type": "integer" },
+            "max": { "type": ["integer", "null"] }
+          }
+        },
+        "reference_videos": {
+          "type": "object",
+          "description": "参考视频数量范围（常见恰好 1 条）。",
+          "properties": {
+            "min": { "type": "integer" },
+            "max": { "type": "integer" }
+          }
+        },
+        "max_reference_images": { "type": ["integer", "null"] },
+        "max_reference_videos": { "type": ["integer", "null"] },
+        "max_reference_audios": { "type": ["integer", "null"] },
+        "max_reference_materials": {
+          "type": ["integer", "null"],
+          "description": "素材合计上限（图 + 视频）。"
+        },
+        "image": {
+          "type": "object",
+          "description": "图片硬性约束。",
+          "properties": {
+            "max_bytes": { "type": ["integer", "null"] },
+            "formats": { "type": ["array", "null"], "items": { "enum": ["jpeg", "png", "webp"] } },
+            "min_side_px": { "type": ["integer", "null"] },
+            "max_side_px": { "type": ["integer", "null"] },
+            "min_ratio": { "type": ["number", "null"] },
+            "max_ratio": { "type": ["number", "null"] }
+          }
+        },
+        "video": {
+          "type": "object",
+          "description": "参考视频约束。",
+          "properties": {
+            "min_duration_seconds": { "type": ["integer", "null"] },
+            "max_duration_seconds": { "type": ["integer", "null"] },
+            "formats": { "type": ["array", "null"], "items": { "type": "string" } }
+          }
+        },
+        "additional_prompt": {
+          "type": "object",
+          "properties": {
+            "max_chars": { "type": ["integer", "null"] }
+          }
+        }
+      }
+    },
+
+    "rules": {
+      "type": "object",
+      "description": "参数规矩，按任务类型分。核心防坑点：同一参数在不同任务下约束可能不同（如编辑任务时长强制 -1）。",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "duration_seconds": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "min": { "type": "integer" },
+                  "max": { "type": "integer" },
+                  "step": { "type": "integer" }
+                }
+              },
+              {
+                "const": -1,
+                "description": "固定 -1 = 由服务端决定，客户端禁止自定义。"
+              }
+            ]
+          },
+          "resolution": { "type": ["array", "null"], "items": { "enum": ["480p", "720p", "1080p", "768p", "2k"] } },
+          "aspect_ratio": { "type": ["array", "null"], "items": { "type": "string" } },
+          "ratio_mode": { "enum": ["inherit_from_reference_video", "client_choice"] },
+          "duration_mode": { "enum": ["inherit_from_reference_video", "client_choice", "explicit"] },
+          "generate_audio": { "type": ["boolean", "null"] },
+          "audio": {
+            "type": "object",
+            "description": "音频参数（支持音频的模型才有）。",
+            "properties": {
+              "max_reference_audios": { "type": ["integer", "null"] },
+              "extra_charge": { "type": ["boolean", "null"] }
+            }
+          },
+          "note": { "type": "string" }
+        }
+      }
+    },
+
+    "output_limits": {
+      "type": "object",
+      "description": "输出（成片）约束。",
+      "properties": {
+        "max_duration_seconds": { "type": ["integer", "null"] },
+        "aspect_ratio_mode": { "enum": ["inherit_from_reference_video", "client_choice"] },
+        "max_file_bytes": { "type": ["integer", "null"] }
+      }
+    },
+
+    "pricing": {
+      "type": "object",
+      "description": "价格信息。单独字段便于常改。",
+      "properties": {
+        "currency": { "enum": ["CNY", "USD"] },
+        "unit": { "enum": ["second", "request"] },
+        "tiers": {
+          "type": "object",
+          "description": "按清晰度分档单价，如 {\"480p\": 12, \"720p\": 26, \"1080p\": 57}（积分/秒）。",
+          "additionalProperties": { "type": "integer" }
+        },
+        "extra_audio_charge": { "type": ["integer", "null"], "description": "生成音频额外积分/条。" },
+        "min_charge": { "type": ["integer", "null"] },
+        "note": { "type": "string" }
+      }
+    },
+
+    "errors": {
+      "type": "object",
+      "description": "私有错误码 → 标准语义 → 给用户的话。代码只认 standard，不认供应商私有码。",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["standard"],
+        "properties": {
+          "standard": {
+            "enum": [
+              "content_violation.real_person",
+              "content_violation.safety",
+              "content_violation.audio",
+              "content_violation.copyright",
+              "invalid_parameter",
+              "quota_exceeded",
+              "timeout",
+              "interrupted",
+              "access_denied",
+              "provider_failed",
+              "output_processing_failed",
+              "settlement_failed"
+            ]
+          },
+          "user_message": { "type": "string" }
+        }
+      }
+    }
+  }
+}
