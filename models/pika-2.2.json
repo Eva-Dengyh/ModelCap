@@ -2,7 +2,7 @@
   "model_id": "pika-2.2",
   "provider": "pika",
   "version": "2.2",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://fal.ai/models/fal-ai/pika/v2.2/text-to-video",
   "ability": {
     "tasks": [
@@ -67,5 +67,33 @@
   "errors": {
     "_missing": true,
     "note": "fal.ai 队列 API 无私有错误码表；任务状态经 QueueStatus（IN_QUEUE / IN_PROGRESS / COMPLETED）表达，错误经 HTTP 状态码返回。"
-  }
+  },
+  "rankings": [
+    {
+      "board": "lmarena-i2v",
+      "rank": 46,
+      "label": "pika-v2.2",
+      "score": 996,
+      "ci": 14,
+      "samples": 8635,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 45,
+      "label": "pika-v2.2",
+      "score": 1008,
+      "ci": 15,
+      "samples": 5727,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ]
 }

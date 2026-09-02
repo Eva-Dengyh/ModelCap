@@ -1,0 +1,173 @@
+{
+  "model_id": "ltx-2-3",
+  "provider": "lightricks",
+  "version": "2.3",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://docs.ltx.io/models/ltx-2-3",
+  "ability": {
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image",
+      "audio"
+    ],
+    "audio": true,
+    "scenes": [
+      "t2v",
+      "i2v-first-frame",
+      "i2v-first-last-frame"
+    ],
+    "capabilities": [],
+    "note": "官方 API 两档 ltx-2-3-fast / ltx-2-3-pro，最高都到 4K（这点与 2.5 不同：2.5 pro 只到 1080p）。支持文生/图生（末帧插值 last_frame_uri）/音频驱动（audio-to-video 仅 pro）；pro 另有 retake/extend/reframe/HDR 编辑端点（fast 无）。生成任务自带同步音频（generate_audio 默认 true，可关；官方 2.3 专属页未复述该参数，按共享端点行为）。auto duration（传 null 自选）仅 2.5 支持，2.3 不支持。camera_motion 参数存在于共享端点但 2.3 专属页未单列确认。开放权重适用 LTX-2 Community License（2026-01-05 版，营收 ≥$10M 实体需付费商用授权）。"
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 31,
+      "label": "LTX-2.3 Fast",
+      "score": 954,
+      "ci": 7,
+      "samples": 11056,
+      "release_date": "2026-03",
+      "price_usd_per_min": 2.4,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-i2v",
+      "rank": 32,
+      "label": "LTX-2.3 Pro",
+      "score": 952,
+      "ci": 7,
+      "samples": 10973,
+      "release_date": "2026-03",
+      "price_usd_per_min": 4.8,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 32,
+      "label": "LTX-2.3 Fast",
+      "score": 978,
+      "ci": 6,
+      "samples": 12780,
+      "release_date": "2026-03",
+      "price_usd_per_min": 2.4,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 33,
+      "label": "LTX-2.3 Pro",
+      "score": 959,
+      "ci": 6,
+      "samples": 12095,
+      "release_date": "2026-03",
+      "price_usd_per_min": 4.8,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    }
+  ],
+  "input_limits": {
+    "max_reference_images": 2,
+    "max_reference_audios": 1,
+    "image": {
+      "max_bytes": 15728640,
+      "formats": [
+        "png",
+        "jpeg",
+        "jpg",
+        "webp"
+      ]
+    },
+    "_missing": true
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 6,
+        "max": 20,
+        "step": 2
+      },
+      "resolution": [
+        "720p",
+        "1080p",
+        "2k",
+        "4k"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "9:16"
+      ],
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": true,
+      "note": "时长矩阵：fast 在 720p/1080p @24/25fps 支持 6/8/10/12/14/16/18/20s，@48/50fps 与 1440p/4K 下仅 6/8/10s；pro 各档位 @24/25/48/50fps 均仅 6/8/10s（pro 支持 48/50fps，与 2.5 pro 不同）。分辨率只有 16:9/9:16 两向（fast/pro 均到 4K=3840x2160/2160x3840；官方档名 1440p，仓库用 2k）。fps 24/25/48/50 默认 24。i2v 末帧插值需 last_frame_uri；缺省分辨率按输入图方向。a2v（仅 pro）成片时长=输入音轨时长（720p/1080p 音轨 ≤20s，1440p/4K ≤10s）。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 20,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "pricing": {
+    "currency": "USD",
+    "unit": "second",
+    "tiers": {
+      "720p": 0.03,
+      "1080p": 0.06,
+      "2k": 0.12,
+      "4k": 0.24
+    },
+    "note": "fast 按输出视频秒计费（t2v=i2v）：720p $0.03/s、1080p $0.06/s、1440p(2K) $0.12/s、4K $0.24/s。pro：$0.04/0.08/0.16/0.32/s。a2v（pro）$0.06/0.10/0.18/0.34/s（按输入音轨秒）；retake $0.10/s、extend 段+context 合计 ≤505 帧封顶、HDR $0.20~0.80/s、reframe 0.10/0.20/s（均 1080p 档，pro 独占）。AA 榜 $2.40/min 与官方 fast-1080p($0.06/s→$3.60/min) 不一致，为第三方渠道口径；pro $4.80/min 与官方互证。"
+  },
+  "errors": {
+    "invalid_request_error": {
+      "standard": "invalid_parameter",
+      "user_message": "请求参数无效"
+    },
+    "authentication_error": {
+      "standard": "access_denied",
+      "user_message": "鉴权失败，请检查 API Key"
+    },
+    "insufficient_funds_error": {
+      "standard": "settlement_failed",
+      "user_message": "账户余额不足"
+    },
+    "not_found_error": {
+      "standard": "invalid_parameter",
+      "user_message": "请求的资源/任务不存在"
+    },
+    "content_filtered_error": {
+      "standard": "content_violation.safety",
+      "user_message": "内容被安全策略过滤"
+    },
+    "concurrency_limit_error": {
+      "standard": "quota_exceeded",
+      "user_message": "超出并发限制，可重试"
+    },
+    "rate_limit_error": {
+      "standard": "quota_exceeded",
+      "user_message": "触发限流，可重试"
+    },
+    "api_error": {
+      "standard": "provider_failed",
+      "user_message": "服务内部错误，可重试"
+    },
+    "service_unavailable": {
+      "standard": "provider_failed",
+      "user_message": "服务不可用，可重试"
+    },
+    "overloaded_error": {
+      "standard": "provider_failed",
+      "user_message": "服务过载，可重试"
+    },
+    "note": "与 LTX-2.5 共用同一官方错误表。"
+  }
+}

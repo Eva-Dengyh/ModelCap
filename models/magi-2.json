@@ -1,0 +1,64 @@
+{
+  "model_id": "magi-2",
+  "provider": "sand-ai",
+  "version": "2",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://github.com/SandAI-org/MAGI-2-preview",
+  "ability": {
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "audio": true,
+    "scenes": [
+      "t2v",
+      "i2v-first-frame"
+    ],
+    "capabilities": [],
+    "note": "MAGI-2 Preview（官方 2026-08-05 发布，Apache-2.0，HF sand-ai/MAGI-2-preview 未 gated，约 307GB）。114B 总参数/每 token 激活约 6B（MagiMoE），官方定位 intermediate research release。只支持 T2V（纯文本）与 I2V（文本+一张首帧图），无视频输入/续写（与 MAGI-1 的 v2v 续写不同，也不再沿用 MAGI-1 的自回归 chunk 续写，改为统一序列+扩散）。开放权重侧生成含同步音轨（输出 mp4 内 mux）；托管 API（platform.sand.ai）仅 magi 公开、magi-2-preview 需联系 Sand.ai 开通，且 API 侧不支持音频条件。时长固定 10s；开放权重原生 512×896 → refiner 至 1088×1920，API 交付 540p/720p/1080p 且仅 16:9。文本编码器 Qwen3.5-27B、视频 VAE 取自 Wan2.2、音频 VAE stable-audio-open-1.0。推理需 8× NVIDIA Hopper。"
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 7,
+      "label": "MAGI-2 Preview",
+      "score": 1099,
+      "ci": 7,
+      "samples": 11933,
+      "release_date": "2026-08",
+      "price_usd_per_min": null,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    }
+  ],
+  "input_limits": {
+    "_missing": true
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 10,
+        "max": 10
+      },
+      "resolution": [
+        "540p",
+        "720p",
+        "1080p"
+      ],
+      "generate_audio": true,
+      "note": "时长固定 10 秒（官方唯一支持时长）。API 侧 resolution 540p/720p/1080p、仅 16:9（开放权重示例为竖版 1088×1920，两口径已分别注明）。inference_steps 仅对 magi-2-preview：4–100 且须被 4 整除，默认 64；guidance_scale 无范围限制、7.5 已验证；prompt enhancement 默认开启。API 每次请求仅 1 chunk、无需 task type、condition.type 仅 text。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 10
+  },
+  "pricing": {
+    "note": "官方未公开定价：magi-2-preview 需联系 Sand.ai 开通（\"Currently, only magi is publicly available\"），无公开价格。AA 榜价格栏为 \"即将推出\"。"
+  },
+  "errors": {
+    "note": "官方 OpenAPI 无错误码枚举；任务状态 PreProcessing/Pending/Running/Success/Fail/Canceled。开放权重自托管无 API 错误码。"
+  }
+}

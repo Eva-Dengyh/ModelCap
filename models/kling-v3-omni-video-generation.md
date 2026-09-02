@@ -1,6 +1,6 @@
 # kling-v3-omni-video-generation
 
-> 供应商：aliyun ｜ 版本：v3 ｜ 信息核实日期：2026-09-01
+> 供应商：aliyun ｜ 版本：v3 ｜ 信息核实日期：2026-09-02
 > 来源：[https://help.aliyun.com/en/model-studio/kling-video-generation-api-reference/](https://help.aliyun.com/en/model-studio/kling-video-generation-api-reference/)
 
 ## 能力
@@ -58,6 +58,23 @@
 | --- | --- |
 | 成片最大时长 | 15 秒 |
 | 画面比例模式 | client_choice |
+
+## 榜单数据
+
+| 榜单 | 榜上名称 | 排名 | 分数 | ±95%CI | 样本/票 | 发布日期 | 开放权重 | API价格(USD/分) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| AA·图生 | Kling 3.0 1080p (Pro) | 16 | 1071 | 6 | 16998 | 2026-02 | — | 20.16 |
+| AA·图生 | Kling 3.0 720p (Standard) | 19 | 1067 | 6 | 16934 | 2026-02 | — | 15.60 |
+| AA·图生 | Kling 3.0 Omni 1080p (Pro) | 21 | 1059 | 7 | 7875 | 2026-02 | — | 16.80 |
+| AA·图生 | Kling 3.0 Omni 720p (Standard) | 22 | 1051 | 7 | 7839 | 2026-02 | — | 13.44 |
+| AA·文生 | Kling 3.0 1080p (Pro) | 9 | 1108 | 5 | 22397 | 2026-02 | — | 20.16 |
+| AA·文生 | Kling 3.0 720p (Standard) | 12 | 1100 | 5 | 21504 | 2026-02 | — | 15.12 |
+| AA·文生 | Kling 3.0 Omni 720p (Standard) | 17 | 1089 | 6 | 9100 | 2026-02 | — | 13.44 |
+| AA·文生 | Kling 3.0 Omni 1080p (Pro) | 18 | 1089 | 6 | 9293 | 2026-02 | — | 16.80 |
+| AA·编辑 | Kling 3.0 Omni 1080p (Pro) | 8 | 1000 | 0 | 18909 | 2026-02 | — | 10.91 |
+| LMArena·图生 | kling-v3-pro | 17 | 1356 | 6 | 180932 | — | — | — |
+
+> 分数体系：AA=Elo，LMArena=Arena score，两者不可直接比较；价格是 AA「用创建者 API 默认设置生成 1 分钟 1080p 视频」的口径（同模型跨榜可能不同）。快照日期见各条 `rankings` 的 as_of 与条目 `fetched_at`。
 
 ## 价格
 

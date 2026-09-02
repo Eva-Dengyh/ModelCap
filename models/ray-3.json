@@ -1,0 +1,54 @@
+{
+  "model_id": "ray-3",
+  "provider": "luma",
+  "version": "ray-3",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://lmarena.ai/leaderboard/video",
+  "ability": {
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "scenes": [
+      "t2v"
+    ],
+    "note": "截至 2026-09-02，Luma 官方 openapi（github.com/lumalabs/lumaai-api，v1.1.0，2026-01-07 后未更新）与官方 SDK（2026-08-20）的视频模型枚举仍只有 ray-2 / ray-flash-2，无任何 ray-3；官方文档站 docs.lumalabs.ai 当前网络不可达。ray-3 上榜仅由 LMArena 榜单佐证（本条目 rankings），官方参数待发布后补；不要用 ray-2 参数冒充。"
+  },
+  "rankings": [
+    {
+      "board": "lmarena-i2v",
+      "rank": 35,
+      "label": "ray-3",
+      "score": 1225,
+      "ci": 19,
+      "samples": 1585,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 29,
+      "label": "ray-3",
+      "score": 1205,
+      "ci": 22,
+      "samples": 1129,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ],
+  "_missing": [
+    "input_limits",
+    "rules",
+    "errors",
+    "output_limits",
+    "pricing"
+  ]
+}

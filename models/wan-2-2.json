@@ -1,0 +1,54 @@
+{
+  "model_id": "wan-2-2",
+  "provider": "aliyun",
+  "version": "2.2",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://lmarena.ai/leaderboard/video",
+  "ability": {
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "scenes": [
+      "t2v"
+    ],
+    "note": "能力与输入仅依据榜单可证明部分推断（LMArena 图生榜、LMArena 文生榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。 LMArena 榜单页在本机网络环境无法直接访问验证，url 暂取主入口 https://lmarena.ai/leaderboard/video（含图生/文生/视频编辑三个标签页）。"
+  },
+  "rankings": [
+    {
+      "board": "lmarena-i2v",
+      "rank": 41,
+      "label": "wan-v2.2-a14b",
+      "score": 1170,
+      "ci": 10,
+      "samples": 27054,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": true,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 40,
+      "label": "wan-v2.2-a14b",
+      "score": 1132,
+      "ci": 15,
+      "samples": 10396,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": true,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ],
+  "_missing": [
+    "input_limits",
+    "rules",
+    "errors",
+    "output_limits",
+    "pricing"
+  ]
+}

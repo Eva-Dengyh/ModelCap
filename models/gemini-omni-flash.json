@@ -1,0 +1,155 @@
+{
+  "model_id": "gemini-omni-flash",
+  "provider": "google",
+  "version": "omni-flash",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://ai.google.dev/gemini-api/docs/omni",
+  "ability": {
+    "tasks": [
+      "generate",
+      "edit",
+      "extend"
+    ],
+    "inputs": [
+      "reference_image",
+      "reference_video"
+    ],
+    "audio": true,
+    "scenes": [
+      "t2v",
+      "i2v-first-frame",
+      "i2v-first-last-frame",
+      "r2v"
+    ],
+    "capabilities": [],
+    "note": "走 Interactions API（POST /v1beta/interactions）。官方现文档把稳定版写作 gemini-omni-1.1-flash（2026-08-27 更新），preview 为 gemini-omni-flash-preview（DeepMind 模型卡同时覆盖两代）。单段输出 3–10s、24fps、默认 720p；默认生成音频且无关闭开关，只能靠提示词控制；延伸每次 +10s、总长上限 40s。参考素材用 <IMAGE_REF_N>/<VIDEO_REF_N> 标签（从 0 起），首尾帧插值须 <FIRST_FRAME>+<LAST_FRAME> 成对。API 不支持：音频参考上传、跨多个视频参考、YouTube 视频源、system instruction/temperature/top_p/stop/negative prompt、provisioned throughput。"
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 4,
+      "label": "Gemini Omni Flash",
+      "score": 1180,
+      "ci": 7,
+      "samples": 12348,
+      "release_date": "2026-05",
+      "price_usd_per_min": 6,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 1,
+      "label": "Gemini Omni Flash",
+      "score": 1238,
+      "ci": 6,
+      "samples": 17994,
+      "release_date": "2026-05",
+      "price_usd_per_min": 6,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-video-edit",
+      "rank": 3,
+      "label": "Gemini Omni Flash",
+      "score": 1124,
+      "ci": 5,
+      "samples": 15908,
+      "release_date": "2026-05",
+      "price_usd_per_min": 6,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 5,
+      "label": "gemini-omni-flash",
+      "score": 1463,
+      "ci": 6,
+      "samples": 64567,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 2,
+      "label": "gemini-omni-flash",
+      "score": 1512,
+      "ci": 10,
+      "samples": 19830,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-video-edit",
+      "rank": 4,
+      "label": "gemini-omni-flash",
+      "score": 1367,
+      "ci": 15,
+      "samples": 2109,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-27",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ],
+  "input_limits": {
+    "reference_videos": {
+      "min": 0,
+      "max": 3
+    },
+    "video": {
+      "max_duration_seconds": 3,
+      "formats": [
+        "mp4"
+      ]
+    },
+    "_missing": true
+  },
+  "rules": {
+    "generate": {
+      "resolution": [
+        "360p",
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "aspect_ratio": [
+        "9:16",
+        "16:9"
+      ],
+      "generate_audio": true,
+      "note": "无 duration 参数，时长由模型在 3–10s 内决定（模型页：3s-10s，360p/720p/1080p/4K，24 FPS；1080p/4K 为 upscale）。resolution 默认 720p；aspect_ratio 仅 9:16 与 16:9（默认横向 16:9）。video_config.task 可显式设为 text_to_video / image_to_video / reference_to_video，不设则由模型推断。参考视频最多 3 段、每段 ≤3s，其中的音频被忽略。默认会自动切多个镜头，要单镜头必须提示 \"In a single unbroken scene / No scene cuts\"。"
+    },
+    "edit": {
+      "generate_audio": true,
+      "note": "两种编辑：①编辑模型自产视频用 previous_interaction_id 多轮会话（每轮产出一条新视频）；②编辑自己的视频需先经 Files API 上传且 ≤10s。Voice editing 不支持；简单 prompt 效果更好（描述过度会引发意外改动）；EEA/瑞士/英国暂不可用上传视频编辑；可识别他人图片受限制。"
+    },
+    "extend": {
+      "generate_audio": true,
+      "note": "单次续写 3–10s，只能续在尾部（不可前置/插中）。提示词不够明确时可显式 task:\"extend\"（加严格约束）。多轮延伸每次 +10s、总长上限 40s（官方提示指南：extend by 10s, up to a total length of 40s）。上传输入视频 ≤10s；上传的含人物讲话视频不能新增对白（多轮自产视频可以）；EEA/瑞士/英国不可 extend 上传视频。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 40,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "pricing": {
+    "currency": "USD",
+    "note": "按 token 计费（非按秒/分辨率分档，官方无分档表）。输入 $1.50/1M token（text/image/video/audio 同价）；输出文本 $9.00/1M，输出视频 $17.50/1M；视频按 5,792 token/秒（720p）折算，标准定价下有效价约 $0.10/秒。无免费层。"
+  },
+  "errors": {
+    "note": "官方 Omni 参数/模型页未给错误码表（含状态码清单的 REST 参考页当前网络不可达）；HTTP 状态与错误结构沿用 Gemini API 通用约定。"
+  }
+}

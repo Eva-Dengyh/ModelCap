@@ -1,0 +1,68 @@
+{
+  "model_id": "skyreels-v4",
+  "provider": "skywork",
+  "version": "v4",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+  "ability": {
+    "tasks": [
+      "generate",
+      "edit"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "scenes": [
+      "t2v"
+    ],
+    "note": "截至 2026-09-02，Skywork 官方无可核实的能力文档：SkyReels V4 为闭源商业模型，官方 GitHub（SkyWorkAI）最新仍为 V3、官方 HF 组织无 V4 模型卡、ModelScope 无记录；skyreels.ai 旗舰站被 WAF 阻断、apifree/Skywork API 文档不可达。官方产品 skywork.ai 视频工具将其列为模型下拉项，唯一描述 \"Latest Skyreels, low cost\"；AA 榜单 $21.00/min 为第三方口径。能力/参数/定价均无法核实，保持骨架。"
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 10,
+      "label": "SkyReels V4",
+      "score": 1086,
+      "ci": 7,
+      "samples": 5866,
+      "release_date": "2026-03",
+      "price_usd_per_min": 21,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 11,
+      "label": "SkyReels V4",
+      "score": 1103,
+      "ci": 7,
+      "samples": 6642,
+      "release_date": "2026-03",
+      "price_usd_per_min": 21,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-video-edit",
+      "rank": 9,
+      "label": "SkyReels V4",
+      "score": 950,
+      "ci": 6,
+      "samples": 15791,
+      "release_date": "2026-03",
+      "price_usd_per_min": 37.5,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
+    }
+  ],
+  "_missing": [
+    "input_limits",
+    "rules",
+    "errors",
+    "output_limits",
+    "pricing"
+  ]
+}

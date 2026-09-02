@@ -2,7 +2,7 @@
   "model_id": "pixverse-v6",
   "provider": "aishi",
   "version": "6",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://docs.platform.pixverse.ai/v6-2056814m0",
   "ability": {
     "tasks": [
@@ -116,6 +116,10 @@
     "note": "积分/秒（无音频档）。含音频档 360p:7 / 540p:9 / 720p:12 / 1080p:23；Fusion 输入含 video_references 时翻倍（如 720p 无音频 18、含音频 24）。$1≈5 条 720p/5s/无音频（Starter 包）。"
   },
   "errors": {
+    "99999": {
+      "standard": "provider_failed",
+      "user_message": "未知错误"
+    },
     "400011": {
       "standard": "invalid_parameter",
       "user_message": "参数为空"
@@ -215,10 +219,34 @@
     "500100": {
       "standard": "provider_failed",
       "user_message": "服务端内部错误"
-    },
-    "99999": {
-      "standard": "provider_failed",
-      "user_message": "未知错误"
     }
-  }
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 18,
+      "label": "PixVerse V6",
+      "score": 1068,
+      "ci": 7,
+      "samples": 10130,
+      "release_date": "2026-03",
+      "price_usd_per_min": 6.9,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 24,
+      "label": "PixVerse V6",
+      "score": 1074,
+      "ci": 6,
+      "samples": 10676,
+      "release_date": "2026-03",
+      "price_usd_per_min": 6.9,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    }
+  ]
 }

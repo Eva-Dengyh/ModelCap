@@ -4,11 +4,19 @@
   "title": "AI Model Capability Catalog",
   "description": "一个模型版本一个 JSON 条目。JSON 是唯一事实源；markdown 由本文件渲染生成，禁止手写第二份。缺失字段必须为 null 并打 _missing 标，禁止编造。",
   "type": "object",
-  "required": [
-    "model_id", "provider", "version", "fetched_at", "source_url",
-    "ability", "input_limits", "rules", "errors"
-  ],
+  "if": { "required": ["_missing"] },
+  "then": {
+    "required": ["model_id", "provider", "version", "fetched_at", "source_url", "ability"]
+  },
+  "else": {
+    "required": ["model_id", "provider", "version", "fetched_at", "source_url", "ability", "input_limits", "rules", "errors"]
+  },
   "properties": {
+    "_missing": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "骨架标记：列出尚未补全的顶层块名（如 input_limits/rules/errors/output_limits/pricing）。带 _missing 的条目是骨架，只要求身份五项 + ability；补全后应删除本字段。"
+    },
     "model_id": {
       "type": "string",
       "description": "唯一标识，版本编进 id，如 seedance-2-5、kling-v2。不同版本 = 不同文件。"
@@ -45,7 +53,7 @@
         "inputs": {
           "type": "array",
           "description": "接受的输入类型。",
-          "items": { "enum": ["reference_video", "reference_image", "model_reference", "audio"] }
+          "items": { "enum": ["reference_video", "reference_image", "audio"] }
         },
         "audio": {
           "type": "boolean",
@@ -59,7 +67,7 @@
         "capabilities": {
           "type": "array",
           "description": "特色能力。",
-          "items": { "enum": ["lip-sync", "portrait", "multi-shot", "camera-control"] }
+          "items": { "enum": ["lip-sync", "multi-shot", "camera-control"] }
         },
         "note": { "type": "string" }
       }
@@ -69,22 +77,6 @@
       "type": "object",
       "description": "输入素材的硬性约束。超限直接拒绝，这是校验的第一道关。",
       "properties": {
-        "model_reference": {
-          "type": "object",
-          "description": "模特图数量范围（视频换装类 0~1 张）。",
-          "properties": {
-            "min": { "type": "integer" },
-            "max": { "type": ["integer", "null"] }
-          }
-        },
-        "garment_references": {
-          "type": "object",
-          "description": "服装参考图数量范围（必填 ≥1）。",
-          "properties": {
-            "min": { "type": "integer" },
-            "max": { "type": ["integer", "null"] }
-          }
-        },
         "reference_videos": {
           "type": "object",
           "description": "参考视频数量范围（常见恰好 1 条）。",
@@ -133,6 +125,10 @@
     "rules": {
       "type": "object",
       "description": "参数规矩，按任务类型分。核心防坑点：同一参数在不同任务下约束可能不同（如编辑任务时长强制 -1）。",
+      "properties": {
+        "_missing": true,
+        "note": { "type": "string" }
+      },
       "additionalProperties": {
         "type": "object",
         "properties": {
@@ -141,21 +137,22 @@
               {
                 "type": "object",
                 "properties": {
-                  "min": { "type": "number" },
-                  "max": { "type": "number" },
-                  "step": { "type": "number" }
+                  "min": { "type": ["number", "null"] },
+                  "max": { "type": ["number", "null"] },
+                  "step": { "type": ["number", "null"] }
                 }
               },
               {
                 "const": -1,
                 "description": "固定 -1 = 由服务端决定，客户端禁止自定义。"
-              }
+              },
+              { "type": "null", "description": "官方未给出该任务的时长约束。" }
             ]
           },
           "resolution": { "type": ["array", "null"], "items": { "enum": ["360p", "480p", "540p", "720p", "768p", "1080p", "2k", "4k"] } },
-          "aspect_ratio": { "type": ["array", "null"], "items": { "type": "string" } },
-          "ratio_mode": { "enum": ["inherit_from_reference_video", "client_choice"] },
-          "duration_mode": { "enum": ["inherit_from_reference_video", "client_choice", "explicit"] },
+          "aspect_ratio": { "type": ["array", "null"], "items": { "type": "string", "pattern": "^\\d+:\\d+$|^adaptive$" } },
+          "ratio_mode": { "enum": ["inherit_from_reference_video", "client_choice", null] },
+          "duration_mode": { "enum": ["inherit_from_reference_video", "client_choice", "explicit", null] },
           "generate_audio": { "type": ["boolean", "null"] },
           "audio": {
             "type": "object",
@@ -171,28 +168,49 @@
     },
 
     "output_limits": {
-      "type": "object",
-      "description": "输出（成片）约束。",
+      "type": ["object", "null"],
+      "description": "输出（成片）约束。null = 官方未给出输出限制。",
       "properties": {
         "max_duration_seconds": { "type": ["number", "null"] },
-        "aspect_ratio_mode": { "enum": ["inherit_from_reference_video", "client_choice"] },
-        "max_file_bytes": { "type": ["integer", "null"] }
+        "aspect_ratio_mode": { "enum": ["inherit_from_reference_video", "client_choice"] }
+      }
+    },
+
+    "rankings": {
+      "type": "array",
+      "description": "外部评测榜单快照（Artificial Analysis / LMArena Video Arena）。一条模型可有多行：不同榜单、不同分辨率档/变体。榜单分数与价格会过期，以每行 as_of 为准。rankings 是第三方评测口径，与 pricing（厂商计费）无关。",
+      "items": {
+        "type": "object",
+        "required": ["board", "label", "score", "as_of", "url"],
+        "properties": {
+          "board": {
+            "enum": ["aa-i2v", "aa-t2v", "aa-video-edit", "lmarena-i2v", "lmarena-t2v", "lmarena-video-edit"]
+          },
+          "label": { "type": "string", "description": "榜单上显示的模型/档位名，如 'Kling 3.0 1080p (Pro)'。" },
+          "rank": { "type": ["integer", "null"], "description": "该榜排名。" },
+          "score": { "type": "number", "description": "AA=Elo / LMArena=Arena score，两个体系不可直接比较。" },
+          "ci": { "type": ["integer", "null"], "description": "95% 置信区间 ±值。" },
+          "samples": { "type": ["integer", "null"], "description": "AA Samples 或 LMArena Votes。" },
+          "release_date": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}(-\\d{2})?$", "description": "榜单标注的发布日期。榜单常只给到年月（YYYY-MM），也可精确到日。" },
+          "open_weights": { "type": ["boolean", "null"], "description": "仅在榜单明确标注开放权重/开源许可时置 true，否则留 null（不推断闭源）。" },
+          "price_usd_per_min": { "type": ["number", "null"], "description": "AA 'API 价格' 口径：用模型创建者 API 默认设置生成 1 分钟 1080p 视频的美元成本；'即将推出' 为 null。" },
+          "as_of": { "type": "string", "format": "date", "description": "该榜单快照日期。" },
+          "url": { "type": "string", "format": "uri", "description": "该榜单页面链接。" }
+        }
       }
     },
 
     "pricing": {
-      "type": "object",
-      "description": "价格信息。单独字段便于常改。",
+      "type": ["object", "null"],
+      "description": "价格信息。单独字段便于常改。null = 官方未提供价格。",
       "properties": {
         "currency": { "enum": ["CNY", "USD"] },
         "unit": { "enum": ["second", "request"] },
         "tiers": {
           "type": "object",
-          "description": "按清晰度分档单价，如 {\"480p\": 12, \"720p\": 26, \"1080p\": 57}（积分/秒）。",
-          "additionalProperties": { "type": "integer" }
+          "description": "按档位（清晰度或时长档）分档单价。数字可为整数（积分/秒等点数体系）或小数（如 CNY 元/秒、USD/条）。",
+          "additionalProperties": { "type": ["integer", "number"] }
         },
-        "extra_audio_charge": { "type": ["integer", "null"], "description": "生成音频额外积分/条。" },
-        "min_charge": { "type": ["integer", "null"] },
         "note": { "type": "string" }
       }
     },
@@ -200,6 +218,10 @@
     "errors": {
       "type": "object",
       "description": "私有错误码 → 标准语义 → 给用户的话。代码只认 standard，不认供应商私有码。",
+      "properties": {
+        "_missing": true,
+        "note": { "type": "string" }
+      },
       "additionalProperties": {
         "type": "object",
         "required": ["standard"],

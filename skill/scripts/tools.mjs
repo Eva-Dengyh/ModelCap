@@ -13,26 +13,42 @@
  */
 
 import { readFileSync, writeFileSync } from 'node:fs'
-import { dirname, join } from 'node:path'
+import { basename, dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-// ============ validate ============
+// ============ schema：唯一权威，枚举一律从这里派生，禁止手抄 ============
 
-const TASKS = ['generate', 'edit', 'extend']
-const INPUTS = ['reference_video', 'reference_image', 'model_reference', 'audio']
-const SCENES = ['t2v', 'i2v-first-frame', 'i2v-first-last-frame', 'i2v-middle-frame', 'r2v']
-const CAPABILITIES = ['lip-sync', 'portrait', 'multi-shot', 'camera-control']
-const STANDARD_ERRORS = [
-  'content_violation.real_person', 'content_violation.safety', 'content_violation.audio',
-  'content_violation.copyright', 'invalid_parameter', 'quota_exceeded', 'timeout',
-  'interrupted', 'access_denied', 'provider_failed', 'output_processing_failed', 'settlement_failed',
-]
-const RATIO_MODES = ['inherit_from_reference_video', 'client_choice']
-const DURATION_MODES = ['inherit_from_reference_video', 'client_choice', 'explicit']
+const schema = JSON.parse(readFileSync(join(__dirname, '../schema/model.schema.json'), 'utf8'))
+const deep = (obj, ...segments) => segments.reduce((o, s) => (o == null ? undefined : o[s]), obj)
+const TASKS = deep(schema, 'properties', 'ability', 'properties', 'tasks', 'items', 'enum')
+const INPUTS = deep(schema, 'properties', 'ability', 'properties', 'inputs', 'items', 'enum')
+const SCENES = deep(schema, 'properties', 'ability', 'properties', 'scenes', 'items', 'enum')
+const CAPABILITIES = deep(schema, 'properties', 'ability', 'properties', 'capabilities', 'items', 'enum')
+const RESOLUTIONS = deep(schema, 'properties', 'rules', 'additionalProperties', 'properties', 'resolution', 'items', 'enum')
+const ASPECT_RATIO_PATTERN = deep(schema, 'properties', 'rules', 'additionalProperties', 'properties', 'aspect_ratio', 'items', 'pattern')
+const RATIO_MODES = deep(schema, 'properties', 'rules', 'additionalProperties', 'properties', 'ratio_mode', 'enum')
+const DURATION_MODES = deep(schema, 'properties', 'rules', 'additionalProperties', 'properties', 'duration_mode', 'enum')
+const IMAGE_FORMATS = deep(schema, 'properties', 'input_limits', 'properties', 'image', 'properties', 'formats', 'items', 'enum')
+const UNITS = deep(schema, 'properties', 'pricing', 'properties', 'unit', 'enum')
+const CURRENCIES = deep(schema, 'properties', 'pricing', 'properties', 'currency', 'enum')
+const STANDARD_ERRORS = deep(schema, 'properties', 'errors', 'additionalProperties', 'properties', 'standard', 'enum')
+const BOARDS = deep(schema, 'properties', 'rankings', 'items', 'properties', 'board', 'enum')
+const BOARD_LABEL = {
+  'aa-i2v': 'AA·图生',
+  'aa-t2v': 'AA·文生',
+  'aa-video-edit': 'AA·编辑',
+  'lmarena-i2v': 'LMArena·图生',
+  'lmarena-t2v': 'LMArena·文生',
+  'lmarena-video-edit': 'LMArena·编辑',
+}
 
-function validateProblems(entry) {
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/ // YYYY-MM-DD
+const YEARMONTH_RE = /^\d{4}-\d{2}(-\d{2})?$/ // 榜单日期可能只给到年月
+const URL_RE = /^https?:\/\/\S+$/
+
+function validateProblems(entry, fileName) {
   const out = []
   // 骨架模式：顶层带 _missing 数组，说明字段待补全，此时只查结构、不报必填缺失
   const isSkeleton = Array.isArray(entry._missing)
@@ -42,6 +58,14 @@ function validateProblems(entry) {
       if (entry[field] === undefined || entry[field] === null) out.push(`缺少必填字段: ${field}`)
     }
   }
+
+  // model_id 必须等于文件名（render 靠 model_id 决定输出哪个 .md）
+  if (fileName) {
+    const expect = basename(fileName).replace(/\.json$/i, '')
+    if (entry.model_id !== expect) out.push(`model_id 与文件名不一致: ${entry.model_id} != ${expect}`)
+  }
+  if (entry.fetched_at && !DATE_RE.test(entry.fetched_at)) out.push(`fetched_at 应为 YYYY-MM-DD: ${entry.fetched_at}`)
+  if (entry.source_url && !URL_RE.test(entry.source_url)) out.push(`source_url 应为 http(s) 网址: ${entry.source_url}`)
 
   if (entry.ability) {
     for (const task of entry.ability.tasks || []) {
@@ -58,18 +82,57 @@ function validateProblems(entry) {
     }
   }
 
+  if (entry.input_limits && typeof entry.input_limits === 'object') {
+    const formats = entry.input_limits.image && entry.input_limits.image.formats
+    if (Array.isArray(formats)) {
+      for (const f of formats) {
+        if (!IMAGE_FORMATS.includes(f)) out.push(`input_limits.image.formats 非法枚举: ${f}`)
+      }
+    }
+  }
+
   if (entry.rules && typeof entry.rules === 'object') {
     for (const [task, rule] of Object.entries(entry.rules)) {
       // _missing / note 是元数据标记，不是任务条目
       if (task.startsWith('_') || task === 'note') continue
       if (!TASKS.includes(task)) out.push(`rules 非法任务键: ${task}`)
-      if (rule && rule.ratio_mode && !RATIO_MODES.includes(rule.ratio_mode)) out.push(`rules.${task}.ratio_mode 非法: ${rule.ratio_mode}`)
-      if (rule && rule.duration_mode && !DURATION_MODES.includes(rule.duration_mode)) out.push(`rules.${task}.duration_mode 非法: ${rule.duration_mode}`)
+      if (!rule || typeof rule !== 'object') continue
+      if (rule.ratio_mode && !RATIO_MODES.includes(rule.ratio_mode)) out.push(`rules.${task}.ratio_mode 非法: ${rule.ratio_mode}`)
+      if (rule.duration_mode && !DURATION_MODES.includes(rule.duration_mode)) out.push(`rules.${task}.duration_mode 非法: ${rule.duration_mode}`)
+      for (const res of rule.resolution || []) {
+        if (!RESOLUTIONS.includes(res)) out.push(`rules.${task}.resolution 非法枚举: ${res}`)
+      }
+      if (ASPECT_RATIO_PATTERN) {
+        const re = new RegExp(ASPECT_RATIO_PATTERN)
+        for (const ratio of rule.aspect_ratio || []) {
+          if (typeof ratio === 'string' && !re.test(ratio)) out.push(`rules.${task}.aspect_ratio 非法值: ${ratio}`)
+        }
+      }
     }
   }
 
-  if (entry.pricing && entry.pricing.unit && !['second', 'request'].includes(entry.pricing.unit)) {
-    out.push(`pricing.unit 非法: ${entry.pricing.unit}`)
+  if (entry.pricing && typeof entry.pricing === 'object') {
+    if (entry.pricing.unit && !UNITS.includes(entry.pricing.unit)) {
+      out.push(`pricing.unit 非法: ${entry.pricing.unit}`)
+    }
+    if (entry.pricing.currency && !CURRENCIES.includes(entry.pricing.currency)) {
+      out.push(`pricing.currency 非法: ${entry.pricing.currency}`)
+    }
+  }
+
+  if (Array.isArray(entry.rankings)) {
+    for (let i = 0; i < entry.rankings.length; i++) {
+      const r = entry.rankings[i]
+      if (!r || typeof r !== 'object') { out.push(`rankings[${i}] 必须是对象`); continue }
+      for (const field of ['board', 'label', 'score', 'as_of', 'url']) {
+        if (r[field] === undefined || r[field] === null) out.push(`rankings[${i}] 缺少必填字段: ${field}`)
+      }
+      if (r.board && !BOARDS.includes(r.board)) out.push(`rankings[${i}].board 非法: ${r.board}`)
+      if (r.score !== undefined && r.score !== null && typeof r.score !== 'number') out.push(`rankings[${i}].score 必须是数字`)
+      if (r.as_of && !DATE_RE.test(r.as_of)) out.push(`rankings[${i}].as_of 应为 YYYY-MM-DD: ${r.as_of}`)
+      if (r.release_date && !YEARMONTH_RE.test(r.release_date)) out.push(`rankings[${i}].release_date 应为 YYYY-MM 或 YYYY-MM-DD: ${r.release_date}`)
+      if (r.url && !URL_RE.test(r.url)) out.push(`rankings[${i}].url 应为 http(s) 网址: ${r.url}`)
+    }
   }
 
   if (entry.errors && typeof entry.errors === 'object') {
@@ -103,7 +166,7 @@ function cmdValidate(files) {
       failed = true
       continue
     }
-    const issues = validateProblems(entry)
+    const issues = validateProblems(entry, file)
     if (issues.length === 0) {
       console.log(`✓ ${file}`)
     } else {
@@ -182,8 +245,6 @@ function mdInputLimits(entry) {
     const max = cell(obj.max)
     rows.push([label, min === MISSING && max === MISSING ? MISSING : `${min} ~ ${max}`])
   }
-  pushRange('模特图数量', l.model_reference)
-  pushRange('服装参考图数量', l.garment_references)
   pushRange('参考视频数量', l.reference_videos)
 
   const add = (label, value) => { if (!isMissing(value)) rows.push([label, fmt(value)]) }
@@ -254,25 +315,47 @@ function mdOutputLimits(entry) {
   const rows = []
   if (!isMissing(o.max_duration_seconds)) rows.push(['成片最大时长', `${o.max_duration_seconds} 秒`])
   if (!isMissing(o.aspect_ratio_mode)) rows.push(['画面比例模式', cell(o.aspect_ratio_mode)])
-  if (!isMissing(o.max_file_bytes)) rows.push(['文件大小上限', `${o.max_file_bytes} 字节`])
   if (rows.length === 0) return ''
   const out = ['## 输出限制', '', '| 项目 | 限制 |', '| --- | --- |']
   for (const [k, v] of rows) out.push(`| ${k} | ${v} |`)
   return out.join('\n') + '\n'
 }
 
+function mdRankings(entry) {
+  const rows = entry.rankings || []
+  if (rows.length === 0) return ''
+
+  const out = ['## 榜单数据', '']
+  out.push('| 榜单 | 榜上名称 | 排名 | 分数 | ±95%CI | 样本/票 | 发布日期 | 开放权重 | API价格(USD/分) |', '| --- | --- | --- | --- | --- | --- | --- | --- | --- |')
+  for (const r of rows) {
+    const open = r.open_weights === true ? '开放权重' : (r.open_weights === false ? '闭源' : '—')
+    out.push(
+      `| ${BOARD_LABEL[r.board] || cell(r.board)} | ${cell(r.label)} | ${r.rank == null ? '—' : r.rank} | ${cell(r.score)} | ` +
+      `${r.ci == null ? '—' : r.ci} | ${r.samples == null ? '—' : r.samples} | ` +
+      `${r.release_date || '—'} | ${open} | ${r.price_usd_per_min == null ? '—' : r.price_usd_per_min.toFixed(2)} |`,
+    )
+  }
+  out.push(
+    '',
+    '> 分数体系：AA=Elo，LMArena=Arena score，两者不可直接比较；价格是 AA「用创建者 API 默认设置生成 1 分钟 1080p 视频」的口径（同模型跨榜可能不同）。快照日期见各条 `rankings` 的 as_of 与条目 `fetched_at`。',
+    '',
+  )
+  return out.join('\n')
+}
+
 function mdPricing(entry) {
   const p = entry.pricing || {}
-  if (Object.keys(p).length === 0 || (isMissing(p.unit) && !p.tiers)) return '## 价格\n\n待补充\n'
+  const hasTiers = p.tiers && Object.keys(p.tiers).length > 0
+  const hasAny = Object.keys(p).length > 0 &&
+    (p.currency || p.unit || hasTiers || p.note)
+  if (!hasAny) return '## 价格\n\n待补充\n'
   const out = ['## 价格', '']
-  out.push(`- **币种**：${cell(p.currency)}`)
-  out.push(`- **计费单位**：${cell(p.unit)}`)
-  if (p.tiers && Object.keys(p.tiers).length > 0) {
-    out.push('', '| 清晰度 | 单价（积分/秒） |', '| --- | --- |')
+  if (!isMissing(p.currency)) out.push(`- **币种**：${cell(p.currency)}`)
+  if (!isMissing(p.unit)) out.push(`- **计费单位**：${cell(p.unit)}`)
+  if (hasTiers) {
+    out.push('', '| 档位 | 单价 |', '| --- | --- |')
     for (const [k, v] of Object.entries(p.tiers)) out.push(`| ${k} | ${v} |`)
   }
-  if (!isMissing(p.extra_audio_charge)) out.push('', `- 生成音频额外：${p.extra_audio_charge} 积分/条`)
-  if (!isMissing(p.min_charge)) out.push('', `- 最低消费：${p.min_charge}`)
   if (p.note) out.push('', `> 备注：${p.note}`)
   return out.join('\n') + '\n'
 }
@@ -306,6 +389,7 @@ function cmdRender(inPath) {
     mdInputLimits(entry),
     mdRules(entry),
     mdOutputLimits(entry),
+    mdRankings(entry),
     mdPricing(entry),
     mdErrors(entry),
   ]

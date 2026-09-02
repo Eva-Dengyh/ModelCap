@@ -2,7 +2,7 @@
   "model_id": "doubao-seedance-2-5-260628",
   "provider": "volcengine",
   "version": "2.5",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://docs.volcengine.com/docs/82379/2607688?lang=zh",
   "ability": {
     "tasks": [
@@ -144,5 +144,46 @@
       "standard": "quota_exceeded",
       "user_message": "触发限流，请降低请求频率或稍后重试"
     }
-  }
+  },
+  "rankings": [
+    {
+      "board": "lmarena-i2v",
+      "rank": 3,
+      "label": "dreamina-seedance-2.5-720p",
+      "score": 1483,
+      "ci": 12,
+      "samples": 2944,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 5,
+      "label": "dreamina-seedance-2.5-720p",
+      "score": 1476,
+      "ci": 14,
+      "samples": 2121,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-video-edit",
+      "rank": 2,
+      "label": "dreamina-seedance-2.5-720p",
+      "score": 1410,
+      "ci": 26,
+      "samples": 429,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-27",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ]
 }

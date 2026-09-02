@@ -1,0 +1,37 @@
+{
+  "model_id": "kling-o3-pro",
+  "provider": "kling",
+  "version": "o3-pro",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://lmarena.ai/leaderboard/video",
+  "ability": {
+    "tasks": [
+      "edit"
+    ],
+    "inputs": [],
+    "scenes": [],
+    "note": "截至 2026-09-02，Kling 官方文档全站（导航/85 个 api 分片/424 个正文分片/能力地图）无 O3、O3 Pro 或 kling-o3-pro 任何页面或字符串（仅元素管理页一句\"后续模型将支持\"提及 kling-video-o3）。榜单 kling-o3-pro 与官方命名对不上，参数无法核实，保持骨架。"
+  },
+  "rankings": [
+    {
+      "board": "lmarena-video-edit",
+      "rank": 8,
+      "label": "kling-o3-pro",
+      "score": 1255,
+      "ci": 11,
+      "samples": 7540,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-27",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ],
+  "_missing": [
+    "input_limits",
+    "rules",
+    "errors",
+    "output_limits",
+    "pricing"
+  ]
+}

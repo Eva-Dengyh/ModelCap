@@ -2,7 +2,7 @@
   "model_id": "ltx-2",
   "provider": "lightricks",
   "version": "2.5",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://github.com/Lightricks/LTX-2",
   "ability": {
     "tasks": [
@@ -55,5 +55,85 @@
   "errors": {
     "_missing": true,
     "note": "开源模型无 API 错误码（本无）。"
-  }
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 33,
+      "label": "LTX-2 Fast",
+      "score": 930,
+      "ci": 8,
+      "samples": 6050,
+      "release_date": "2025-10",
+      "price_usd_per_min": 2.4,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-i2v",
+      "rank": 36,
+      "label": "LTX-2 Pro",
+      "score": 870,
+      "ci": 9,
+      "samples": 5919,
+      "release_date": "2025-10",
+      "price_usd_per_min": 3.6,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 36,
+      "label": "LTX-2 Fast",
+      "score": 942,
+      "ci": 8,
+      "samples": 6391,
+      "release_date": "2025-10",
+      "price_usd_per_min": 2.4,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 37,
+      "label": "LTX-2 Pro",
+      "score": 920,
+      "ci": 8,
+      "samples": 6373,
+      "release_date": "2025-10",
+      "price_usd_per_min": 3.6,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 43,
+      "label": "ltx-2-19b",
+      "score": 1155,
+      "ci": 5,
+      "samples": 235627,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": true,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 39,
+      "label": "ltx-2-19b",
+      "score": 1152,
+      "ci": 8,
+      "samples": 67980,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": true,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ]
 }

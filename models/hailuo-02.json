@@ -1,0 +1,202 @@
+{
+  "model_id": "hailuo-02",
+  "provider": "minimax",
+  "version": "02",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://platform.minimax.io/docs/api-reference/video-generation-t2v",
+  "ability": {
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "audio": false,
+    "scenes": [
+      "t2v",
+      "i2v-first-frame",
+      "i2v-first-last-frame"
+    ],
+    "capabilities": [
+      "camera-control"
+    ],
+    "note": "官方 legacy v1 端点（POST api.minimax.io/v1/video_generation）只有单一模型串 MiniMax-Hailuo-02（2025-06-18 发布，支持 1080p、最长 10s）；榜单 hailuo-02-pro/standard/fast 不是官方 API 档名。t2v 必需 model+prompt；i2v 需 first_frame_image；fl2v（首尾帧）是独立页且仅此模型支持（需 first+last 两图，输出分辨率随首帧图，尾帧与首帧尺寸不同会被裁切）。s2v 主体参考不支持（仅 S2V-01）。无任何音频参数；无 aspect_ratio 参数（输出比例由输入图决定或未公开）；镜头控制用 prompt 内 [command] 语法（15 种：Truck/Pan/Push/Pedestal/Tilt/Zoom/Shake/Tracking/Static，推荐 ≤3 个）。"
+  },
+  "rankings": [
+    {
+      "board": "lmarena-i2v",
+      "rank": 33,
+      "label": "hailuo-02-pro",
+      "score": 1228,
+      "ci": 11,
+      "samples": 21743,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 36,
+      "label": "hailuo-02-standard",
+      "score": 1223,
+      "ci": 10,
+      "samples": 21785,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 39,
+      "label": "hailuo-02-fast",
+      "score": 1193,
+      "ci": 11,
+      "samples": 22519,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 32,
+      "label": "hailuo-02-pro",
+      "score": 1198,
+      "ci": 12,
+      "samples": 9363,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 34,
+      "label": "hailuo-02-standard",
+      "score": 1180,
+      "ci": 12,
+      "samples": 9330,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ],
+  "input_limits": {
+    "image": {
+      "max_bytes": 20971520,
+      "formats": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "min_side_px": 300,
+      "min_ratio": 0.4,
+      "max_ratio": 2.5
+    },
+    "additional_prompt": {
+      "max_chars": 2000
+    },
+    "_missing": true
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 6,
+        "max": 10
+      },
+      "resolution": [
+        "768p",
+        "1080p"
+      ],
+      "generate_audio": false,
+      "note": "时长/分辨率按任务与档位耦合：t2v 768P(默认) 可选 6/10s、1080P 仅 6s（720P 不支持）；i2v 额外支持 512P 且 512P/768P 可 6/10s、1080P 仅 6s（512P 未在 schema 分辨率枚举中，未录入）；fl2v 同 t2v 且不支持 512P。默认 6s。prompt_optimizer 默认 true；fast_pretreatment 默认 false（仅对 Hailuo-2.3 与 Hailuo-02 生效）。fps 官方未公开。prompt ≤2000 字符。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 10
+  },
+  "pricing": {
+    "currency": "USD",
+    "unit": "request",
+    "tiers": {
+      "768p·6s": 0.28,
+      "768p·10s": 0.56,
+      "1080p·6s": 0.49,
+      "512p·6s": 0.1,
+      "512p·10s": 0.15
+    },
+    "note": "Pay-as-you-go 按条计费（$/条）；Video Packages 订阅按点数：768P·6s=1 点、768P·10s=2 点、1080P·6s=2 点、512P·6s=0.3 点、512P·10s=0.5 点。"
+  },
+  "errors": {
+    "1000": {
+      "standard": "provider_failed",
+      "user_message": "未知错误，请稍后重试"
+    },
+    "1001": {
+      "standard": "timeout",
+      "user_message": "请求超时，请稍后重试"
+    },
+    "1002": {
+      "standard": "quota_exceeded",
+      "user_message": "触发限流，请稍后重试"
+    },
+    "1004": {
+      "standard": "access_denied",
+      "user_message": "鉴权失败，请检查 API Key"
+    },
+    "1008": {
+      "standard": "settlement_failed",
+      "user_message": "账户余额不足"
+    },
+    "1024": {
+      "standard": "provider_failed",
+      "user_message": "内部错误，请稍后重试"
+    },
+    "1026": {
+      "standard": "content_violation.safety",
+      "user_message": "输入检出敏感内容，请修改"
+    },
+    "1027": {
+      "standard": "content_violation.safety",
+      "user_message": "生成结果检出敏感内容，请修改输入"
+    },
+    "1033": {
+      "standard": "provider_failed",
+      "user_message": "系统错误，请稍后重试"
+    },
+    "1039": {
+      "standard": "quota_exceeded",
+      "user_message": "触发 token 限额，请稍后重试"
+    },
+    "1041": {
+      "standard": "quota_exceeded",
+      "user_message": "连接数超限，请联系支持"
+    },
+    "1042": {
+      "standard": "invalid_parameter",
+      "user_message": "不可见字符比例超限，请检查输入"
+    },
+    "2013": {
+      "standard": "invalid_parameter",
+      "user_message": "请求参数无效，请按文档填写"
+    },
+    "2049": {
+      "standard": "access_denied",
+      "user_message": "API Key 无效"
+    },
+    "2056": {
+      "standard": "quota_exceeded",
+      "user_message": "使用量超限，请等待下一个 5 小时窗口"
+    },
+    "note": "BaseResp 错误码（legacy v1，与 2.3/02 共用表）。"
+  }
+}

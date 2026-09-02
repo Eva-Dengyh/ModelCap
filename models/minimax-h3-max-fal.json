@@ -1,0 +1,93 @@
+{
+  "model_id": "minimax-h3-max-fal",
+  "provider": "fal",
+  "version": "h3-max",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://fal.ai/models/minimax/h3-max/text-to-video",
+  "ability": {
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "scenes": [
+      "t2v",
+      "i2v-first-frame",
+      "i2v-first-last-frame"
+    ],
+    "capabilities": [],
+    "note": "fal 官方模型 minimax/h3-max（text-to-video 与 image-to-video 两个独立端点，POST fal.run/minimax/h3-max/*）。fal 后训练版 MiniMax H3，prompt 遵循与画面美学更强（页面自述）。本端点最高仅 480P/768P，无 1080P；fal 端点未暴露音频参数与输出音频字段（底层可能规划音效，但不可控）。i2v 变体：image_url 首帧（省略则按文生处理，默认 16:9）、end_image_url 尾帧做首尾帧生成，各至多 1 张。无 negative prompt/风格参数；enable_safety_checker 默认 true；prompt_expansion_mode=balanced/quality（改写力度，quality 最多约 30s）。"
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 1,
+      "label": "Minimax H3 Max (post-trained by fal)",
+      "score": 1202,
+      "ci": 9,
+      "samples": 5453,
+      "release_date": "2026-08",
+      "price_usd_per_min": 2.4,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 3,
+      "label": "Minimax H3 Max (post-trained by fal)",
+      "score": 1235,
+      "ci": 10,
+      "samples": 5372,
+      "release_date": "2026-08",
+      "price_usd_per_min": 2.4,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    }
+  ],
+  "input_limits": {
+    "additional_prompt": {
+      "max_chars": 50000
+    },
+    "_missing": true
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 5,
+        "max": 15
+      },
+      "resolution": [
+        "480p",
+        "768p"
+      ],
+      "aspect_ratio": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "note": "duration 整数 5–15 默认 5；resolution 480P/768P（默认 768P，无 1080P 档）。aspect_ratio 仅 t2v 变体可选（默认 16:9）；i2v 无比例参数、输出比例跟随首帧图。prompt_expansion_mode 必填（默认 balanced）。sync_mode=true 返回 base64 而非 CDN url；seed 可选。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 15,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "pricing": {
+    "currency": "USD",
+    "unit": "second",
+    "tiers": {
+      "480p": 0.0125,
+      "768p": 0.02
+    },
+    "note": "fal 页面按输出秒计费：480p $0.0125/s、768p $0.02/s（促销 launch 价，75% off，2026-09-07 截止）；促销后 480p $0.05/s、768p $0.08/s。AA 榜单 $2.40/分钟 是 1080p 口径（本端点最高 768P），非本模型官方价。"
+  },
+  "errors": {
+    "note": "fal 模型页无模型级错误码表；沿用平台 HTTP 语义（400/422 参数校验、429 限流、5xx 服务端）。任务状态枚举 IN_QUEUE/IN_PROGRESS/COMPLETED。"
+  }
+}

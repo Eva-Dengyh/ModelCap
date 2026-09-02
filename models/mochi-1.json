@@ -2,7 +2,7 @@
   "model_id": "mochi-1",
   "provider": "genmo",
   "version": "1",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://github.com/genmoai/mochi",
   "ability": {
     "tasks": [
@@ -40,5 +40,20 @@
   "errors": {
     "_missing": true,
     "note": "开源模型无 API 错误码（本无）。"
-  }
+  },
+  "rankings": [
+    {
+      "board": "lmarena-t2v",
+      "rank": 46,
+      "label": "mochi-v1",
+      "score": 1006,
+      "ci": 17,
+      "samples": 5851,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": true,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ]
 }

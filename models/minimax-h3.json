@@ -2,7 +2,7 @@
   "model_id": "minimax-h3",
   "provider": "minimax",
   "version": "h3",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://platform.minimax.io/docs/api-reference/video-generation-v2-create",
   "ability": {
     "tasks": [
@@ -113,5 +113,85 @@
       "standard": "provider_failed",
       "user_message": "服务端内部错误"
     }
-  }
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 3,
+      "label": "MiniMax H3",
+      "score": 1186,
+      "ci": 8,
+      "samples": 7308,
+      "release_date": "2026-07",
+      "price_usd_per_min": 7.8,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 4,
+      "label": "MiniMax H3",
+      "score": 1227,
+      "ci": 7,
+      "samples": 8929,
+      "release_date": "2026-07",
+      "price_usd_per_min": 7.8,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-video-edit",
+      "rank": 2,
+      "label": "MiniMax H3",
+      "score": 1129,
+      "ci": 5,
+      "samples": 12936,
+      "release_date": "2026-07",
+      "price_usd_per_min": 7.8,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 1,
+      "label": "minimax-h3",
+      "score": 1494,
+      "ci": 6,
+      "samples": 27308,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": true,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 6,
+      "label": "minimax-h3",
+      "score": 1460,
+      "ci": 10,
+      "samples": 5813,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": true,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-video-edit",
+      "rank": 3,
+      "label": "minimax-h3",
+      "score": 1392,
+      "ci": 19,
+      "samples": 962,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": true,
+      "as_of": "2026-08-27",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ]
 }

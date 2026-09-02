@@ -2,7 +2,7 @@
   "model_id": "hunyuanvideo-1.5",
   "provider": "tencent",
   "version": "1.5",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5",
   "ability": {
     "tasks": [
@@ -46,5 +46,33 @@
   "errors": {
     "_missing": true,
     "note": "开源模型无 API 错误码（本无）。"
-  }
+  },
+  "rankings": [
+    {
+      "board": "lmarena-i2v",
+      "rank": 38,
+      "label": "hunyuan-video-1.5",
+      "score": 1197,
+      "ci": 16,
+      "samples": 5462,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 36,
+      "label": "hunyuan-video-1.5",
+      "score": 1169,
+      "ci": 16,
+      "samples": 4276,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ]
 }

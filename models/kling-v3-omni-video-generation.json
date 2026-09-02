@@ -2,7 +2,7 @@
   "model_id": "kling-v3-omni-video-generation",
   "provider": "aliyun",
   "version": "v3",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://help.aliyun.com/en/model-studio/kling-video-generation-api-reference/",
   "ability": {
     "tasks": [
@@ -235,5 +235,137 @@
       "standard": "quota_exceeded",
       "user_message": "免费额度已用完"
     }
-  }
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 16,
+      "label": "Kling 3.0 1080p (Pro)",
+      "score": 1071,
+      "ci": 6,
+      "samples": 16998,
+      "release_date": "2026-02",
+      "price_usd_per_min": 20.16,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-i2v",
+      "rank": 19,
+      "label": "Kling 3.0 720p (Standard)",
+      "score": 1067,
+      "ci": 6,
+      "samples": 16934,
+      "release_date": "2026-02",
+      "price_usd_per_min": 15.6,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-i2v",
+      "rank": 21,
+      "label": "Kling 3.0 Omni 1080p (Pro)",
+      "score": 1059,
+      "ci": 7,
+      "samples": 7875,
+      "release_date": "2026-02",
+      "price_usd_per_min": 16.8,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-i2v",
+      "rank": 22,
+      "label": "Kling 3.0 Omni 720p (Standard)",
+      "score": 1051,
+      "ci": 7,
+      "samples": 7839,
+      "release_date": "2026-02",
+      "price_usd_per_min": 13.44,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 9,
+      "label": "Kling 3.0 1080p (Pro)",
+      "score": 1108,
+      "ci": 5,
+      "samples": 22397,
+      "release_date": "2026-02",
+      "price_usd_per_min": 20.16,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 12,
+      "label": "Kling 3.0 720p (Standard)",
+      "score": 1100,
+      "ci": 5,
+      "samples": 21504,
+      "release_date": "2026-02",
+      "price_usd_per_min": 15.12,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 17,
+      "label": "Kling 3.0 Omni 720p (Standard)",
+      "score": 1089,
+      "ci": 6,
+      "samples": 9100,
+      "release_date": "2026-02",
+      "price_usd_per_min": 13.44,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 18,
+      "label": "Kling 3.0 Omni 1080p (Pro)",
+      "score": 1089,
+      "ci": 6,
+      "samples": 9293,
+      "release_date": "2026-02",
+      "price_usd_per_min": 16.8,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-video-edit",
+      "rank": 8,
+      "label": "Kling 3.0 Omni 1080p (Pro)",
+      "score": 1000,
+      "ci": 0,
+      "samples": 18909,
+      "release_date": "2026-02",
+      "price_usd_per_min": 10.91,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 17,
+      "label": "kling-v3-pro",
+      "score": 1356,
+      "ci": 6,
+      "samples": 180932,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ]
 }

@@ -2,7 +2,7 @@
   "model_id": "happyhorse-1.0",
   "provider": "alibaba",
   "version": "1.0",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://happy-horse.art/zh/",
   "ability": {
     "tasks": [
@@ -60,5 +60,85 @@
   "errors": {
     "_missing": true,
     "note": "开源模型无 API 错误码（本无）。"
-  }
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 8,
+      "label": "HappyHorse-1.0",
+      "score": 1087,
+      "ci": 7,
+      "samples": 8828,
+      "release_date": "2026-04",
+      "price_usd_per_min": 13.2,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 8,
+      "label": "HappyHorse-1.0",
+      "score": 1122,
+      "ci": 6,
+      "samples": 9711,
+      "release_date": "2026-04",
+      "price_usd_per_min": 13.2,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-video-edit",
+      "rank": 4,
+      "label": "HappyHorse-1.0",
+      "score": 1088,
+      "ci": 5,
+      "samples": 23465,
+      "release_date": "2026-04",
+      "price_usd_per_min": 27.04,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 8,
+      "label": "happyhorse-1.0",
+      "score": 1442,
+      "ci": 10,
+      "samples": 70699,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 8,
+      "label": "happyhorse-1.0",
+      "score": 1428,
+      "ci": 13,
+      "samples": 22112,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-video-edit",
+      "rank": 6,
+      "label": "happyhorse-1.0",
+      "score": 1307,
+      "ci": 14,
+      "samples": 3116,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-27",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ]
 }

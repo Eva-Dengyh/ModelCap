@@ -1,0 +1,273 @@
+{
+  "model_id": "vidu-q3",
+  "provider": "shengshu",
+  "version": "q3",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://platform.vidu.com/docs/model-map",
+  "ability": {
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "audio": true,
+    "scenes": [
+      "t2v",
+      "i2v-first-frame",
+      "i2v-first-last-frame",
+      "r2v"
+    ],
+    "capabilities": [],
+    "note": "官方现役文档已迁移至 platform.vidu.com/docs（旧 docs.platform.vidu.com 停在 Q2 时代）。Q3 档位：viduq3-pro（旗舰，文生/图生/首尾帧，支持音画同步与智能分镜）、viduq3-turbo（更快，另支持参考生视频）、viduq3-pro-fast（仅图生）、viduq3-mix/-drama/-ad（仅参考生视频）。audio 参数默认 true（Q3 专属，直出带声视频，含对白与音效），bgm 对 q3 不可用；movement_amplitude / style(general/anime) 对 q2/q3 无效。成片 24fps。上线：pro 2026-01-27，turbo 2026-02-11，reference2video 系 2026-04-13。"
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 20,
+      "label": "Vidu Q3 Pro",
+      "score": 1061,
+      "ci": 6,
+      "samples": 17218,
+      "release_date": "2026-01",
+      "price_usd_per_min": 9.6,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-i2v",
+      "rank": 24,
+      "label": "Vidu Q3 Turbo",
+      "score": 1037,
+      "ci": 9,
+      "samples": 3285,
+      "release_date": "2026-02",
+      "price_usd_per_min": 3.9,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 23,
+      "label": "Vidu Q3 Pro",
+      "score": 1075,
+      "ci": 5,
+      "samples": 20048,
+      "release_date": "2026-01",
+      "price_usd_per_min": 9.6,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 28,
+      "label": "Vidu Q3 Turbo",
+      "score": 1031,
+      "ci": 9,
+      "samples": 2969,
+      "release_date": "2026-02",
+      "price_usd_per_min": 3.9,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 16,
+      "label": "vidu-q3-pro",
+      "score": 1363,
+      "ci": 9,
+      "samples": 36684,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ],
+  "input_limits": {
+    "image": {
+      "max_bytes": 52428800,
+      "formats": [
+        "png",
+        "jpeg",
+        "jpg",
+        "webp"
+      ],
+      "min_ratio": 0.25,
+      "max_ratio": 4
+    },
+    "additional_prompt": {
+      "max_chars": 5000
+    },
+    "_missing": true
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 1,
+        "max": 16
+      },
+      "resolution": [
+        "540p",
+        "720p",
+        "1080p"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "9:16",
+        "3:4",
+        "4:3",
+        "1:1"
+      ],
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": true,
+      "note": "端点/场景差异（同一 generate 下的子场景，schema 不细分）：text2video 的 q3-pro/turbo 时长 1–16s（默认 5）、分辨率默认 720p 可选 540p/720p/1080p，比例默认 16:9，3:4/4:3 仅 q2/q3 支持；image2video 同 1–16s，pro-fast 仅 720p/1080p；start-end2video（首帧+尾帧 2 图，两图比例须在 0.8~1.25）1–16s；reference2video（仅 mix/turbo/q3 等档，图 1–7 张、每张 ≥128x128）mix 1–16s、turbo/pro 3–16s，参考视频 q3 不支持（仅 viduq2-pro）。i2v 每请求请求体 ≤20MB。audio 默认 true（q3），支持 off-peak 错峰。文档内部有 r2v 页\"3:4/4:3 仅 q2\"与 t2v 页\"q2&q3\"的不一致，照录待厂商修正。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 16,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "pricing": {
+    "currency": "USD",
+    "unit": "second",
+    "tiers": {
+      "540p": 9,
+      "720p": 20,
+      "1080p": 24
+    },
+    "note": "平台按 credits 计费（1 credit = $0.005）。tiers 为 viduq3-pro 峰值 credits/秒：540P 9($0.045)/720P 20($0.1)/1080P 24($0.12)；off-peak（错峰）约半价（1080P 12 / 720P 10 / 540P 5）。viduq3-turbo：540P 7 / 720P 11 / 1080P 13 credits/秒；pro-fast（仅图生）：720P 20 / 1080P 25。reference2video 档另价（mix 720P 24 / 1080P 29；turbo 4/10/13；q3 7/12/15），错峰任务 48h 内未完成自动取消退款。"
+  },
+  "errors": {
+    "BadRequest": {
+      "standard": "invalid_parameter",
+      "user_message": "请求格式错误（bad request）"
+    },
+    "FieldLacking": {
+      "standard": "invalid_parameter",
+      "user_message": "缺少必填字段"
+    },
+    "FieldUnwanted": {
+      "standard": "invalid_parameter",
+      "user_message": "包含不允许的字段"
+    },
+    "FieldItemCountOutOfRange": {
+      "standard": "invalid_parameter",
+      "user_message": "字段元素数量超出允许范围"
+    },
+    "FieldInvalid": {
+      "standard": "invalid_parameter",
+      "user_message": "字段值未通过有效性校验"
+    },
+    "PageSizeOutOfRange": {
+      "standard": "invalid_parameter",
+      "user_message": "图片需 <50MB，格式 JPG/PNG/JPEG/WEBP，宽高比不超过 1:4 或 4:1"
+    },
+    "ImageDownloadFailure": {
+      "standard": "invalid_parameter",
+      "user_message": "参考图下载失败，请更换可访问的 URL"
+    },
+    "ImageFormatInvalid": {
+      "standard": "invalid_parameter",
+      "user_message": "图片格式不支持"
+    },
+    "VideoFormatInvalid": {
+      "standard": "invalid_parameter",
+      "user_message": "视频格式不支持"
+    },
+    "ImageSizeInvalid": {
+      "standard": "invalid_parameter",
+      "user_message": "图片尺寸不符合要求"
+    },
+    "FaceDetectFailure": {
+      "standard": "invalid_parameter",
+      "user_message": "人脸检测失败"
+    },
+    "NoFaceDetected": {
+      "standard": "invalid_parameter",
+      "user_message": "未检测到人脸"
+    },
+    "MultiFaceDetected": {
+      "standard": "invalid_parameter",
+      "user_message": "检测到多张人脸，仅支持单人"
+    },
+    "AuditSubmitIllegal": {
+      "standard": "content_violation.safety",
+      "user_message": "输入未通过安全审核"
+    },
+    "CreationPolicyViolation": {
+      "standard": "content_violation.safety",
+      "user_message": "生成内容触发策略违规"
+    },
+    "AuditFailed": {
+      "standard": "content_violation.safety",
+      "user_message": "内容审核未通过"
+    },
+    "CreditInsufficient": {
+      "standard": "quota_exceeded",
+      "user_message": "账户积分不足，请充值"
+    },
+    "QuotaExceeded": {
+      "standard": "quota_exceeded",
+      "user_message": "超出配额限制"
+    },
+    "TooManyRequests": {
+      "standard": "quota_exceeded",
+      "user_message": "请求过于频繁，请降低频率"
+    },
+    "SystemThrottling": {
+      "standard": "quota_exceeded",
+      "user_message": "系统限流，请稍后重试"
+    },
+    "ModelUnavailable": {
+      "standard": "provider_failed",
+      "user_message": "请求的模型当前不可用"
+    },
+    "InternalServiceFailure": {
+      "standard": "provider_failed",
+      "user_message": "服务内部错误，请稍后重试"
+    },
+    "OperationInProcess": {
+      "standard": "provider_failed",
+      "user_message": "操作进行中冲突"
+    },
+    "Conflict": {
+      "standard": "provider_failed",
+      "user_message": "资源冲突"
+    },
+    "Unknown": {
+      "standard": "provider_failed",
+      "user_message": "未知错误，请稍后重试"
+    },
+    "UserCancelled": {
+      "standard": "interrupted",
+      "user_message": "用户取消任务"
+    },
+    "Unauthorized": {
+      "standard": "access_denied",
+      "user_message": "未授权，请检查 API Key"
+    },
+    "Forbidden": {
+      "standard": "access_denied",
+      "user_message": "无权限执行该操作"
+    },
+    "TaskNotFound": {
+      "standard": "invalid_parameter",
+      "user_message": "任务不存在"
+    },
+    "CreationNotFound": {
+      "standard": "invalid_parameter",
+      "user_message": "生成记录不存在"
+    },
+    "NotFound": {
+      "standard": "invalid_parameter",
+      "user_message": "请求的资源不存在"
+    },
+    "note": "错误码表为平台级（与 ViduQ2 同表）。"
+  }
+}

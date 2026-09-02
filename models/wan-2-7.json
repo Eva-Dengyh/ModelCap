@@ -1,0 +1,218 @@
+{
+  "model_id": "wan-2-7",
+  "provider": "aliyun",
+  "version": "2.7",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://help.aliyun.com/zh/model-studio/text-to-video-api-reference",
+  "ability": {
+    "tasks": [
+      "generate",
+      "edit",
+      "extend"
+    ],
+    "inputs": [
+      "reference_image",
+      "reference_video",
+      "audio"
+    ],
+    "audio": true,
+    "scenes": [
+      "t2v",
+      "i2v-first-frame",
+      "i2v-first-last-frame",
+      "r2v"
+    ],
+    "capabilities": [],
+    "note": "百炼无单一总页，按任务 4 篇：文生 text-to-video-api-reference（wan2.7-t2v / wan2.7-t2v-2026-06-12）、图生 image-to-video-general-api-reference（wan2.7-i2v-2026-04-25：首帧/首尾帧/首段续写）、参考生视频 wan-video-to-video-api-reference（wan2.7-r2v，图+视频+音色）、视频编辑 wan-video-editing-api-reference（wan2.7-videoedit）。全异步（创建任务+轮询），任务/结果链接 24h 有效，任务过期返回 task_status=UNKNOWN；查询 RPS 20；缺 X-DashScope-Async 头报错。有声为默认且不可关（无 audio 开关）；不再支持 size（改用 resolution+ratio）与 shot_type；无 duration=-1 智能时长（那是 Wan 3.0）。北京/新加坡两地可选。"
+  },
+  "rankings": [
+    {
+      "board": "aa-t2v",
+      "rank": 6,
+      "label": "Wan2.7-260612",
+      "score": 1157,
+      "ci": 6,
+      "samples": 19399,
+      "release_date": "2026-06",
+      "price_usd_per_min": 9,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 10,
+      "label": "Wan 2.7",
+      "score": 1106,
+      "ci": 7,
+      "samples": 6098,
+      "release_date": "2026-04",
+      "price_usd_per_min": 9,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-i2v",
+      "rank": 11,
+      "label": "Wan 2.7",
+      "score": 1084,
+      "ci": 7,
+      "samples": 5592,
+      "release_date": "2026-04",
+      "price_usd_per_min": 9,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-video-edit",
+      "rank": 5,
+      "label": "Wan 2.7",
+      "score": 1078,
+      "ci": 5,
+      "samples": 19212,
+      "release_date": "2026-04",
+      "price_usd_per_min": 16.9,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 9,
+      "label": "wan2.7-i2v",
+      "score": 1427,
+      "ci": 5,
+      "samples": 66184,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 15,
+      "label": "wan2.7-t2v",
+      "score": 1344,
+      "ci": 8,
+      "samples": 20882,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ],
+  "input_limits": {
+    "max_reference_materials": 5,
+    "image": {
+      "max_bytes": 20971520,
+      "formats": [
+        "jpeg",
+        "jpg",
+        "png",
+        "bmp",
+        "webp"
+      ],
+      "min_side_px": 240,
+      "max_side_px": 8000,
+      "min_ratio": 0.125,
+      "max_ratio": 8
+    },
+    "video": {
+      "min_duration_seconds": 1,
+      "max_duration_seconds": 30,
+      "formats": [
+        "mp4",
+        "mov"
+      ]
+    },
+    "additional_prompt": {
+      "max_chars": 5000
+    },
+    "_missing": true
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 2,
+        "max": 15
+      },
+      "resolution": [
+        "720p",
+        "1080p"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": true,
+      "note": "各子任务差异：t2v 时长 [2,15] 默认 5；i2v（首帧/首尾帧）同样 [2,15] 默认 5，但无 ratio 参数、输出比例尽量与首帧/首段视频一致；r2v 含参考视频时时长 [2,10]、不含 [2,15]（默认 5），参考图+参考视频合计 ≤5 且至少 1 个，首帧图最多 1 张，含首帧图时忽略 ratio。i2v 首帧图仅支持单一角色；多镜头靠 prompt，无 shot_type。图片格式 JPEG/JPG/PNG(不支持透明)/BMP/WEBP、≤20MB、单边 240~8000px、比例 1:8~8:1；音频 wav/mp3、2~30s、≤15MB；negative_prompt ≤500 字。"
+    },
+    "edit": {
+      "duration_seconds": {
+        "min": 2,
+        "max": 10
+      },
+      "resolution": [
+        "720p",
+        "1080p"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "duration_mode": "inherit_from_reference_video",
+      "generate_audio": true,
+      "note": "wan2.7-videoedit。duration 默认 0/不传 = 沿用输入视频时长；传值时从原视频 0 秒起截取到该长度（[2,10]），即显式截断而非续写。不传 ratio 时按输入视频比例输出，传 ratio 按指定比例。参考图最多 4 张；输入视频有且仅 1 个（mp4/mov、2~10s、≤100MB）。audio_setting：auto（默认，按 prompt 智能判断是否重生成音频）/ origin（保留输入原声）。"
+    },
+    "extend": {
+      "duration_seconds": {
+        "min": 2,
+        "max": 15
+      },
+      "resolution": [
+        "720p",
+        "1080p"
+      ],
+      "ratio_mode": "inherit_from_reference_video",
+      "duration_mode": "client_choice",
+      "generate_audio": true,
+      "note": "即 i2v 视频续写（first_clip，可选加尾帧 first_clip+last_frame），每种素材 type 最多一次。注意此 duration 是续写后的输出总时长并按总时长计费：如输入首段 3s、duration=15，则续写 12s、成片 15s 按 15s 计费；首段视频本身 2~10s。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 15,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "pricing": {
+    "currency": "CNY",
+    "unit": "second",
+    "tiers": {
+      "720p": 0.6,
+      "1080p": 1
+    },
+    "note": "北京地域非快照版价格（元/秒），t2v/i2v/r2v/videoedit 同价；新加坡 720P 0.733924 / 1080P 1.100886，东京 0.086012 / 0.143353；快照版（-2026-06-12 等）新加坡价不同（720P 0.74942 / 1080P 1.12413）。RPM 300。无 480P 档。续写按输出总时长计费。"
+  },
+  "errors": {
+    "InvalidApiKey": {
+      "standard": "access_denied",
+      "user_message": "API Key 无效或缺失（如 No API-key provided）"
+    },
+    "InvalidParameter": {
+      "standard": "invalid_parameter",
+      "user_message": "参数不合法，请检查 size/ratio 等字段"
+    },
+    "note": "以上为 API 页内出现的错误样例；百炼共享错误码页 /zh/model-studio/error-code 为全模型通用表，未按 wan2.7 细分，其余码未收录。"
+  }
+}

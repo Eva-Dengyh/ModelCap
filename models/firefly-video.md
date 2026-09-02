@@ -40,7 +40,8 @@
 
 ## 价格
 
-待补充
+
+> 备注：官方文档未提供视频生成价格：AdobeDocs/ffs-firefly-api OpenAPI 与 usage-notes 均未列出视频生成积分单价；Firefly 采用积分(credits)计费，具体价格需登录控制台查看。
 
 ## 错误码
 

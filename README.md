@@ -23,30 +23,32 @@ A machine-readable knowledge base of AI model capabilities — **one JSON entry 
 
 ## Tracked / Watched Models (video generation)
 
-> Heat-ranked list of 20 version entries, one-to-one with the `models/` directory. The **Category** column splits them by capability — Text-to-Video / Image-to-Video / Video Edit; a model may belong to several categories, listed in one cell.
+> Curated heat-ranked shortlist of 20 video-generation entries — *not* one-to-one with `models/` anymore (the directory also holds leaderboard-snapshot entries, see below). The **Category** column splits them by capability — Text-to-Video / Image-to-Video / Video Edit; a model may belong to several categories, listed in one cell. The last column is the 2026-09-02 leaderboard snapshot (AA Elo / LMArena Arena score; two different scales — not comparable).
 
-| Rank | Model | Company | Category | One-liner |
-| --- | --- | --- | --- | --- |
-| 1 | Veo 3.1 | Google DeepMind | Image-to-Video | Quality ceiling; native audio + lip sync; massive distribution via Gemini/YouTube |
-| 2 | Kling 3.0 | Kuaishou | Text-to-Video, Image-to-Video, Video Edit | Largest user base (60M+ creators, ~$240M ARR); audio-video sync |
-| 3 | Seedance 2.5 | ByteDance | Text-to-Video, Image-to-Video, Video Edit | Released late Jul 2026; native 30s + multi-modal joint generation; even adopted by Runway |
-| 4 | Seedance 2.0 | ByteDance | Text-to-Video, Image-to-Video, Video Edit | 2.5's predecessor main model; Fast/Mini are lighter variants in the series |
-| 5 | Runway Gen-4.5 | Runway | Text-to-Video, Image-to-Video | Top Western pro film tooling; cinematic shot choreography; Hollywood adoption |
-| 6 | Hailuo H3 | MiniMax | Text-to-Video, Image-to-Video | Native 2K + first/last-frame & reference control; great value; once topped VBench |
-| 7 | HappyHorse | Alibaba ATH | Text-to-Video, Image-to-Video | 2026 open-source dark horse; outputs 1080p video + audio in one pass; Arena #1 |
-| 8 | Wan 3.0 | Alibaba Cloud | Text-to-Video, Image-to-Video | Open-source ecosystem king (34k+ GitHub stars); native 30s |
-| 9 | HunyuanVideo 1.5 | Tencent | Text-to-Video, Image-to-Video | Lightweight open-source benchmark (8.3B); low deployment barrier |
-| 10 | CogVideoX | Zhipu | Text-to-Video, Image-to-Video, Video Edit | Among the earliest Chinese open-source video models; wide dev ecosystem |
-| 11 | PixVerse V6 | Aishi Technology | Text-to-Video, Image-to-Video, Video Edit | 15s + native audio + 20+ cinematic camera controls; strong overseas traction |
-| 12 | Vidu Q2 | ShengShu + Tsinghua | Text-to-Video, Image-to-Video | Reference-to-video pioneer; audio-video sync; lip-sync error ±15ms |
-| 13 | Luma Ray 2 | Luma AI | Text-to-Video, Image-to-Video, Video Edit | Dream Machine successor; strong 1080p image-to-video |
-| 14 | Pika 2.2 | Pika Labs | Text-to-Video, Image-to-Video | Consumer pioneer; first/last-frame + effect templates; hype cooled |
-| 15 | Firefly Video | Adobe | Text-to-Video, Image-to-Video | Commercially safe (licensed data); deep Premiere/AE integration |
-| 16 | Dreamina / Jimeng | ByteDance (CapCut) | Text-to-Video, Image-to-Video | Rides CapCut's huge user base; short video + digital human |
-| 17 | LTX-2 | Lightricks | Text-to-Video, Image-to-Video, Video Edit | Open-source real-time video; leading real-time preview |
-| 18 | Mochi 1 | Genmo | Text-to-Video | 2024 open-source pioneer; now marginalized |
-| 19 | Stable Video Diffusion | Stability AI | Image-to-Video | Open-source trailblazer, but company pivoted to audio; video line stalled |
-| 20 | MAGI-1 | Sand.ai | Text-to-Video, Image-to-Video, Video Edit | Open-source autoregressive video model; scaled autoregressive route |
+| Rank | Model | Company | Category | One-liner | Leaderboard (2026-09-02) |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Veo 3.1 | Google DeepMind | Image-to-Video | Quality ceiling; native audio + lip sync; massive distribution via Gemini/YouTube | AA Elo 1086 · $24/min |
+| 2 | Kling 3.0 | Kuaishou | Text-to-Video, Image-to-Video, Video Edit | Largest user base (60M+ creators, ~$240M ARR); audio-video sync | AA Elo 1071 (1080p Pro) · $20.16/min |
+| 3 | Seedance 2.5 | ByteDance | Text-to-Video, Image-to-Video, Video Edit | Released late Jul 2026; native 30s + multi-modal joint generation; even adopted by Runway | LMArena 1483 (i2v) |
+| 4 | Seedance 2.0 | ByteDance | Text-to-Video, Image-to-Video, Video Edit | 2.5's predecessor main model; Fast/Mini are lighter variants in the series | AA Elo 1190 · $9.07/min |
+| 5 | Runway Gen-4.5 | Runway | Text-to-Video, Image-to-Video | Top Western pro film tooling; cinematic shot choreography; Hollywood adoption | LMArena 1224 (t2v) |
+| 6 | Hailuo H3 | MiniMax | Text-to-Video, Image-to-Video | Native 2K + first/last-frame & reference control; great value; once topped VBench | AA Elo 1186 · $7.80/min · open weights |
+| 7 | HappyHorse | Alibaba ATH | Text-to-Video, Image-to-Video | 2026 open-source dark horse; outputs 1080p video + audio in one pass; Arena #1 | AA Elo 1087 · $13.20/min |
+| 8 | Wan 3.0 | Alibaba Cloud | Text-to-Video, Image-to-Video | Open-source ecosystem king (34k+ GitHub stars); native 30s | AA Elo 1237 · $12/min |
+| 9 | HunyuanVideo 1.5 | Tencent | Text-to-Video, Image-to-Video | Lightweight open-source benchmark (8.3B); low deployment barrier | LMArena 1197 (i2v) |
+| 10 | CogVideoX | Zhipu | Text-to-Video, Image-to-Video, Video Edit | Among the earliest Chinese open-source video models; wide dev ecosystem | — |
+| 11 | PixVerse V6 | Aishi Technology | Text-to-Video, Image-to-Video, Video Edit | 15s + native audio + 20+ cinematic camera controls; strong overseas traction | AA Elo 1068 · $6.90/min |
+| 12 | Vidu Q2 | ShengShu + Tsinghua | Text-to-Video, Image-to-Video | Reference-to-video pioneer; audio-video sync; lip-sync error ±15ms | LMArena 1243 (q2 turbo) |
+| 13 | Luma Ray 2 | Luma AI | Text-to-Video, Image-to-Video, Video Edit | Dream Machine successor; strong 1080p image-to-video | LMArena 1108 (i2v) |
+| 14 | Pika 2.2 | Pika Labs | Text-to-Video, Image-to-Video | Consumer pioneer; first/last-frame + effect templates; hype cooled | LMArena 1008 (t2v) |
+| 15 | Firefly Video | Adobe | Text-to-Video, Image-to-Video | Commercially safe (licensed data); deep Premiere/AE integration | — |
+| 16 | Dreamina / Jimeng | ByteDance (CapCut) | Text-to-Video, Image-to-Video | Rides CapCut's huge user base; short video + digital human | — (listed under the Seedance series; see rows 3–4) |
+| 17 | LTX-2 | Lightricks | Text-to-Video, Image-to-Video, Video Edit | Open-source real-time video; leading real-time preview | AA Elo 930 (Fast) · $2.40/min |
+| 18 | Mochi 1 | Genmo | Text-to-Video | 2024 open-source pioneer; now marginalized | LMArena 1006 (t2v) |
+| 19 | Stable Video Diffusion | Stability AI | Image-to-Video | Open-source trailblazer, but company pivoted to audio; video line stalled | — |
+| 20 | MAGI-1 | Sand.ai | Text-to-Video, Image-to-Video, Video Edit | Open-source autoregressive video model; scaled autoregressive route | — (MAGI-2 Preview is added to `models/`) |
+
+> **Snapshot note (2026-09-02).** AA = Elo; LMArena = Arena score (different scales — not comparable). Prices are AA's "1 min 1080p video via creator API" convention (may differ across boards). Row-level detail (rank, CI, samples, release date, open weights, per-board URL) lives in each `models/*.json` under `rankings`, rendered into the model's `.md`. A further 38 leaderboard-listed model series that are **not** on this curated shortlist (e.g. Gemini Omni Flash, Sora 2, Veo 3, Wan 2.7, Vidu Q3…) are recorded as skeleton entries in `models/` — capability fields largely `_missing` until official parameter docs are added.
 
 ## Usage
 
@@ -65,7 +67,7 @@ Each model entry describes capabilities along four dimensions:
 | Task type | `ability.tasks` | generate, edit, extend |
 | Input modality | `ability.inputs` | reference_image, reference_video, audio |
 | Generation scene | `ability.scenes` | t2v, i2v-first-frame, i2v-first-last-frame, i2v-middle-frame, r2v |
-| Special capability | `ability.capabilities` | lip-sync, portrait, multi-shot, camera-control |
+| Special capability | `ability.capabilities` | lip-sync, multi-shot, camera-control |
 
 ## Conventions
 
@@ -73,6 +75,7 @@ Each model entry describes capabilities along four dimensions:
 - Missing fields are `null` with a `_missing` marker — **never fabricate**.
 - Every entry carries `source_url` + `fetched_at` for traceability and freshness.
 - Different versions in the same series (2.0 vs 2.5) often differ in parameters; keep separate entries.
+- `rankings` stores third-party leaderboard snapshots only (Elo / Arena score and USD-per-minute API price); it is *not* vendor billing (`pricing`) and goes stale — trust the `as_of` date. Entries sourced from a leaderboard alone are skeletons (abilities partially inferred from board membership, everything else `_missing`).
 
 ## Contributing
 

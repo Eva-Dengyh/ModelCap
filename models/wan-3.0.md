@@ -1,6 +1,6 @@
 # wan-3.0
 
-> 供应商：aliyun ｜ 版本：3.0 ｜ 信息核实日期：2026-09-01
+> 供应商：aliyun ｜ 版本：3.0 ｜ 信息核实日期：2026-09-02
 > 来源：[https://help.aliyun.com/zh/model-studio/wan3-video-generation-api-reference](https://help.aliyun.com/zh/model-studio/wan3-video-generation-api-reference)
 
 ## 能力
@@ -79,6 +79,16 @@
 | --- | --- |
 | 成片最大时长 | 30 秒 |
 | 画面比例模式 | client_choice |
+
+## 榜单数据
+
+| 榜单 | 榜上名称 | 排名 | 分数 | ±95%CI | 样本/票 | 发布日期 | 开放权重 | API价格(USD/分) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| AA·文生 | Wan 3.0 | 2 | 1237 | 10 | 5529 | 2026-08 | — | 12.00 |
+| AA·编辑 | Wan 3.0 | 1 | 1190 | 7 | 5258 | 2026-08 | — | 12.00 |
+| LMArena·编辑 | wan3.0 | 1 | 1414 | 26 | 463 | — | — | — |
+
+> 分数体系：AA=Elo，LMArena=Arena score，两者不可直接比较；价格是 AA「用创建者 API 默认设置生成 1 分钟 1080p 视频」的口径（同模型跨榜可能不同）。快照日期见各条 `rankings` 的 as_of 与条目 `fetched_at`。
 
 ## 价格
 

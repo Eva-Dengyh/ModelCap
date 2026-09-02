@@ -1,6 +1,6 @@
 # gen-4.5
 
-> 供应商：runway ｜ 版本：4.5 ｜ 信息核实日期：2026-09-01
+> 供应商：runway ｜ 版本：4.5 ｜ 信息核实日期：2026-09-02
 > 来源：[https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5](https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5)
 
 ## 能力
@@ -39,12 +39,19 @@
 | 成片最大时长 | 10 秒 |
 | 画面比例模式 | client_choice |
 
+## 榜单数据
+
+| 榜单 | 榜上名称 | 排名 | 分数 | ±95%CI | 样本/票 | 发布日期 | 开放权重 | API价格(USD/分) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| LMArena·文生 | runway-gen-4.5 | 25 | 1224 | 9 | 41583 | — | — | — |
+
+> 分数体系：AA=Elo，LMArena=Arena score，两者不可直接比较；价格是 AA「用创建者 API 默认设置生成 1 分钟 1080p 视频」的口径（同模型跨榜可能不同）。快照日期见各条 `rankings` 的 as_of 与条目 `fetched_at`。
+
 ## 价格
 
-- **币种**：待补充
 - **计费单位**：second
 
-| 清晰度 | 单价（积分/秒） |
+| 档位 | 单价 |
 | --- | --- |
 | 720p | 12 |
 

@@ -108,6 +108,17 @@ node skill/scripts/tools.mjs render models/{model_id}.json
 - 哪些字段 `_missing` 待人工补充（重点：任务类型约束、错误码、价格）
 - 若整页抓取失败：说明原因，不给半成品
 
+## 榜单快照录入（输入是榜单页面，不是参数文档时）
+
+当用户提供的是 Artificial Analysis / LMArena 等**评测榜单页面**（而非某模型参数文档），没有官方参数可核对时，按骨架模式录入：
+
+- 只写榜单能证明的字段：`provider`（榜单标注的厂商）、`version`、顶层 `_missing` 数组列出缺失字段；能力仅按**所属榜单**推断——文生榜 → `generate` + `scenes:["t2v"]`，图生榜 → `generate` + `inputs:["reference_image"]`，编辑榜 → `edit`，多榜取并集。
+- 榜单行级数据全部收进新字段 `rankings`（每行一个榜单行：榜单、榜上名称、排名、分数、CI、样本/票、发布日期、开放权重、美元价格、快照日期 `as_of`、榜单 URL）。`rankings` 是第三方评测快照，**不是**厂商计费（`pricing` 仍留 `_missing`）。
+- 分数体系 AA=Elo、LMArena=Arena score，两者不可比，照录不换算；`open_weights` 仅在榜单明确标注开放权重/开源许可时置 `true`，否则 `null`。
+- `ability.note` 写清证据来源与未核实项；`source_url` 用榜单页。
+- 同一系列在榜单里拆成多行（不同分辨率档/变体/发布日期）时，按系列合并成一条目，多行都进 `rankings`。
+- 校验与渲染命令不变（`rankings` 已纳入 validate / render）。渲染出的 md 会多出「榜单数据」一节。
+
 ## 可选：推送飞书
 
 ```bash

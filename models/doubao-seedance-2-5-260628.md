@@ -1,6 +1,6 @@
 # doubao-seedance-2-5-260628
 
-> 供应商：volcengine ｜ 版本：2.5 ｜ 信息核实日期：2026-09-01
+> 供应商：volcengine ｜ 版本：2.5 ｜ 信息核实日期：2026-09-02
 > 来源：[https://docs.volcengine.com/docs/82379/2607688?lang=zh](https://docs.volcengine.com/docs/82379/2607688?lang=zh)
 
 ## 能力
@@ -79,6 +79,16 @@
 | --- | --- |
 | 成片最大时长 | 30 秒 |
 | 画面比例模式 | client_choice |
+
+## 榜单数据
+
+| 榜单 | 榜上名称 | 排名 | 分数 | ±95%CI | 样本/票 | 发布日期 | 开放权重 | API价格(USD/分) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| LMArena·图生 | dreamina-seedance-2.5-720p | 3 | 1483 | 12 | 2944 | — | — | — |
+| LMArena·文生 | dreamina-seedance-2.5-720p | 5 | 1476 | 14 | 2121 | — | — | — |
+| LMArena·编辑 | dreamina-seedance-2.5-720p | 2 | 1410 | 26 | 429 | — | — | — |
+
+> 分数体系：AA=Elo，LMArena=Arena score，两者不可直接比较；价格是 AA「用创建者 API 默认设置生成 1 分钟 1080p 视频」的口径（同模型跨榜可能不同）。快照日期见各条 `rankings` 的 as_of 与条目 `fetched_at`。
 
 ## 价格
 

@@ -1,0 +1,54 @@
+{
+  "model_id": "agnes-video-2-5",
+  "provider": "sapiens",
+  "version": "2.5",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+  "ability": {
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "scenes": [
+      "t2v"
+    ],
+    "note": "能力与输入仅依据榜单可证明部分推断（AA 图生榜、AA 文生榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。"
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 25,
+      "label": "Agnes-Video-2.5",
+      "score": 1034,
+      "ci": 8,
+      "samples": 5999,
+      "release_date": "2026-08",
+      "price_usd_per_min": 1.5,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 21,
+      "label": "Agnes-Video-2.5",
+      "score": 1080,
+      "ci": 9,
+      "samples": 5793,
+      "release_date": "2026-08",
+      "price_usd_per_min": 1.5,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    }
+  ],
+  "_missing": [
+    "input_limits",
+    "rules",
+    "errors",
+    "output_limits",
+    "pricing"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "model_id": "grok-imagine-video-1-5",
+  "provider": "spacexai",
+  "version": "1.5",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+  "ability": {
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "scenes": [],
+    "note": "能力与输入仅依据榜单可证明部分推断（AA 图生榜、LMArena 图生榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。 LMArena 榜单页在本机网络环境无法直接访问验证，url 暂取主入口 https://lmarena.ai/leaderboard/video（含图生/文生/视频编辑三个标签页）。"
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 5,
+      "label": "grok-imagine-video-1.5",
+      "score": 1109,
+      "ci": 7,
+      "samples": 6366,
+      "release_date": "2026-05",
+      "price_usd_per_min": 8.4,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 6,
+      "label": "grok-imagine-video-1.5-720p",
+      "score": 1459,
+      "ci": 5,
+      "samples": 111667,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ],
+  "_missing": [
+    "input_limits",
+    "rules",
+    "errors",
+    "output_limits",
+    "pricing"
+  ]
+}

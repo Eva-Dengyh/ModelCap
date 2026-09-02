@@ -1,0 +1,107 @@
+{
+  "model_id": "grok-imagine-video",
+  "provider": "spacexai",
+  "version": "1.0",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+  "ability": {
+    "tasks": [
+      "generate",
+      "edit"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "scenes": [
+      "t2v"
+    ],
+    "note": "能力与输入仅依据榜单可证明部分推断（AA 图生榜、AA 文生榜、LMArena 图生榜、LMArena 文生榜、LMArena 视频编辑榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。 LMArena 榜单页在本机网络环境无法直接访问验证，url 暂取主入口 https://lmarena.ai/leaderboard/video（含图生/文生/视频编辑三个标签页）。"
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 14,
+      "label": "grok-imagine-video",
+      "score": 1076,
+      "ci": 6,
+      "samples": 17540,
+      "release_date": "2026-01",
+      "price_usd_per_min": 4.2,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 25,
+      "label": "grok-imagine-video",
+      "score": 1062,
+      "ci": 5,
+      "samples": 19111,
+      "release_date": "2026-01",
+      "price_usd_per_min": 4.2,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 10,
+      "label": "grok-imagine-video-720p",
+      "score": 1415,
+      "ci": 4,
+      "samples": 528693,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 14,
+      "label": "grok-imagine-video-480p",
+      "score": 1384,
+      "ci": 8,
+      "samples": 19424,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 16,
+      "label": "grok-imagine-video-720p",
+      "score": 1344,
+      "ci": 7,
+      "samples": 157732,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-video-edit",
+      "rank": 7,
+      "label": "grok-imagine-video",
+      "score": 1258,
+      "ci": 10,
+      "samples": 13724,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-27",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ],
+  "_missing": [
+    "input_limits",
+    "rules",
+    "errors",
+    "output_limits",
+    "pricing"
+  ]
+}

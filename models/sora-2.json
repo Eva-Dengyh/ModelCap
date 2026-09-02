@@ -1,0 +1,115 @@
+{
+  "model_id": "sora-2",
+  "provider": "openai",
+  "version": "2",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://platform.openai.com/docs/api-reference/videos/create",
+  "ability": {
+    "tasks": [
+      "generate",
+      "edit",
+      "extend"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "scenes": [
+      "t2v",
+      "i2v-first-frame"
+    ],
+    "capabilities": [],
+    "note": "⚠️ 官方 SDK 标注：Sora API 将于 2026-09-24 永久下线（\"scheduled to permanently shut down on September 24, 2026\"，openai SDK 视频方法 @deprecated），集成前务必确认。官方文档页当前不可达（403），本条目字段按官方 openai SDK（openai 3.7.0 / openai-node，与官方 OpenAPI spec 同源）核实。API 模型值：sora-2 / sora-2-pro（另快照 sora-2-2025-10-06 / sora-2-pro-2025-10-06 / sora-2-2025-12-08，即榜单所谓 Sora 2 (December)）。端点：POST /videos（生成）、/videos/edits（编辑）、/videos/extensions（延长）、/videos/{id}/remix、/videos/characters（角色）。全部为异步 job（status: queued/in_progress/completed/failed）。"
+  },
+  "rankings": [
+    {
+      "board": "aa-t2v",
+      "rank": 14,
+      "label": "Sora 2 (December)",
+      "score": 1093,
+      "ci": 9,
+      "samples": 4910,
+      "release_date": "2025-12",
+      "price_usd_per_min": 6,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 22,
+      "label": "Sora 2 Pro",
+      "score": 1077,
+      "ci": 9,
+      "samples": 4937,
+      "release_date": "2025-09",
+      "price_usd_per_min": 30,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 9,
+      "label": "sora-2-pro",
+      "score": 1365,
+      "ci": 7,
+      "samples": 48782,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 17,
+      "label": "sora-2",
+      "score": 1341,
+      "ci": 6,
+      "samples": 65433,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ],
+  "_missing": [
+    "input_limits",
+    "rules",
+    "errors",
+    "output_limits",
+    "pricing"
+  ],
+  "input_limits": {
+    "_missing": true
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 4,
+        "max": 12,
+        "step": 4
+      },
+      "note": "duration 仅允许 {4,8,12}，默认 4。无\"分辨率字符串\"参数，而是固定尺寸 size：允许 720x1280（默认）/1280x720/1024x1792/1792x1024（对应 9:16 / 16:9 / ≈4:7 / ≈7:4）。图生：单个 input_reference（file_id 或 image_url）。无 aspect_ratio/duration_mode/ratio_mode/generate_audio 等参数。SDK 未暴露音频生成参数。"
+    },
+    "edit": {
+      "note": "POST /videos/edits：prompt + 源视频（已完成视频 id 或文件上传），无时长/尺寸参数。"
+    },
+    "extend": {
+      "duration_seconds": {
+        "min": 4,
+        "max": 20,
+        "step": 4
+      },
+      "note": "POST /videos/extensions：在已完成视频后追加；新增段时长仅允许 {4,8,12,16,20}；返回体 seconds 为拼接后总时长。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 12
+  },
+  "pricing": null,
+  "errors": {
+    "note": "官方错误码表不可达（platform.openai.com 403）。SDK 侧仅见 job 四态 status 与 Video.error{code,message} 结构，未映射到标准语义。AA 榜单的 $6–30/分钟为第三方测算，非官方计费。"
+  }
+}

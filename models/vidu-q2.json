@@ -2,7 +2,7 @@
   "model_id": "vidu-q2",
   "provider": "shengshu",
   "version": "q2",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://docs.platform.vidu.com/334383376e0",
   "ability": {
     "tasks": [
@@ -179,5 +179,33 @@
       "standard": "provider_failed",
       "user_message": "服务端内部错误，请稍后重试"
     }
-  }
+  },
+  "rankings": [
+    {
+      "board": "lmarena-i2v",
+      "rank": 31,
+      "label": "vidu-q2-turbo",
+      "score": 1243,
+      "ci": 17,
+      "samples": 2509,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 37,
+      "label": "vidu-q2-pro",
+      "score": 1223,
+      "ci": 17,
+      "samples": 2614,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ]
 }

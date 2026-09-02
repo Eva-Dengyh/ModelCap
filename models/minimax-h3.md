@@ -1,6 +1,6 @@
 # minimax-h3
 
-> 供应商：minimax ｜ 版本：h3 ｜ 信息核实日期：2026-09-01
+> 供应商：minimax ｜ 版本：h3 ｜ 信息核实日期：2026-09-02
 > 来源：[https://platform.minimax.io/docs/api-reference/video-generation-v2-create](https://platform.minimax.io/docs/api-reference/video-generation-v2-create)
 
 ## 能力
@@ -47,6 +47,19 @@
 | --- | --- |
 | 成片最大时长 | 15 秒 |
 | 画面比例模式 | client_choice |
+
+## 榜单数据
+
+| 榜单 | 榜上名称 | 排名 | 分数 | ±95%CI | 样本/票 | 发布日期 | 开放权重 | API价格(USD/分) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| AA·图生 | MiniMax H3 | 3 | 1186 | 8 | 7308 | 2026-07 | 开放权重 | 7.80 |
+| AA·文生 | MiniMax H3 | 4 | 1227 | 7 | 8929 | 2026-07 | 开放权重 | 7.80 |
+| AA·编辑 | MiniMax H3 | 2 | 1129 | 5 | 12936 | 2026-07 | 开放权重 | 7.80 |
+| LMArena·图生 | minimax-h3 | 1 | 1494 | 6 | 27308 | — | 开放权重 | — |
+| LMArena·文生 | minimax-h3 | 6 | 1460 | 10 | 5813 | — | 开放权重 | — |
+| LMArena·编辑 | minimax-h3 | 3 | 1392 | 19 | 962 | — | 开放权重 | — |
+
+> 分数体系：AA=Elo，LMArena=Arena score，两者不可直接比较；价格是 AA「用创建者 API 默认设置生成 1 分钟 1080p 视频」的口径（同模型跨榜可能不同）。快照日期见各条 `rankings` 的 as_of 与条目 `fetched_at`。
 
 ## 价格
 

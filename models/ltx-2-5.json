@@ -1,0 +1,176 @@
+{
+  "model_id": "ltx-2-5",
+  "provider": "lightricks",
+  "version": "2.5",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://docs.ltx.io/models/ltx-2-5",
+  "ability": {
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image",
+      "audio"
+    ],
+    "audio": true,
+    "scenes": [
+      "t2v",
+      "i2v-first-frame",
+      "i2v-first-last-frame"
+    ],
+    "capabilities": [
+      "multi-shot",
+      "camera-control"
+    ],
+    "note": "官方 API 两档 ltx-2-5-fast / ltx-2-5-pro（榜单行即这两档）；2026-08-11 发布，同时有开放权重（HF Lightricks/LTX-2.5，gated）与官方托管 API（api.ltx.io）。支持文生/图生（含末帧插值 last_frame_uri）/音频驱动（audio-to-video，非 scenes 枚举值，经 inputs.audio 表达）。fast 最高 4K、pro 最高 1080p；生成音频默认开（generate_audio 默认 true，可关）；原生多镜头；camera_motion 参数控制运镜。开放权重：Distilled/DFR 两条本地管线、LTX-2.x Community License（营收 ≥$10M 实体需付费商用授权）、本地最低显存官方两处口径不一致（16GB vs 32GB+）。"
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 23,
+      "label": "LTX-2.5 Fast",
+      "score": 1044,
+      "ci": 9,
+      "samples": 2722,
+      "release_date": "2026-08",
+      "price_usd_per_min": 7.8,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-i2v",
+      "rank": 26,
+      "label": "LTX-2.5 Pro",
+      "score": 1013,
+      "ci": 9,
+      "samples": 2586,
+      "release_date": "2026-08",
+      "price_usd_per_min": 10.2,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 26,
+      "label": "LTX-2.5 Fast",
+      "score": 1060,
+      "ci": 9,
+      "samples": 2726,
+      "release_date": "2026-08",
+      "price_usd_per_min": 7.8,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 27,
+      "label": "LTX-2.5 Pro",
+      "score": 1060,
+      "ci": 9,
+      "samples": 2792,
+      "release_date": "2026-08",
+      "price_usd_per_min": 10.2,
+      "open_weights": true,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    }
+  ],
+  "input_limits": {
+    "max_reference_images": 2,
+    "max_reference_audios": 1,
+    "image": {
+      "max_bytes": 15728640,
+      "formats": [
+        "png",
+        "jpeg",
+        "jpg",
+        "webp"
+      ]
+    },
+    "_missing": true
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 6,
+        "max": 20,
+        "step": 2
+      },
+      "resolution": [
+        "720p",
+        "1080p",
+        "2k",
+        "4k"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "9:16"
+      ],
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": true,
+      "note": "时长/分辨率/fps 支持矩阵：fast 在 720p/1080p @24/25fps 支持 6/8/10/12/14/16/18/20s，@48/50fps 与 1440p/4K 下仅 6/8/10s；pro 最高 1080p，720p/1080p @24/25/50fps 仅 6/8/10s（pro 不支持 48fps）。duration:null = auto（模型自选，不超过该档上限；不能与 last_frame_uri 同用）。分辨率只有 16:9/9:16 两种尺寸（fast 至 3840x2160/2160x3840，pro 至 1920x1080/1080x1920）；缺省时按输入图方向决定。generate_audio 默认 true（false=静音视频）。camera_motion：dolly_in/out、dolly_left/right、jib_up/down、static、focus_shift。Replicate 渠道 duration 列表（2~20s）与官方矩阵（6s 起）不一致，以官方为准。开放权重本地：默认 1024x1536@24fps，帧数须满足 8k+1 网格、宽高须被 64 整除（2x 上采样须 128）。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 20,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "pricing": {
+    "currency": "USD",
+    "unit": "second",
+    "tiers": {
+      "720p": 0.09,
+      "1080p": 0.13,
+      "2k": 0.19,
+      "4k": 0.3
+    },
+    "note": "ltx-2-5-fast 按输出视频秒计费（t2v/i2v/a2v 同价；a2v 按输入音轨秒计）：720p $0.09/s、1080p $0.13/s、1440p(2K) $0.19/s、4K $0.30/s。ltx-2-5-pro：720p $0.12/s、1080p $0.17/s（pro 无更高档）。AA 榜单 1080p 每分钟口径 $7.80(fast)/$10.20(pro) 恰为官方单价×60，互证一致。开放权重本地自部署无此价格。"
+  },
+  "errors": {
+    "invalid_request_error": {
+      "standard": "invalid_parameter",
+      "user_message": "请求参数无效"
+    },
+    "authentication_error": {
+      "standard": "access_denied",
+      "user_message": "鉴权失败，请检查 API Key"
+    },
+    "insufficient_funds_error": {
+      "standard": "settlement_failed",
+      "user_message": "账户余额不足"
+    },
+    "not_found_error": {
+      "standard": "invalid_parameter",
+      "user_message": "请求的资源不存在"
+    },
+    "content_filtered_error": {
+      "standard": "content_violation.safety",
+      "user_message": "内容被安全策略过滤"
+    },
+    "concurrency_limit_error": {
+      "standard": "quota_exceeded",
+      "user_message": "超出并发限制，可重试"
+    },
+    "rate_limit_error": {
+      "standard": "quota_exceeded",
+      "user_message": "触发限流，可重试"
+    },
+    "api_error": {
+      "standard": "provider_failed",
+      "user_message": "服务内部错误，可重试"
+    },
+    "service_unavailable": {
+      "standard": "provider_failed",
+      "user_message": "服务不可用，可重试"
+    },
+    "overloaded_error": {
+      "standard": "provider_failed",
+      "user_message": "服务过载，可重试"
+    },
+    "note": "错误响应形如 {\"type\":\"error\",\"error\":{\"type\":\"error_type\",\"message\":...}}；开放权重本地自推理无 API 错误码。"
+  }
+}

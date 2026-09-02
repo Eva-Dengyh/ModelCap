@@ -1,0 +1,144 @@
+{
+  "model_id": "hailuo-2-3",
+  "provider": "minimax",
+  "version": "2.3",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://platform.minimax.io/docs/api-reference/video-generation-t2v",
+  "ability": {
+    "tasks": [
+      "generate"
+    ],
+    "inputs": [
+      "reference_image"
+    ],
+    "audio": false,
+    "scenes": [
+      "t2v",
+      "i2v-first-frame"
+    ],
+    "capabilities": [
+      "camera-control"
+    ],
+    "note": "官方 API 模型名 MiniMax-Hailuo-2.3，2025-10-28 发布（官方 news/minimax-hailuo-23）；走 MiniMax 国际站 v1 端点 POST https://api.minimax.io/v1/video_generation（platform.minimax.io 现将其列为 Legacy Models，主推 H3/H3 Max 的 v2 端点，勿混）。仅支持 T2V 与 I2V（只认首帧 first_frame_image）：T2V 参数参考 /docs/api-reference/video-generation-t2v，I2V 参考 /docs/api-reference/video-generation-i2v；首尾帧（FL2V 仅 MiniMax-Hailuo-02）、主体参考（S2V 仅 S2V-01）均不支持，无音频生成（无 generate_audio/音频输入参数）。镜头控制内置于 prompt 的 [command] 语法（15 种命令）。"
+  },
+  "input_limits": {
+    "max_reference_images": 1,
+    "image": {
+      "max_bytes": 20971520,
+      "formats": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "min_side_px": 300,
+      "min_ratio": 0.4,
+      "max_ratio": 2.5
+    },
+    "additional_prompt": {
+      "max_chars": 2000
+    }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 6,
+        "max": 10,
+        "step": null
+      },
+      "resolution": [
+        "768p",
+        "1080p"
+      ],
+      "generate_audio": false,
+      "note": "时长/分辨率档位耦合（原文表）：MiniMax-Hailuo-2.3 在 768P 下时长可选 6 或 10 秒、1080P 下仅 6 秒；分辨率 6s 档默认 768P（可改 1080P），10s 档仅 768P。prompt 上限 2000 字符。API 不暴露画面比例参数（无 aspect_ratio），比例由输出档位决定，非客户端可选。prompt_optimizer 默认 true，fast_pretreatment 默认 false（仅 Hailuo-2.3 与 Hailuo-02 生效）。I2V 首帧图要求 JPG/JPEG/PNG/WebP、<20MB、短边 >300px、宽高比 2:5~5:2。成片 24fps（models-intro 规格表）。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 10
+  },
+  "rankings": [
+    {
+      "board": "lmarena-i2v",
+      "rank": 27,
+      "label": "hailuo-2.3",
+      "score": 1262,
+      "ci": 5,
+      "samples": 357579,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 30,
+      "label": "hailuo-2.3",
+      "score": 1205,
+      "ci": 6,
+      "samples": 79981,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ],
+  "pricing": {
+    "currency": "USD",
+    "unit": "request",
+    "tiers": {
+      "768p·6s": 0.28,
+      "768p·10s": 0.56,
+      "1080p·6s": 0.49
+    },
+    "note": "Pay-as-you-go（Legacy 价目，按条成片计费，非按秒）：MiniMax-Hailuo-2.3 每条 768P·6s=$0.28、768P·10s=$0.56、1080P·6s=$0.49。官方另推 Video Packages 订阅包按 video points 扣点（Hailuo-2.3 与 Hailuo-02 同档：768P·6s=1 点、768P·10s=2 点、1080P·6s=2 点）；订阅包仅支持 Hailuo 系列、MiniMax H3 暂不支持。生成失败或触发安全审核不扣费。2.3-Fast 为独立 I2V 专属模型另价（0.19/0.32/0.33），未并入本条。"
+  },
+  "errors": {
+    "1000": {
+      "standard": "provider_failed",
+      "user_message": "未知错误，请稍后重试"
+    },
+    "1001": {
+      "standard": "timeout",
+      "user_message": "请求超时，请稍后重试"
+    },
+    "1002": {
+      "standard": "quota_exceeded",
+      "user_message": "触发限流，请稍后重试"
+    },
+    "1004": {
+      "standard": "access_denied",
+      "user_message": "鉴权失败，请检查 API Key 是否正确且有效"
+    },
+    "1008": {
+      "standard": "settlement_failed",
+      "user_message": "账户余额不足，请充值后重试"
+    },
+    "1024": {
+      "standard": "provider_failed",
+      "user_message": "服务内部错误，请稍后重试"
+    },
+    "1026": {
+      "standard": "content_violation.safety",
+      "user_message": "输入（prompt/图片）检出敏感内容，请修改"
+    },
+    "1027": {
+      "standard": "content_violation.safety",
+      "user_message": "生成结果检出敏感内容，请修改输入后重试"
+    },
+    "1039": {
+      "standard": "quota_exceeded",
+      "user_message": "触发 Token/请求限额，请稍后重试"
+    },
+    "2013": {
+      "standard": "invalid_parameter",
+      "user_message": "请求参数无效，请按文档要求检查参数"
+    },
+    "2049": {
+      "standard": "access_denied",
+      "user_message": "API Key 无效，请检查后重试"
+    }
+  }
+}

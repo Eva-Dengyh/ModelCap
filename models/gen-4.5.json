@@ -2,7 +2,7 @@
   "model_id": "gen-4.5",
   "provider": "runway",
   "version": "4.5",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5",
   "ability": {
     "tasks": [
@@ -134,5 +134,20 @@
       "user_message": "服务内部错误，请稍后重试"
     },
     "note": "来源 Runway Dev API 文档（docs.dev.runwayml.com/errors）。HTTP 状态码为接口级错误；failureCode 为任务失败码：SAFETY.INPUT.* 表示输入未通过内容审核（不退还 credits），SAFETY.OUTPUT.* 表示输出未通过审核；INTERNAL.BAD_OUTPUT.* 为内部质量拒收。"
-  }
+  },
+  "rankings": [
+    {
+      "board": "lmarena-t2v",
+      "rank": 25,
+      "label": "runway-gen-4.5",
+      "score": 1224,
+      "ci": 9,
+      "samples": 41583,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ]
 }

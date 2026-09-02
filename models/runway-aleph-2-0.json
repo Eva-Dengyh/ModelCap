@@ -1,0 +1,133 @@
+{
+  "model_id": "runway-aleph-2-0",
+  "provider": "runway",
+  "version": "2.0",
+  "fetched_at": "2026-09-02",
+  "source_url": "https://docs.dev.runwayml.com/guides/models",
+  "ability": {
+    "tasks": [
+      "edit"
+    ],
+    "inputs": [
+      "reference_video",
+      "reference_image"
+    ],
+    "scenes": [],
+    "capabilities": [
+      "multi-shot"
+    ],
+    "note": "Runway 的 in-context 视频编辑模型 Aleph 2.0（API 模型串 aleph2；旧 id gen4_aleph 已于 2026-07-30 停用，废弃别名 aleph2_alpha；AA 榜 \"Aleph 2.0\"、LMArena 榜 runway-gen4-aleph 即此模型）。编辑一帧改动会传播到整段并跨镜头保持背景/光照不变；支持局部时间范围编辑与画幅扩展（expand/outpaint）。不生成新时长（成片时长=源视频时长，≤30s）。音频行为官方未明确（仅 ProRes 输出含 PCM 音轨为间接证据）。编辑所需关键帧图通常由图像模型先生成（另行计费）。"
+  },
+  "rankings": [
+    {
+      "board": "aa-video-edit",
+      "rank": 7,
+      "label": "Aleph 2.0",
+      "score": 1013,
+      "ci": 5,
+      "samples": 20781,
+      "release_date": "2026-05",
+      "price_usd_per_min": 16.8,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
+    },
+    {
+      "board": "lmarena-video-edit",
+      "rank": 10,
+      "label": "runway-gen4-aleph",
+      "score": 1182,
+      "ci": 9,
+      "samples": 9818,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-27",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ],
+  "input_limits": {
+    "reference_videos": {
+      "min": 1,
+      "max": 1
+    },
+    "max_reference_images": 5,
+    "video": {
+      "min_duration_seconds": 2,
+      "max_duration_seconds": 30
+    },
+    "additional_prompt": {
+      "max_chars": 1000
+    },
+    "_missing": true
+  },
+  "rules": {
+    "edit": {
+      "duration_mode": "inherit_from_reference_video",
+      "note": "Aleph 2.0（aleph2）。输入源视频 2–30s（超 30s 自动裁剪）、480p–1080p、24–30fps、常规画幅、镜头切换 ≤10 个（11+ 会报错）。prompt ≤1000 字符可空；可配 ≤5 个关键帧图（带 seconds 时间戳，0–30s），每条可加 range 做局部编辑（局部编辑输出恒为 MP4）。输出时长与分辨率=输入（≤1080p），无 duration/分辨率参数、不可续写加长；画幅扩展走独立 expand/outpaint（targetAspectRatio：16:9/4:3/3:2/1:1/2:3/3:4/9:16/21:9）。无原生 HDR（可链 SDR→HDR）。seed 可选、contentModeration.publicFigureThreshold 可选。ProRes/PNG 序列/10-bit 输出为加价格式（见 pricing）。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 30,
+    "aspect_ratio_mode": "inherit_from_reference_video"
+  },
+  "pricing": {
+    "currency": "USD",
+    "unit": "second",
+    "tiers": {
+      "aleph2": 0.28
+    },
+    "note": "官方 API 28 credits/s、单笔最低 56 credits；credit=$0.01 → $0.28/s ≈ $16.8/分钟（与 AA 榜 price_usd_per_min=16.80 互证一致；单次 ≤30s 封顶 840 credits）。ProRes/PNG 序列 +5 credits/s；10-bit（sdr_rec709_10bit）档 +20 credits/s（>4MP 时 40）。app 内 Edit Studio 关键帧图另计（Gen-4 Image 8/图、Nano Banana Pro 20/图、GPT Image 2 5/图）。web credits 与 API credits 池独立。"
+  },
+  "errors": {
+    "400": {
+      "standard": "invalid_parameter",
+      "user_message": "请求体输入有问题（JSON 含 error 字段）"
+    },
+    "401": {
+      "standard": "access_denied",
+      "user_message": "API key 无效"
+    },
+    "404": {
+      "standard": "invalid_parameter",
+      "user_message": "资源不存在"
+    },
+    "405": {
+      "standard": "invalid_parameter",
+      "user_message": "方法不支持"
+    },
+    "429": {
+      "standard": "quota_exceeded",
+      "user_message": "请求过频/超限，可重试"
+    },
+    "504": {
+      "standard": "provider_failed",
+      "user_message": "服务过载，可重试"
+    },
+    "502/503": {
+      "standard": "provider_failed",
+      "user_message": "服务削峰，可重试"
+    },
+    "SAFETY.INPUT.*": {
+      "standard": "content_violation.safety",
+      "user_message": "输入触发安全策略（不退积分）"
+    },
+    "SAFETY.OUTPUT.*": {
+      "standard": "content_violation.safety",
+      "user_message": "输出触发安全策略"
+    },
+    "INTERNAL.BAD_OUTPUT.*": {
+      "standard": "output_processing_failed",
+      "user_message": "输出处理异常，可调整后重试"
+    },
+    "INPUT_PREPROCESSING.*": {
+      "standard": "provider_failed",
+      "user_message": "输入预处理内部错误，可重试"
+    },
+    "ASSET.INVALID": {
+      "standard": "invalid_parameter",
+      "user_message": "输入素材不符合要求（尺寸/时长/性质）"
+    },
+    "note": "Runway 不按模型区分错误码，此为全 API 通用 HTTP 码 + 任务 failureCode 映射。"
+  }
+}

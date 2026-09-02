@@ -2,7 +2,7 @@
   "model_id": "doubao-seedance-2-0-260128",
   "provider": "volcengine",
   "version": "2.0",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://docs.volcengine.com/docs/82379/2291680?lang=zh",
   "ability": {
     "tasks": [
@@ -221,5 +221,85 @@
       "standard": "provider_failed",
       "user_message": "内部系统异常，请您稍后重试。"
     }
-  }
+  },
+  "rankings": [
+    {
+      "board": "aa-i2v",
+      "rank": 2,
+      "label": "Dreamina Seedance 2.0 720p",
+      "score": 1190,
+      "ci": 6,
+      "samples": 17684,
+      "release_date": "2026-03",
+      "price_usd_per_min": 9.07,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+    },
+    {
+      "board": "aa-t2v",
+      "rank": 5,
+      "label": "Dreamina Seedance 2.0 720p",
+      "score": 1221,
+      "ci": 5,
+      "samples": 24731,
+      "release_date": "2026-03",
+      "price_usd_per_min": 9.07,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-video-edit",
+      "rank": 6,
+      "label": "Dreamina Seedance 2.0 720p",
+      "score": 1040,
+      "ci": 5,
+      "samples": 23284,
+      "release_date": "2026-03",
+      "price_usd_per_min": 5.57,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
+    },
+    {
+      "board": "lmarena-i2v",
+      "rank": 4,
+      "label": "dreamina-seedance-2.0-720p",
+      "score": 1477,
+      "ci": 8,
+      "samples": 110372,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-t2v",
+      "rank": 4,
+      "label": "dreamina-seedance-2.0-720p",
+      "score": 1479,
+      "ci": 9,
+      "samples": 51266,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-26",
+      "url": "https://lmarena.ai/leaderboard/video"
+    },
+    {
+      "board": "lmarena-video-edit",
+      "rank": 5,
+      "label": "dreamina-seedance-2.0-720p",
+      "score": 1365,
+      "ci": 14,
+      "samples": 3852,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-27",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ]
 }

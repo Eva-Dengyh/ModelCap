@@ -2,7 +2,7 @@
   "model_id": "wan-3.0",
   "provider": "aliyun",
   "version": "3.0",
-  "fetched_at": "2026-09-01",
+  "fetched_at": "2026-09-02",
   "source_url": "https://help.aliyun.com/zh/model-studio/wan3-video-generation-api-reference",
   "ability": {
     "tasks": [
@@ -152,5 +152,46 @@
       "user_message": "参数冲突：reference_xx 与 first_frame/last_frame 不能同时传入"
     },
     "note": "页面仅列少量错误示例（InvalidApiKey、缺少异步头、InvalidParameter），未提供完整错误码表。"
-  }
+  },
+  "rankings": [
+    {
+      "board": "aa-t2v",
+      "rank": 2,
+      "label": "Wan 3.0",
+      "score": 1237,
+      "ci": 10,
+      "samples": 5529,
+      "release_date": "2026-08",
+      "price_usd_per_min": 12,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    },
+    {
+      "board": "aa-video-edit",
+      "rank": 1,
+      "label": "Wan 3.0",
+      "score": 1190,
+      "ci": 7,
+      "samples": 5258,
+      "release_date": "2026-08",
+      "price_usd_per_min": 12,
+      "open_weights": null,
+      "as_of": "2026-09-02",
+      "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
+    },
+    {
+      "board": "lmarena-video-edit",
+      "rank": 1,
+      "label": "wan3.0",
+      "score": 1414,
+      "ci": 26,
+      "samples": 463,
+      "release_date": null,
+      "price_usd_per_min": null,
+      "open_weights": null,
+      "as_of": "2026-08-27",
+      "url": "https://lmarena.ai/leaderboard/video"
+    }
+  ]
 }
