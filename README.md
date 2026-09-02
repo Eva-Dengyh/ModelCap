@@ -23,7 +23,7 @@ A machine-readable knowledge base of AI model capabilities — **one JSON entry 
 
 ## Tracked / Watched Models (video generation)
 
-> Curated heat-ranked shortlist of 20 video-generation entries — *not* one-to-one with `models/` anymore (the directory also holds leaderboard-snapshot entries, see below). The **Category** column splits them by capability — Text-to-Video / Image-to-Video / Video Edit; a model may belong to several categories, listed in one cell. The last column is the 2026-09-02 leaderboard snapshot (AA Elo / LMArena Arena score; two different scales — not comparable).
+> Curated heat-ranked shortlist of 20 video-generation entries. The **Category** column splits them by capability — Text-to-Video / Image-to-Video / Video Edit; a model may belong to several categories, listed in one cell. The last column is the 2026-09-02 leaderboard snapshot (AA Elo / LMArena Arena score; two different scales — not comparable).
 
 | Rank | Model | Company | Category | One-liner | Leaderboard (2026-09-02) |
 | --- | --- | --- | --- | --- | --- |
@@ -48,7 +48,7 @@ A machine-readable knowledge base of AI model capabilities — **one JSON entry 
 | 19 | Stable Video Diffusion | Stability AI | Image-to-Video | Open-source trailblazer, but company pivoted to audio; video line stalled | — |
 | 20 | MAGI-1 | Sand.ai | Text-to-Video, Image-to-Video, Video Edit | Open-source autoregressive video model; scaled autoregressive route | — (MAGI-2 Preview is added to `models/`) |
 
-> **Snapshot note (2026-09-02).** AA = Elo; LMArena = Arena score (different scales — not comparable). Prices are AA's "1 min 1080p video via creator API" convention (may differ across boards). Row-level detail (rank, CI, samples, release date, open weights, per-board URL) lives in each `models/*.json` under `rankings`, rendered into the model's `.md`. A further 38 leaderboard-listed model series that are **not** on this curated shortlist (e.g. Gemini Omni Flash, Sora 2, Veo 3, Wan 2.7, Vidu Q3…) are recorded as skeleton entries in `models/` — capability fields largely `_missing` until official parameter docs are added.
+> **Snapshot note (2026-09-02).** AA = Elo; LMArena = Arena score (different scales — not comparable). Prices are AA's "1 min 1080p video via creator API" convention (may differ across boards). Row-level detail (rank, CI, samples, release date, open weights, per-board URL) lives in each `models/*.json` under `rankings`, rendered into the model's `.md`. Beyond the 20 curated models, a further 30 leaderboard-listed model series (e.g. Gemini Omni Flash, Sora 2, Wan 2.7, Vidu Q3, Hailuo 2.3…) are recorded in `models/`, with parameters verified against official docs.
 
 ## Usage
 
