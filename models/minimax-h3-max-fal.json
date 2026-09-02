@@ -51,7 +51,12 @@
     "additional_prompt": {
       "max_chars": 50000
     },
-    "_missing": true
+    "_missing": true,
+    "note": "fal 模型页未给出输入图片（image_url 首帧 / end_image_url 尾帧）的格式、大小、边长与比例硬约束；无视频输入。",
+    "image": {
+      "_missing": true,
+      "note": "image_url/end_image_url 各至多 1 张；fal 页面未给出图片格式/大小/边长硬约束。"
+    }
   },
   "rules": {
     "generate": {

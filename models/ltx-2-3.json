@@ -85,9 +85,13 @@
         "jpeg",
         "jpg",
         "webp"
-      ]
-    },
-    "_missing": true
+      ],
+      "min_side_px": null,
+      "max_side_px": null,
+      "min_ratio": null,
+      "max_ratio": null,
+      "note": "来源 docs.ltx.io/input-formats：PNG/JPEG/JPG/WEBP，HTTPS URL 单张 ≤15MB（Data URI base64 ≤7MB）；最小/最大边长与宽高比官方未给出。generate 端点无参考视频输入。"
+    }
   },
   "rules": {
     "generate": {

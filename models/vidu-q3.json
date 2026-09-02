@@ -97,13 +97,16 @@
         "jpg",
         "webp"
       ],
+      "min_side_px": 128,
+      "max_side_px": null,
       "min_ratio": 0.25,
       "max_ratio": 4
     },
     "additional_prompt": {
       "max_chars": 5000
     },
-    "_missing": true
+    "_missing": true,
+    "note": "最短边 ≥128×128 官方仅对 reference2video 参考图给出（i2v 首帧/首尾帧图未给边长下限）；所有图片接口均未给出最大边长（仅 50MB 与宽高比 1:4~4:1 限制）。模型不支持输入参考视频。"
   },
   "rules": {
     "generate": {

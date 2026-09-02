@@ -39,12 +39,17 @@
         "jpeg",
         "png",
         "webp"
-      ]
+      ],
+      "max_bytes": null,
+      "min_side_px": null,
+      "max_side_px": null,
+      "min_ratio": null,
+      "max_ratio": null,
+      "note": "help 文档仅给出图片格式，未给大小/边长/比例硬约束；Gen-4 API 文档给出宽高比 0.5~2.358、URL ≤16MB，但 Turbo 为 web 档位不直接适用，故不填。"
     },
     "additional_prompt": {
       "max_chars": 1000
-    },
-    "_missing": true
+    }
   },
   "rules": {
     "generate": {

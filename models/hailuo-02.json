@@ -99,13 +99,15 @@
         "webp"
       ],
       "min_side_px": 300,
+      "max_side_px": null,
       "min_ratio": 0.4,
       "max_ratio": 2.5
     },
     "additional_prompt": {
       "max_chars": 2000
     },
-    "_missing": true
+    "_missing": true,
+    "note": "官方仅给出短边 >300px、宽高比 2:5~5:2、<20MB、JPG/JPEG/PNG/WebP；未给出图片最大边长。模型不支持输入参考视频。"
   },
   "rules": {
     "generate": {

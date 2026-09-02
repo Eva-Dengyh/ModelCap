@@ -91,8 +91,7 @@
       "max_side_px": 6000,
       "min_ratio": 0.4,
       "max_ratio": 2.5
-    },
-    "_missing": true
+    }
   },
   "rules": {
     "generate": {

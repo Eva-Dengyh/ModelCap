@@ -52,14 +52,35 @@
       "max": 1
     },
     "max_reference_images": 5,
+    "image": {
+      "formats": [
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "max_bytes": null,
+      "min_side_px": null,
+      "max_side_px": null,
+      "min_ratio": null,
+      "max_ratio": null,
+      "note": "关键帧图官方未单独枚举格式，按 Runway 通用图片输入格式填 JPEG/PNG/WebP；图片大小/边长/比例上限未给出。"
+    },
     "video": {
       "min_duration_seconds": 2,
-      "max_duration_seconds": 30
+      "max_duration_seconds": 30,
+      "formats": [
+        "mp4",
+        "mov",
+        "mkv",
+        "webm",
+        "3gp",
+        "ogv"
+      ],
+      "note": "输入源视频 2–30s、≤30 FPS、分辨率继承（≤1080p）；格式为 Runway 通用视频输入（MP4/QuickTime/Matroska/WebM/3GPP/Ogg）。"
     },
     "additional_prompt": {
       "max_chars": 1000
-    },
-    "_missing": true
+    }
   },
   "rules": {
     "edit": {

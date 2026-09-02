@@ -57,13 +57,14 @@
         "png"
       ],
       "min_side_px": 300,
+      "max_side_px": null,
       "min_ratio": 0.4,
       "max_ratio": 2.5
     },
     "additional_prompt": {
       "max_chars": 2500
     },
-    "_missing": true
+    "note": "官方未提供图片最大边长（max_side_px）约束；该模型不支持视频参考输入，故无 video 约束。"
   },
   "rules": {
     "generate": {

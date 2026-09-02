@@ -55,7 +55,18 @@
   "input_limits": {
     "max_reference_images": 10,
     "max_reference_videos": 1,
-    "_missing": true
+    "image": {
+      "_missing": true,
+      "note": "i2v 关键帧图以 URL 或 base64 传入（1–10 张，可钉首/尾/中间时刻），官方未给出图片格式、大小、边长与比例硬约束。"
+    },
+    "video": {
+      "min_duration_seconds": null,
+      "max_duration_seconds": null,
+      "formats": [
+        "mp4"
+      ],
+      "note": "v2v 续写 start_video 为 URL 或 base64 的 mp4；官方未给出输入视频时长上限。"
+    }
   },
   "rules": {
     "generate": {

@@ -109,13 +109,17 @@
       "min": 0,
       "max": 3
     },
+    "image": {
+      "_missing": true,
+      "note": "官方 Omni 文档未给出输入参考图片的格式/大小/像素硬约束（参考图以 <IMAGE_REF_N> 标签引用）。"
+    },
     "video": {
       "max_duration_seconds": 3,
       "formats": [
         "mp4"
-      ]
-    },
-    "_missing": true
+      ],
+      "note": "参考视频最多 3 段、每段 ≤3s（官方：Reference up to three seconds of video），格式官方示例为 mp4，未单独枚举。"
+    }
   },
   "rules": {
     "generate": {

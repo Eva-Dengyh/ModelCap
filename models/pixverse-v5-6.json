@@ -109,12 +109,16 @@
         "jpeg",
         "jpg"
       ],
-      "max_side_px": 10000
+      "min_side_px": null,
+      "max_side_px": 10000,
+      "min_ratio": null,
+      "max_ratio": null
     },
     "additional_prompt": {
       "max_chars": 5000
     },
-    "_missing": true
+    "_missing": true,
+    "note": "官方仅给出 <20MB、最大 10000px、png/webp/jpeg/jpg；未给出图片最短边与宽高比范围。v5.6 不支持输入参考视频。"
   },
   "rules": {
     "generate": {

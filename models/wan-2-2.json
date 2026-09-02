@@ -50,8 +50,9 @@
     "max_reference_images": 1,
     "image": {
       "_missing": true,
-      "note": "i2v 传单张首帧图（--image 参数）；模型卡未给出图片格式/大小/边长硬约束"
+      "note": "i2v 传单张首帧图（--image 参数）；模型卡未给出图片格式/大小/边长/比例硬约束"
     },
+    "note": "官方模型卡未给出图片硬约束（格式/大小/边长/比例均无），image 保留 _missing；该模型不支持视频参考输入（无 video 约束）。",
     "_missing": true
   },
   "rules": {

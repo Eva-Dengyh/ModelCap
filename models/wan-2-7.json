@@ -131,8 +131,7 @@
     },
     "additional_prompt": {
       "max_chars": 5000
-    },
-    "_missing": true
+    }
   },
   "rules": {
     "generate": {

@@ -59,12 +59,14 @@
         "webp"
       ],
       "min_side_px": 240,
-      "max_side_px": 8000
+      "max_side_px": 8000,
+      "min_ratio": null,
+      "max_ratio": null
     },
     "additional_prompt": {
       "max_chars": 1500
     },
-    "_missing": true
+    "note": "官方未提供图片宽高比（min_ratio/max_ratio）约束；该模型不支持视频参考输入，故无 video 约束。"
   },
   "rules": {
     "generate": {

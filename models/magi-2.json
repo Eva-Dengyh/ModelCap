@@ -35,7 +35,12 @@
     }
   ],
   "input_limits": {
-    "_missing": true
+    "_missing": true,
+    "note": "官方 README/模型卡未给出输入首帧图片的格式、大小、边长与比例硬约束（仅说明 I2V 接受一张首帧图）；无视频输入。",
+    "image": {
+      "_missing": true,
+      "note": "I2V 接受一张首帧图，官方未给出图片格式/大小/边长硬约束。"
+    }
   },
   "rules": {
     "generate": {
