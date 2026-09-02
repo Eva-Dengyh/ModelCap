@@ -30,6 +30,7 @@
       "max_bytes": 10485760,
       "formats": [
         "jpeg",
+        "jpg",
         "png"
       ],
       "min_side_px": 300,
@@ -39,7 +40,7 @@
     },
     "video": {
       "min_duration_seconds": 3,
-      "max_duration_seconds": 15,
+      "max_duration_seconds": 15.5,
       "formats": [
         "mp4",
         "mov"

@@ -25,17 +25,17 @@
   "rules": {
     "generate": {
       "duration_seconds": {
-        "max": 5
+        "max": 5.4
       },
       "resolution": [
         "480p"
       ],
       "generate_audio": false,
-      "note": "480p 基础模型，30fps，最长 5.4 秒（取整为 5 秒档）。示例推理 848×480、num_frames=31；帧数/分辨率可自定义，但官方未给出明确上限枚举。提示词由 T5-XXL 编码，未见文档化的 token 上限。"
+      "note": "480p 基础模型，30fps，最长 5.4 秒（162 帧）。示例推理 848×480、num_frames=31；帧数/分辨率可自定义，但官方未给出明确上限枚举。提示词由 T5-XXL 编码，未见文档化的 token 上限。"
     }
   },
   "output_limits": {
-    "max_duration_seconds": 5
+    "max_duration_seconds": 5.4
   },
   "errors": {
     "_missing": true,

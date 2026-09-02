@@ -36,7 +36,8 @@
       },
       "resolution": [
         "720p",
-        "1080p"
+        "1080p",
+        "2k"
       ],
       "aspect_ratio": [
         "16:9",
@@ -49,7 +50,7 @@
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "generate_audio": true,
-      "note": "时长口径各来源不一：生成器默认 4s、教程 5~8s、FAQ 5~12s（此处取 4~12s）；百炼 1.1 版为 3~15s。分辨率 1080p（另有 720p 标准档），FAQ 所称“原生 2K”未获核实。图生视频首帧图硬约束（格式/大小/边长）开源模型卡未给出；百炼 1.1 为 jpeg/jpg/png/webp ≤20MB、单边 ≥300px、比例 2:5~5:2。"
+      "note": "时长口径各来源不一：生成器默认 4s、教程 5~8s、FAQ 5~12s（此处取 4~12s）；百炼 1.1 版为 3~15s。分辨率 720p/1080p/2k（官网 FAQ 明确原生 2K 输出），官网播放器默认档 480p（标准）。图生视频首帧图硬约束（格式/大小/边长）开源模型卡未给出；百炼 1.1 为 jpeg/jpg/png/webp ≤20MB、单边 ≥300px、比例 2:5~5:2。"
     }
   },
   "output_limits": {

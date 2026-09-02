@@ -105,7 +105,7 @@
           "description": "图片硬性约束。",
           "properties": {
             "max_bytes": { "type": ["integer", "null"] },
-            "formats": { "type": ["array", "null"], "items": { "enum": ["jpeg", "png", "webp", "bmp", "tiff", "gif", "heic", "heif"] } },
+            "formats": { "type": ["array", "null"], "items": { "enum": ["jpeg", "jpg", "png", "webp", "bmp", "tiff", "gif", "heic", "heif", "jxl"] } },
             "min_side_px": { "type": ["integer", "null"] },
             "max_side_px": { "type": ["integer", "null"] },
             "min_ratio": { "type": ["number", "null"] },
@@ -116,8 +116,8 @@
           "type": "object",
           "description": "参考视频约束。",
           "properties": {
-            "min_duration_seconds": { "type": ["integer", "null"] },
-            "max_duration_seconds": { "type": ["integer", "null"] },
+            "min_duration_seconds": { "type": ["number", "null"] },
+            "max_duration_seconds": { "type": ["number", "null"] },
             "formats": { "type": ["array", "null"], "items": { "type": "string" } }
           }
         },
@@ -141,9 +141,9 @@
               {
                 "type": "object",
                 "properties": {
-                  "min": { "type": "integer" },
-                  "max": { "type": "integer" },
-                  "step": { "type": "integer" }
+                  "min": { "type": "number" },
+                  "max": { "type": "number" },
+                  "step": { "type": "number" }
                 }
               },
               {
@@ -152,7 +152,7 @@
               }
             ]
           },
-          "resolution": { "type": ["array", "null"], "items": { "enum": ["480p", "720p", "1080p", "768p", "2k", "4k"] } },
+          "resolution": { "type": ["array", "null"], "items": { "enum": ["360p", "480p", "540p", "720p", "768p", "1080p", "2k", "4k"] } },
           "aspect_ratio": { "type": ["array", "null"], "items": { "type": "string" } },
           "ratio_mode": { "enum": ["inherit_from_reference_video", "client_choice"] },
           "duration_mode": { "enum": ["inherit_from_reference_video", "client_choice", "explicit"] },
@@ -174,7 +174,7 @@
       "type": "object",
       "description": "输出（成片）约束。",
       "properties": {
-        "max_duration_seconds": { "type": ["integer", "null"] },
+        "max_duration_seconds": { "type": ["number", "null"] },
         "aspect_ratio_mode": { "enum": ["inherit_from_reference_video", "client_choice"] },
         "max_file_bytes": { "type": ["integer", "null"] }
       }

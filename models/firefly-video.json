@@ -26,14 +26,15 @@
         "jpeg",
         "png",
         "webp",
-        "tiff"
+        "tiff",
+        "jxl"
       ],
       "max_bytes": 15728640,
       "min_side_px": null,
       "max_side_px": null,
       "min_ratio": null,
       "max_ratio": null,
-      "note": "来源官方 firefly-api.json：storage 上传接口 /v2/storage/image 给出图片格式 PNG/JPEG/WEBP/TIFF/JXL、单张上限 15MB（JXL 超出 schema 枚举未计入 formats）；视频生成接口 /v3/videos/generate 自身仅以 URL(uploadId) 传入图片，未单独给出像素/比例约束；仅允许 amazonaws.com/windows.net/dropboxusercontent.com/storage.googleapis.com 域名。"
+      "note": "来源官方 firefly-api.json：storage 上传接口 /v2/storage/image 给出图片格式 PNG/JPEG/WEBP/TIFF/JXL、单张上限 15MB；视频生成接口 /v3/videos/generate 自身仅以 URL(uploadId) 传入图片，未单独给出像素/比例约束；仅允许 amazonaws.com/windows.net/dropboxusercontent.com/storage.googleapis.com 域名。"
     }
   },
   "rules": {
@@ -43,6 +44,7 @@
         "max": 5
       },
       "resolution": [
+        "540p",
         "720p",
         "1080p"
       ],
@@ -53,7 +55,7 @@
       ],
       "ratio_mode": "client_choice",
       "duration_mode": "explicit",
-      "note": "时长固定 5 秒（接口描述「Generate a five second video」，无 duration 参数）。sizes 按宽高指定：16:9(1920x1080 / 1280x720 / 960x540)、9:16(1080x1920 / 720x1280 / 540x960)、1:1(1080x1080 / 720x720 / 540x540)，最高 1080P；另有 960x540（约 540P）档位，超出目录清晰度枚举。seeds 恰好 1 个；bitRateFactor 0-63（默认 18，建议 17-23）；videoSettings 支持运镜(8)、风格(10)、机位(5)、景别(5)。限流 4 RPM / 9000 RPD（按组织）。"
+      "note": "时长固定 5 秒（接口描述「Generate a five second video」，无 duration 参数）。sizes 按宽高指定：16:9(1920x1080 / 1280x720 / 960x540)、9:16(1080x1920 / 720x1280 / 540x960)、1:1(1080x1080 / 720x720 / 540x540)，最高 1080P；另有 960x540（约 540P）档位，已计入清晰度枚举。seeds 恰好 1 个；bitRateFactor 0-63（默认 18，建议 17-23）；videoSettings 支持运镜(8)、风格(10)、机位(5)、景别(5)。限流 4 RPM / 9000 RPD（按组织）。"
     }
   },
   "output_limits": {

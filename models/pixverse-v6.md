@@ -18,7 +18,7 @@
 | 图片格式 | jpeg、png、webp |
 | 图片最大边长 | 10000 |
 | 参考视频最大时长 | 30 秒 |
-| 参考视频格式 | mp4、mov |
+| 参考视频格式 | mp4、mov、webm |
 | 补充提示词上限 | 5000 字 |
 
 ## 参数规矩（按任务）
@@ -35,7 +35,7 @@
 | 生成音频 | 支持 |
 | 音频额外计费 | 是 |
 
-> 备注：文生视频(t2v)/Fusion 支持 aspect_ratio 枚举；图生视频(i2v, img_id 单图)、首尾帧转场(transition, first_frame_img+last_frame_img 双图)、Fusion 用 image_references 多图(未标注上限)，这些子任务不传 aspect_ratio（继承参考图）。音频为 inline 生成(generate_audio_switch 开关)，无参考音频参数，官方文档未提供 max_reference_audios。seed 0-2147483647。视频输入(extend/fusion)限 mp4/mov、≤1920px、≤50MB、≤30s。
+> 备注：文生视频(t2v)/Fusion 支持 aspect_ratio 枚举；图生视频(i2v, img_id 单图)、首尾帧转场(transition, first_frame_img+last_frame_img 双图)、Fusion 用 image_references 多图(未标注上限)，这些子任务不传 aspect_ratio（继承参考图）。音频为 inline 生成(generate_audio_switch 开关)，无参考音频参数，官方文档未提供 max_reference_audios。seed 0-2147483647。视频输入(extend/fusion)限 mp4/mov/webm、≤1920px、≤50MB、≤30s。
 
 ### 任务：extend
 
@@ -49,7 +49,7 @@
 | 生成音频 | 支持 |
 | 音频额外计费 | 是 |
 
-> 备注：延长任务官方文档明确不支持 aspect_ratio（参数表标 ❌，自动继承待延长视频）。音频为 inline 生成，无参考音频参数，官方文档未提供 max_reference_audios。输入视频限 mp4/mov、≤1920px、≤50MB、≤30s。
+> 备注：延长任务官方文档明确不支持 aspect_ratio（参数表标 ❌，自动继承待延长视频）。音频为 inline 生成，无参考音频参数，官方文档未提供 max_reference_audios。输入视频限 mp4/mov/webm、≤1920px、≤50MB、≤30s。
 
 ## 输出限制
 

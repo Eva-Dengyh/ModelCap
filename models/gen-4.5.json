@@ -49,11 +49,12 @@
         "1:1",
         "4:3",
         "3:4",
-        "21:9"
+        "21:9",
+        "9:21"
       ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
-      "note": "Text to Video 仅 16:9(1280x720)；Image to Video 支持 6 种比例；输出 720p；FPS 24/25；12 credits/秒。"
+      "note": "Text to Video 支持 16:9(1280x720) 与 9:16(720x1280)；Image to Video 支持 7 种比例（含 9:21/672x1584）；输出 720p；FPS 24/25；12 credits/秒。"
     }
   },
   "output_limits": {
