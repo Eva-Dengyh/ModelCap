@@ -3,7 +3,7 @@
   "provider": "aliyun",
   "version": "2.2",
   "fetched_at": "2026-09-02",
-  "source_url": "https://lmarena.ai/leaderboard/video",
+  "source_url": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B",
   "ability": {
     "tasks": [
       "generate"
@@ -12,9 +12,11 @@
       "reference_image"
     ],
     "scenes": [
-      "t2v"
+      "t2v",
+      "i2v-first-frame"
     ],
-    "note": "能力与输入仅依据榜单可证明部分推断（LMArena 图生榜、LMArena 文生榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。 LMArena 榜单页在本机网络环境无法直接访问验证，url 暂取主入口 https://lmarena.ai/leaderboard/video（含图生/文生/视频编辑三个标签页）。"
+    "capabilities": [],
+    "note": "阿里通义万相 Wan 2.2 开源（Apache 2.0）视频生成模型，MoE 架构。官方模型卡（HuggingFace / ModelScope，本环境 HF 不可达、经 hf-mirror.com 镜像核实）列三个模型：Wan2.2-T2V-A14B（文生，480P/720P）、Wan2.2-I2V-A14B（图生首帧，480P/720P）、Wan2.2-TI2V-5B（文生+图生，720P，24fps）。LMArena 榜名 wan-v2.2-a14b 对应 A14B 双模型。开源模型无官方 API 计费，输出无声（模型卡未提及音频）。"
   },
   "rankings": [
     {
@@ -44,11 +46,33 @@
       "url": "https://lmarena.ai/leaderboard/video"
     }
   ],
-  "_missing": [
-    "input_limits",
-    "rules",
-    "errors",
-    "output_limits",
-    "pricing"
-  ]
+  "input_limits": {
+    "max_reference_images": 1,
+    "image": {
+      "_missing": true,
+      "note": "i2v 传单张首帧图（--image 参数）；模型卡未给出图片格式/大小/边长硬约束"
+    },
+    "_missing": true
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 5,
+        "max": 5
+      },
+      "resolution": [
+        "480p",
+        "720p"
+      ],
+      "note": "T2V-A14B 明确生成 5 秒 480P/720P 视频；TI2V-5B 为 5 秒 720P（24fps）。I2V-A14B 同为 480P/720P、输出比例随输入图（模型卡未单列 I2V 时长，同族固定 5 秒）。示例命令尺寸用像素串（如 1280*720）；模型卡未枚举完整比例列表。输入图、提示词等硬约束官方模型卡未给出。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 5
+  },
+  "pricing": null,
+  "errors": {
+    "_missing": true,
+    "note": "开源模型卡无 API 错误码（本无）。"
+  }
 }

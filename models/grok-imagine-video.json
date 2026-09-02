@@ -3,19 +3,112 @@
   "provider": "spacexai",
   "version": "1.0",
   "fetched_at": "2026-09-02",
-  "source_url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+  "source_url": "https://github.com/xai-org/xai-proto/blob/main/proto/xai/api/v1/video.proto",
   "ability": {
     "tasks": [
       "generate",
-      "edit"
+      "edit",
+      "extend"
     ],
     "inputs": [
-      "reference_image"
+      "reference_image",
+      "reference_video",
+      "audio"
     ],
+    "audio": true,
     "scenes": [
-      "t2v"
+      "t2v",
+      "i2v-first-frame",
+      "r2v"
     ],
-    "note": "能力与输入仅依据榜单可证明部分推断（AA 图生榜、AA 文生榜、LMArena 图生榜、LMArena 文生榜、LMArena 视频编辑榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。 LMArena 榜单页在本机网络环境无法直接访问验证，url 暂取主入口 https://lmarena.ai/leaderboard/video（含图生/文生/视频编辑三个标签页）。"
+    "note": "xAI 官方（xai-proto video.proto）核对：视频生成模型支持文生视频、图生视频（首帧）、参考图 R2V（reference_images）、视频编辑（video 字段）与视频延长（ExtendVideo）；默认生成音频（generate_audio 默认 true），支持参考音轨（voice_id 预置音色，最多 3 条）。原榜单推断 tasks=generate+edit、inputs=reference_image，已据官方补全 extend/audio/r2v。"
+  },
+  "input_limits": {
+    "max_reference_audios": 3,
+    "image": {
+      "max_bytes": 10485760,
+      "formats": [
+        "png",
+        "jpg",
+        "webp"
+      ]
+    },
+    "video": {
+      "min_duration_seconds": 2,
+      "max_duration_seconds": 30,
+      "formats": [
+        "mp4"
+      ],
+      "note": "2-30 秒为延长任务（ExtendVideo）输入视频约束；编辑任务（GenerateVideo 的 video 字段）官方未给出时长约束。"
+    }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 1,
+        "max": 15
+      },
+      "resolution": [
+        "480p",
+        "720p"
+      ],
+      "aspect_ratio": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": true,
+      "audio": {
+        "max_reference_audios": 3,
+        "extra_charge": null
+      },
+      "note": "duration 1-15 秒；resolution 默认 480p，本版本支持 480p/720p（1080p 仅 grok-imagine-video-1.5 等支持 1080p 的模型提供）；aspect_ratio 默认 16:9。"
+    },
+    "edit": {
+      "duration_seconds": null,
+      "resolution": null,
+      "aspect_ratio": null,
+      "ratio_mode": "inherit_from_reference_video",
+      "duration_mode": "inherit_from_reference_video",
+      "generate_audio": true,
+      "note": "编辑通过 GenerateVideo 传入 video 字段实现；官方未给出编辑任务的时长/分辨率/比例约束。"
+    },
+    "extend": {
+      "duration_seconds": {
+        "min": 1,
+        "max": 10
+      },
+      "resolution": null,
+      "aspect_ratio": null,
+      "ratio_mode": "inherit_from_reference_video",
+      "duration_mode": "client_choice",
+      "generate_audio": true,
+      "note": "延长片段 1-10 秒（默认 6 秒）；输入视频须 2-30 秒，从末尾续写。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 15,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "errors": {
+    "invalid_argument": {
+      "standard": "invalid_parameter",
+      "user_message": "请求参数非法，请检查模型名、时长/分辨率/比例等参数取值"
+    },
+    "internal_error": {
+      "standard": "provider_failed",
+      "user_message": "服务端内部错误，请稍后重试"
+    },
+    "note": "官方 proto 仅示例性给出 code（如 invalid_argument/internal_error），未发布完整错误码枚举。"
+  },
+  "pricing": {
+    "note": "官方定价页（docs.x.ai）在本环境无法访问，未核实单价；proto 无静态视频计费字段（计费信息运行时随响应返回）。"
   },
   "rankings": [
     {
@@ -96,12 +189,5 @@
       "as_of": "2026-08-27",
       "url": "https://lmarena.ai/leaderboard/video"
     }
-  ],
-  "_missing": [
-    "input_limits",
-    "rules",
-    "errors",
-    "output_limits",
-    "pricing"
   ]
 }

@@ -3,18 +3,92 @@
   "provider": "google",
   "version": "omni-1.1-flash",
   "fetched_at": "2026-09-02",
-  "source_url": "https://lmarena.ai/leaderboard/video",
+  "source_url": "https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb",
   "ability": {
     "tasks": [
-      "generate"
+      "generate",
+      "edit",
+      "extend"
     ],
     "inputs": [
-      "reference_image"
+      "reference_image",
+      "reference_video",
+      "audio"
     ],
+    "audio": true,
     "scenes": [
-      "t2v"
+      "t2v",
+      "i2v-first-frame",
+      "r2v"
     ],
-    "note": "能力与输入仅依据榜单可证明部分推断（LMArena 图生榜、LMArena 文生榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。 LMArena 榜单页在本机网络环境无法直接访问验证，url 暂取主入口 https://lmarena.ai/leaderboard/video（含图生/文生/视频编辑三个标签页）。"
+    "note": "Google 官方（Interactions API）核对：Gemini Omni Flash 1.1（gemini-omni-1.1-flash）原生多模态（文本/图像/音频/视频），支持文生视频、图生视频（首帧 <FIRST_FRAME> 与参考图 R2V）、多轮对话式编辑（previous_interaction_id）与视频延长；原生生成音频。分辨率 360p/720p/1080p/4k，比例 16:9（默认）/9:16。原榜单推断仅标 t2v+reference_image，已据官方补全 edit/extend 与 audio。"
+  },
+  "input_limits": {
+    "max_reference_images": 5,
+    "max_reference_audios": 5,
+    "image": {
+      "_missing": true,
+      "note": "官方未提供输入图片的格式/大小/像素硬性约束（支持上传图片或引用前序交互生成的图片）。"
+    },
+    "video": {
+      "max_duration_seconds": 10,
+      "note": "上传视频用于延长时须 ≤10 秒；编辑上传视频官方未给出时长上限。官方未枚举参考视频格式（示例为 mp4）。"
+    }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": null,
+      "resolution": [
+        "360p",
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "9:16"
+      ],
+      "ratio_mode": "client_choice",
+      "duration_mode": null,
+      "generate_audio": true,
+      "audio": {
+        "max_reference_audios": 5,
+        "extra_charge": null
+      },
+      "note": "时长由提示词/时间码（如 [0-3s]）控制，无独立 duration 参数；默认 16:9；resolution 支持 360p（草稿）/720p/1080p/4k；video_config.task 可选 image_to_video 或 reference_to_video；最多 5 张参考图与 5 条音轨。"
+    },
+    "edit": {
+      "duration_seconds": null,
+      "resolution": null,
+      "aspect_ratio": null,
+      "ratio_mode": "inherit_from_reference_video",
+      "duration_mode": "inherit_from_reference_video",
+      "generate_audio": null,
+      "note": "多轮对话式编辑，通过 previous_interaction_id 迭代；上传视频编辑通过 Files API 传入 document uri；官方未给出编辑任务的时长/分辨率/比例约束。"
+    },
+    "extend": {
+      "duration_seconds": {
+        "min": 3,
+        "max": 10
+      },
+      "resolution": null,
+      "aspect_ratio": null,
+      "ratio_mode": "inherit_from_reference_video",
+      "duration_mode": "client_choice",
+      "generate_audio": true,
+      "note": "生成 3-10 秒续写，分析至多 10 秒前文；上传视频须 ≤10 秒（模型自生成视频多轮延长不限）；多轮语音扩展支持生成对白。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": null,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "errors": {
+    "_missing": true,
+    "note": "官方文档未提供错误码表；Interactions API 无公开错误码枚举。"
+  },
+  "pricing": {
+    "note": "官方定价页（ai.google.dev/pricing）在本环境无法访问，未核实单价；Gemini Omni Flash 1.1 为付费模型。"
   },
   "rankings": [
     {
@@ -43,12 +117,5 @@
       "as_of": "2026-08-26",
       "url": "https://lmarena.ai/leaderboard/video"
     }
-  ],
-  "_missing": [
-    "input_limits",
-    "rules",
-    "errors",
-    "output_limits",
-    "pricing"
   ]
 }

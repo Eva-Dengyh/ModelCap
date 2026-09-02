@@ -8,10 +8,12 @@
 - **生成场景**：t2v、i2v-first-frame
 - **接受输入**：reference_image
 - **生成音频**：待补充
-- **备注**：⚠️ 官方 SDK 标注：Sora API 将于 2026-09-24 永久下线（"scheduled to permanently shut down on September 24, 2026"，openai SDK 视频方法 @deprecated），集成前务必确认。官方文档页当前不可达（403），本条目字段按官方 openai SDK（openai 3.7.0 / openai-node，与官方 OpenAPI spec 同源）核实。API 模型值：sora-2 / sora-2-pro（另快照 sora-2-2025-10-06 / sora-2-pro-2025-10-06 / sora-2-2025-12-08，即榜单所谓 Sora 2 (December)）。端点：POST /videos（生成）、/videos/edits（编辑）、/videos/extensions（延长）、/videos/{id}/remix、/videos/characters（角色）。全部为异步 job（status: queued/in_progress/completed/failed）。
+- **备注**：⚠️ 官方 SDK 标注：Sora API 将于 2026-09-24 永久下线（"scheduled to permanently shut down on September 24, 2026"，openai SDK 视频方法 @deprecated），集成前务必确认。官方文档页当前不可达（403），本条目字段按官方 openai-node SDK（v7.9.0，与官方 OpenAPI spec 同源）核实。API 模型值：sora-2 / sora-2-pro（另快照 sora-2-2025-10-06 / sora-2-pro-2025-10-06 / sora-2-2025-12-08，即榜单所谓 Sora 2 (December)）。端点：POST /videos（生成）、/videos/edits（编辑）、/videos/extensions（延长）、/videos/{id}/remix、/videos/characters（角色）。全部为异步 job（status: queued/in_progress/completed/failed）。
 ## 输入限制
 
-待补充
+| 项目 | 限制 |
+| --- | --- |
+| 参考图上限（张） | 1 |
 
 ## 参数规矩（按任务）
 
@@ -58,9 +60,10 @@
 
 ## 价格
 
-待补充
+
+> 备注：官方定价页（platform.openai.com）不可达（403），无法核实官方计费；AA 榜单的 $6/分钟（Sora 2）、$30/分钟（Sora 2 Pro）为第三方测算口径，非官方计费，不在此填入。
 
 ## 错误码
 
-待补充（官方错误码表不可达（platform.openai.com 403）。SDK 侧仅见 job 四态 status 与 Video.error{code,message} 结构，未映射到标准语义。AA 榜单的 $6–30/分钟为第三方测算，非官方计费。）
+待补充（官方错误码表不可达（platform.openai.com 403）。SDK 仅见 job 四态 status（queued/in_progress/completed/failed）与 Video.error{code,message} 结构，未枚举/映射具体错误码到标准语义。）
 

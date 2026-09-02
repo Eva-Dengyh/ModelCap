@@ -1,21 +1,36 @@
 # wan-2-2
 
 > 供应商：aliyun ｜ 版本：2.2 ｜ 信息核实日期：2026-09-02
-> 来源：[https://lmarena.ai/leaderboard/video](https://lmarena.ai/leaderboard/video)
+> 来源：[https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B](https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B)
 
 ## 能力
 - **任务类型**：generate
-- **生成场景**：t2v
+- **生成场景**：t2v、i2v-first-frame
 - **接受输入**：reference_image
 - **生成音频**：待补充
-- **备注**：能力与输入仅依据榜单可证明部分推断（LMArena 图生榜、LMArena 文生榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。 LMArena 榜单页在本机网络环境无法直接访问验证，url 暂取主入口 https://lmarena.ai/leaderboard/video（含图生/文生/视频编辑三个标签页）。
+- **备注**：阿里通义万相 Wan 2.2 开源（Apache 2.0）视频生成模型，MoE 架构。官方模型卡（HuggingFace / ModelScope，本环境 HF 不可达、经 hf-mirror.com 镜像核实）列三个模型：Wan2.2-T2V-A14B（文生，480P/720P）、Wan2.2-I2V-A14B（图生首帧，480P/720P）、Wan2.2-TI2V-5B（文生+图生，720P，24fps）。LMArena 榜名 wan-v2.2-a14b 对应 A14B 双模型。开源模型无官方 API 计费，输出无声（模型卡未提及音频）。
 ## 输入限制
 
-待补充
+| 项目 | 限制 |
+| --- | --- |
+| 参考图上限（张） | 1 |
 
 ## 参数规矩（按任务）
 
-待补充
+### 任务：generate
+
+| 参数 | 取值/约束 |
+| --- | --- |
+| 时长 | 5 ~ 5 秒 |
+| 清晰度 | 480p、720p |
+
+> 备注：T2V-A14B 明确生成 5 秒 480P/720P 视频；TI2V-5B 为 5 秒 720P（24fps）。I2V-A14B 同为 480P/720P、输出比例随输入图（模型卡未单列 I2V 时长，同族固定 5 秒）。示例命令尺寸用像素串（如 1280*720）；模型卡未枚举完整比例列表。输入图、提示词等硬约束官方模型卡未给出。
+
+## 输出限制
+
+| 项目 | 限制 |
+| --- | --- |
+| 成片最大时长 | 5 秒 |
 
 ## 榜单数据
 
@@ -32,5 +47,5 @@
 
 ## 错误码
 
-待补充
+待补充（开源模型卡无 API 错误码（本无）。）
 

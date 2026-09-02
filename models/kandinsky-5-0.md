@@ -1,21 +1,41 @@
 # kandinsky-5-0
 
 > 供应商：kandinsky ｜ 版本：5.0 ｜ 信息核实日期：2026-09-02
-> 来源：[https://lmarena.ai/leaderboard/video](https://lmarena.ai/leaderboard/video)
+> 来源：[https://github.com/kandinskylab/kandinsky-5](https://github.com/kandinskylab/kandinsky-5)
 
 ## 能力
 - **任务类型**：generate
-- **生成场景**：t2v
-- **接受输入**：待补充
-- **生成音频**：待补充
-- **备注**：能力与输入仅依据榜单可证明部分推断（LMArena 文生榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。 LMArena 榜单页在本机网络环境无法直接访问验证，url 暂取主入口 https://lmarena.ai/leaderboard/video（含图生/文生/视频编辑三个标签页）。
+- **生成场景**：t2v、i2v-first-frame
+- **接受输入**：reference_image
+- **生成音频**：不支持
+- **特色能力**：camera-control
+- **备注**：Sber 官方（kandinskylab/kandinsky-5，即 Kandinsky 5.0）核对：视频生成模型支持文生视频（T2V）与图生视频（I2V，输入图作首帧），时长 5s/10s（T2V）与 5s（I2V）；开源权重；提供镜头控制（Camera control）LoRA；支持英/俄提示词；官方未提及音频生成（视频扩散模型，无声）。原榜单推断 inputs 为空，已据官方补全 i2v。
 ## 输入限制
 
-待补充
+| 项目 | 限制 |
+| --- | --- |
+| 参考图上限（张） | 1 |
 
 ## 参数规矩（按任务）
 
-待补充
+### 任务：generate
+
+| 参数 | 取值/约束 |
+| --- | --- |
+| 时长 | 5 ~ 10 秒 |
+| 清晰度 | 待补充 |
+| 画面比例 | 3:2、5:3 |
+| 比例模式 | 待补充 |
+| 时长模式 | client_choice |
+| 生成音频 | 不支持 |
+
+> 备注：T2V 时长 5s/10s 两档（由所选 checkpoint 决定，非连续区间）；I2V 仅 5s。官方发布 SD（768×512，约 3:2）与 HD（1280×768，约 5:3）两档，非标准清晰度枚举，宽高比随档位固定；官方未提及音频生成。
+
+## 输出限制
+
+| 项目 | 限制 |
+| --- | --- |
+| 成片最大时长 | 10 秒 |
 
 ## 榜单数据
 
@@ -28,9 +48,10 @@
 
 ## 价格
 
-待补充
+
+> 备注：开源权重（Hugging Face），本地推理；官方 GitHub 仓库未提供 API 计费信息。
 
 ## 错误码
 
-待补充
+待补充（官方仓库为本地推理，未提供错误码表。）
 

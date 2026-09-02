@@ -1,21 +1,46 @@
 # happyhorse-1-1
 
 > 供应商：alibaba ｜ 版本：1.1 ｜ 信息核实日期：2026-09-02
-> 来源：[https://artificialanalysis.ai/video/leaderboard/image-to-video](https://artificialanalysis.ai/video/leaderboard/image-to-video)
+> 来源：[https://developer.aliyun.com/article/1743772](https://developer.aliyun.com/article/1743772)
 
 ## 能力
 - **任务类型**：generate
-- **生成场景**：t2v
+- **生成场景**：t2v、i2v-first-frame、r2v
 - **接受输入**：reference_image
-- **生成音频**：待补充
-- **备注**：能力与输入仅依据榜单可证明部分推断（AA 图生榜、AA 文生榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。
+- **生成音频**：支持
+- **特色能力**：lip-sync
+- **备注**：阿里云百炼 HappyHorse（快乐小马）1.1 API 版，三个模型名：happyhorse-1.1-t2v（文生）、happyhorse-1.1-i2v（首帧图生）、happyhorse-1.1-r2v（多参考图生，最多 9 张参考图）。原生音画协同、人物口型与台词匹配（唇形同步），背景音效可经指令开关。官方 Model Studio help 页未检索到，本条目按官方开发者文章（developer.aliyun.com/article/1743772）核实。
 ## 输入限制
 
-待补充
+| 项目 | 限制 |
+| --- | --- |
+| 参考图上限（张） | 9 |
+| 图片大小上限 | 20971520 字节 |
+| 图片格式 | jpeg、jpg、png、bmp、webp |
+| 图片最小边长 | 300 |
+| 图片比例范围 | 0.4 ~ 2.5 |
 
 ## 参数规矩（按任务）
 
-待补充
+### 任务：generate
+
+| 参数 | 取值/约束 |
+| --- | --- |
+| 时长 | 3 ~ 15 秒 |
+| 清晰度 | 720p、1080p |
+| 画面比例 | 16:9、9:16、1:1、4:3 |
+| 比例模式 | client_choice |
+| 时长模式 | client_choice |
+| 生成音频 | 支持 |
+
+> 备注：t2v 时长 3~15 秒、无需图片；i2v 传 1 张静态首帧图；r2v 最多 9 张参考图、提示词用 "[Image 1]" 形式引用（分镜按从左到右、从上到下解析），引用标错会 API 识别失败。分辨率用完整像素串（如 "1920x1080"、"1080x1920"），旧的 "1080P" 简写无效。图生首帧图：jpeg/jpg/png/bmp/webp、≤20MB、最短边 ≥300px、比例 2:5~5:2；推荐提示词 30~60 字（非硬上限）。音画协同与唇形同步为原生能力。错误码/RPM 官方文章未给出。
+
+## 输出限制
+
+| 项目 | 限制 |
+| --- | --- |
+| 成片最大时长 | 15 秒 |
+| 画面比例模式 | client_choice |
 
 ## 榜单数据
 
@@ -28,9 +53,17 @@
 
 ## 价格
 
-待补充
+- **币种**：CNY
+- **计费单位**：second
+
+| 档位 | 单价 |
+| --- | --- |
+| 720p | 0.9 |
+| 1080p | 1.2 |
+
+> 备注：百炼列表价（元/秒）：720P 0.9、1080P 1.2；促销价 720P 0.54 / 1080P 0.72（活动期 2026-06-22 至 07-06，已结束）。新用户免费额度 10 秒（有效期 90 天）。
 
 ## 错误码
 
-待补充
+待补充（官方开发者文章未给出 API 错误码/RPM；百炼共享错误码页（help.aliyun.com/zh/model-studio/error-code）为通用表，未按 HappyHorse 1.1 单独核验，故留空。）
 

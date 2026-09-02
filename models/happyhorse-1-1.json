@@ -3,7 +3,7 @@
   "provider": "alibaba",
   "version": "1.1",
   "fetched_at": "2026-09-02",
-  "source_url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+  "source_url": "https://developer.aliyun.com/article/1743772",
   "ability": {
     "tasks": [
       "generate"
@@ -11,10 +11,16 @@
     "inputs": [
       "reference_image"
     ],
+    "audio": true,
     "scenes": [
-      "t2v"
+      "t2v",
+      "i2v-first-frame",
+      "r2v"
     ],
-    "note": "能力与输入仅依据榜单可证明部分推断（AA 图生榜、AA 文生榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。"
+    "capabilities": [
+      "lip-sync"
+    ],
+    "note": "阿里云百炼 HappyHorse（快乐小马）1.1 API 版，三个模型名：happyhorse-1.1-t2v（文生）、happyhorse-1.1-i2v（首帧图生）、happyhorse-1.1-r2v（多参考图生，最多 9 张参考图）。原生音画协同、人物口型与台词匹配（唇形同步），背景音效可经指令开关。官方 Model Studio help 页未检索到，本条目按官方开发者文章（developer.aliyun.com/article/1743772）核实。"
   },
   "rankings": [
     {
@@ -44,11 +50,60 @@
       "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
     }
   ],
-  "_missing": [
-    "input_limits",
-    "rules",
-    "errors",
-    "output_limits",
-    "pricing"
-  ]
+  "input_limits": {
+    "max_reference_images": 9,
+    "image": {
+      "max_bytes": 20971520,
+      "formats": [
+        "jpeg",
+        "jpg",
+        "png",
+        "bmp",
+        "webp"
+      ],
+      "min_side_px": 300,
+      "min_ratio": 0.4,
+      "max_ratio": 2.5
+    },
+    "_missing": true
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 3,
+        "max": 15
+      },
+      "resolution": [
+        "720p",
+        "1080p"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3"
+      ],
+      "ratio_mode": "client_choice",
+      "duration_mode": "client_choice",
+      "generate_audio": true,
+      "note": "t2v 时长 3~15 秒、无需图片；i2v 传 1 张静态首帧图；r2v 最多 9 张参考图、提示词用 \"[Image 1]\" 形式引用（分镜按从左到右、从上到下解析），引用标错会 API 识别失败。分辨率用完整像素串（如 \"1920x1080\"、\"1080x1920\"），旧的 \"1080P\" 简写无效。图生首帧图：jpeg/jpg/png/bmp/webp、≤20MB、最短边 ≥300px、比例 2:5~5:2；推荐提示词 30~60 字（非硬上限）。音画协同与唇形同步为原生能力。错误码/RPM 官方文章未给出。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 15,
+    "aspect_ratio_mode": "client_choice"
+  },
+  "pricing": {
+    "currency": "CNY",
+    "unit": "second",
+    "tiers": {
+      "720p": 0.9,
+      "1080p": 1.2
+    },
+    "note": "百炼列表价（元/秒）：720P 0.9、1080P 1.2；促销价 720P 0.54 / 1080P 0.72（活动期 2026-06-22 至 07-06，已结束）。新用户免费额度 10 秒（有效期 90 天）。"
+  },
+  "errors": {
+    "_missing": true,
+    "note": "官方开发者文章未给出 API 错误码/RPM；百炼共享错误码页（help.aliyun.com/zh/model-studio/error-code）为通用表，未按 HappyHorse 1.1 单独核验，故留空。"
+  }
 }

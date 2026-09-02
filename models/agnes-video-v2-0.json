@@ -3,7 +3,7 @@
   "provider": "sapiens",
   "version": "v2.0",
   "fetched_at": "2026-09-02",
-  "source_url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+  "source_url": "https://wiki.agnes-ai.com/en/docs/agnes-video-v20",
   "ability": {
     "tasks": [
       "generate"
@@ -12,9 +12,11 @@
       "reference_image"
     ],
     "scenes": [
-      "t2v"
+      "t2v",
+      "i2v-first-frame"
     ],
-    "note": "能力与输入仅依据榜单可证明部分推断（AA 图生榜、AA 文生榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。"
+    "capabilities": [],
+    "note": "官方文档托管于 Agnes AI 文档站（wiki.agnes-ai.com；AA 榜单标注厂商为 Sapiens AI）。支持文生视频、图生视频（首帧）、关键帧动画；音频生成官方未记载。时长由 num_frames/frame_rate 推导（非固定秒数）。图片需公网 URL，格式/大小/边长官方未给出。定价与错误码另见 pricing.md / code.md 页。"
   },
   "rankings": [
     {
@@ -44,11 +46,63 @@
       "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
     }
   ],
-  "_missing": [
-    "input_limits",
-    "rules",
-    "errors",
-    "output_limits",
-    "pricing"
-  ]
+  "input_limits": {
+    "_missing": true,
+    "image": {
+      "_missing": true,
+      "note": "图生视频/关键帧需公网可达图片 URL；图片格式、像素/大小上限官方未给出"
+    }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": null,
+      "resolution": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "aspect_ratio": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "ratio_mode": "client_choice",
+      "note": "时长由 seconds=num_frames/frame_rate 推导：num_frames 上限 441（须满足 8n+1 规则），frame_rate 1~60；官方示例 81/24≈3s、121/24≈5s、241/24≈10s、441/24≈18s，未给秒级固定上下限。默认请求尺寸 1152x768，输出会归一到最近标准档（480p/720p/1080p）。图片需公网 URL；图片格式/大小/边长、提示词字数上限官方未给出。"
+    }
+  },
+  "output_limits": null,
+  "pricing": {
+    "currency": "USD",
+    "unit": "second",
+    "note": "挂牌价 $0.005/秒（当前促销价 $0/秒），不分分辨率档。"
+  },
+  "errors": {
+    "400": {
+      "standard": "invalid_parameter",
+      "user_message": "请求参数不合法"
+    },
+    "401": {
+      "standard": "access_denied",
+      "user_message": "API Key 无效或未授权"
+    },
+    "402": {
+      "standard": "settlement_failed",
+      "user_message": "账户余额或配额不足"
+    },
+    "404": {
+      "standard": "invalid_parameter",
+      "user_message": "任务或视频不存在"
+    },
+    "500": {
+      "standard": "provider_failed",
+      "user_message": "服务内部错误"
+    },
+    "503": {
+      "standard": "provider_failed",
+      "user_message": "服务繁忙"
+    },
+    "note": "400/401/404/500/503 出自视频模型页；402 出自平台通用错误码页（code.md）。"
+  }
 }

@@ -3,16 +3,58 @@
   "provider": "kandinsky",
   "version": "5.0",
   "fetched_at": "2026-09-02",
-  "source_url": "https://lmarena.ai/leaderboard/video",
+  "source_url": "https://github.com/kandinskylab/kandinsky-5",
   "ability": {
     "tasks": [
       "generate"
     ],
-    "inputs": [],
-    "scenes": [
-      "t2v"
+    "inputs": [
+      "reference_image"
     ],
-    "note": "能力与输入仅依据榜单可证明部分推断（LMArena 文生榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。 LMArena 榜单页在本机网络环境无法直接访问验证，url 暂取主入口 https://lmarena.ai/leaderboard/video（含图生/文生/视频编辑三个标签页）。"
+    "audio": false,
+    "scenes": [
+      "t2v",
+      "i2v-first-frame"
+    ],
+    "capabilities": [
+      "camera-control"
+    ],
+    "note": "Sber 官方（kandinskylab/kandinsky-5，即 Kandinsky 5.0）核对：视频生成模型支持文生视频（T2V）与图生视频（I2V，输入图作首帧），时长 5s/10s（T2V）与 5s（I2V）；开源权重；提供镜头控制（Camera control）LoRA；支持英/俄提示词；官方未提及音频生成（视频扩散模型，无声）。原榜单推断 inputs 为空，已据官方补全 i2v。"
+  },
+  "input_limits": {
+    "max_reference_images": 1,
+    "image": {
+      "_missing": true,
+      "note": "官方未给出输入图片格式/大小/像素约束（I2V 示例使用 jpg 输入）。"
+    }
+  },
+  "rules": {
+    "generate": {
+      "duration_seconds": {
+        "min": 5,
+        "max": 10
+      },
+      "resolution": null,
+      "aspect_ratio": [
+        "3:2",
+        "5:3"
+      ],
+      "ratio_mode": null,
+      "duration_mode": "client_choice",
+      "generate_audio": false,
+      "note": "T2V 时长 5s/10s 两档（由所选 checkpoint 决定，非连续区间）；I2V 仅 5s。官方发布 SD（768×512，约 3:2）与 HD（1280×768，约 5:3）两档，非标准清晰度枚举，宽高比随档位固定；官方未提及音频生成。"
+    }
+  },
+  "output_limits": {
+    "max_duration_seconds": 10,
+    "aspect_ratio_mode": null
+  },
+  "errors": {
+    "_missing": true,
+    "note": "官方仓库为本地推理，未提供错误码表。"
+  },
+  "pricing": {
+    "note": "开源权重（Hugging Face），本地推理；官方 GitHub 仓库未提供 API 计费信息。"
   },
   "rankings": [
     {
@@ -41,12 +83,5 @@
       "as_of": "2026-08-26",
       "url": "https://lmarena.ai/leaderboard/video"
     }
-  ],
-  "_missing": [
-    "input_limits",
-    "rules",
-    "errors",
-    "output_limits",
-    "pricing"
   ]
 }

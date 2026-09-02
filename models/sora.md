@@ -8,7 +8,7 @@
 - **生成场景**：t2v
 - **接受输入**：待补充
 - **生成音频**：待补充
-- **备注**：能力与输入仅依据榜单可证明部分推断（LMArena 文生榜上榜）；具体 i2v 场景细分、音频支持、参数约束、错误码、厂商计费 pricing 未核实，详见 _missing。 provider 为榜单标注的厂商/渠道（沿用既有同系列条目的除外），官方 API 渠道未核实。 LMArena 榜单页在本机网络环境无法直接访问验证，url 暂取主入口 https://lmarena.ai/leaderboard/video（含图生/文生/视频编辑三个标签页）。
+- **备注**：Sora v1（LMArena 榜名 'sora'，即消费端 sora.com / ChatGPT 的原版 Sora）从未通过 OpenAI API/SDK 提供：官方 openai-node SDK 的视频接口自首次引入（v6.4.0，2025-10）到当前（v7.9.0）的 VideoModel 枚举均只含 sora-2 / sora-2-pro 系列，不存在 'sora' 或 'sora-turbo' 模型值；platform.openai.com 文档页亦不可达（403）。因此无官方 API 参数文档可核实，本条目保持骨架，能力仅按 LMArena 文生榜推断（t2v）。SDK 已标注 Sora API 将于 2026-09-24 永久下线。
 ## 输入限制
 
 待补充
