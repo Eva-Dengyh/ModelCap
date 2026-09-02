@@ -54,7 +54,28 @@
 
 **查一个模型**：直接读 `models/{model_id}.json`（程序）或 `.md`（人）。
 
-**程序校验**（示例）：按 `rules[task]` 校验请求参数是否合法——同一参数在不同任务下约束可能不同（如编辑任务时长强制 -1）。
+**在别的项目里集成**：把本仓库当数据源引入，读 JSON 即可。
+
+```bash
+git submodule add https://github.com/Eva-Dengyh/ModelCap.git libs/modelcap
+```
+
+```python
+import json
+d = json.load(open("libs/modelcap/models/kling-v2-6.json"))
+rules = d["rules"]["generate"]
+
+# 1. 参数校验（同一参数不同任务约束可能不同，如编辑任务时长强制 -1）
+if s < rules["duration_seconds"]["min"] or s > rules["duration_seconds"]["max"]:
+    raise ValueError("时长超限")
+
+# 2. 错误码归一化：供应商私有码 → 标准语义 standard
+standard = d["errors"].get(vendor_code, {}).get("standard")
+
+# 3. 选型/计费：rankings（AA/LMArena 榜单快照）+ pricing（厂商计费）
+```
+
+**数据校验**：`node skill/scripts/tools.mjs validate models/*.json`；`skill/schema/model.schema.json` 可配合 JSON Schema 库（ajv / jsonschema）做类型校验。
 
 **录入新模型**：见 [skill/SKILL.md](skill/SKILL.md)——用 AI 打开官方文档、按 schema 写 JSON、`skill/scripts/tools.mjs` 校验并渲染。
 

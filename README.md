@@ -54,7 +54,28 @@ A machine-readable knowledge base of AI model capabilities — **one JSON entry 
 
 **Look up a model**: read `models/{model_id}.json` (programs) or `.md` (humans).
 
-**Programmatic validation** (example): validate request params against `rules[task]` — the same parameter may carry different constraints per task (e.g. edit task duration forced to -1).
+**Integrate into another project**: pull this repo in as a data source and read the JSON.
+
+```bash
+git submodule add https://github.com/Eva-Dengyh/ModelCap.git libs/modelcap
+```
+
+```python
+import json
+d = json.load(open("libs/modelcap/models/kling-v2-6.json"))
+rules = d["rules"]["generate"]
+
+# 1. Validate params (constraints differ per task, e.g. edit duration forced to -1)
+if s < rules["duration_seconds"]["min"] or s > rules["duration_seconds"]["max"]:
+    raise ValueError("duration out of range")
+
+# 2. Normalize errors: vendor code → standard semantic
+standard = d["errors"].get(vendor_code, {}).get("standard")
+
+# 3. Model selection / pricing: rankings (AA/LMArena snapshots) + pricing (vendor billing)
+```
+
+**Validate data**: `node skill/scripts/tools.mjs validate models/*.json`; use `skill/schema/model.schema.json` with a JSON Schema library (ajv / jsonschema) for type checking.
 
 **Add a new model**: see [skill/SKILL.md](skill/SKILL.md) — open official docs with AI, write JSON per the schema, then validate and render with `skill/scripts/tools.mjs`.
 
