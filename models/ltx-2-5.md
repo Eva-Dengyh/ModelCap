@@ -32,6 +32,8 @@
 | 时长模式 | client_choice |
 | 生成音频 | 支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：时长/分辨率/fps 支持矩阵：fast 在 720p/1080p @24/25fps 支持 6/8/10/12/14/16/18/20s，@48/50fps 与 1440p/4K 下仅 6/8/10s；pro 最高 1080p，720p/1080p @24/25/50fps 仅 6/8/10s（pro 不支持 48fps）。duration:null = auto（模型自选，不超过该档上限；不能与 last_frame_uri 同用）。分辨率只有 16:9/9:16 两种尺寸（fast 至 3840x2160/2160x3840，pro 至 1920x1080/1080x1920）；缺省时按输入图方向决定。generate_audio 默认 true（false=静音视频）。camera_motion：dolly_in/out、dolly_left/right、jib_up/down、static、focus_shift。Replicate 渠道 duration 列表（2~20s）与官方矩阵（6s 起）不一致，以官方为准。开放权重本地：默认 1024x1536@24fps，帧数须满足 8k+1 网格、宽高须被 64 整除（2x 上采样须 128）。
 
 ## 输出限制
@@ -63,6 +65,10 @@
 | 1080p | 0.13 |
 | 2k | 0.19 |
 | 4k | 0.3 |
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://docs.ltx.io/models/ltx-2-5
 
 > 备注：ltx-2-5-fast 按输出视频秒计费（t2v/i2v/a2v 同价；a2v 按输入音轨秒计）：720p $0.09/s、1080p $0.13/s、1440p(2K) $0.19/s、4K $0.30/s。ltx-2-5-pro：720p $0.12/s、1080p $0.17/s（pro 无更高档）。AA 榜单 1080p 每分钟口径 $7.80(fast)/$10.20(pro) 恰为官方单价×60，互证一致。开放权重本地自部署无此价格。
 

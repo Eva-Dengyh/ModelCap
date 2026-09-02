@@ -60,7 +60,13 @@
         "max_reference_audios": null,
         "extra_charge": null
       },
-      "note": "文生视频时长 1-10s（默认 5s），分辨率默认 720p、可选 540p/720p/1080p；3:4 与 4:3 仅 q2 系列支持。style(general/anime)对 q2 不生效；movement_amplitude 取值 auto/small/medium/large。参考生视频图 1-7 张（图需 ≥128x128px、比例 1:4~4:1、单张 ≤50MB、PNG/JPEG/JPG/WebP）。音频仅 bgm(boolean, 自动配乐) 参数；官方文档未提供参考音频数量上限与音频额外计费（credits 为整次调用消耗积分，未拆分音频档）。变体：viduq2-pro 与 viduq2-turbo 用于图生视频/首尾帧（时长 1-10s/2-8s、540p/720p/1080p），viduq2-pro-fast 更快（1-10s/1-8s、720p/1080p）。"
+      "note": "文生视频时长 1-10s（默认 5s），分辨率默认 720p、可选 540p/720p/1080p；3:4 与 4:3 仅 q2 系列支持。style(general/anime)对 q2 不生效；movement_amplitude 取值 auto/small/medium/large。参考生视频图 1-7 张（图需 ≥128x128px、比例 1:4~4:1、单张 ≤50MB、PNG/JPEG/JPG/WebP）。音频仅 bgm(boolean, 自动配乐) 参数；官方文档未提供参考音频数量上限与音频额外计费（credits 为整次调用消耗积分，未拆分音频档）。变体：viduq2-pro 与 viduq2-turbo 用于图生视频/首尾帧（时长 1-10s/2-8s、540p/720p/1080p），viduq2-pro-fast 更快（1-10s/1-8s、720p/1080p）。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     }
   },
   "output_limits": {

@@ -24,6 +24,8 @@
 | 画面比例 | 21:9、16:9、4:3、1:1、3:4、9:16 |
 | 比例模式 | client_choice |
 
+> 支持参数：aspect_ratio、duration、resolution
+
 > 备注：seconds 为字符串 "4"~"12"（默认 "5"），n 固定 1。size 三档 720P/960P/2K（960P 不在 schema resolution 枚举内，故未列入数组）；比例默认 16:9，不支持 auto。text 模式禁传媒体；keyframe 模式需至少 first_frame 或 last_frame、禁 images/audios/videos；reference 模式需至少一个非空 images/audios/videos、禁首尾帧，提示词中 <Picture N>/<Audio N>/<Video N> 各自从 1 独立编号。图片格式/像素/大小上限、提示词字数上限官方未给出。
 
 ## 输出限制
@@ -52,6 +54,10 @@
 | 720p | 0.025 |
 | 960p | 0.04 |
 | 2k | 0.055 |
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://wiki.agnes-ai.com/en/docs/agnes-video-25
 
 > 备注：按输出分辨率档每秒计费：720P $0.025 / 960P $0.040 / 2K $0.055；输入图前 5 张免费、第 6 张起 $0.005/张；输入视频秒数按所选输出分辨率档计费（无单独输入视频计费项）。
 

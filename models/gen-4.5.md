@@ -30,6 +30,8 @@
 | 比例模式 | client_choice |
 | 时长模式 | client_choice |
 
+> 支持参数：aspect_ratio、duration、resolution
+
 > 备注：Text to Video 支持 16:9(1280x720) 与 9:16(720x1280)；Image to Video 支持 7 种比例（含 9:21/672x1584）；输出 720p；FPS 24/25；12 credits/秒。
 
 ## 输出限制
@@ -54,6 +56,10 @@
 | 档位 | 单价 |
 | --- | --- |
 | 720p | 12 |
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5
 
 > 备注：计费单位为 Runway credits（非 CNY/USD）；12 credits/秒；ProRes/PNG 序列导出另加 5 credits/秒。
 

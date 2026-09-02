@@ -23,6 +23,8 @@
 | 清晰度 | 540p、720p、1080p |
 | 生成音频 | 支持 |
 
+> 支持参数：duration、generate_audio、resolution
+
 > 备注：时长固定 10 秒（官方唯一支持时长）。API 侧 resolution 540p/720p/1080p、仅 16:9（开放权重示例为竖版 1088×1920，两口径已分别注明）。inference_steps 仅对 magi-2-preview：4–100 且须被 4 整除，默认 64；guidance_scale 无范围限制、7.5 已验证；prompt enhancement 默认开启。API 每次请求仅 1 chunk、无需 task type、condition.type 仅 text。
 
 ## 输出限制
@@ -41,6 +43,10 @@
 
 ## 价格
 
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://github.com/SandAI-org/MAGI-2-preview
 
 > 备注：官方未公开定价：magi-2-preview 需联系 Sand.ai 开通（"Currently, only magi is publicly available"），无公开价格。AA 榜价格栏为 "即将推出"。
 

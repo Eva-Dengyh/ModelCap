@@ -36,6 +36,8 @@
 | 生成音频 | 支持 |
 | 参考音频上限 | 2 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
+
 > 备注：t2v：duration 5/10（默认 5）、720p/1080p（默认 720p）、16:9/9:16/1:1（默认 16:9），audio native/off（默认 off，native 仅 1080p）。i2v：首帧必填、尾帧选填（不支持仅尾帧）；请求无 aspect_ratio 字段（输出比例随首帧图，官方未给出原文确认）；首尾帧生成仅支持 1080P；音色引用 ≤2 且此时 audio 不可为 off。motion control：独立端点无 duration 参数（输出可能短于参考视频），character_orientation 必填（image/video），参考视频 mp4/mov ≤100MB、宽高 340~3850px。prompt 统一 ≤2500 字符。新接口无 4K、无 cfg_scale（v2.x 不支持）。
 
 ## 输出限制
@@ -58,6 +60,10 @@
 
 ## 价格
 
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://kling.ai/document-api/api/video/2-6/text-to-video
 
 > 备注：官方文档未公开具体单价/积分数值；计量机制：按输出视频时长扣减（motion control 明确"积分扣减以输出视频时长为准"），billing 响应含 charge_type=cash/unit、currency=CNY/USD、package_type=video/image/audio、list_price 刊例价。
 

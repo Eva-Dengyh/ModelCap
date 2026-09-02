@@ -29,6 +29,8 @@
 | 时长模式 | client_choice |
 | 生成音频 | 不支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：t2v / i2v。任意分辨率/帧数控制，无固定枚举：分辨率默认 720×720（4.5B）/ 720×1280（24B）；时长由 num_frames 控制（默认 96，fps 默认 24≈4s），流式无固定上限；cfg_number 基础模型=3、distill/quant=1。故 duration_seconds / resolution / aspect_ratio 置 null。
 
 ### 任务：extend
@@ -41,6 +43,8 @@
 | 比例模式 | client_choice |
 | 时长模式 | client_choice |
 | 生成音频 | 不支持 |
+
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
 
 > 备注：v2v 视频续写：输入前缀视频（--prefix_video_path）作为条件，自回归继续生成后续 chunk。任意分辨率/帧数控制，无固定枚举，duration_seconds / resolution / aspect_ratio 置 null。
 

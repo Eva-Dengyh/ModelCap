@@ -35,6 +35,8 @@
 | 生成音频 | 支持 |
 | 音频额外计费 | 是 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：文生视频(t2v)/Fusion 支持 aspect_ratio 枚举；图生视频(i2v, img_id 单图)、首尾帧转场(transition, first_frame_img+last_frame_img 双图)、Fusion 用 image_references 多图(未标注上限)，这些子任务不传 aspect_ratio（继承参考图）。音频为 inline 生成(generate_audio_switch 开关)，无参考音频参数，官方文档未提供 max_reference_audios。seed 0-2147483647。视频输入(extend/fusion)限 mp4/mov/webm、≤1920px、≤50MB、≤30s。
 
 ### 任务：extend
@@ -48,6 +50,8 @@
 | 时长模式 | client_choice |
 | 生成音频 | 支持 |
 | 音频额外计费 | 是 |
+
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
 
 > 备注：延长任务官方文档明确不支持 aspect_ratio（参数表标 ❌，自动继承待延长视频）。音频为 inline 生成，无参考音频参数，官方文档未提供 max_reference_audios。输入视频限 mp4/mov/webm、≤1920px、≤50MB、≤30s。
 
@@ -78,6 +82,10 @@
 | 540p | 7 |
 | 720p | 9 |
 | 1080p | 18 |
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://docs.platform.pixverse.ai/v6-2056814m0
 
 > 备注：积分/秒（无音频档）。含音频档 360p:7 / 540p:9 / 720p:12 / 1080p:23；Fusion 输入含 video_references 时翻倍（如 720p 无音频 18、含音频 24）。$1≈5 条 720p/5s/无音频（Starter 包）。
 

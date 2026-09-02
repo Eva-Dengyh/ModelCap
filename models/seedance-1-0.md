@@ -32,6 +32,8 @@
 | 时长模式 | client_choice |
 | 生成音频 | 不支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：时长 [2,12] 整数、默认 1080p（480p/720p/1080p，24fps）；不支持 duration=-1（智能时长只属 1.5/2.x）。t2v ratio 只能六档固定且不支持 adaptive（默认 16:9）；i2v 可 adaptive（默认），指定 ratio 与图不一致时居中裁剪、首尾帧不一致以首帧为主裁尾帧。duration 与 frames 二选一（frames 优先级更高，仅 1.0 pro/pro fast 支持）。camera_fixed 1.0 pro 支持但参考图场景不支持；seed ∈ [-1, 2^31-1]；return_last_frame 可选返回尾帧图。prompt 建议：中文 ≤500 字/英文 ≤1000 词。输出像素与 1.5/2.x 不同（如 1080p/16:9 为 1920×1088）。
 
 ## 输出限制
@@ -55,6 +57,10 @@
 ## 价格
 
 - **币种**：CNY
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://docs.volcengine.com/docs/82379/1520757
 
 > 备注：官方按 token 计费：价格 = token 单价 × 用量，用量 ≈ 输出视频时长×宽×高×帧率/1024（无输入视频项；视频生成模型输入 token 为 0）。pro 在线 15 元/百万 token、离线 flex 7.5 元；pro fast 在线 4.2 元、离线 2.1 元。lite 无定价行。仅成功生成的视频计费，审核失败不计费。
 

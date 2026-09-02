@@ -39,6 +39,8 @@
 | 生成音频 | 支持 |
 | 参考音频上限 | 3 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
+
 > 备注：t2v ratio 必填且不可 adaptive；i2v ratio 固定 adaptive（继承输入图）；r2v ratio 可选默认 adaptive；音频通过 reference_audio 参考音色，无独立 generate_audio 开关；音频额外计费官方文档未提供（仅提示使用 Pay-as-you-go API）；视频 ≤50MB、FPS 23.976~60；请求体 ≤64MB。
 
 ## 输出限制

@@ -70,14 +70,21 @@
         "3:4"
       ],
       "ratio_mode": "client_choice",
-      "note": "时长由 seconds=num_frames/frame_rate 推导：num_frames 上限 441（须满足 8n+1 规则），frame_rate 1~60；官方示例 81/24≈3s、121/24≈5s、241/24≈10s、441/24≈18s，未给秒级固定上下限。默认请求尺寸 1152x768，输出会归一到最近标准档（480p/720p/1080p）。图片需公网 URL；图片格式/大小/边长、提示词字数上限官方未给出。"
+      "note": "时长由 seconds=num_frames/frame_rate 推导：num_frames 上限 441（须满足 8n+1 规则），frame_rate 1~60；官方示例 81/24≈3s、121/24≈5s、241/24≈10s、441/24≈18s，未给秒级固定上下限。默认请求尺寸 1152x768，输出会归一到最近标准档（480p/720p/1080p）。图片需公网 URL；图片格式/大小/边长、提示词字数上限官方未给出。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "resolution"
+      ]
     }
   },
   "output_limits": null,
   "pricing": {
     "currency": "USD",
     "unit": "second",
-    "note": "挂牌价 $0.005/秒（当前促销价 $0/秒），不分分辨率档。"
+    "note": "挂牌价 $0.005/秒（当前促销价 $0/秒），不分分辨率档。",
+    "observed_at": "2026-09-02",
+    "source": "https://wiki.agnes-ai.com/en/docs/agnes-video-v20"
   },
   "errors": {
     "400": {

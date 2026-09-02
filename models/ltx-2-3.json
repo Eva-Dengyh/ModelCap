@@ -113,7 +113,13 @@
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "generate_audio": true,
-      "note": "时长矩阵：fast 在 720p/1080p @24/25fps 支持 6/8/10/12/14/16/18/20s，@48/50fps 与 1440p/4K 下仅 6/8/10s；pro 各档位 @24/25/48/50fps 均仅 6/8/10s（pro 支持 48/50fps，与 2.5 pro 不同）。分辨率只有 16:9/9:16 两向（fast/pro 均到 4K=3840x2160/2160x3840；官方档名 1440p，仓库用 2k）。fps 24/25/48/50 默认 24。i2v 末帧插值需 last_frame_uri；缺省分辨率按输入图方向。a2v（仅 pro）成片时长=输入音轨时长（720p/1080p 音轨 ≤20s，1440p/4K ≤10s）。"
+      "note": "时长矩阵：fast 在 720p/1080p @24/25fps 支持 6/8/10/12/14/16/18/20s，@48/50fps 与 1440p/4K 下仅 6/8/10s；pro 各档位 @24/25/48/50fps 均仅 6/8/10s（pro 支持 48/50fps，与 2.5 pro 不同）。分辨率只有 16:9/9:16 两向（fast/pro 均到 4K=3840x2160/2160x3840；官方档名 1440p，仓库用 2k）。fps 24/25/48/50 默认 24。i2v 末帧插值需 last_frame_uri；缺省分辨率按输入图方向。a2v（仅 pro）成片时长=输入音轨时长（720p/1080p 音轨 ≤20s，1440p/4K ≤10s）。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
@@ -129,7 +135,9 @@
       "2k": 0.12,
       "4k": 0.24
     },
-    "note": "fast 按输出视频秒计费（t2v=i2v）：720p $0.03/s、1080p $0.06/s、1440p(2K) $0.12/s、4K $0.24/s。pro：$0.04/0.08/0.16/0.32/s。a2v（pro）$0.06/0.10/0.18/0.34/s（按输入音轨秒）；retake $0.10/s、extend 段+context 合计 ≤505 帧封顶、HDR $0.20~0.80/s、reframe 0.10/0.20/s（均 1080p 档，pro 独占）。AA 榜 $2.40/min 与官方 fast-1080p($0.06/s→$3.60/min) 不一致，为第三方渠道口径；pro $4.80/min 与官方互证。"
+    "note": "fast 按输出视频秒计费（t2v=i2v）：720p $0.03/s、1080p $0.06/s、1440p(2K) $0.12/s、4K $0.24/s。pro：$0.04/0.08/0.16/0.32/s。a2v（pro）$0.06/0.10/0.18/0.34/s（按输入音轨秒）；retake $0.10/s、extend 段+context 合计 ≤505 帧封顶、HDR $0.20~0.80/s、reframe 0.10/0.20/s（均 1080p 档，pro 独占）。AA 榜 $2.40/min 与官方 fast-1080p($0.06/s→$3.60/min) 不一致，为第三方渠道口径；pro $4.80/min 与官方互证。",
+    "observed_at": "2026-09-02",
+    "source": "https://docs.ltx.io/models/ltx-2-3"
   },
   "errors": {
     "invalid_request_error": {

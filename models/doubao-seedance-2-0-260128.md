@@ -40,6 +40,8 @@
 | 参考音频上限 | 3 |
 | 音频额外计费 | 否 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
+
 > 备注：全模态参考：可组合文本/图片(0~9)/视频(0~3)/音频(0~3)；不支持“文本+音频”与“纯音频”输入；4k 仅标准版支持（10bit/H.265）；ratio 可选 adaptive（默认值）；生成音频不额外计费（价格按分辨率与输入是否含视频区分，有声/无声同价）。
 
 ### 任务：edit
@@ -55,6 +57,8 @@
 | 参考音频上限 | 3 |
 | 音频额外计费 | 否 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
+
 > 备注：生成音频不额外计费（价格按分辨率与输入是否含视频区分，有声/无声同价）。
 
 ### 任务：extend
@@ -69,6 +73,8 @@
 | 生成音频 | 支持 |
 | 参考音频上限 | 3 |
 | 音频额外计费 | 否 |
+
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
 
 > 备注：支持向前/向后延长 1 段视频，或最多 3 段视频串联补全过渡；生成音频不额外计费（价格按分辨率与输入是否含视频区分，有声/无声同价）。
 

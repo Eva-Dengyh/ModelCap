@@ -56,7 +56,12 @@
       ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
-      "note": "24fps，总帧数 = 24*n+1，n∈{5,10}（frames∈{121,241}）。aspect_ratio 默认 16:9。prompt 建议 ≤400 字、上限 800 字。720P / 1080P 为独立 req_key（jimeng_t2v_v30 等）。首尾帧任务需 2 张图且尾帧与首帧同比例。图片原文约束：最大 4.7MB、最大 4096×4096、最短边 ≥320、长边:短边 ≤3。"
+      "note": "24fps，总帧数 = 24*n+1，n∈{5,10}（frames∈{121,241}）。aspect_ratio 默认 16:9。prompt 建议 ≤400 字、上限 800 字。720P / 1080P 为独立 req_key（jimeng_t2v_v30 等）。首尾帧任务需 2 张图且尾帧与首帧同比例。图片原文约束：最大 4.7MB、最大 4096×4096、最短边 ≥320、长边:短边 ≤3。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
@@ -71,7 +76,9 @@
       "1080p": 63,
       "1080p-pro": 100
     },
-    "note": "按秒计费：720P 0.28 元/秒、1080P 0.63 元/秒、3.0 Pro 1.00 元/秒；tiers 整数单位为分/秒（1 元=100 分）。并发：免费状态 1、付费状态 2。"
+    "note": "按秒计费：720P 0.28 元/秒、1080P 0.63 元/秒、3.0 Pro 1.00 元/秒；tiers 整数单位为分/秒（1 元=100 分）。并发：免费状态 1、付费状态 2。",
+    "observed_at": "2026-09-01",
+    "source": "https://www.volcengine.com/docs/85621/1792707"
   },
   "errors": {
     "50411": {
@@ -81,10 +88,6 @@
     "50413": {
       "standard": "content_violation.safety",
       "user_message": "输入文本含敏感词、版权词等审核不通过"
-    },
-    "50518": {
-      "standard": "content_violation.copyright",
-      "user_message": "输入版权图前审核未通过"
     },
     "50429": {
       "standard": "quota_exceeded",
@@ -101,6 +104,10 @@
     "50501": {
       "standard": "provider_failed",
       "user_message": "内部算法错误"
+    },
+    "50518": {
+      "standard": "content_violation.copyright",
+      "user_message": "输入版权图前审核未通过"
     }
   }
 }

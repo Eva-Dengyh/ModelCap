@@ -68,7 +68,11 @@
       ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
-      "note": "时长仅 5s 或 10s。输出原生规格 720p 级（不是 4K），六档像素：16:9=1280x720、9:16=720x1280、1:1=960x960、4:3=1104x832、3:4=832x1104、21:9=1584x672。24fps 固定。选的分辨率与输入图比例不同会触发裁剪。prompt ≤1000 字符；不支持 negative prompt（可能产生相反效果）。音频生成未在官方文档提及。时长决定总 credits（Turbo：5s=25、10s=50）。"
+      "note": "时长仅 5s 或 10s。输出原生规格 720p 级（不是 4K），六档像素：16:9=1280x720、9:16=720x1280、1:1=960x960、4:3=1104x832、3:4=832x1104、21:9=1584x672。24fps 固定。选的分辨率与输入图比例不同会触发裁剪。prompt ≤1000 字符；不支持 negative prompt（可能产生相反效果）。音频生成未在官方文档提及。时长决定总 credits（Turbo：5s=25、10s=50）。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration"
+      ]
     }
   },
   "output_limits": {
@@ -77,7 +81,9 @@
   },
   "pricing": {
     "unit": "second",
-    "note": "Runway web credits：Gen-4 Turbo 5 credits/s（5s=25、10s=50 total）；Gen-4（非 Turbo）12 credits/s。无公开 credit→USD 官方换算；API 渠道未上架 Turbo（web 与 API credits 池相互独立）。"
+    "note": "Runway web credits：Gen-4 Turbo 5 credits/s（5s=25、10s=50 total）；Gen-4（非 Turbo）12 credits/s。无公开 credit→USD 官方换算；API 渠道未上架 Turbo（web 与 API credits 池相互独立）。",
+    "observed_at": "2026-09-02",
+    "source": "https://help.runwayml.com/hc/en-us/articles/37327109429011-Creating-with-Gen-4-Video"
   },
   "errors": {
     "note": "官方帮助中心无该档位专属错误码；Runway API 通用错误码仅存于需登录的开发者门户，未收录。"

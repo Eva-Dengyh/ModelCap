@@ -28,6 +28,8 @@
 | 画面比例 | 9:16 |
 | 生成音频 | 不支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：帧数控制（SVD 14 帧 / SVD-XT 25 帧），固定 576×1024，无秒级时长枚举：fps_id 默认 6（可设 5~30），时长=帧数/fps 无固定秒数档位；单张参考图（context frame）。分辨率 576×1024 不在 schema 清晰度枚举内，故 resolution 置 null、duration_seconds 置 null。
 
 ## 价格

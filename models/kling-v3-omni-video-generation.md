@@ -37,6 +37,8 @@
 | 时长模式 | client_choice |
 | 生成音频 | 支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：mode: std(720P)/pro(1080P)/4k；duration 3~15s（feature 参考视频时 3~10s），默认 5；audio 默认 false（静音）；首帧/首尾帧场景 aspect_ratio 可不设（继承首帧图）；图片 JPEG/JPG/PNG（无 alpha）；视频 3~15.5s、FPS 24~60、≤200MB。
 
 ### 任务：edit
@@ -49,6 +51,8 @@
 | 比例模式 | inherit_from_reference_video |
 | 时长模式 | inherit_from_reference_video |
 | 生成音频 | 支持 |
+
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
 
 > 备注：视频编辑（base）：输出时长/宽高比继承输入视频，duration 参数被忽略；base 1 个视频，refer 参考图+实体 ≤4；传入视频时 audio 只能 false。
 

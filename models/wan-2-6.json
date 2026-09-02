@@ -112,7 +112,13 @@
         "3:4"
       ],
       "generate_audio": true,
-      "note": "时长 [2,15] 整数默认 5（变体 wan2.6-t2v-us 仅 5/10、wan2.6-i2v-us 仅 5/10/15）。文生 wan2.6-t2v：size 必须是具体像素串且只支持 720P/1080P 两档对应枚举（720P：1280*720、720*1280、960*960、1088*832、832*1088；1080P：1920*1080、1080*1920、1440*1440、1632*1248、1248*1632；默认 1920*1080），无 480P。图生 wan2.6-i2v：resolution 720P/1080P（默认 1080P），输出比例尽量与首帧图一致（长宽须为 16 的倍数会微调）。有声为默认；参数 audio 仅 i2v-flash 支持（audio=true 有声默认/false 无声，优先级 audio > audio_url，无声按无声价计费）。input.audio_url：wav/mp3、3~30s、≤15MB，超长截取、不足后半无声。prompt ≤1500 字（超长自动截断）、negative_prompt ≤500。"
+      "note": "时长 [2,15] 整数默认 5（变体 wan2.6-t2v-us 仅 5/10、wan2.6-i2v-us 仅 5/10/15）。文生 wan2.6-t2v：size 必须是具体像素串且只支持 720P/1080P 两档对应枚举（720P：1280*720、720*1280、960*960、1088*832、832*1088；1080P：1920*1080、1080*1920、1440*1440、1632*1248、1248*1632；默认 1920*1080），无 480P。图生 wan2.6-i2v：resolution 720P/1080P（默认 1080P），输出比例尽量与首帧图一致（长宽须为 16 的倍数会微调）。有声为默认；参数 audio 仅 i2v-flash 支持（audio=true 有声默认/false 无声，优先级 audio > audio_url，无声按无声价计费）。input.audio_url：wav/mp3、3~30s、≤15MB，超长截取、不足后半无声。prompt ≤1500 字（超长自动截断）、negative_prompt ≤500。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
@@ -126,7 +132,9 @@
       "720p": 0.6,
       "1080p": 1
     },
-    "note": "北京地域价（元/秒），t2v 与 i2v 同价，按 duration 计费（= input_video_duration + output_video_duration，无视频输入故 input 恒 0）；北京有 50 秒免费额度。新加坡 0.733924/1.100886，法兰克福 0.6/1，弗吉尼亚 0.6/1（-us 变体按 0.733924/1.100886）。wan2.6-i2v-flash 分有声/无声档：北京有声 0.3/0.5、无声 0.15/0.25 元/秒。RPM 300（弗吉尼亚 60，us 变体 6000）。"
+    "note": "北京地域价（元/秒），t2v 与 i2v 同价，按 duration 计费（= input_video_duration + output_video_duration，无视频输入故 input 恒 0）；北京有 50 秒免费额度。新加坡 0.733924/1.100886，法兰克福 0.6/1，弗吉尼亚 0.6/1（-us 变体按 0.733924/1.100886）。wan2.6-i2v-flash 分有声/无声档：北京有声 0.3/0.5、无声 0.15/0.25 元/秒。RPM 300（弗吉尼亚 60，us 变体 6000）。",
+    "observed_at": "2026-09-02",
+    "source": "https://help.aliyun.com/zh/model-studio/legacy-wan-text-to-video-api-reference"
   },
   "errors": {
     "InvalidApiKey": {

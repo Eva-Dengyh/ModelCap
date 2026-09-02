@@ -41,7 +41,13 @@
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "generate_audio": false,
-      "note": "t2v / i2v。任意分辨率/帧数控制，无固定枚举：分辨率默认 720×720（4.5B）/ 720×1280（24B）；时长由 num_frames 控制（默认 96，fps 默认 24≈4s），流式无固定上限；cfg_number 基础模型=3、distill/quant=1。故 duration_seconds / resolution / aspect_ratio 置 null。"
+      "note": "t2v / i2v。任意分辨率/帧数控制，无固定枚举：分辨率默认 720×720（4.5B）/ 720×1280（24B）；时长由 num_frames 控制（默认 96，fps 默认 24≈4s），流式无固定上限；cfg_number 基础模型=3、distill/quant=1。故 duration_seconds / resolution / aspect_ratio 置 null。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     },
     "extend": {
       "duration_seconds": null,
@@ -50,7 +56,13 @@
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "generate_audio": false,
-      "note": "v2v 视频续写：输入前缀视频（--prefix_video_path）作为条件，自回归继续生成后续 chunk。任意分辨率/帧数控制，无固定枚举，duration_seconds / resolution / aspect_ratio 置 null。"
+      "note": "v2v 视频续写：输入前缀视频（--prefix_video_path）作为条件，自回归继续生成后续 chunk。任意分辨率/帧数控制，无固定枚举，duration_seconds / resolution / aspect_ratio 置 null。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     }
   },
   "errors": {

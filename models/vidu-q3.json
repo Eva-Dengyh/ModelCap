@@ -129,7 +129,13 @@
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "generate_audio": true,
-      "note": "端点/场景差异（同一 generate 下的子场景，schema 不细分）：text2video 的 q3-pro/turbo 时长 1–16s（默认 5）、分辨率默认 720p 可选 540p/720p/1080p，比例默认 16:9，3:4/4:3 仅 q2/q3 支持；image2video 同 1–16s，pro-fast 仅 720p/1080p；start-end2video（首帧+尾帧 2 图，两图比例须在 0.8~1.25）1–16s；reference2video（仅 mix/turbo/q3 等档，图 1–7 张、每张 ≥128x128）mix 1–16s、turbo/pro 3–16s，参考视频 q3 不支持（仅 viduq2-pro）。i2v 每请求请求体 ≤20MB。audio 默认 true（q3），支持 off-peak 错峰。文档内部有 r2v 页\"3:4/4:3 仅 q2\"与 t2v 页\"q2&q3\"的不一致，照录待厂商修正。"
+      "note": "端点/场景差异（同一 generate 下的子场景，schema 不细分）：text2video 的 q3-pro/turbo 时长 1–16s（默认 5）、分辨率默认 720p 可选 540p/720p/1080p，比例默认 16:9，3:4/4:3 仅 q2/q3 支持；image2video 同 1–16s，pro-fast 仅 720p/1080p；start-end2video（首帧+尾帧 2 图，两图比例须在 0.8~1.25）1–16s；reference2video（仅 mix/turbo/q3 等档，图 1–7 张、每张 ≥128x128）mix 1–16s、turbo/pro 3–16s，参考视频 q3 不支持（仅 viduq2-pro）。i2v 每请求请求体 ≤20MB。audio 默认 true（q3），支持 off-peak 错峰。文档内部有 r2v 页\"3:4/4:3 仅 q2\"与 t2v 页\"q2&q3\"的不一致，照录待厂商修正。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
@@ -144,7 +150,9 @@
       "720p": 20,
       "1080p": 24
     },
-    "note": "平台按 credits 计费（1 credit = $0.005）。tiers 为 viduq3-pro 峰值 credits/秒：540P 9($0.045)/720P 20($0.1)/1080P 24($0.12)；off-peak（错峰）约半价（1080P 12 / 720P 10 / 540P 5）。viduq3-turbo：540P 7 / 720P 11 / 1080P 13 credits/秒；pro-fast（仅图生）：720P 20 / 1080P 25。reference2video 档另价（mix 720P 24 / 1080P 29；turbo 4/10/13；q3 7/12/15），错峰任务 48h 内未完成自动取消退款。"
+    "note": "平台按 credits 计费（1 credit = $0.005）。tiers 为 viduq3-pro 峰值 credits/秒：540P 9($0.045)/720P 20($0.1)/1080P 24($0.12)；off-peak（错峰）约半价（1080P 12 / 720P 10 / 540P 5）。viduq3-turbo：540P 7 / 720P 11 / 1080P 13 credits/秒；pro-fast（仅图生）：720P 20 / 1080P 25。reference2video 档另价（mix 720P 24 / 1080P 29；turbo 4/10/13；q3 7/12/15），错峰任务 48h 内未完成自动取消退款。",
+    "observed_at": "2026-09-02",
+    "source": "https://platform.vidu.com/docs/model-map"
   },
   "errors": {
     "BadRequest": {

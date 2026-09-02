@@ -41,6 +41,8 @@
 | 参考音频上限 | 10 |
 | 音频额外计费 | 否 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
+
 > 备注：首帧/首尾帧子任务 ratio 必须 adaptive（自动保持与首帧图一致）；duration 支持 [4,30] 或 -1；生成音频不额外计费（价格按分辨率与输入是否含视频区分，有声/无声同价）。
 
 ### 任务：edit
@@ -56,6 +58,8 @@
 | 参考音频上限 | 10 |
 | 音频额外计费 | 否 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
+
 > 备注：编辑任务 duration 强制 -1、ratio 强制 adaptive（自动保持与待编辑视频一致）；参考视频时长须在 [4,30]s，输出时长误差不超过 0.4s；生成音频不额外计费（价格按分辨率与输入是否含视频区分，有声/无声同价）。
 
 ### 任务：extend
@@ -70,6 +74,8 @@
 | 生成音频 | 支持 |
 | 参考音频上限 | 10 |
 | 音频额外计费 | 否 |
+
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
 
 > 备注：延长任务 ratio 必须 adaptive（自动保持与待延长视频一致）；duration 支持 [4,30] 或 -1；生成音频不额外计费（价格按分辨率与输入是否含视频区分，有声/无声同价）。
 

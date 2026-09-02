@@ -76,7 +76,12 @@
         "3:4",
         "9:16"
       ],
-      "note": "duration 整数 5–15 默认 5；resolution 480P/768P（默认 768P，无 1080P 档）。aspect_ratio 仅 t2v 变体可选（默认 16:9）；i2v 无比例参数、输出比例跟随首帧图。prompt_expansion_mode 必填（默认 balanced）。sync_mode=true 返回 base64 而非 CDN url；seed 可选。"
+      "note": "duration 整数 5–15 默认 5；resolution 480P/768P（默认 768P，无 1080P 档）。aspect_ratio 仅 t2v 变体可选（默认 16:9）；i2v 无比例参数、输出比例跟随首帧图。prompt_expansion_mode 必填（默认 balanced）。sync_mode=true 返回 base64 而非 CDN url；seed 可选。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
@@ -90,7 +95,9 @@
       "480p": 0.0125,
       "768p": 0.02
     },
-    "note": "fal 页面按输出秒计费：480p $0.0125/s、768p $0.02/s（促销 launch 价，75% off，2026-09-07 截止）；促销后 480p $0.05/s、768p $0.08/s。AA 榜单 $2.40/分钟 是 1080p 口径（本端点最高 768P），非本模型官方价。"
+    "note": "fal 页面按输出秒计费：480p $0.0125/s、768p $0.02/s（促销 launch 价，75% off，2026-09-07 截止）；促销后 480p $0.05/s、768p $0.08/s。AA 榜单 $2.40/分钟 是 1080p 口径（本端点最高 768P），非本模型官方价。",
+    "observed_at": "2026-09-02",
+    "source": "https://fal.ai/models/minimax/h3-max/text-to-video"
   },
   "errors": {
     "note": "fal 模型页无模型级错误码表；沿用平台 HTTP 语义（400/422 参数校验、429 限流、5xx 服务端）。任务状态枚举 IN_QUEUE/IN_PROGRESS/COMPLETED。"

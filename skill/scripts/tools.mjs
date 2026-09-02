@@ -303,6 +303,9 @@ function mdRules(entry) {
 
     if (rows.length === 0) rows.push(['—', '待补充'])
     for (const [k, v] of rows) out.push(`| ${k} | ${v} |`)
+    if (r.supported_parameters && r.supported_parameters.length > 0) {
+      out.push('', `> 支持参数：${cell(r.supported_parameters)}`)
+    }
     if (r.note) out.push('', `> 备注：${r.note}`)
     out.push('')
   }
@@ -356,6 +359,8 @@ function mdPricing(entry) {
     out.push('', '| 档位 | 单价 |', '| --- | --- |')
     for (const [k, v] of Object.entries(p.tiers)) out.push(`| ${k} | ${v} |`)
   }
+  if (!isMissing(p.observed_at)) out.push('', `- **价格快照日期**：${cell(p.observed_at)}`)
+  if (!isMissing(p.source)) out.push('', `- **价格来源**：${p.source}`)
   if (p.note) out.push('', `> 备注：${p.note}`)
   return out.join('\n') + '\n'
 }

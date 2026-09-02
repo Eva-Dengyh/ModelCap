@@ -25,6 +25,8 @@
 | 清晰度 | 480p、768p |
 | 画面比例 | 21:9、16:9、4:3、1:1、3:4、9:16 |
 
+> 支持参数：aspect_ratio、duration、resolution
+
 > 备注：duration 整数 5–15 默认 5；resolution 480P/768P（默认 768P，无 1080P 档）。aspect_ratio 仅 t2v 变体可选（默认 16:9）；i2v 无比例参数、输出比例跟随首帧图。prompt_expansion_mode 必填（默认 balanced）。sync_mode=true 返回 base64 而非 CDN url；seed 可选。
 
 ## 输出限制
@@ -52,6 +54,10 @@
 | --- | --- |
 | 480p | 0.0125 |
 | 768p | 0.02 |
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://fal.ai/models/minimax/h3-max/text-to-video
 
 > 备注：fal 页面按输出秒计费：480p $0.0125/s、768p $0.02/s（促销 launch 价，75% off，2026-09-07 截止）；促销后 480p $0.05/s、768p $0.08/s。AA 榜单 $2.40/分钟 是 1080p 口径（本端点最高 768P），非本模型官方价。
 

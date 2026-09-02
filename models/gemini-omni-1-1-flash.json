@@ -55,7 +55,14 @@
         "max_reference_audios": 5,
         "extra_charge": null
       },
-      "note": "时长由提示词/时间码（如 [0-3s]）控制，无独立 duration 参数；默认 16:9；resolution 支持 360p（草稿）/720p/1080p/4k；video_config.task 可选 image_to_video 或 reference_to_video；最多 5 张参考图与 5 条音轨。"
+      "note": "时长由提示词/时间码（如 [0-3s]）控制，无独立 duration 参数；默认 16:9；resolution 支持 360p（草稿）/720p/1080p/4k；video_config.task 可选 image_to_video 或 reference_to_video；最多 5 张参考图与 5 条音轨。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "reference_audio",
+        "resolution"
+      ]
     },
     "edit": {
       "duration_seconds": null,
@@ -64,7 +71,13 @@
       "ratio_mode": "inherit_from_reference_video",
       "duration_mode": "inherit_from_reference_video",
       "generate_audio": null,
-      "note": "多轮对话式编辑，通过 previous_interaction_id 迭代；上传视频编辑通过 Files API 传入 document uri；官方未给出编辑任务的时长/分辨率/比例约束。"
+      "note": "多轮对话式编辑，通过 previous_interaction_id 迭代；上传视频编辑通过 Files API 传入 document uri；官方未给出编辑任务的时长/分辨率/比例约束。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     },
     "extend": {
       "duration_seconds": {
@@ -76,7 +89,13 @@
       "ratio_mode": "inherit_from_reference_video",
       "duration_mode": "client_choice",
       "generate_audio": true,
-      "note": "生成 3-10 秒续写，分析至多 10 秒前文；上传视频须 ≤10 秒（模型自生成视频多轮延长不限）；多轮语音扩展支持生成对白。"
+      "note": "生成 3-10 秒续写，分析至多 10 秒前文；上传视频须 ≤10 秒（模型自生成视频多轮延长不限）；多轮语音扩展支持生成对白。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
@@ -88,7 +107,9 @@
     "note": "官方文档未提供错误码表；Interactions API 无公开错误码枚举。"
   },
   "pricing": {
-    "note": "官方定价页（ai.google.dev/pricing）在本环境无法访问，未核实单价；Gemini Omni Flash 1.1 为付费模型。"
+    "note": "官方定价页（ai.google.dev/pricing）在本环境无法访问，未核实单价；Gemini Omni Flash 1.1 为付费模型。",
+    "observed_at": "2026-09-02",
+    "source": "https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb"
   },
   "rankings": [
     {

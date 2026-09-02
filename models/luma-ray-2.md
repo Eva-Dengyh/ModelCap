@@ -26,6 +26,8 @@
 | 时长模式 | client_choice |
 | 生成音频 | 不支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：duration 与 resolution 来自 OpenAPI 共享枚举 VideoModelOutputDuration（仅 5s/9s 两档）与 VideoModelOutputResolution（540p/720p/1080p/4k），均为 anyOf 含自由字符串的非硬约束，且非 ray-2 专属。aspect_ratio 共享枚举默认 16:9；keyframes 支持 frame0/frame1（image 或 generation 引用），loop 可选。视频生成请求无音频字段（generate_audio=false），音频由独立 /generations/{id}/audio 接口生成（AudioGenerationRequest 仅 prompt/negative_prompt，无参考音频，故 max_reference_audios 无值；音频额外计费官方文档未提供）。
 
 ### 任务：edit
@@ -39,6 +41,8 @@
 | 时长模式 | 待补充 |
 | 生成音频 | 不支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：modify_video（mode adhere_1/2/3、flex_1/2/3、reimagine_1/2/3，风格迁移/提示词编辑）与 reframe_video（aspect_ratio 必填，改比例重构图）请求体均无 duration/resolution/ratio_mode/duration_mode/generate_audio 字段（该接口无此字段）；aspect_ratio 枚举仅 reframe_video 使用（必填，默认 16:9），modify_video 无 aspect_ratio；模型为 ray-2 / ray-flash-2。
 
 ### 任务：extend
@@ -51,6 +55,8 @@
 | 比例模式 | client_choice |
 | 时长模式 | client_choice |
 | 生成音频 | 不支持 |
+
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
 
 > 备注：extend 通过 keyframes 将 frame0/frame1 设为已存在 generation 引用（正向/反向延长），复用 /generations/video 的 GenerationRequest，故 duration/resolution 与 generate 同源（共享枚举）。请求无音频字段（generate_audio=false），音频由独立 /generations/{id}/audio 接口生成（无参考音频、音频额外计费官方文档未提供）。
 

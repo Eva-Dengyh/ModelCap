@@ -28,6 +28,8 @@
 | 时长模式 | 待补充 |
 | 生成音频 | 支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：官方 SDK 未给出时长范围（文档页不可达）；resolution 720p/1080p，aspect_ratio 16:9/9:16；generate_audio 可选生成音频。
 
 ## 输出限制
@@ -47,6 +49,10 @@
 
 ## 价格
 
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://github.com/googleapis/python-genai/blob/main/google/genai/types.py
 
 > 备注：官方定价页（ai.google.dev/pricing）在本环境无法访问，未核实单价；Veo 2 为付费模型。
 

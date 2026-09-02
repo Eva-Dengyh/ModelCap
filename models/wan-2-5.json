@@ -88,7 +88,13 @@
         "3:4"
       ],
       "generate_audio": true,
-      "note": "t2v 与 i2v 的 duration 均只支持 5/10（默认 5）。t2v 用 size=\"宽*高\"（默认 1920*1080=1080P），可选 480P/720P/1080P 全档：480P 档 832*480/480*832/624*624（仅 16:9/9:16/1:1），720P 与 1080P 档含 16:9/9:16/1:1/4:3/3:4 像素组合。i2v 用 resolution 480P/720P/1080P（默认 1080P），输出比例尽量随输入图（长宽须为 16 倍数会微调）。北京默认有声+自动配音，audio_url：wav/mp3、3–30s、≤15MB、1 条（超长截取、不足后半无声）；新加坡无声输出。prompt ≤1500（自动截断）、negative_prompt ≤500；prompt_extend 默认 true；watermark 默认 false；seed ∈ [0, 2^31-1]。"
+      "note": "t2v 与 i2v 的 duration 均只支持 5/10（默认 5）。t2v 用 size=\"宽*高\"（默认 1920*1080=1080P），可选 480P/720P/1080P 全档：480P 档 832*480/480*832/624*624（仅 16:9/9:16/1:1），720P 与 1080P 档含 16:9/9:16/1:1/4:3/3:4 像素组合。i2v 用 resolution 480P/720P/1080P（默认 1080P），输出比例尽量随输入图（长宽须为 16 倍数会微调）。北京默认有声+自动配音，audio_url：wav/mp3、3–30s、≤15MB、1 条（超长截取、不足后半无声）；新加坡无声输出。prompt ≤1500（自动截断）、negative_prompt ≤500；prompt_extend 默认 true；watermark 默认 false；seed ∈ [0, 2^31-1]。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
@@ -103,7 +109,9 @@
       "720p": 0.6,
       "1080p": 1
     },
-    "note": "北京价（元/秒），t2v 与 i2v 同价、仅按分辨率档：480P 0.3 / 720P 0.6 / 1080P 1。新加坡（国际）480P 0.366962 / 720P 0.733924 / 1080P 1.100886（官方两页小数末位略有出入，按 ×1.2232 关系标注）。RPM 300；新用户免费额度 50 秒。无有声/无声分档（无声仅 2.6-i2v-flash）。"
+    "note": "北京价（元/秒），t2v 与 i2v 同价、仅按分辨率档：480P 0.3 / 720P 0.6 / 1080P 1。新加坡（国际）480P 0.366962 / 720P 0.733924 / 1080P 1.100886（官方两页小数末位略有出入，按 ×1.2232 关系标注）。RPM 300；新用户免费额度 50 秒。无有声/无声分档（无声仅 2.6-i2v-flash）。",
+    "observed_at": "2026-09-02",
+    "source": "https://help.aliyun.com/zh/model-studio/wan2-5-t2v"
   },
   "errors": {
     "InvalidApiKey": {

@@ -28,6 +28,8 @@
 | 时长模式 | client_choice |
 | 生成音频 | 不支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：--resolution 仅接受 480p/720p；可选 --sr 超分将输出上采样至 1080p。--aspect_ratio 仅默认值 16:9（由客户端传入），README 无比例枚举；--video_length 仅默认值 121 帧（约 5 秒 @24fps），帧数由客户端设置，README 无秒级时长枚举，故 aspect_ratio / duration_seconds 置 null。--num_inference_steps 默认 50（cfg-distill 模型须固定 50 步）。--image_path 传 1 张参考图（首帧）即启用 I2V，不传则为 T2V。
 
 ## 输出限制

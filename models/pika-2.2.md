@@ -27,6 +27,8 @@
 | 比例模式 | client_choice |
 | 时长模式 | client_choice |
 
+> 支持参数：aspect_ratio、duration、resolution
+
 > 备注：文生视频支持 7 种 aspect_ratio（默认 16:9）；图生视频无 aspect_ratio 参数（比例继承首帧图）。resolution 默认 720p；duration 可选 5 / 10 秒，默认 5；negative_prompt、seed 可选。输出为 mp4（File.url）。
 
 ## 输出限制
@@ -54,6 +56,10 @@
 | --- | --- |
 | 720p | 4 |
 | 1080p | 9 |
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://fal.ai/models/fal-ai/pika/v2.2/text-to-video
 
 > 备注：fal.ai 官方给出 5 秒成片价格：720p $0.20、1080p $0.45；此处按秒折算为 4 / 9 美分/秒（tiers 整数单位为美分）。
 

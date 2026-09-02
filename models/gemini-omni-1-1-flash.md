@@ -31,6 +31,8 @@
 | 生成音频 | 支持 |
 | 参考音频上限 | 5 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
+
 > 备注：时长由提示词/时间码（如 [0-3s]）控制，无独立 duration 参数；默认 16:9；resolution 支持 360p（草稿）/720p/1080p/4k；video_config.task 可选 image_to_video 或 reference_to_video；最多 5 张参考图与 5 条音轨。
 
 ### 任务：edit
@@ -44,6 +46,8 @@
 | 时长模式 | inherit_from_reference_video |
 | 生成音频 | 不支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：多轮对话式编辑，通过 previous_interaction_id 迭代；上传视频编辑通过 Files API 传入 document uri；官方未给出编辑任务的时长/分辨率/比例约束。
 
 ### 任务：extend
@@ -56,6 +60,8 @@
 | 比例模式 | inherit_from_reference_video |
 | 时长模式 | client_choice |
 | 生成音频 | 支持 |
+
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
 
 > 备注：生成 3-10 秒续写，分析至多 10 秒前文；上传视频须 ≤10 秒（模型自生成视频多轮延长不限）；多轮语音扩展支持生成对白。
 
@@ -76,6 +82,10 @@
 
 ## 价格
 
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb
 
 > 备注：官方定价页（ai.google.dev/pricing）在本环境无法访问，未核实单价；Gemini Omni Flash 1.1 为付费模型。
 

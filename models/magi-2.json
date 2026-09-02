@@ -54,14 +54,21 @@
         "1080p"
       ],
       "generate_audio": true,
-      "note": "时长固定 10 秒（官方唯一支持时长）。API 侧 resolution 540p/720p/1080p、仅 16:9（开放权重示例为竖版 1088×1920，两口径已分别注明）。inference_steps 仅对 magi-2-preview：4–100 且须被 4 整除，默认 64；guidance_scale 无范围限制、7.5 已验证；prompt enhancement 默认开启。API 每次请求仅 1 chunk、无需 task type、condition.type 仅 text。"
+      "note": "时长固定 10 秒（官方唯一支持时长）。API 侧 resolution 540p/720p/1080p、仅 16:9（开放权重示例为竖版 1088×1920，两口径已分别注明）。inference_steps 仅对 magi-2-preview：4–100 且须被 4 整除，默认 64；guidance_scale 无范围限制、7.5 已验证；prompt enhancement 默认开启。API 每次请求仅 1 chunk、无需 task type、condition.type 仅 text。",
+      "supported_parameters": [
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
     "max_duration_seconds": 10
   },
   "pricing": {
-    "note": "官方未公开定价：magi-2-preview 需联系 Sand.ai 开通（\"Currently, only magi is publicly available\"），无公开价格。AA 榜价格栏为 \"即将推出\"。"
+    "note": "官方未公开定价：magi-2-preview 需联系 Sand.ai 开通（\"Currently, only magi is publicly available\"），无公开价格。AA 榜价格栏为 \"即将推出\"。",
+    "observed_at": "2026-09-02",
+    "source": "https://github.com/SandAI-org/MAGI-2-preview"
   },
   "errors": {
     "note": "官方 OpenAPI 无错误码枚举；任务状态 PreProcessing/Pending/Running/Success/Fail/Canceled。开放权重自托管无 API 错误码。"

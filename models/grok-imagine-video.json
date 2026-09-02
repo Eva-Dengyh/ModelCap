@@ -68,7 +68,14 @@
         "max_reference_audios": 3,
         "extra_charge": null
       },
-      "note": "duration 1-15 秒；resolution 默认 480p，本版本支持 480p/720p（1080p 仅 grok-imagine-video-1.5 等支持 1080p 的模型提供）；aspect_ratio 默认 16:9。"
+      "note": "duration 1-15 秒；resolution 默认 480p，本版本支持 480p/720p（1080p 仅 grok-imagine-video-1.5 等支持 1080p 的模型提供）；aspect_ratio 默认 16:9。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "reference_audio",
+        "resolution"
+      ]
     },
     "edit": {
       "duration_seconds": null,
@@ -77,7 +84,13 @@
       "ratio_mode": "inherit_from_reference_video",
       "duration_mode": "inherit_from_reference_video",
       "generate_audio": true,
-      "note": "编辑通过 GenerateVideo 传入 video 字段实现；官方未给出编辑任务的时长/分辨率/比例约束。"
+      "note": "编辑通过 GenerateVideo 传入 video 字段实现；官方未给出编辑任务的时长/分辨率/比例约束。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     },
     "extend": {
       "duration_seconds": {
@@ -89,7 +102,13 @@
       "ratio_mode": "inherit_from_reference_video",
       "duration_mode": "client_choice",
       "generate_audio": true,
-      "note": "延长片段 1-10 秒（默认 6 秒）；输入视频须 2-30 秒，从末尾续写。"
+      "note": "延长片段 1-10 秒（默认 6 秒）；输入视频须 2-30 秒，从末尾续写。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
@@ -108,7 +127,9 @@
     "note": "官方 proto 仅示例性给出 code（如 invalid_argument/internal_error），未发布完整错误码枚举。"
   },
   "pricing": {
-    "note": "官方定价页（docs.x.ai）在本环境无法访问，未核实单价；proto 无静态视频计费字段（计费信息运行时随响应返回）。"
+    "note": "官方定价页（docs.x.ai）在本环境无法访问，未核实单价；proto 无静态视频计费字段（计费信息运行时随响应返回）。",
+    "observed_at": "2026-09-02",
+    "source": "https://github.com/xai-org/xai-proto/blob/main/proto/xai/api/v1/video.proto"
   },
   "rankings": [
     {

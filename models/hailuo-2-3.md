@@ -31,6 +31,8 @@
 | 清晰度 | 768p、1080p |
 | 生成音频 | 不支持 |
 
+> 支持参数：duration、generate_audio、resolution
+
 > 备注：时长/分辨率档位耦合（原文表）：MiniMax-Hailuo-2.3 在 768P 下时长可选 6 或 10 秒、1080P 下仅 6 秒；分辨率 6s 档默认 768P（可改 1080P），10s 档仅 768P。prompt 上限 2000 字符。API 不暴露画面比例参数（无 aspect_ratio），比例由输出档位决定，非客户端可选。prompt_optimizer 默认 true，fast_pretreatment 默认 false（仅 Hailuo-2.3 与 Hailuo-02 生效）。I2V 首帧图要求 JPG/JPEG/PNG/WebP、<20MB、短边 >300px、宽高比 2:5~5:2。成片 24fps（models-intro 规格表）。
 
 ## 输出限制
@@ -58,6 +60,10 @@
 | 768p·6s | 0.28 |
 | 768p·10s | 0.56 |
 | 1080p·6s | 0.49 |
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://platform.minimax.io/docs/api-reference/video-generation-t2v
 
 > 备注：Pay-as-you-go（Legacy 价目，按条成片计费，非按秒）：MiniMax-Hailuo-2.3 每条 768P·6s=$0.28、768P·10s=$0.56、1080P·6s=$0.49。官方另推 Video Packages 订阅包按 video points 扣点（Hailuo-2.3 与 Hailuo-02 同档：768P·6s=1 点、768P·10s=2 点、1080P·6s=2 点）；订阅包仅支持 Hailuo 系列、MiniMax H3 暂不支持。生成失败或触发安全审核不扣费。2.3-Fast 为独立 I2V 专属模型另价（0.19/0.32/0.33），未并入本条。
 

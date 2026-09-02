@@ -29,6 +29,8 @@
 | 比例模式 | client_choice |
 | 时长模式 | explicit |
 
+> 支持参数：aspect_ratio、duration、resolution
+
 > 备注：时长固定 5 秒（接口描述「Generate a five second video」，无 duration 参数）。sizes 按宽高指定：16:9(1920x1080 / 1280x720 / 960x540)、9:16(1080x1920 / 720x1280 / 540x960)、1:1(1080x1080 / 720x720 / 540x540)，最高 1080P；另有 960x540（约 540P）档位，已计入清晰度枚举。seeds 恰好 1 个；bitRateFactor 0-63（默认 18，建议 17-23）；videoSettings 支持运镜(8)、风格(10)、机位(5)、景别(5)。限流 4 RPM / 9000 RPD（按组织）。
 
 ## 输出限制

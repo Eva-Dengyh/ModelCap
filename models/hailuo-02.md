@@ -30,6 +30,8 @@
 | 清晰度 | 768p、1080p |
 | 生成音频 | 不支持 |
 
+> 支持参数：duration、generate_audio、resolution
+
 > 备注：时长/分辨率按任务与档位耦合：t2v 768P(默认) 可选 6/10s、1080P 仅 6s（720P 不支持）；i2v 额外支持 512P 且 512P/768P 可 6/10s、1080P 仅 6s（512P 未在 schema 分辨率枚举中，未录入）；fl2v 同 t2v 且不支持 512P。默认 6s。prompt_optimizer 默认 true；fast_pretreatment 默认 false（仅对 Hailuo-2.3 与 Hailuo-02 生效）。fps 官方未公开。prompt ≤2000 字符。
 
 ## 输出限制
@@ -62,6 +64,10 @@
 | 1080p·6s | 0.49 |
 | 512p·6s | 0.1 |
 | 512p·10s | 0.15 |
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://platform.minimax.io/docs/api-reference/video-generation-t2v
 
 > 备注：Pay-as-you-go 按条计费（$/条）；Video Packages 订阅按点数：768P·6s=1 点、768P·10s=2 点、1080P·6s=2 点、512P·6s=0.3 点、512P·10s=0.5 点。
 

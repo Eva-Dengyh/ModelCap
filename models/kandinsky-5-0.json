@@ -42,7 +42,13 @@
       "ratio_mode": null,
       "duration_mode": "client_choice",
       "generate_audio": false,
-      "note": "T2V 时长 5s/10s 两档（由所选 checkpoint 决定，非连续区间）；I2V 仅 5s。官方发布 SD（768×512，约 3:2）与 HD（1280×768，约 5:3）两档，非标准清晰度枚举，宽高比随档位固定；官方未提及音频生成。"
+      "note": "T2V 时长 5s/10s 两档（由所选 checkpoint 决定，非连续区间）；I2V 仅 5s。官方发布 SD（768×512，约 3:2）与 HD（1280×768，约 5:3）两档，非标准清晰度枚举，宽高比随档位固定；官方未提及音频生成。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
@@ -54,7 +60,9 @@
     "note": "官方仓库为本地推理，未提供错误码表。"
   },
   "pricing": {
-    "note": "开源权重（Hugging Face），本地推理；官方 GitHub 仓库未提供 API 计费信息。"
+    "note": "开源权重（Hugging Face），本地推理；官方 GitHub 仓库未提供 API 计费信息。",
+    "observed_at": "2026-09-02",
+    "source": "https://github.com/kandinskylab/kandinsky-5"
   },
   "rankings": [
     {

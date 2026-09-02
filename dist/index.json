@@ -1,0 +1,252 @@
+{
+  "agnes-video-2-5": {
+    "provider": "sapiens",
+    "version": "2.5",
+    "fetched_at": "2026-09-02"
+  },
+  "agnes-video-v2-0": {
+    "provider": "sapiens",
+    "version": "v2.0",
+    "fetched_at": "2026-09-02"
+  },
+  "cogvideox": {
+    "provider": "zhipu",
+    "version": "1.5",
+    "fetched_at": "2026-09-01"
+  },
+  "doubao-seedance-2-0-260128": {
+    "provider": "volcengine",
+    "version": "2.0",
+    "fetched_at": "2026-09-02"
+  },
+  "doubao-seedance-2-5-260628": {
+    "provider": "volcengine",
+    "version": "2.5",
+    "fetched_at": "2026-09-02"
+  },
+  "firefly-video": {
+    "provider": "adobe",
+    "version": "3.0",
+    "fetched_at": "2026-09-01"
+  },
+  "flux-3-video": {
+    "provider": "black-forest-labs",
+    "version": "3",
+    "fetched_at": "2026-09-02"
+  },
+  "gemini-omni-1-1-flash": {
+    "provider": "google",
+    "version": "omni-1.1-flash",
+    "fetched_at": "2026-09-02"
+  },
+  "gemini-omni-flash": {
+    "provider": "google",
+    "version": "omni-flash",
+    "fetched_at": "2026-09-02"
+  },
+  "gen-4.5": {
+    "provider": "runway",
+    "version": "4.5",
+    "fetched_at": "2026-09-02"
+  },
+  "grok-imagine-video": {
+    "provider": "spacexai",
+    "version": "1.0",
+    "fetched_at": "2026-09-02"
+  },
+  "grok-imagine-video-1-5": {
+    "provider": "spacexai",
+    "version": "1.5",
+    "fetched_at": "2026-09-02"
+  },
+  "hailuo-02": {
+    "provider": "minimax",
+    "version": "02",
+    "fetched_at": "2026-09-02"
+  },
+  "hailuo-2-3": {
+    "provider": "minimax",
+    "version": "2.3",
+    "fetched_at": "2026-09-02"
+  },
+  "happyhorse-1-1": {
+    "provider": "alibaba",
+    "version": "1.1",
+    "fetched_at": "2026-09-02"
+  },
+  "happyhorse-1.0": {
+    "provider": "alibaba",
+    "version": "1.0",
+    "fetched_at": "2026-09-02"
+  },
+  "hunyuanvideo-1.5": {
+    "provider": "tencent",
+    "version": "1.5",
+    "fetched_at": "2026-09-02"
+  },
+  "jimeng": {
+    "provider": "bytedance",
+    "version": "3.0",
+    "fetched_at": "2026-09-01"
+  },
+  "kandinsky-5-0": {
+    "provider": "kandinsky",
+    "version": "5.0",
+    "fetched_at": "2026-09-02"
+  },
+  "kling-2-1": {
+    "provider": "kling",
+    "version": "2.1",
+    "fetched_at": "2026-09-02"
+  },
+  "kling-2-5-turbo": {
+    "provider": "kling",
+    "version": "2.5",
+    "fetched_at": "2026-09-02"
+  },
+  "kling-2-6": {
+    "provider": "kling",
+    "version": "2.6",
+    "fetched_at": "2026-09-02"
+  },
+  "kling-v3-omni-video-generation": {
+    "provider": "aliyun",
+    "version": "v3",
+    "fetched_at": "2026-09-02"
+  },
+  "ltx-2": {
+    "provider": "lightricks",
+    "version": "2.5",
+    "fetched_at": "2026-09-02"
+  },
+  "ltx-2-3": {
+    "provider": "lightricks",
+    "version": "2.3",
+    "fetched_at": "2026-09-02"
+  },
+  "ltx-2-5": {
+    "provider": "lightricks",
+    "version": "2.5",
+    "fetched_at": "2026-09-02"
+  },
+  "luma-ray-2": {
+    "provider": "luma",
+    "version": "ray-2",
+    "fetched_at": "2026-09-02"
+  },
+  "magi-1": {
+    "provider": "sand-ai",
+    "version": "1",
+    "fetched_at": "2026-09-01"
+  },
+  "magi-2": {
+    "provider": "sand-ai",
+    "version": "2",
+    "fetched_at": "2026-09-02"
+  },
+  "minimax-h3": {
+    "provider": "minimax",
+    "version": "h3",
+    "fetched_at": "2026-09-02"
+  },
+  "minimax-h3-max-fal": {
+    "provider": "fal",
+    "version": "h3-max",
+    "fetched_at": "2026-09-02"
+  },
+  "mochi-1": {
+    "provider": "genmo",
+    "version": "1",
+    "fetched_at": "2026-09-02"
+  },
+  "pika-2.2": {
+    "provider": "pika",
+    "version": "2.2",
+    "fetched_at": "2026-09-02"
+  },
+  "pixverse-v5-6": {
+    "provider": "aishi",
+    "version": "5.6",
+    "fetched_at": "2026-09-02"
+  },
+  "pixverse-v6": {
+    "provider": "aishi",
+    "version": "6",
+    "fetched_at": "2026-09-02"
+  },
+  "runway-aleph-2-0": {
+    "provider": "runway",
+    "version": "2.0",
+    "fetched_at": "2026-09-02"
+  },
+  "runway-gen-4-turbo": {
+    "provider": "runway",
+    "version": "4-turbo",
+    "fetched_at": "2026-09-02"
+  },
+  "seedance-1-0": {
+    "provider": "volcengine",
+    "version": "1.0",
+    "fetched_at": "2026-09-02"
+  },
+  "seedance-1-5-pro": {
+    "provider": "volcengine",
+    "version": "1.5",
+    "fetched_at": "2026-09-02"
+  },
+  "sora-2": {
+    "provider": "openai",
+    "version": "2",
+    "fetched_at": "2026-09-02"
+  },
+  "stable-video-diffusion": {
+    "provider": "stability",
+    "version": "1.0",
+    "fetched_at": "2026-09-01"
+  },
+  "veo-2": {
+    "provider": "google",
+    "version": "2",
+    "fetched_at": "2026-09-02"
+  },
+  "veo-3.1-i2v": {
+    "provider": "aimlapi",
+    "version": "3.1",
+    "fetched_at": "2026-09-02"
+  },
+  "vidu-q2": {
+    "provider": "shengshu",
+    "version": "q2",
+    "fetched_at": "2026-09-02"
+  },
+  "vidu-q3": {
+    "provider": "shengshu",
+    "version": "q3",
+    "fetched_at": "2026-09-02"
+  },
+  "wan-2-2": {
+    "provider": "aliyun",
+    "version": "2.2",
+    "fetched_at": "2026-09-02"
+  },
+  "wan-2-5": {
+    "provider": "aliyun",
+    "version": "2.5",
+    "fetched_at": "2026-09-02"
+  },
+  "wan-2-6": {
+    "provider": "aliyun",
+    "version": "2.6",
+    "fetched_at": "2026-09-02"
+  },
+  "wan-2-7": {
+    "provider": "aliyun",
+    "version": "2.7",
+    "fetched_at": "2026-09-02"
+  },
+  "wan-3.0": {
+    "provider": "aliyun",
+    "version": "3.0",
+    "fetched_at": "2026-09-02"
+  }
+}

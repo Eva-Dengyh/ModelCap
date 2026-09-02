@@ -27,6 +27,8 @@
 | 时长 | 5 ~ 20 秒 |
 | 生成音频 | 支持 |
 
+> 支持参数：duration、generate_audio
+
 > 备注：duration 整数 5–20（t2v/i2v）或 5–15（v2v），或 "auto"（默认，按内容自动定长；keyframes 带 [秒,图] 定时时 auto 跑到最后一对时间向上取整，20s 上限）。resolution 为 hd（默认）/fhd 两级（fhd 经 upsampler，精确像素随宽高比，16:9 下 fhd=1920×1088），未用 schema 的档位枚举。aspect_ratio：auto（默认）/21:9/2:1/16:9/4:3/1:1/3:4/9:16。generate_audio 默认 true（false=无声片）。safety_tolerance 0–4 默认 2（0 最严）。draft=true 返回 draft_cache。异步任务 + polling_url，鉴权头 x-key；结果 signed .mp4 URL 约 2 小时过期。
 
 ## 输出限制
@@ -56,6 +58,10 @@
 | t2v/i2v·fhd | 0.29 |
 | v2v·hd | 0.43 |
 | v2v·fhd | 0.54 |
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://docs.bfl.ai/flux_3/flux3_video
 
 > 备注：官方按输出秒计费：t2v 与 i2v 5–20s 为 $0.17/s(hd)/$0.29/s(fhd)；v2v 视频续写 5–15s 为 $0.43/s(hd)/$0.54/s(fhd)；draft 约 $0.06/s（约为全量渲染 1/3）。API 响应 cost 字段为 credits（美元换算关系未公开）。
 

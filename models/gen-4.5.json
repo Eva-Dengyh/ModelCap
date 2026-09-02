@@ -54,7 +54,12 @@
       ],
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
-      "note": "Text to Video 支持 16:9(1280x720) 与 9:16(720x1280)；Image to Video 支持 7 种比例（含 9:21/672x1584）；输出 720p；FPS 24/25；12 credits/秒。"
+      "note": "Text to Video 支持 16:9(1280x720) 与 9:16(720x1280)；Image to Video 支持 7 种比例（含 9:21/672x1584）；输出 720p；FPS 24/25；12 credits/秒。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
@@ -66,7 +71,9 @@
     "tiers": {
       "720p": 12
     },
-    "note": "计费单位为 Runway credits（非 CNY/USD）；12 credits/秒；ProRes/PNG 序列导出另加 5 credits/秒。"
+    "note": "计费单位为 Runway credits（非 CNY/USD）；12 credits/秒；ProRes/PNG 序列导出另加 5 credits/秒。",
+    "observed_at": "2026-09-02",
+    "source": "https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5"
   },
   "errors": {
     "400": {

@@ -9,16 +9,21 @@
 ## 结构
 
 ```
-├── models/                 ← 结果：一个模型版本一个 json + md
-│   ├── doubao-seedance-2-5-260628.{json,md}
-│   └── doubao-seedance-2-0-260128.{json,md}
-└── skill/                  ← 录入工具（AI 用）
-    ├── SKILL.md            ← 录入流程说明
-    ├── schema/
-    │   └── model.schema.json   ← 数据格式定义（唯一权威）
-    └── scripts/
-        ├── tools.mjs       ← validate / render
-        └── send-feishu.mjs ← 飞书推送（可选）
+├── models/                 ← 结果：一个模型版本一个 json + md（50 个）
+├── dist/                   ← 构建产物：catalog.json / index.json / catalog.d.ts
+├── update-history.json     ← 变更审计（added/changed/removed 快照）
+├── skill/                  ← 录入与校验工具（AI 用）
+│   ├── SKILL.md            ← 录入流程说明
+│   ├── schema/
+│   │   └── model.schema.json   ← 数据格式定义（唯一权威）
+│   └── scripts/
+│       ├── tools.mjs        ← validate / render
+│       ├── check-fresh.mjs  ← 新鲜度检查
+│       ├── build-dist.mjs   ← 合并生成 dist/ 产物
+│       ├── build-history.mjs ← 变更审计
+│       ├── backfill-meta.mjs ← 回填元数据
+│       └── send-feishu.mjs  ← 飞书推送（可选）
+└── .github/workflows/      ← CI：校验 + 新鲜度 + 构建
 ```
 
 ## 收录 / 关注模型（视频生成）
@@ -75,7 +80,11 @@ standard = d["errors"].get(vendor_code, {}).get("standard")
 # 3. 选型/计费：rankings（AA/LMArena 榜单快照）+ pricing（厂商计费）
 ```
 
+**直接消费统一产物**：`dist/catalog.json`（全量合并）、`dist/index.json`（model_id 索引）、`dist/catalog.d.ts`（TS 类型），由 `node skill/scripts/build-dist.mjs` 生成。
+
 **数据校验**：`node skill/scripts/tools.mjs validate models/*.json`；`skill/schema/model.schema.json` 可配合 JSON Schema 库（ajv / jsonschema）做类型校验。
+
+**维护工具**：`check-fresh.mjs` 检查 `fetched_at` 过期；`build-history.mjs` 生成 `update-history.json` 变更审计；CI 见 `.github/workflows/validate.yml`。
 
 **录入新模型**：见 [skill/SKILL.md](skill/SKILL.md)——用 AI 打开官方文档、按 schema 写 JSON、`skill/scripts/tools.mjs` 校验并渲染。
 
@@ -97,6 +106,8 @@ standard = d["errors"].get(vendor_code, {}).get("standard")
 - 每条带 `source_url` + `fetched_at`，可追溯、防过期。
 - 同系列不同版本（2.0 vs 2.5）参数往往不同，各自独立条目。
 - `rankings` 只存第三方榜单快照（Elo/Arena 分与美元/分钟 API 价口径），**不是**厂商计费（`pricing`），会过期，以 `as_of` 为准。仅凭榜单收录的条目是骨架——能力仅按所属榜单可证明部分填写，其余字段 `_missing`。
+- `rules.{task}.supported_parameters` 列出该任务支持的参数名（如 duration/resolution/generate_audio），供客户端快速判断可传哪些参数。
+- `pricing.observed_at` / `pricing.source` 记录价格快照日期与来源——价格会变，以它们为准。
 
 ## 贡献
 

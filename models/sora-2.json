@@ -88,7 +88,10 @@
         "max": 12,
         "step": 4
       },
-      "note": "duration 仅允许 {4,8,12}，默认 4。无\"分辨率字符串\"参数，而是固定尺寸 size：允许 720x1280（默认）/1280x720/1024x1792/1792x1024（对应 9:16 / 16:9 / ≈4:7 / ≈7:4）。图生：单个 input_reference（file_id 或 image_url）。无 aspect_ratio/duration_mode/ratio_mode/generate_audio 等参数。SDK 未暴露音频生成参数。"
+      "note": "duration 仅允许 {4,8,12}，默认 4。无\"分辨率字符串\"参数，而是固定尺寸 size：允许 720x1280（默认）/1280x720/1024x1792/1792x1024（对应 9:16 / 16:9 / ≈4:7 / ≈7:4）。图生：单个 input_reference（file_id 或 image_url）。无 aspect_ratio/duration_mode/ratio_mode/generate_audio 等参数。SDK 未暴露音频生成参数。",
+      "supported_parameters": [
+        "duration"
+      ]
     },
     "edit": {
       "note": "POST /videos/edits：prompt + 源视频（已完成视频 id 或文件上传），无时长/尺寸参数。"
@@ -99,14 +102,19 @@
         "max": 20,
         "step": 4
       },
-      "note": "POST /videos/extensions：在已完成视频后追加；新增段时长仅允许 {4,8,12,16,20}；返回体 seconds 为拼接后总时长。"
+      "note": "POST /videos/extensions：在已完成视频后追加；新增段时长仅允许 {4,8,12,16,20}；返回体 seconds 为拼接后总时长。",
+      "supported_parameters": [
+        "duration"
+      ]
     }
   },
   "output_limits": {
     "max_duration_seconds": 12
   },
   "pricing": {
-    "note": "官方定价页（platform.openai.com）不可达（403），无法核实官方计费；AA 榜单的 $6/分钟（Sora 2）、$30/分钟（Sora 2 Pro）为第三方测算口径，非官方计费，不在此填入。"
+    "note": "官方定价页（platform.openai.com）不可达（403），无法核实官方计费；AA 榜单的 $6/分钟（Sora 2）、$30/分钟（Sora 2 Pro）为第三方测算口径，非官方计费，不在此填入。",
+    "observed_at": "2026-09-02",
+    "source": "https://platform.openai.com/docs/api-reference/videos/create"
   },
   "errors": {
     "_missing": true,

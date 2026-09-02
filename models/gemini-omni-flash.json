@@ -134,15 +134,26 @@
         "16:9"
       ],
       "generate_audio": true,
-      "note": "无 duration 参数，时长由模型在 3–10s 内决定（模型页：3s-10s，360p/720p/1080p/4K，24 FPS；1080p/4K 为 upscale）。resolution 默认 720p；aspect_ratio 仅 9:16 与 16:9（默认横向 16:9）。video_config.task 可显式设为 text_to_video / image_to_video / reference_to_video，不设则由模型推断。参考视频最多 3 段、每段 ≤3s，其中的音频被忽略。默认会自动切多个镜头，要单镜头必须提示 \"In a single unbroken scene / No scene cuts\"。"
+      "note": "无 duration 参数，时长由模型在 3–10s 内决定（模型页：3s-10s，360p/720p/1080p/4K，24 FPS；1080p/4K 为 upscale）。resolution 默认 720p；aspect_ratio 仅 9:16 与 16:9（默认横向 16:9）。video_config.task 可显式设为 text_to_video / image_to_video / reference_to_video，不设则由模型推断。参考视频最多 3 段、每段 ≤3s，其中的音频被忽略。默认会自动切多个镜头，要单镜头必须提示 \"In a single unbroken scene / No scene cuts\"。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "generate_audio",
+        "resolution"
+      ]
     },
     "edit": {
       "generate_audio": true,
-      "note": "两种编辑：①编辑模型自产视频用 previous_interaction_id 多轮会话（每轮产出一条新视频）；②编辑自己的视频需先经 Files API 上传且 ≤10s。Voice editing 不支持；简单 prompt 效果更好（描述过度会引发意外改动）；EEA/瑞士/英国暂不可用上传视频编辑；可识别他人图片受限制。"
+      "note": "两种编辑：①编辑模型自产视频用 previous_interaction_id 多轮会话（每轮产出一条新视频）；②编辑自己的视频需先经 Files API 上传且 ≤10s。Voice editing 不支持；简单 prompt 效果更好（描述过度会引发意外改动）；EEA/瑞士/英国暂不可用上传视频编辑；可识别他人图片受限制。",
+      "supported_parameters": [
+        "generate_audio"
+      ]
     },
     "extend": {
       "generate_audio": true,
-      "note": "单次续写 3–10s，只能续在尾部（不可前置/插中）。提示词不够明确时可显式 task:\"extend\"（加严格约束）。多轮延伸每次 +10s、总长上限 40s（官方提示指南：extend by 10s, up to a total length of 40s）。上传输入视频 ≤10s；上传的含人物讲话视频不能新增对白（多轮自产视频可以）；EEA/瑞士/英国不可 extend 上传视频。"
+      "note": "单次续写 3–10s，只能续在尾部（不可前置/插中）。提示词不够明确时可显式 task:\"extend\"（加严格约束）。多轮延伸每次 +10s、总长上限 40s（官方提示指南：extend by 10s, up to a total length of 40s）。上传输入视频 ≤10s；上传的含人物讲话视频不能新增对白（多轮自产视频可以）；EEA/瑞士/英国不可 extend 上传视频。",
+      "supported_parameters": [
+        "generate_audio"
+      ]
     }
   },
   "output_limits": {
@@ -151,7 +162,9 @@
   },
   "pricing": {
     "currency": "USD",
-    "note": "按 token 计费（非按秒/分辨率分档，官方无分档表）。输入 $1.50/1M token（text/image/video/audio 同价）；输出文本 $9.00/1M，输出视频 $17.50/1M；视频按 5,792 token/秒（720p）折算，标准定价下有效价约 $0.10/秒。无免费层。"
+    "note": "按 token 计费（非按秒/分辨率分档，官方无分档表）。输入 $1.50/1M token（text/image/video/audio 同价）；输出文本 $9.00/1M，输出视频 $17.50/1M；视频按 5,792 token/秒（720p）折算，标准定价下有效价约 $0.10/秒。无免费层。",
+    "observed_at": "2026-09-02",
+    "source": "https://ai.google.dev/gemini-api/docs/omni"
   },
   "errors": {
     "note": "官方 Omni 参数/模型页未给错误码表（含状态码清单的 REST 参考页当前网络不可达）；HTTP 状态与错误结构沿用 Gemini API 通用约定。"

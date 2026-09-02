@@ -29,6 +29,8 @@
 | 时长模式 | client_choice |
 | 生成音频 | 不支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：T2V 时长 5s/10s 两档（由所选 checkpoint 决定，非连续区间）；I2V 仅 5s。官方发布 SD（768×512，约 3:2）与 HD（1280×768，约 5:3）两档，非标准清晰度枚举，宽高比随档位固定；官方未提及音频生成。
 
 ## 输出限制
@@ -48,6 +50,10 @@
 
 ## 价格
 
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://github.com/kandinskylab/kandinsky-5
 
 > 备注：开源权重（Hugging Face），本地推理；官方 GitHub 仓库未提供 API 计费信息。
 

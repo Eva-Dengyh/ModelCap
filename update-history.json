@@ -1,0 +1,481 @@
+{
+  "batches": [
+    {
+      "generated_at": "2026-09-02",
+      "summary": {
+        "added": 50,
+        "changed": 0,
+        "removed": 0
+      },
+      "added": [
+        "agnes-video-2-5",
+        "agnes-video-v2-0",
+        "cogvideox",
+        "doubao-seedance-2-0-260128",
+        "doubao-seedance-2-5-260628",
+        "firefly-video",
+        "flux-3-video",
+        "gemini-omni-1-1-flash",
+        "gemini-omni-flash",
+        "gen-4.5",
+        "grok-imagine-video",
+        "grok-imagine-video-1-5",
+        "hailuo-02",
+        "hailuo-2-3",
+        "happyhorse-1-1",
+        "happyhorse-1.0",
+        "hunyuanvideo-1.5",
+        "jimeng",
+        "kandinsky-5-0",
+        "kling-2-1",
+        "kling-2-5-turbo",
+        "kling-2-6",
+        "kling-v3-omni-video-generation",
+        "ltx-2",
+        "ltx-2-3",
+        "ltx-2-5",
+        "luma-ray-2",
+        "magi-1",
+        "magi-2",
+        "minimax-h3",
+        "minimax-h3-max-fal",
+        "mochi-1",
+        "pika-2.2",
+        "pixverse-v5-6",
+        "pixverse-v6",
+        "runway-aleph-2-0",
+        "runway-gen-4-turbo",
+        "seedance-1-0",
+        "seedance-1-5-pro",
+        "sora-2",
+        "stable-video-diffusion",
+        "veo-2",
+        "veo-3.1-i2v",
+        "vidu-q2",
+        "vidu-q3",
+        "wan-2-2",
+        "wan-2-5",
+        "wan-2-6",
+        "wan-2-7",
+        "wan-3.0"
+      ],
+      "changed": [],
+      "removed": [],
+      "snapshot": {
+        "agnes-video-2-5": {
+          "version": "2.5",
+          "fetched_at": "2026-09-02"
+        },
+        "agnes-video-v2-0": {
+          "version": "v2.0",
+          "fetched_at": "2026-09-02"
+        },
+        "cogvideox": {
+          "version": "1.5",
+          "fetched_at": "2026-09-01"
+        },
+        "doubao-seedance-2-0-260128": {
+          "version": "2.0",
+          "fetched_at": "2026-09-02"
+        },
+        "doubao-seedance-2-5-260628": {
+          "version": "2.5",
+          "fetched_at": "2026-09-02"
+        },
+        "firefly-video": {
+          "version": "3.0",
+          "fetched_at": "2026-09-01"
+        },
+        "flux-3-video": {
+          "version": "3",
+          "fetched_at": "2026-09-02"
+        },
+        "gemini-omni-1-1-flash": {
+          "version": "omni-1.1-flash",
+          "fetched_at": "2026-09-02"
+        },
+        "gemini-omni-flash": {
+          "version": "omni-flash",
+          "fetched_at": "2026-09-02"
+        },
+        "gen-4.5": {
+          "version": "4.5",
+          "fetched_at": "2026-09-02"
+        },
+        "grok-imagine-video-1-5": {
+          "version": "1.5",
+          "fetched_at": "2026-09-02"
+        },
+        "grok-imagine-video": {
+          "version": "1.0",
+          "fetched_at": "2026-09-02"
+        },
+        "hailuo-02": {
+          "version": "02",
+          "fetched_at": "2026-09-02"
+        },
+        "hailuo-2-3": {
+          "version": "2.3",
+          "fetched_at": "2026-09-02"
+        },
+        "happyhorse-1-1": {
+          "version": "1.1",
+          "fetched_at": "2026-09-02"
+        },
+        "happyhorse-1.0": {
+          "version": "1.0",
+          "fetched_at": "2026-09-02"
+        },
+        "hunyuanvideo-1.5": {
+          "version": "1.5",
+          "fetched_at": "2026-09-02"
+        },
+        "jimeng": {
+          "version": "3.0",
+          "fetched_at": "2026-09-01"
+        },
+        "kandinsky-5-0": {
+          "version": "5.0",
+          "fetched_at": "2026-09-02"
+        },
+        "kling-2-1": {
+          "version": "2.1",
+          "fetched_at": "2026-09-02"
+        },
+        "kling-2-5-turbo": {
+          "version": "2.5",
+          "fetched_at": "2026-09-02"
+        },
+        "kling-2-6": {
+          "version": "2.6",
+          "fetched_at": "2026-09-02"
+        },
+        "kling-v3-omni-video-generation": {
+          "version": "v3",
+          "fetched_at": "2026-09-02"
+        },
+        "ltx-2-3": {
+          "version": "2.3",
+          "fetched_at": "2026-09-02"
+        },
+        "ltx-2-5": {
+          "version": "2.5",
+          "fetched_at": "2026-09-02"
+        },
+        "ltx-2": {
+          "version": "2.5",
+          "fetched_at": "2026-09-02"
+        },
+        "luma-ray-2": {
+          "version": "ray-2",
+          "fetched_at": "2026-09-02"
+        },
+        "magi-1": {
+          "version": "1",
+          "fetched_at": "2026-09-01"
+        },
+        "magi-2": {
+          "version": "2",
+          "fetched_at": "2026-09-02"
+        },
+        "minimax-h3-max-fal": {
+          "version": "h3-max",
+          "fetched_at": "2026-09-02"
+        },
+        "minimax-h3": {
+          "version": "h3",
+          "fetched_at": "2026-09-02"
+        },
+        "mochi-1": {
+          "version": "1",
+          "fetched_at": "2026-09-02"
+        },
+        "pika-2.2": {
+          "version": "2.2",
+          "fetched_at": "2026-09-02"
+        },
+        "pixverse-v5-6": {
+          "version": "5.6",
+          "fetched_at": "2026-09-02"
+        },
+        "pixverse-v6": {
+          "version": "6",
+          "fetched_at": "2026-09-02"
+        },
+        "runway-aleph-2-0": {
+          "version": "2.0",
+          "fetched_at": "2026-09-02"
+        },
+        "runway-gen-4-turbo": {
+          "version": "4-turbo",
+          "fetched_at": "2026-09-02"
+        },
+        "seedance-1-0": {
+          "version": "1.0",
+          "fetched_at": "2026-09-02"
+        },
+        "seedance-1-5-pro": {
+          "version": "1.5",
+          "fetched_at": "2026-09-02"
+        },
+        "sora-2": {
+          "version": "2",
+          "fetched_at": "2026-09-02"
+        },
+        "stable-video-diffusion": {
+          "version": "1.0",
+          "fetched_at": "2026-09-01"
+        },
+        "veo-2": {
+          "version": "2",
+          "fetched_at": "2026-09-02"
+        },
+        "veo-3.1-i2v": {
+          "version": "3.1",
+          "fetched_at": "2026-09-02"
+        },
+        "vidu-q2": {
+          "version": "q2",
+          "fetched_at": "2026-09-02"
+        },
+        "vidu-q3": {
+          "version": "q3",
+          "fetched_at": "2026-09-02"
+        },
+        "wan-2-2": {
+          "version": "2.2",
+          "fetched_at": "2026-09-02"
+        },
+        "wan-2-5": {
+          "version": "2.5",
+          "fetched_at": "2026-09-02"
+        },
+        "wan-2-6": {
+          "version": "2.6",
+          "fetched_at": "2026-09-02"
+        },
+        "wan-2-7": {
+          "version": "2.7",
+          "fetched_at": "2026-09-02"
+        },
+        "wan-3.0": {
+          "version": "3.0",
+          "fetched_at": "2026-09-02"
+        }
+      }
+    },
+    {
+      "generated_at": "2026-09-02",
+      "summary": {
+        "added": 0,
+        "changed": 0,
+        "removed": 0
+      },
+      "added": [],
+      "changed": [],
+      "removed": [],
+      "snapshot": {
+        "agnes-video-2-5": {
+          "version": "2.5",
+          "fetched_at": "2026-09-02"
+        },
+        "agnes-video-v2-0": {
+          "version": "v2.0",
+          "fetched_at": "2026-09-02"
+        },
+        "cogvideox": {
+          "version": "1.5",
+          "fetched_at": "2026-09-01"
+        },
+        "doubao-seedance-2-0-260128": {
+          "version": "2.0",
+          "fetched_at": "2026-09-02"
+        },
+        "doubao-seedance-2-5-260628": {
+          "version": "2.5",
+          "fetched_at": "2026-09-02"
+        },
+        "firefly-video": {
+          "version": "3.0",
+          "fetched_at": "2026-09-01"
+        },
+        "flux-3-video": {
+          "version": "3",
+          "fetched_at": "2026-09-02"
+        },
+        "gemini-omni-1-1-flash": {
+          "version": "omni-1.1-flash",
+          "fetched_at": "2026-09-02"
+        },
+        "gemini-omni-flash": {
+          "version": "omni-flash",
+          "fetched_at": "2026-09-02"
+        },
+        "gen-4.5": {
+          "version": "4.5",
+          "fetched_at": "2026-09-02"
+        },
+        "grok-imagine-video-1-5": {
+          "version": "1.5",
+          "fetched_at": "2026-09-02"
+        },
+        "grok-imagine-video": {
+          "version": "1.0",
+          "fetched_at": "2026-09-02"
+        },
+        "hailuo-02": {
+          "version": "02",
+          "fetched_at": "2026-09-02"
+        },
+        "hailuo-2-3": {
+          "version": "2.3",
+          "fetched_at": "2026-09-02"
+        },
+        "happyhorse-1-1": {
+          "version": "1.1",
+          "fetched_at": "2026-09-02"
+        },
+        "happyhorse-1.0": {
+          "version": "1.0",
+          "fetched_at": "2026-09-02"
+        },
+        "hunyuanvideo-1.5": {
+          "version": "1.5",
+          "fetched_at": "2026-09-02"
+        },
+        "jimeng": {
+          "version": "3.0",
+          "fetched_at": "2026-09-01"
+        },
+        "kandinsky-5-0": {
+          "version": "5.0",
+          "fetched_at": "2026-09-02"
+        },
+        "kling-2-1": {
+          "version": "2.1",
+          "fetched_at": "2026-09-02"
+        },
+        "kling-2-5-turbo": {
+          "version": "2.5",
+          "fetched_at": "2026-09-02"
+        },
+        "kling-2-6": {
+          "version": "2.6",
+          "fetched_at": "2026-09-02"
+        },
+        "kling-v3-omni-video-generation": {
+          "version": "v3",
+          "fetched_at": "2026-09-02"
+        },
+        "ltx-2-3": {
+          "version": "2.3",
+          "fetched_at": "2026-09-02"
+        },
+        "ltx-2-5": {
+          "version": "2.5",
+          "fetched_at": "2026-09-02"
+        },
+        "ltx-2": {
+          "version": "2.5",
+          "fetched_at": "2026-09-02"
+        },
+        "luma-ray-2": {
+          "version": "ray-2",
+          "fetched_at": "2026-09-02"
+        },
+        "magi-1": {
+          "version": "1",
+          "fetched_at": "2026-09-01"
+        },
+        "magi-2": {
+          "version": "2",
+          "fetched_at": "2026-09-02"
+        },
+        "minimax-h3-max-fal": {
+          "version": "h3-max",
+          "fetched_at": "2026-09-02"
+        },
+        "minimax-h3": {
+          "version": "h3",
+          "fetched_at": "2026-09-02"
+        },
+        "mochi-1": {
+          "version": "1",
+          "fetched_at": "2026-09-02"
+        },
+        "pika-2.2": {
+          "version": "2.2",
+          "fetched_at": "2026-09-02"
+        },
+        "pixverse-v5-6": {
+          "version": "5.6",
+          "fetched_at": "2026-09-02"
+        },
+        "pixverse-v6": {
+          "version": "6",
+          "fetched_at": "2026-09-02"
+        },
+        "runway-aleph-2-0": {
+          "version": "2.0",
+          "fetched_at": "2026-09-02"
+        },
+        "runway-gen-4-turbo": {
+          "version": "4-turbo",
+          "fetched_at": "2026-09-02"
+        },
+        "seedance-1-0": {
+          "version": "1.0",
+          "fetched_at": "2026-09-02"
+        },
+        "seedance-1-5-pro": {
+          "version": "1.5",
+          "fetched_at": "2026-09-02"
+        },
+        "sora-2": {
+          "version": "2",
+          "fetched_at": "2026-09-02"
+        },
+        "stable-video-diffusion": {
+          "version": "1.0",
+          "fetched_at": "2026-09-01"
+        },
+        "veo-2": {
+          "version": "2",
+          "fetched_at": "2026-09-02"
+        },
+        "veo-3.1-i2v": {
+          "version": "3.1",
+          "fetched_at": "2026-09-02"
+        },
+        "vidu-q2": {
+          "version": "q2",
+          "fetched_at": "2026-09-02"
+        },
+        "vidu-q3": {
+          "version": "q3",
+          "fetched_at": "2026-09-02"
+        },
+        "wan-2-2": {
+          "version": "2.2",
+          "fetched_at": "2026-09-02"
+        },
+        "wan-2-5": {
+          "version": "2.5",
+          "fetched_at": "2026-09-02"
+        },
+        "wan-2-6": {
+          "version": "2.6",
+          "fetched_at": "2026-09-02"
+        },
+        "wan-2-7": {
+          "version": "2.7",
+          "fetched_at": "2026-09-02"
+        },
+        "wan-3.0": {
+          "version": "3.0",
+          "fetched_at": "2026-09-02"
+        }
+      }
+    }
+  ]
+}

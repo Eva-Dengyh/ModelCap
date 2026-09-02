@@ -147,7 +147,14 @@
         "max_reference_audios": 0,
         "extra_charge": true
       },
-      "note": "各 generate 子任务统一档位：duration 5/8/10（1080p 不能用 10s）；quality=360p/540p/720p/1080p。t2v/fusion 可指定比例（5 档，无 2:3/3:2/21:9 那些是 v6/c1）；i2v/transition 接口无比例参数（随输入图）。generate_audio_switch 默认 false（无声），true 有声并额外扣 credits；无音频参考输入。seed ∈ [0, 2^31-1]。官方文档内部不一致已照录：extend API 的 duration 注释行含 v5.6 但 model 枚举不含；能力矩阵写 legacy v5.5+ 支持 multi-clip 但接口 schema 与计费表表明 v5.6 单镜头；400018/19 错误码描述说 2048 字符与接口 maxLength=5000 矛盾。"
+      "note": "各 generate 子任务统一档位：duration 5/8/10（1080p 不能用 10s）；quality=360p/540p/720p/1080p。t2v/fusion 可指定比例（5 档，无 2:3/3:2/21:9 那些是 v6/c1）；i2v/transition 接口无比例参数（随输入图）。generate_audio_switch 默认 false（无声），true 有声并额外扣 credits；无音频参考输入。seed ∈ [0, 2^31-1]。官方文档内部不一致已照录：extend API 的 duration 注释行含 v5.6 但 model 枚举不含；能力矩阵写 legacy v5.5+ 支持 multi-clip 但接口 schema 与计费表表明 v5.6 单镜头；400018/19 错误码描述说 2048 字符与接口 maxLength=5000 矛盾。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "reference_audio",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
@@ -156,7 +163,9 @@
   },
   "pricing": {
     "unit": "request",
-    "note": "PixVerse 平台 credits 计费（v5.6 按条数与时长档固定扣费，非 v6 的按秒）。V5.6 single clip 无音频档：360p 5/8/10s=35/70/77、540p=35/70/77、720p=45/90/99、1080p 5/8s=75/150 credits；含音频档：360p=80/115/122、540p=90/115/122、720p=80/135/144、1080p=150/195 credits（540p·5s·含音频在 Pricing 主表与 Fusion 子表一处不一致：90 vs 80，照录）。官方无 v5.6 的美元单价；AA $14.62/分钟为第三方口径。"
+    "note": "PixVerse 平台 credits 计费（v5.6 按条数与时长档固定扣费，非 v6 的按秒）。V5.6 single clip 无音频档：360p 5/8/10s=35/70/77、540p=35/70/77、720p=45/90/99、1080p 5/8s=75/150 credits；含音频档：360p=80/115/122、540p=90/115/122、720p=80/135/144、1080p=150/195 credits（540p·5s·含音频在 Pricing 主表与 Fusion 子表一处不一致：90 vs 80，照录）。官方无 v5.6 的美元单价；AA $14.62/分钟为第三方口径。",
+    "observed_at": "2026-09-02",
+    "source": "https://docs.platform.pixverse.ai/text-to-video-generation-13016634e0"
   },
   "errors": {
     "99999": {

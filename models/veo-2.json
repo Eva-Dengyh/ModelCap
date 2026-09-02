@@ -41,7 +41,13 @@
       "ratio_mode": "client_choice",
       "duration_mode": null,
       "generate_audio": true,
-      "note": "官方 SDK 未给出时长范围（文档页不可达）；resolution 720p/1080p，aspect_ratio 16:9/9:16；generate_audio 可选生成音频。"
+      "note": "官方 SDK 未给出时长范围（文档页不可达）；resolution 720p/1080p，aspect_ratio 16:9/9:16；generate_audio 可选生成音频。",
+      "supported_parameters": [
+        "aspect_ratio",
+        "duration",
+        "generate_audio",
+        "resolution"
+      ]
     }
   },
   "output_limits": {
@@ -53,7 +59,9 @@
     "note": "官方 SDK 未提供错误码表。"
   },
   "pricing": {
-    "note": "官方定价页（ai.google.dev/pricing）在本环境无法访问，未核实单价；Veo 2 为付费模型。"
+    "note": "官方定价页（ai.google.dev/pricing）在本环境无法访问，未核实单价；Veo 2 为付费模型。",
+    "observed_at": "2026-09-02",
+    "source": "https://github.com/googleapis/python-genai/blob/main/google/genai/types.py"
   },
   "rankings": [
     {

@@ -98,7 +98,9 @@
     "tiers": {
       "aleph2": 0.28
     },
-    "note": "官方 API 28 credits/s、单笔最低 56 credits；credit=$0.01 → $0.28/s ≈ $16.8/分钟（与 AA 榜 price_usd_per_min=16.80 互证一致；单次 ≤30s 封顶 840 credits）。ProRes/PNG 序列 +5 credits/s；10-bit（sdr_rec709_10bit）档 +20 credits/s（>4MP 时 40）。app 内 Edit Studio 关键帧图另计（Gen-4 Image 8/图、Nano Banana Pro 20/图、GPT Image 2 5/图）。web credits 与 API credits 池独立。"
+    "note": "官方 API 28 credits/s、单笔最低 56 credits；credit=$0.01 → $0.28/s ≈ $16.8/分钟（与 AA 榜 price_usd_per_min=16.80 互证一致；单次 ≤30s 封顶 840 credits）。ProRes/PNG 序列 +5 credits/s；10-bit（sdr_rec709_10bit）档 +20 credits/s（>4MP 时 40）。app 内 Edit Studio 关键帧图另计（Gen-4 Image 8/图、Nano Banana Pro 20/图、GPT Image 2 5/图）。web credits 与 API credits 池独立。",
+    "observed_at": "2026-09-02",
+    "source": "https://docs.dev.runwayml.com/guides/models"
   },
   "errors": {
     "400": {

@@ -32,6 +32,8 @@
 | 时长模式 | client_choice |
 | 生成音频 | 不支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：能力地图口径 5s/10s（legacy schema 枚举 3~15 为全模型共享，按版本而异，已以能力地图为准）、720P/1080P（无 4K，mode 只能 std/pro）。t2v：aspect_ratio 16:9/9:16/1:1；i2v：请求无 aspect_ratio 字段（比例随首帧图），image 与 image_tail 至少其一，首尾帧仅 plain kling-v2-1 支持且仅 1080P。cfg_scale 对 v2.x 不支持。prompt/negative_prompt ≤2500 字符。图片 jpg/jpeg/png ≤10MB、最小边 300px、比例 1:2.5~2.5:1。
 
 ## 输出限制
@@ -60,6 +62,10 @@
 | --- | --- |
 | 720p | 0.4 |
 | 1080p | 0.7 |
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://kling.ai/document-api/api/video/2-1-master/text-to-video
 
 > 备注：官方价格页按输出秒计费（无声档）：Kling 2.1（standard）720P ¥0.4/秒、1080P ¥0.7/秒（约 $0.056/$0.098）；Kling 2.1 Master 价格页仅 1080P ¥2.0/秒（$0.28）、720P 显示 "-"（推断 Master 只按 1080P 计费）。资源包扣减规则，响应含 final_unit_deduction 与 final_balance_deduction(quota/list_price)。
 

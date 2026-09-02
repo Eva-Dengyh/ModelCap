@@ -132,6 +132,11 @@
       "additionalProperties": {
         "type": "object",
         "properties": {
+          "supported_parameters": {
+            "type": "array",
+            "description": "该任务 API 接受的参数名列表（如 duration/resolution/aspect_ratio/generate_audio），供客户端快速判断可传哪些参数。",
+            "items": { "type": "string" }
+          },
           "duration_seconds": {
             "oneOf": [
               {
@@ -205,12 +210,14 @@
       "description": "价格信息。单独字段便于常改。null = 官方未提供价格。",
       "properties": {
         "currency": { "enum": ["CNY", "USD"] },
-        "unit": { "enum": ["second", "request"] },
+        "unit": { "enum": ["second", "minute", "request", "image", "video", "character", "pixel", "token"] },
         "tiers": {
           "type": "object",
           "description": "按档位（清晰度或时长档）分档单价。数字可为整数（积分/秒等点数体系）或小数（如 CNY 元/秒、USD/条）。",
           "additionalProperties": { "type": ["integer", "number"] }
         },
+        "observed_at": { "type": "string", "format": "date", "description": "价格快照日期。价格会变，以它为准。" },
+        "source": { "type": "string", "format": "uri", "description": "价格来源链接。" },
         "note": { "type": "string" }
       }
     },

@@ -27,6 +27,8 @@
 | 比例模式 | client_choice |
 | 时长模式 | client_choice |
 
+> 支持参数：aspect_ratio、duration
+
 > 备注：时长仅 5s 或 10s。输出原生规格 720p 级（不是 4K），六档像素：16:9=1280x720、9:16=720x1280、1:1=960x960、4:3=1104x832、3:4=832x1104、21:9=1584x672。24fps 固定。选的分辨率与输入图比例不同会触发裁剪。prompt ≤1000 字符；不支持 negative prompt（可能产生相反效果）。音频生成未在官方文档提及。时长决定总 credits（Turbo：5s=25、10s=50）。
 
 ## 输出限制
@@ -47,6 +49,10 @@
 ## 价格
 
 - **计费单位**：second
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://help.runwayml.com/hc/en-us/articles/37327109429011-Creating-with-Gen-4-Video
 
 > 备注：Runway web credits：Gen-4 Turbo 5 credits/s（5s=25、10s=50 total）；Gen-4（非 Turbo）12 credits/s。无公开 credit→USD 官方换算；API 渠道未上架 Turbo（web 与 API credits 池相互独立）。
 

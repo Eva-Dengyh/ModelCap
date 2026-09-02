@@ -23,6 +23,8 @@
 | --- | --- |
 | 时长 | 4 ~ 12 秒 |
 
+> 支持参数：duration
+
 > 备注：duration 仅允许 {4,8,12}，默认 4。无"分辨率字符串"参数，而是固定尺寸 size：允许 720x1280（默认）/1280x720/1024x1792/1792x1024（对应 9:16 / 16:9 / ≈4:7 / ≈7:4）。图生：单个 input_reference（file_id 或 image_url）。无 aspect_ratio/duration_mode/ratio_mode/generate_audio 等参数。SDK 未暴露音频生成参数。
 
 ### 任务：edit
@@ -38,6 +40,8 @@
 | 参数 | 取值/约束 |
 | --- | --- |
 | 时长 | 4 ~ 20 秒 |
+
+> 支持参数：duration
 
 > 备注：POST /videos/extensions：在已完成视频后追加；新增段时长仅允许 {4,8,12,16,20}；返回体 seconds 为拼接后总时长。
 
@@ -60,6 +64,10 @@
 
 ## 价格
 
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://platform.openai.com/docs/api-reference/videos/create
 
 > 备注：官方定价页（platform.openai.com）不可达（403），无法核实官方计费；AA 榜单的 $6/分钟（Sora 2）、$30/分钟（Sora 2 Pro）为第三方测算口径，非官方计费，不在此填入。
 

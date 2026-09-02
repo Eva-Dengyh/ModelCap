@@ -41,6 +41,8 @@
 | 参考音频上限 | 5 |
 | 音频额外计费 | 否 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
+
 > 备注：分辨率默认 1080P；ratio 默认 adaptive；duration 默认 5s，无视频输入 2~30s、有视频输入时输入总时长+输出 ≤30s，-1 为智能时长；输出 30fps；图片格式另支持 jpg/bmp（无透明 PNG）、单边 240~8000px、比例 ≤8:1、≤20MB；参考视频 mp4/mov 单条 1~15s、总 ≤15s、单边 240~4096px、≤100MB；参考音频 wav/mp3 单条 1~15s、总 ≤15s、≤15MB；first_frame/last_frame 各最多 1 张，且不能与 reference_xx/file/link 混用；提示词 ≤20000 字；seed 0~2147483647。
 
 ### 任务：edit
@@ -56,6 +58,8 @@
 | 参考音频上限 | 5 |
 | 音频额外计费 | 否 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
+
 > 备注：视频编辑：传入 reference_video 配合 prompt 指令编辑视频内容；duration 默认 5s、可 -1（智能时长），有视频输入时输入总时长+输出 ≤30s；ratio 默认 adaptive，可选 16:9/4:3/1:1/3:4/9:16；分辨率默认 1080P。
 
 ### 任务：extend
@@ -70,6 +74,8 @@
 | 生成音频 | 支持 |
 | 参考音频上限 | 5 |
 | 音频额外计费 | 否 |
+
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
 
 > 备注：视频延长：传入 reference_video 配合含延长意图的 prompt 向后延长；ratio 必须设为 adaptive（继承原视频比例）；duration 默认 5s、可 -1，输入总时长+输出 ≤30s；分辨率默认 1080P。
 
@@ -94,6 +100,10 @@
 
 - **币种**：CNY
 - **计费单位**：second
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://help.aliyun.com/zh/model-studio/wan3-video-generation-api-reference
 
 > 备注：按分辨率与地域每秒计费（百炼列表价）：北京 480P 0.30 元/秒、720P 0.60 元/秒、1080P 1.20 元/秒；新加坡 480P 0.05 美元/秒、720P 0.10 美元/秒、1080P 0.20 美元/秒（活动价曾低至 0.21/0.42/0.84 元/秒）。生成音频不额外收费（开关声音价格相同）。
 

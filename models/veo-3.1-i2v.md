@@ -29,6 +29,8 @@
 | 时长模式 | client_choice |
 | 生成音频 | 支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：duration 仅支持 4/6/8 三档（默认 8）；resolution 默认 1080p；generate_audio 默认 true；输入图片需 720p 或更高分辨率。
 
 ## 输出限制

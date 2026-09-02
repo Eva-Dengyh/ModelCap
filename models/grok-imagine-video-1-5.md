@@ -34,6 +34,8 @@
 | 生成音频 | 支持 |
 | 参考音频上限 | 3 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
+
 > 备注：duration 1-15 秒；resolution 默认 480p，本版本支持 480p/720p/1080p（官方注明 1080p 用于其图生视频）；aspect_ratio 默认 16:9。
 
 ### 任务：edit
@@ -47,6 +49,8 @@
 | 时长模式 | inherit_from_reference_video |
 | 生成音频 | 支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：编辑通过 GenerateVideo 传入 video 字段实现；官方未给出编辑任务的时长/分辨率/比例约束。
 
 ### 任务：extend
@@ -59,6 +63,8 @@
 | 比例模式 | inherit_from_reference_video |
 | 时长模式 | client_choice |
 | 生成音频 | 支持 |
+
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
 
 > 备注：延长片段 1-10 秒（默认 6 秒）；输入视频须 2-30 秒，从末尾续写。
 
@@ -80,6 +86,10 @@
 
 ## 价格
 
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://github.com/xai-org/xai-proto/blob/main/proto/xai/api/v1/video.proto
 
 > 备注：官方定价页（docs.x.ai）在本环境无法访问，未核实单价；proto 无静态视频计费字段（计费信息运行时随响应返回）。
 

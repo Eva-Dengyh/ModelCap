@@ -32,6 +32,8 @@
 | 时长模式 | client_choice |
 | 生成音频 | 不支持 |
 
+> 支持参数：aspect_ratio、duration、generate_audio、resolution
+
 > 备注：t2v：settings.duration 5/10（默认 5）、resolution 720p/1080p（默认 720p）、aspect_ratio 16:9/9:16/1:1（默认 16:9）。i2v：入参 contents（type ∈ prompt/first_frame/last_frame），无 aspect_ratio 字段（比例随首帧图）；首尾帧仅支持 1080P（settings.resolution 备注原文）。图片 jpg/jpeg/png ≤50MB、≥300px、比例 1:2.5~2.5:1，支持 url 或 base64（不加 data:image 前缀）。prompt ≤2500 字符。watermark_info.enabled 默认 false。
 
 ## 输出限制
@@ -59,6 +61,10 @@
 | --- | --- |
 | 720p | 0.3 |
 | 1080p | 0.5 |
+
+- **价格快照日期**：2026-09-02
+
+- **价格来源**：https://kling.ai/document-api/api/video/2-5-turbo/text-to-video
 
 > 备注：官方价格页（无声，按输出秒）：720P ¥0.3/秒（约 $0.042）、1080P ¥0.5/秒（约 $0.07）。无 4K 档。
 
