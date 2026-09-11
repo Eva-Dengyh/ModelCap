@@ -34,34 +34,10 @@ function main() {
 }
 
 function tsTypes() {
-  return `// 由 build-dist.mjs 生成，勿手改。ModelCap 目录的精简 TS 类型。
-export interface ModelEntry {
-  model_id: string
-  provider: string
-  version: string
-  fetched_at: string
-  source_url: string
-  ability: {
-    tasks?: string[]
-    inputs?: string[]
-    scenes?: string[]
-    capabilities?: string[]
-    audio?: boolean | null
-    note?: string
-  }
-  input_limits?: Record<string, unknown>
-  rules?: Record<string, Record<string, unknown>>
-  output_limits?: Record<string, unknown> | null
-  pricing?: {
-    currency?: 'CNY' | 'USD'
-    unit?: string
-    tiers?: Record<string, number>
-    observed_at?: string
-    source?: string
-    note?: string
-  } | null
-  errors?: Record<string, { standard: string; user_message?: string }>
-}
+  return `// 由 build-dist.mjs 生成，勿手改。ModelCap 目录的 TypeScript 类型。
+export type { ModelEntry } from '../src/index.js'
+declare const catalog: readonly import('../src/index.js').ModelEntry[]
+export default catalog
 `
 }
 

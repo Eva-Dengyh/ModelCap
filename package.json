@@ -27,7 +27,10 @@
     "validate:schema": "node skill/scripts/validate-schema.mjs models/*.json",
     "check:fresh": "node skill/scripts/check-fresh.mjs --max-days 180",
     "build": "node skill/scripts/build-dist.mjs",
-    "audit:sources": "node skill/scripts/audit-sources.mjs"
+    "build:check": "npm run build && git diff --exit-code -- dist",
+    "pack:check": "npm pack --dry-run --json",
+    "audit:sources": "node skill/scripts/audit-sources.mjs",
+    "ci": "npm test && npm run validate:catalog && npm run validate:schema && npm run check:fresh && npm run build:check && npm run pack:check"
   },
   "license": "MIT",
   "devDependencies": {

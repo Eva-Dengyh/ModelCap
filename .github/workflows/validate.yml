@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -12,9 +15,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: 校验模型条目
-        run: node skill/scripts/tools.mjs validate models/*.json
-      - name: 检查新鲜度（180 天）
-        run: node skill/scripts/check-fresh.mjs --max-days 180
-      - name: 构建统一产物
-        run: node skill/scripts/build-dist.mjs
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Run deterministic validation gate
+        run: npm run ci
