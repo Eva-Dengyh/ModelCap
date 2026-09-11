@@ -40,5 +40,60 @@ export interface ModelFilter {
   readonly capability?: Capability
 }
 
+export interface ModelRequest {
+  readonly task: Task
+  readonly parameters?: Readonly<{
+    duration?: number
+    resolution?: string
+    aspect_ratio?: string
+    generate_audio?: boolean
+    readonly [name: string]: unknown
+  }>
+  readonly inputs?: Readonly<{
+    reference_images?: readonly Readonly<{
+      bytes?: number
+      format?: string
+      width?: number
+      height?: number
+    }>[]
+    reference_videos?: readonly Readonly<{
+      duration_seconds?: number
+      format?: string
+    }>[]
+    reference_audios?: readonly unknown[]
+  }>
+  readonly additional_prompt?: string
+}
+
+export type ValidationIssueCode =
+  | 'UNKNOWN_MODEL'
+  | 'INVALID_REQUEST'
+  | 'INVALID_PARAMETER_TYPE'
+  | 'UNSUPPORTED_TASK'
+  | 'UNSUPPORTED_PARAMETER'
+  | 'PARAMETER_SUPPORT_UNKNOWN'
+  | 'CONSTRAINT_UNKNOWN'
+  | 'DURATION_SERVER_CONTROLLED'
+  | 'DURATION_OUT_OF_RANGE'
+  | 'DURATION_STEP_MISMATCH'
+  | 'RESOLUTION_NOT_ALLOWED'
+  | 'ASPECT_RATIO_NOT_ALLOWED'
+  | 'AUDIO_GENERATION_NOT_SUPPORTED'
+
+export interface ValidationIssue {
+  readonly code: ValidationIssueCode
+  readonly path: string
+  readonly message: string
+  readonly expected?: unknown
+  readonly actual?: unknown
+}
+
+export interface ValidationResult {
+  readonly valid: boolean
+  readonly errors: readonly ValidationIssue[]
+  readonly warnings: readonly ValidationIssue[]
+}
+
 export function getModel(modelId: string): ModelEntry | undefined
 export function listModels(filter?: ModelFilter): ModelEntry[]
+export function validateRequest(modelId: string, request: ModelRequest): ValidationResult
