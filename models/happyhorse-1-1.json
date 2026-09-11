@@ -22,34 +22,6 @@
     ],
     "note": "阿里云百炼 HappyHorse（快乐小马）1.1 API 版，三个模型名：happyhorse-1.1-t2v（文生）、happyhorse-1.1-i2v（首帧图生）、happyhorse-1.1-r2v（多参考图生，最多 9 张参考图）。原生音画协同、人物口型与台词匹配（唇形同步），背景音效可经指令开关。官方 Model Studio help 页未检索到，本条目按官方开发者文章（developer.aliyun.com/article/1743772）核实。"
   },
-  "rankings": [
-    {
-      "board": "aa-i2v",
-      "rank": 6,
-      "label": "HappyHorse-1.1",
-      "score": 1105,
-      "ci": 6,
-      "samples": 13757,
-      "release_date": "2026-06",
-      "price_usd_per_min": 9.9,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-    },
-    {
-      "board": "aa-t2v",
-      "rank": 7,
-      "label": "HappyHorse-1.1",
-      "score": 1145,
-      "ci": 6,
-      "samples": 19429,
-      "release_date": "2026-06",
-      "price_usd_per_min": 9.9,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-    }
-  ],
   "input_limits": {
     "max_reference_images": 9,
     "image": {

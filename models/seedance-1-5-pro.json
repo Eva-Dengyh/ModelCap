@@ -20,60 +20,6 @@
     "capabilities": [],
     "note": "火山方舟模型 doubao-seedance-1-5-pro-251215（官方 2026-01-15 首发）。原生音视频联合生成，支持 文生 / 图生首帧 / 图生首尾帧 三种场景；不支持参考视频/参考音频、不支持编辑/延长（那是 2.5/2.0 能力）。图生场景图片数量：首帧 1 张、首尾帧 2 张。样片（Draft）模式仅 1.5 pro 支持且强制 480p；flex 离线推理价格约为在线一半（1.5 pro 支持，2.5/2.0 不支持）。任务异步，任务 ID 保留 7 天，结果 URL 24h/100 次。有声视频均为单声道。"
   },
-  "rankings": [
-    {
-      "board": "aa-i2v",
-      "rank": 28,
-      "label": "Seedance 1.5 pro",
-      "score": 1000,
-      "ci": 0,
-      "samples": 11916,
-      "release_date": "2025-12",
-      "price_usd_per_min": 11.86,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-    },
-    {
-      "board": "aa-t2v",
-      "rank": 30,
-      "label": "Seedance 1.5 pro",
-      "score": 1000,
-      "ci": 0,
-      "samples": 13041,
-      "release_date": "2025-12",
-      "price_usd_per_min": 11.86,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-    },
-    {
-      "board": "lmarena-i2v",
-      "rank": 22,
-      "label": "seedance-v1.5-pro",
-      "score": 1307,
-      "ci": 7,
-      "samples": 245243,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 20,
-      "label": "seedance-v1.5-pro",
-      "score": 1256,
-      "ci": 7,
-      "samples": 75890,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ],
   "input_limits": {
     "image": {
       "max_bytes": 31457280,

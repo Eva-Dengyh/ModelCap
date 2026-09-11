@@ -181,30 +181,6 @@
       }
     },
 
-    "rankings": {
-      "type": "array",
-      "description": "外部评测榜单快照（Artificial Analysis / LMArena Video Arena）。一条模型可有多行：不同榜单、不同分辨率档/变体。榜单分数与价格会过期，以每行 as_of 为准。rankings 是第三方评测口径，与 pricing（厂商计费）无关。",
-      "items": {
-        "type": "object",
-        "required": ["board", "label", "score", "as_of", "url"],
-        "properties": {
-          "board": {
-            "enum": ["aa-i2v", "aa-t2v", "aa-video-edit", "lmarena-i2v", "lmarena-t2v", "lmarena-video-edit"]
-          },
-          "label": { "type": "string", "description": "榜单上显示的模型/档位名，如 'Kling 3.0 1080p (Pro)'。" },
-          "rank": { "type": ["integer", "null"], "description": "该榜排名。" },
-          "score": { "type": "number", "description": "AA=Elo / LMArena=Arena score，两个体系不可直接比较。" },
-          "ci": { "type": ["integer", "null"], "description": "95% 置信区间 ±值。" },
-          "samples": { "type": ["integer", "null"], "description": "AA Samples 或 LMArena Votes。" },
-          "release_date": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}(-\\d{2})?$", "description": "榜单标注的发布日期。榜单常只给到年月（YYYY-MM），也可精确到日。" },
-          "open_weights": { "type": ["boolean", "null"], "description": "仅在榜单明确标注开放权重/开源许可时置 true，否则留 null（不推断闭源）。" },
-          "price_usd_per_min": { "type": ["number", "null"], "description": "AA 'API 价格' 口径：用模型创建者 API 默认设置生成 1 分钟 1080p 视频的美元成本；'即将推出' 为 null。" },
-          "as_of": { "type": "string", "format": "date", "description": "该榜单快照日期。" },
-          "url": { "type": "string", "format": "uri", "description": "该榜单页面链接。" }
-        }
-      }
-    },
-
     "pricing": {
       "type": ["object", "null"],
       "description": "价格信息。单独字段便于常改。null = 官方未提供价格。",
@@ -253,5 +229,6 @@
         }
       }
     }
-  }
+  },
+  "not": { "required": ["rankings"] }
 }

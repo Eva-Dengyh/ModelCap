@@ -20,47 +20,6 @@
     "capabilities": [],
     "note": "⚠️ 官方已宣布该模型（含 master 与 2.1）将于 2026-09-15 下线，请提前迁移到主力模型。只有 legacy V1 接口（POST /v1/videos/text2video、/image2video）：文生仅 kling-v2-1-master 支持（官方 t2v 枚举无 plain kling-v2-1）；i2v 同时有 kling-v2-1 与 kling-v2-1-master。榜单 kling-v2.1-standard ≈ 官方 kling-v2-1（仅 i2v，推断）、kling-v2.1-master = kling-v2-1-master（推断已标注）。master 只出单镜头；plain 支持首尾帧（image_tail，仅 1080P）；仅尾帧两档都不支持。两档均无声（native-audio 不支持，sound 恒 off）；无多镜头/运镜/动作控制/视频参考/主体控制。时长与分辨率按能力地图为 5s/10s、720P/1080P（无 4K）。生成结果 30 天后清理。"
   },
-  "rankings": [
-    {
-      "board": "lmarena-i2v",
-      "rank": 32,
-      "label": "kling-v2.1-master",
-      "score": 1234,
-      "ci": 8,
-      "samples": 29824,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-i2v",
-      "rank": 34,
-      "label": "kling-v2.1-standard",
-      "score": 1228,
-      "ci": 8,
-      "samples": 29957,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 38,
-      "label": "kling-v2.1-master",
-      "score": 1162,
-      "ci": 10,
-      "samples": 14048,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ],
   "input_limits": {
     "image": {
       "max_bytes": 10485760,

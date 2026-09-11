@@ -24,34 +24,6 @@
     ],
     "note": "BFL 官方 API（POST api.bfl.ai/v1/flux-3-video）preview 模型（博客 2026-08-04）。mode 由请求显式指定：t2v（仅 prompt）/ i2v（1–10 张 keyframes，可钉首/尾/中间任意时刻，3+ 张需设 duration）/ v2v（视频续写，start_video，mp4）/ draft_enhance（用 draft_cache 全质量复现同一次生成）。编辑与 Omni Reference（图+视频）官方说 coming soon。原生生成同步音频默认开（多语言语音+强口型同步+音效），generate_audio=false 可关；无二次模型/二次 pass。单请求内支持多场景多机位。官方文档当前只有 version=\"latest\"，榜单里的日期版 flux-3-video-20260811 官方未发布。draft 快预演结果只出 hd。"
   },
-  "rankings": [
-    {
-      "board": "lmarena-i2v",
-      "rank": 7,
-      "label": "flux-3-video-20260811",
-      "score": 1447,
-      "ci": 6,
-      "samples": 14087,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 3,
-      "label": "flux-3-video",
-      "score": 1495,
-      "ci": 17,
-      "samples": 1287,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ],
   "input_limits": {
     "max_reference_images": 10,
     "max_reference_videos": 1,

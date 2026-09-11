@@ -19,34 +19,6 @@
     "capabilities": [],
     "note": "fal 官方模型 minimax/h3-max（text-to-video 与 image-to-video 两个独立端点，POST fal.run/minimax/h3-max/*）。fal 后训练版 MiniMax H3，prompt 遵循与画面美学更强（页面自述）。本端点最高仅 480P/768P，无 1080P；fal 端点未暴露音频参数与输出音频字段（底层可能规划音效，但不可控）。i2v 变体：image_url 首帧（省略则按文生处理，默认 16:9）、end_image_url 尾帧做首尾帧生成，各至多 1 张。无 negative prompt/风格参数；enable_safety_checker 默认 true；prompt_expansion_mode=balanced/quality（改写力度，quality 最多约 30s）。"
   },
-  "rankings": [
-    {
-      "board": "aa-i2v",
-      "rank": 1,
-      "label": "Minimax H3 Max (post-trained by fal)",
-      "score": 1202,
-      "ci": 9,
-      "samples": 5453,
-      "release_date": "2026-08",
-      "price_usd_per_min": 2.4,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-    },
-    {
-      "board": "aa-t2v",
-      "rank": 3,
-      "label": "Minimax H3 Max (post-trained by fal)",
-      "score": 1235,
-      "ci": 10,
-      "samples": 5372,
-      "release_date": "2026-08",
-      "price_usd_per_min": 2.4,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-    }
-  ],
   "input_limits": {
     "additional_prompt": {
       "max_chars": 50000

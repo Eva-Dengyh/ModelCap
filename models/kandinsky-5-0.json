@@ -63,33 +63,5 @@
     "note": "开源权重（Hugging Face），本地推理；官方 GitHub 仓库未提供 API 计费信息。",
     "observed_at": "2026-09-02",
     "source": "https://github.com/kandinskylab/kandinsky-5"
-  },
-  "rankings": [
-    {
-      "board": "lmarena-t2v",
-      "rank": 35,
-      "label": "kandinsky-5.0-t2v-pro",
-      "score": 1172,
-      "ci": 20,
-      "samples": 2015,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": true,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 41,
-      "label": "kandinsky-5.0-t2v-lite",
-      "score": 1113,
-      "ci": 18,
-      "samples": 1468,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": true,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ]
+  }
 }

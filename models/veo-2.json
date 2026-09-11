@@ -62,33 +62,5 @@
     "note": "官方定价页（ai.google.dev/pricing）在本环境无法访问，未核实单价；Veo 2 为付费模型。",
     "observed_at": "2026-09-02",
     "source": "https://github.com/googleapis/python-genai/blob/main/google/genai/types.py"
-  },
-  "rankings": [
-    {
-      "board": "lmarena-i2v",
-      "rank": 42,
-      "label": "veo-2",
-      "score": 1165,
-      "ci": 16,
-      "samples": 10303,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 37,
-      "label": "veo-2",
-      "score": 1164,
-      "ci": 16,
-      "samples": 6501,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ]
+  }
 }

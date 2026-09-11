@@ -131,33 +131,5 @@
     "note": "官方定价页（docs.x.ai）在本环境无法访问，未核实单价；proto 无静态视频计费字段（计费信息运行时随响应返回）。",
     "observed_at": "2026-09-02",
     "source": "https://github.com/xai-org/xai-proto/blob/main/proto/xai/api/v1/video.proto"
-  },
-  "rankings": [
-    {
-      "board": "aa-i2v",
-      "rank": 5,
-      "label": "grok-imagine-video-1.5",
-      "score": 1109,
-      "ci": 7,
-      "samples": 6366,
-      "release_date": "2026-05",
-      "price_usd_per_min": 8.4,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-    },
-    {
-      "board": "lmarena-i2v",
-      "rank": 6,
-      "label": "grok-imagine-video-1.5-720p",
-      "score": 1459,
-      "ci": 5,
-      "samples": 111667,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ]
+  }
 }

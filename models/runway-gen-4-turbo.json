@@ -17,21 +17,6 @@
     "capabilities": [],
     "note": "Runway 官方没有把 Gen-4 Turbo 当独立基础模型：它是 Gen-4（图生视频）的高速/低成本档位，参数规格与 Gen-4 相同，仅速度更快、单价更低（Turbo 5 credits/s vs Gen-4 12 credits/s；官方建议先用 Turbo 迭代再切 Gen-4）。只支持图生视频（必须有输入图作为首帧），不支持纯文生；时长 5s/10s、24fps。官方该帮助文已标注为 older generation（现主推 Gen-4.5）。榜单模型名 runway-gen4-turbo 即此档位。"
   },
-  "rankings": [
-    {
-      "board": "lmarena-i2v",
-      "rank": 45,
-      "label": "runway-gen4-turbo",
-      "score": 1052,
-      "ci": 13,
-      "samples": 6801,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ],
   "input_limits": {
     "image": {
       "formats": [

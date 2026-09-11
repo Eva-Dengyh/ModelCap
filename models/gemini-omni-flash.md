@@ -58,19 +58,6 @@
 | 成片最大时长 | 40 秒 |
 | 画面比例模式 | client_choice |
 
-## 榜单数据
-
-| 榜单 | 榜上名称 | 排名 | 分数 | ±95%CI | 样本/票 | 发布日期 | 开放权重 | API价格(USD/分) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| AA·图生 | Gemini Omni Flash | 4 | 1180 | 7 | 12348 | 2026-05 | — | 6.00 |
-| AA·文生 | Gemini Omni Flash | 1 | 1238 | 6 | 17994 | 2026-05 | — | 6.00 |
-| AA·编辑 | Gemini Omni Flash | 3 | 1124 | 5 | 15908 | 2026-05 | — | 6.00 |
-| LMArena·图生 | gemini-omni-flash | 5 | 1463 | 6 | 64567 | — | — | — |
-| LMArena·文生 | gemini-omni-flash | 2 | 1512 | 10 | 19830 | — | — | — |
-| LMArena·编辑 | gemini-omni-flash | 4 | 1367 | 15 | 2109 | — | — | — |
-
-> 分数体系：AA=Elo，LMArena=Arena score，两者不可直接比较；价格是 AA「用创建者 API 默认设置生成 1 分钟 1080p 视频」的口径（同模型跨榜可能不同）。快照日期见各条 `rankings` 的 as_of 与条目 `fetched_at`。
-
 ## 价格
 
 - **币种**：USD

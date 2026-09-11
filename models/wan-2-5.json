@@ -20,34 +20,6 @@
     "capabilities": [],
     "note": "百炼 2.5 系列只有带 -preview 的两个 id：wan2.5-t2v-preview / wan2.5-i2v-preview（preview 即正式对外 API 名，无日期快照、无 -us/-flash 变体）。只支持文生与图生首帧（旧版协议，仅首帧生视频）。北京地域默认生成有声视频（自动配音或传 input.audio_url）；新加坡地域无声输出（仅 Text/Image→Video）。无 shot_type（多镜头仅 wan2.6）、无声开关不支持（那是 2.6-i2v-flash）。i2v 北京支持模型调优，新加坡不支持。"
   },
-  "rankings": [
-    {
-      "board": "lmarena-i2v",
-      "rank": 20,
-      "label": "wan2.5-i2v-preview",
-      "score": 1321,
-      "ci": 10,
-      "samples": 16913,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 23,
-      "label": "wan2.5-t2v-preview",
-      "score": 1247,
-      "ci": 9,
-      "samples": 30497,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ],
   "input_limits": {
     "image": {
       "max_bytes": 20971520,

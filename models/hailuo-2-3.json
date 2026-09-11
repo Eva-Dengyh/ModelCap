@@ -62,34 +62,6 @@
   "output_limits": {
     "max_duration_seconds": 10
   },
-  "rankings": [
-    {
-      "board": "lmarena-i2v",
-      "rank": 27,
-      "label": "hailuo-2.3",
-      "score": 1262,
-      "ci": 5,
-      "samples": 357579,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 30,
-      "label": "hailuo-2.3",
-      "score": 1205,
-      "ci": 6,
-      "samples": 79981,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ],
   "pricing": {
     "currency": "USD",
     "unit": "request",

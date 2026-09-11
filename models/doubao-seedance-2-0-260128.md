@@ -85,19 +85,6 @@
 | 成片最大时长 | 15 秒 |
 | 画面比例模式 | client_choice |
 
-## 榜单数据
-
-| 榜单 | 榜上名称 | 排名 | 分数 | ±95%CI | 样本/票 | 发布日期 | 开放权重 | API价格(USD/分) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| AA·图生 | Dreamina Seedance 2.0 720p | 2 | 1190 | 6 | 17684 | 2026-03 | — | 9.07 |
-| AA·文生 | Dreamina Seedance 2.0 720p | 5 | 1221 | 5 | 24731 | 2026-03 | — | 9.07 |
-| AA·编辑 | Dreamina Seedance 2.0 720p | 6 | 1040 | 5 | 23284 | 2026-03 | — | 5.57 |
-| LMArena·图生 | dreamina-seedance-2.0-720p | 4 | 1477 | 8 | 110372 | — | — | — |
-| LMArena·文生 | dreamina-seedance-2.0-720p | 4 | 1479 | 9 | 51266 | — | — | — |
-| LMArena·编辑 | dreamina-seedance-2.0-720p | 5 | 1365 | 14 | 3852 | — | — | — |
-
-> 分数体系：AA=Elo，LMArena=Arena score，两者不可直接比较；价格是 AA「用创建者 API 默认设置生成 1 分钟 1080p 视频」的口径（同模型跨榜可能不同）。快照日期见各条 `rankings` 的 as_of 与条目 `fetched_at`。
-
 ## 价格
 
 待补充

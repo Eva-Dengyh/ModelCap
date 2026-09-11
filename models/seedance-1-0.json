@@ -20,60 +20,6 @@
     "capabilities": [],
     "note": "官方模型 doubao-seedance-1-0-pro-250528（另 pro fast = doubao-seedance-1-0-pro-fast-251015，速度最高快约 3 倍、价格直降 72%，首尾帧不支持）。lite 是独立拆分的两个模型 doubao-seedance-1.0-lite-t2v/i2v-250428，已于 2026-05-11 下线（官方建议迁移 doubao-seedance-2.0-fast-260128），其参数文档已从官方删除——本条目参数以 pro 为准，lite 相关字段无法核实。无声输出（generate_audio 仅 2.0/2.5/1.5 支持）；无参考视频/音频；无编辑/延长。frames 参数是 1.0 系列独有（可生成小数秒视频，帧数须为 25+4n、范围 [29,289]）。t2v 的 ratio 不支持 adaptive（i2v 可）。service_tier=flex 离线推理支持（价 50%）。"
   },
-  "rankings": [
-    {
-      "board": "lmarena-i2v",
-      "rank": 26,
-      "label": "seedance-v1-pro",
-      "score": 1272,
-      "ci": 8,
-      "samples": 34019,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-i2v",
-      "rank": 40,
-      "label": "seedance-v1-lite",
-      "score": 1185,
-      "ci": 8,
-      "samples": 33734,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 33,
-      "label": "seedance-v1-pro",
-      "score": 1190,
-      "ci": 11,
-      "samples": 12120,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 42,
-      "label": "seedance-v1-lite",
-      "score": 1112,
-      "ci": 10,
-      "samples": 16177,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ],
   "input_limits": {
     "image": {
       "max_bytes": 31457280,

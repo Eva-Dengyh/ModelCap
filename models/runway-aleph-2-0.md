@@ -39,15 +39,6 @@
 | 成片最大时长 | 30 秒 |
 | 画面比例模式 | inherit_from_reference_video |
 
-## 榜单数据
-
-| 榜单 | 榜上名称 | 排名 | 分数 | ±95%CI | 样本/票 | 发布日期 | 开放权重 | API价格(USD/分) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| AA·编辑 | Aleph 2.0 | 7 | 1013 | 5 | 20781 | 2026-05 | — | 16.80 |
-| LMArena·编辑 | runway-gen4-aleph | 10 | 1182 | 9 | 9818 | — | — | — |
-
-> 分数体系：AA=Elo，LMArena=Arena score，两者不可直接比较；价格是 AA「用创建者 API 默认设置生成 1 分钟 1080p 视频」的口径（同模型跨榜可能不同）。快照日期见各条 `rankings` 的 as_of 与条目 `fetched_at`。
-
 ## 价格
 
 - **币种**：USD
@@ -61,7 +52,7 @@
 
 - **价格来源**：https://docs.dev.runwayml.com/guides/models
 
-> 备注：官方 API 28 credits/s、单笔最低 56 credits；credit=$0.01 → $0.28/s ≈ $16.8/分钟（与 AA 榜 price_usd_per_min=16.80 互证一致；单次 ≤30s 封顶 840 credits）。ProRes/PNG 序列 +5 credits/s；10-bit（sdr_rec709_10bit）档 +20 credits/s（>4MP 时 40）。app 内 Edit Studio 关键帧图另计（Gen-4 Image 8/图、Nano Banana Pro 20/图、GPT Image 2 5/图）。web credits 与 API credits 池独立。
+> 备注：官方 API 28 credits/s、单笔最低 56 credits；credit=$0.01 → $0.28/s ≈ $16.8/分钟，单次 ≤30s 封顶 840 credits。ProRes/PNG 序列 +5 credits/s；10-bit（sdr_rec709_10bit）档 +20 credits/s（>4MP 时 40）。app 内 Edit Studio 关键帧图另计（Gen-4 Image 8/图、Nano Banana Pro 20/图、GPT Image 2 5/图）。web credits 与 API credits 池独立。
 
 ## 错误码
 

@@ -21,60 +21,6 @@
     "capabilities": [],
     "note": "官方 API 两档 ltx-2-3-fast / ltx-2-3-pro，最高都到 4K（这点与 2.5 不同：2.5 pro 只到 1080p）。支持文生/图生（末帧插值 last_frame_uri）/音频驱动（audio-to-video 仅 pro）；pro 另有 retake/extend/reframe/HDR 编辑端点（fast 无）。生成任务自带同步音频（generate_audio 默认 true，可关；官方 2.3 专属页未复述该参数，按共享端点行为）。auto duration（传 null 自选）仅 2.5 支持，2.3 不支持。camera_motion 参数存在于共享端点但 2.3 专属页未单列确认。开放权重适用 LTX-2 Community License（2026-01-05 版，营收 ≥$10M 实体需付费商用授权）。"
   },
-  "rankings": [
-    {
-      "board": "aa-i2v",
-      "rank": 31,
-      "label": "LTX-2.3 Fast",
-      "score": 954,
-      "ci": 7,
-      "samples": 11056,
-      "release_date": "2026-03",
-      "price_usd_per_min": 2.4,
-      "open_weights": true,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-    },
-    {
-      "board": "aa-i2v",
-      "rank": 32,
-      "label": "LTX-2.3 Pro",
-      "score": 952,
-      "ci": 7,
-      "samples": 10973,
-      "release_date": "2026-03",
-      "price_usd_per_min": 4.8,
-      "open_weights": true,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-    },
-    {
-      "board": "aa-t2v",
-      "rank": 32,
-      "label": "LTX-2.3 Fast",
-      "score": 978,
-      "ci": 6,
-      "samples": 12780,
-      "release_date": "2026-03",
-      "price_usd_per_min": 2.4,
-      "open_weights": true,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-    },
-    {
-      "board": "aa-t2v",
-      "rank": 33,
-      "label": "LTX-2.3 Pro",
-      "score": 959,
-      "ci": 6,
-      "samples": 12095,
-      "release_date": "2026-03",
-      "price_usd_per_min": 4.8,
-      "open_weights": true,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-    }
-  ],
   "input_limits": {
     "max_reference_images": 2,
     "max_reference_audios": 1,

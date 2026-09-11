@@ -20,60 +20,6 @@
     "capabilities": [],
     "note": "⚠️ 官方 SDK 标注：Sora API 将于 2026-09-24 永久下线（\"scheduled to permanently shut down on September 24, 2026\"，openai SDK 视频方法 @deprecated），集成前务必确认。官方文档页当前不可达（403），本条目字段按官方 openai-node SDK（v7.9.0，与官方 OpenAPI spec 同源）核实。API 模型值：sora-2 / sora-2-pro（另快照 sora-2-2025-10-06 / sora-2-pro-2025-10-06 / sora-2-2025-12-08，即榜单所谓 Sora 2 (December)）。端点：POST /videos（生成）、/videos/edits（编辑）、/videos/extensions（延长）、/videos/{id}/remix、/videos/characters（角色）。全部为异步 job（status: queued/in_progress/completed/failed）。"
   },
-  "rankings": [
-    {
-      "board": "aa-t2v",
-      "rank": 14,
-      "label": "Sora 2 (December)",
-      "score": 1093,
-      "ci": 9,
-      "samples": 4910,
-      "release_date": "2025-12",
-      "price_usd_per_min": 6,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-    },
-    {
-      "board": "aa-t2v",
-      "rank": 22,
-      "label": "Sora 2 Pro",
-      "score": 1077,
-      "ci": 9,
-      "samples": 4937,
-      "release_date": "2025-09",
-      "price_usd_per_min": 30,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 9,
-      "label": "sora-2-pro",
-      "score": 1365,
-      "ci": 7,
-      "samples": 48782,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 17,
-      "label": "sora-2",
-      "score": 1341,
-      "ci": 6,
-      "samples": 65433,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ],
   "input_limits": {
     "max_reference_images": 1,
     "image": {

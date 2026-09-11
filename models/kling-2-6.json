@@ -21,60 +21,6 @@
     "capabilities": [],
     "note": "官方 Open Platform 无独立 \"kling-2.6-pro\" 模型 slug：新接口为 kling-2.6（/text-to-video、/image-to-video、/motion-control 端点），legacy V1 接口 model_name=kling-v2-6 + mode:pro/std/4k（\"pro\"≈1080P 档，为推断映射）。audio= native|off，默认 off，原生音频仅 1080P；i2v 支持音色引用（≤2 个 voice，指定音色时 audio 不能为 off）。motion control 独立端点以参考视频驱动动作（人物朝向按 image/video 分：与视频一致时参考视频 ≤30s，与图一致时 ≤10s）。生成结果 30 天后清理。中国/新加坡两个 API 域名。"
   },
-  "rankings": [
-    {
-      "board": "aa-i2v",
-      "rank": 27,
-      "label": "Kling 2.6 Pro (January)",
-      "score": 1002,
-      "ci": 7,
-      "samples": 8041,
-      "release_date": "2026-01",
-      "price_usd_per_min": 8.4,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-    },
-    {
-      "board": "aa-t2v",
-      "rank": 31,
-      "label": "Kling 2.6 Pro (January)",
-      "score": 984,
-      "ci": 7,
-      "samples": 8414,
-      "release_date": "2026-01",
-      "price_usd_per_min": 8.4,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-    },
-    {
-      "board": "lmarena-i2v",
-      "rank": 24,
-      "label": "kling-2.6-pro",
-      "score": 1293,
-      "ci": 8,
-      "samples": 202178,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 27,
-      "label": "kling-2.6-pro",
-      "score": 1216,
-      "ci": 7,
-      "samples": 73066,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ],
   "input_limits": {
     "image": {
       "max_bytes": 52428800,

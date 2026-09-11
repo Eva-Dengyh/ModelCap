@@ -234,33 +234,5 @@
       "standard": "provider_failed",
       "user_message": "服务端内部错误"
     }
-  },
-  "rankings": [
-    {
-      "board": "aa-i2v",
-      "rank": 18,
-      "label": "PixVerse V6",
-      "score": 1068,
-      "ci": 7,
-      "samples": 10130,
-      "release_date": "2026-03",
-      "price_usd_per_min": 6.9,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-    },
-    {
-      "board": "aa-t2v",
-      "rank": 24,
-      "label": "PixVerse V6",
-      "score": 1074,
-      "ci": 6,
-      "samples": 10676,
-      "release_date": "2026-03",
-      "price_usd_per_min": 6.9,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-    }
-  ]
+  }
 }

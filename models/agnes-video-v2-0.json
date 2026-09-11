@@ -18,34 +18,6 @@
     "capabilities": [],
     "note": "官方文档托管于 Agnes AI 文档站（wiki.agnes-ai.com；AA 榜单标注厂商为 Sapiens AI）。支持文生视频、图生视频（首帧）、关键帧动画；音频生成官方未记载。时长由 num_frames/frame_rate 推导（非固定秒数）。图片需公网 URL，格式/大小/边长官方未给出。定价与错误码另见 pricing.md / code.md 页。"
   },
-  "rankings": [
-    {
-      "board": "aa-i2v",
-      "rank": 34,
-      "label": "Agnes-Video-V2.0",
-      "score": 921,
-      "ci": 8,
-      "samples": 5749,
-      "release_date": "2026-05",
-      "price_usd_per_min": 0.3,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-    },
-    {
-      "board": "aa-t2v",
-      "rank": 38,
-      "label": "Agnes-Video-V2.0",
-      "score": 919,
-      "ci": 8,
-      "samples": 5382,
-      "release_date": "2026-05",
-      "price_usd_per_min": 0.3,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-    }
-  ],
   "input_limits": {
     "_missing": true,
     "note": "官方文档未给出输入图片的格式、大小、边长与比例硬约束（仅要求图片 URL 公网可达）；无视频输入。",

@@ -18,34 +18,6 @@
     ],
     "note": "Runway 的 in-context 视频编辑模型 Aleph 2.0（API 模型串 aleph2；旧 id gen4_aleph 已于 2026-07-30 停用，废弃别名 aleph2_alpha；AA 榜 \"Aleph 2.0\"、LMArena 榜 runway-gen4-aleph 即此模型）。编辑一帧改动会传播到整段并跨镜头保持背景/光照不变；支持局部时间范围编辑与画幅扩展（expand/outpaint）。不生成新时长（成片时长=源视频时长，≤30s）。音频行为官方未明确（仅 ProRes 输出含 PCM 音轨为间接证据）。编辑所需关键帧图通常由图像模型先生成（另行计费）。"
   },
-  "rankings": [
-    {
-      "board": "aa-video-edit",
-      "rank": 7,
-      "label": "Aleph 2.0",
-      "score": 1013,
-      "ci": 5,
-      "samples": 20781,
-      "release_date": "2026-05",
-      "price_usd_per_min": 16.8,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
-    },
-    {
-      "board": "lmarena-video-edit",
-      "rank": 10,
-      "label": "runway-gen4-aleph",
-      "score": 1182,
-      "ci": 9,
-      "samples": 9818,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-27",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ],
   "input_limits": {
     "reference_videos": {
       "min": 1,
@@ -98,7 +70,7 @@
     "tiers": {
       "aleph2": 0.28
     },
-    "note": "官方 API 28 credits/s、单笔最低 56 credits；credit=$0.01 → $0.28/s ≈ $16.8/分钟（与 AA 榜 price_usd_per_min=16.80 互证一致；单次 ≤30s 封顶 840 credits）。ProRes/PNG 序列 +5 credits/s；10-bit（sdr_rec709_10bit）档 +20 credits/s（>4MP 时 40）。app 内 Edit Studio 关键帧图另计（Gen-4 Image 8/图、Nano Banana Pro 20/图、GPT Image 2 5/图）。web credits 与 API credits 池独立。",
+    "note": "官方 API 28 credits/s、单笔最低 56 credits；credit=$0.01 → $0.28/s ≈ $16.8/分钟，单次 ≤30s 封顶 840 credits。ProRes/PNG 序列 +5 credits/s；10-bit（sdr_rec709_10bit）档 +20 credits/s（>4MP 时 40）。app 内 Edit Studio 关键帧图另计（Gen-4 Image 8/图、Nano Banana Pro 20/图、GPT Image 2 5/图）。web credits 与 API credits 池独立。",
     "observed_at": "2026-09-02",
     "source": "https://docs.dev.runwayml.com/guides/models"
   },

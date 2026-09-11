@@ -20,60 +20,6 @@
     "capabilities": [],
     "note": "百炼旧版协议（legacy，2025-12-03 发布）：wan2.6-t2v / wan2.6-i2v（无日期快照后缀；另有 -us/-flash 变体）。只支持生成：文生视频与图生视频-基于首帧（官方 legacy 文档明确\"仅支持首帧生视频\"，首尾帧/续写属 wan2.7）。参数体系与 2.7 不同：文生用 size=\"宽*高\"、图生用 resolution=\"720P/1080P\" 档位，无 aspect_ratio/duration_mode/generate_audio 等新式字段。默认输出有声视频（自动配音或 input.audio_url）；无声开关仅 wan2.6-i2v-flash 支持。shot_type(single/multi) 仅 wan2.6 系支持且需 prompt_extend=true。task_id 与视频 URL 24h 有效，查询接口 RPS 默认 20。"
   },
-  "rankings": [
-    {
-      "board": "aa-i2v",
-      "rank": 35,
-      "label": "Wan 2.6",
-      "score": 893,
-      "ci": 8,
-      "samples": 6393,
-      "release_date": "2025-12",
-      "price_usd_per_min": 9,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-    },
-    {
-      "board": "aa-t2v",
-      "rank": 29,
-      "label": "Wan 2.6",
-      "score": 1028,
-      "ci": 6,
-      "samples": 7747,
-      "release_date": "2025-12",
-      "price_usd_per_min": 9,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-    },
-    {
-      "board": "lmarena-i2v",
-      "rank": 21,
-      "label": "wan2.6-i2v",
-      "score": 1311,
-      "ci": 7,
-      "samples": 108068,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 19,
-      "label": "wan2.6-t2v",
-      "score": 1329,
-      "ci": 8,
-      "samples": 47267,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ],
   "input_limits": {
     "image": {
       "max_bytes": 20971520,

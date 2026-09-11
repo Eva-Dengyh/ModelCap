@@ -19,21 +19,6 @@
     "capabilities": [],
     "note": "MAGI-2 Preview（官方 2026-08-05 发布，Apache-2.0，HF sand-ai/MAGI-2-preview 未 gated，约 307GB）。114B 总参数/每 token 激活约 6B（MagiMoE），官方定位 intermediate research release。只支持 T2V（纯文本）与 I2V（文本+一张首帧图），无视频输入/续写（与 MAGI-1 的 v2v 续写不同，也不再沿用 MAGI-1 的自回归 chunk 续写，改为统一序列+扩散）。开放权重侧生成含同步音轨（输出 mp4 内 mux）；托管 API（platform.sand.ai）仅 magi 公开、magi-2-preview 需联系 Sand.ai 开通，且 API 侧不支持音频条件。时长固定 10s；开放权重原生 512×896 → refiner 至 1088×1920，API 交付 540p/720p/1080p 且仅 16:9。文本编码器 Qwen3.5-27B、视频 VAE 取自 Wan2.2、音频 VAE stable-audio-open-1.0。推理需 8× NVIDIA Hopper。"
   },
-  "rankings": [
-    {
-      "board": "aa-i2v",
-      "rank": 7,
-      "label": "MAGI-2 Preview",
-      "score": 1099,
-      "ci": 7,
-      "samples": 11933,
-      "release_date": "2026-08",
-      "price_usd_per_min": null,
-      "open_weights": true,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-    }
-  ],
   "input_limits": {
     "_missing": true,
     "note": "官方 README/模型卡未给出输入首帧图片的格式、大小、边长与比例硬约束（仅说明 I2V 接受一张首帧图）；无视频输入。",

@@ -110,33 +110,5 @@
     "note": "官方定价页（ai.google.dev/pricing）在本环境无法访问，未核实单价；Gemini Omni Flash 1.1 为付费模型。",
     "observed_at": "2026-09-02",
     "source": "https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb"
-  },
-  "rankings": [
-    {
-      "board": "lmarena-i2v",
-      "rank": 2,
-      "label": "gemini-omni-1.1-flash",
-      "score": 1488,
-      "ci": 11,
-      "samples": 3720,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 1,
-      "label": "gemini-omni-1.1-flash",
-      "score": 1515,
-      "ci": 16,
-      "samples": 1762,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ]
+  }
 }

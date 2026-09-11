@@ -34,18 +34,8 @@ const IMAGE_FORMATS = deep(schema, 'properties', 'input_limits', 'properties', '
 const UNITS = deep(schema, 'properties', 'pricing', 'properties', 'unit', 'enum')
 const CURRENCIES = deep(schema, 'properties', 'pricing', 'properties', 'currency', 'enum')
 const STANDARD_ERRORS = deep(schema, 'properties', 'errors', 'additionalProperties', 'properties', 'standard', 'enum')
-const BOARDS = deep(schema, 'properties', 'rankings', 'items', 'properties', 'board', 'enum')
-const BOARD_LABEL = {
-  'aa-i2v': 'AA·图生',
-  'aa-t2v': 'AA·文生',
-  'aa-video-edit': 'AA·编辑',
-  'lmarena-i2v': 'LMArena·图生',
-  'lmarena-t2v': 'LMArena·文生',
-  'lmarena-video-edit': 'LMArena·编辑',
-}
-
+const PROHIBITED_TOP_LEVEL_FIELDS = deep(schema, 'not', 'required') || []
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/ // YYYY-MM-DD
-const YEARMONTH_RE = /^\d{4}-\d{2}(-\d{2})?$/ // 榜单日期可能只给到年月
 const URL_RE = /^https?:\/\/\S+$/
 
 function validateProblems(entry, fileName) {
@@ -66,6 +56,9 @@ function validateProblems(entry, fileName) {
   }
   if (entry.fetched_at && !DATE_RE.test(entry.fetched_at)) out.push(`fetched_at 应为 YYYY-MM-DD: ${entry.fetched_at}`)
   if (entry.source_url && !URL_RE.test(entry.source_url)) out.push(`source_url 应为 http(s) 网址: ${entry.source_url}`)
+  for (const field of PROHIBITED_TOP_LEVEL_FIELDS) {
+    if (Object.hasOwn(entry, field)) out.push(`${field} 字段已移除，请删除第三方榜单成绩`)
+  }
 
   if (entry.ability) {
     for (const task of entry.ability.tasks || []) {
@@ -117,21 +110,6 @@ function validateProblems(entry, fileName) {
     }
     if (entry.pricing.currency && !CURRENCIES.includes(entry.pricing.currency)) {
       out.push(`pricing.currency 非法: ${entry.pricing.currency}`)
-    }
-  }
-
-  if (Array.isArray(entry.rankings)) {
-    for (let i = 0; i < entry.rankings.length; i++) {
-      const r = entry.rankings[i]
-      if (!r || typeof r !== 'object') { out.push(`rankings[${i}] 必须是对象`); continue }
-      for (const field of ['board', 'label', 'score', 'as_of', 'url']) {
-        if (r[field] === undefined || r[field] === null) out.push(`rankings[${i}] 缺少必填字段: ${field}`)
-      }
-      if (r.board && !BOARDS.includes(r.board)) out.push(`rankings[${i}].board 非法: ${r.board}`)
-      if (r.score !== undefined && r.score !== null && typeof r.score !== 'number') out.push(`rankings[${i}].score 必须是数字`)
-      if (r.as_of && !DATE_RE.test(r.as_of)) out.push(`rankings[${i}].as_of 应为 YYYY-MM-DD: ${r.as_of}`)
-      if (r.release_date && !YEARMONTH_RE.test(r.release_date)) out.push(`rankings[${i}].release_date 应为 YYYY-MM 或 YYYY-MM-DD: ${r.release_date}`)
-      if (r.url && !URL_RE.test(r.url)) out.push(`rankings[${i}].url 应为 http(s) 网址: ${r.url}`)
     }
   }
 
@@ -324,28 +302,6 @@ function mdOutputLimits(entry) {
   return out.join('\n') + '\n'
 }
 
-function mdRankings(entry) {
-  const rows = entry.rankings || []
-  if (rows.length === 0) return ''
-
-  const out = ['## 榜单数据', '']
-  out.push('| 榜单 | 榜上名称 | 排名 | 分数 | ±95%CI | 样本/票 | 发布日期 | 开放权重 | API价格(USD/分) |', '| --- | --- | --- | --- | --- | --- | --- | --- | --- |')
-  for (const r of rows) {
-    const open = r.open_weights === true ? '开放权重' : (r.open_weights === false ? '闭源' : '—')
-    out.push(
-      `| ${BOARD_LABEL[r.board] || cell(r.board)} | ${cell(r.label)} | ${r.rank == null ? '—' : r.rank} | ${cell(r.score)} | ` +
-      `${r.ci == null ? '—' : r.ci} | ${r.samples == null ? '—' : r.samples} | ` +
-      `${r.release_date || '—'} | ${open} | ${r.price_usd_per_min == null ? '—' : r.price_usd_per_min.toFixed(2)} |`,
-    )
-  }
-  out.push(
-    '',
-    '> 分数体系：AA=Elo，LMArena=Arena score，两者不可直接比较；价格是 AA「用创建者 API 默认设置生成 1 分钟 1080p 视频」的口径（同模型跨榜可能不同）。快照日期见各条 `rankings` 的 as_of 与条目 `fetched_at`。',
-    '',
-  )
-  return out.join('\n')
-}
-
 function mdPricing(entry) {
   const p = entry.pricing || {}
   const hasTiers = p.tiers && Object.keys(p.tiers).length > 0
@@ -394,7 +350,6 @@ function cmdRender(inPath) {
     mdInputLimits(entry),
     mdRules(entry),
     mdOutputLimits(entry),
-    mdRankings(entry),
     mdPricing(entry),
     mdErrors(entry),
   ]

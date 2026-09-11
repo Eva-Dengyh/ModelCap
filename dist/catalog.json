@@ -24,34 +24,6 @@
       "capabilities": [],
       "note": "官方文档托管于 Agnes AI 文档站（wiki.agnes-ai.com；AA 榜单标注厂商为 Sapiens AI，二者为同一产品线）。支持文生视频、首帧/首尾帧关键帧控制、多模态参考生视频（图/音频/视频混合，含视频运动/节奏参考）、音视频协同、多输出比例。三种 mode：text（禁传媒体）、keyframe（需 first_frame 或 last_frame）、reference（需至少一个 images/audios/videos）。参考素材均以公网 URL 传入。定价与错误码另见 pricing.md / code.md 页。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 25,
-        "label": "Agnes-Video-2.5",
-        "score": 1034,
-        "ci": 8,
-        "samples": 5999,
-        "release_date": "2026-08",
-        "price_usd_per_min": 1.5,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 21,
-        "label": "Agnes-Video-2.5",
-        "score": 1080,
-        "ci": 9,
-        "samples": 5793,
-        "release_date": "2026-08",
-        "price_usd_per_min": 1.5,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      }
-    ],
     "input_limits": {
       "_missing": true,
       "note": "官方文档未给出输入图片与参考视频的格式、大小、边长、比例、时长等硬约束（仅要求媒体 URL 公网可达且任务结束前不过期）。",
@@ -159,34 +131,6 @@
       "capabilities": [],
       "note": "官方文档托管于 Agnes AI 文档站（wiki.agnes-ai.com；AA 榜单标注厂商为 Sapiens AI）。支持文生视频、图生视频（首帧）、关键帧动画；音频生成官方未记载。时长由 num_frames/frame_rate 推导（非固定秒数）。图片需公网 URL，格式/大小/边长官方未给出。定价与错误码另见 pricing.md / code.md 页。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 34,
-        "label": "Agnes-Video-V2.0",
-        "score": 921,
-        "ci": 8,
-        "samples": 5749,
-        "release_date": "2026-05",
-        "price_usd_per_min": 0.3,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 38,
-        "label": "Agnes-Video-V2.0",
-        "score": 919,
-        "ci": 8,
-        "samples": 5382,
-        "release_date": "2026-05",
-        "price_usd_per_min": 0.3,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      }
-    ],
     "input_limits": {
       "_missing": true,
       "note": "官方文档未给出输入图片的格式、大小、边长与比例硬约束（仅要求图片 URL 公网可达）；无视频输入。",
@@ -572,87 +516,7 @@
         "standard": "provider_failed",
         "user_message": "内部系统异常，请您稍后重试。"
       }
-    },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 2,
-        "label": "Dreamina Seedance 2.0 720p",
-        "score": 1190,
-        "ci": 6,
-        "samples": 17684,
-        "release_date": "2026-03",
-        "price_usd_per_min": 9.07,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 5,
-        "label": "Dreamina Seedance 2.0 720p",
-        "score": 1221,
-        "ci": 5,
-        "samples": 24731,
-        "release_date": "2026-03",
-        "price_usd_per_min": 9.07,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-video-edit",
-        "rank": 6,
-        "label": "Dreamina Seedance 2.0 720p",
-        "score": 1040,
-        "ci": 5,
-        "samples": 23284,
-        "release_date": "2026-03",
-        "price_usd_per_min": 5.57,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 4,
-        "label": "dreamina-seedance-2.0-720p",
-        "score": 1477,
-        "ci": 8,
-        "samples": 110372,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 4,
-        "label": "dreamina-seedance-2.0-720p",
-        "score": 1479,
-        "ci": 9,
-        "samples": 51266,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-video-edit",
-        "rank": 5,
-        "label": "dreamina-seedance-2.0-720p",
-        "score": 1365,
-        "ci": 14,
-        "samples": 3852,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-27",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "doubao-seedance-2-5-260628",
@@ -821,48 +685,7 @@
         "standard": "quota_exceeded",
         "user_message": "触发限流，请降低请求频率或稍后重试"
       }
-    },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 3,
-        "label": "dreamina-seedance-2.5-720p",
-        "score": 1483,
-        "ci": 12,
-        "samples": 2944,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 5,
-        "label": "dreamina-seedance-2.5-720p",
-        "score": 1476,
-        "ci": 14,
-        "samples": 2121,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-video-edit",
-        "rank": 2,
-        "label": "dreamina-seedance-2.5-720p",
-        "score": 1410,
-        "ci": 26,
-        "samples": 429,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-27",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "firefly-video",
@@ -1002,34 +825,6 @@
       ],
       "note": "BFL 官方 API（POST api.bfl.ai/v1/flux-3-video）preview 模型（博客 2026-08-04）。mode 由请求显式指定：t2v（仅 prompt）/ i2v（1–10 张 keyframes，可钉首/尾/中间任意时刻，3+ 张需设 duration）/ v2v（视频续写，start_video，mp4）/ draft_enhance（用 draft_cache 全质量复现同一次生成）。编辑与 Omni Reference（图+视频）官方说 coming soon。原生生成同步音频默认开（多语言语音+强口型同步+音效），generate_audio=false 可关；无二次模型/二次 pass。单请求内支持多场景多机位。官方文档当前只有 version=\"latest\"，榜单里的日期版 flux-3-video-20260811 官方未发布。draft 快预演结果只出 hd。"
     },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 7,
-        "label": "flux-3-video-20260811",
-        "score": 1447,
-        "ci": 6,
-        "samples": 14087,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 3,
-        "label": "flux-3-video",
-        "score": 1495,
-        "ci": 17,
-        "samples": 1287,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "max_reference_images": 10,
       "max_reference_videos": 1,
@@ -1193,35 +988,7 @@
       "note": "官方定价页（ai.google.dev/pricing）在本环境无法访问，未核实单价；Gemini Omni Flash 1.1 为付费模型。",
       "observed_at": "2026-09-02",
       "source": "https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb"
-    },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 2,
-        "label": "gemini-omni-1.1-flash",
-        "score": 1488,
-        "ci": 11,
-        "samples": 3720,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 1,
-        "label": "gemini-omni-1.1-flash",
-        "score": 1515,
-        "ci": 16,
-        "samples": 1762,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "gemini-omni-flash",
@@ -1249,86 +1016,6 @@
       "capabilities": [],
       "note": "走 Interactions API（POST /v1beta/interactions）。官方现文档把稳定版写作 gemini-omni-1.1-flash（2026-08-27 更新），preview 为 gemini-omni-flash-preview（DeepMind 模型卡同时覆盖两代）。单段输出 3–10s、24fps、默认 720p；默认生成音频且无关闭开关，只能靠提示词控制；延伸每次 +10s、总长上限 40s。参考素材用 <IMAGE_REF_N>/<VIDEO_REF_N> 标签（从 0 起），首尾帧插值须 <FIRST_FRAME>+<LAST_FRAME> 成对。API 不支持：音频参考上传、跨多个视频参考、YouTube 视频源、system instruction/temperature/top_p/stop/negative prompt、provisioned throughput。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 4,
-        "label": "Gemini Omni Flash",
-        "score": 1180,
-        "ci": 7,
-        "samples": 12348,
-        "release_date": "2026-05",
-        "price_usd_per_min": 6,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 1,
-        "label": "Gemini Omni Flash",
-        "score": 1238,
-        "ci": 6,
-        "samples": 17994,
-        "release_date": "2026-05",
-        "price_usd_per_min": 6,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-video-edit",
-        "rank": 3,
-        "label": "Gemini Omni Flash",
-        "score": 1124,
-        "ci": 5,
-        "samples": 15908,
-        "release_date": "2026-05",
-        "price_usd_per_min": 6,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 5,
-        "label": "gemini-omni-flash",
-        "score": 1463,
-        "ci": 6,
-        "samples": 64567,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 2,
-        "label": "gemini-omni-flash",
-        "score": 1512,
-        "ci": 10,
-        "samples": 19830,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-video-edit",
-        "rank": 4,
-        "label": "gemini-omni-flash",
-        "score": 1367,
-        "ci": 15,
-        "samples": 2109,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-27",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "reference_videos": {
         "min": 0,
@@ -1538,22 +1225,7 @@
         "user_message": "服务内部错误，请稍后重试"
       },
       "note": "来源 Runway Dev API 文档（docs.dev.runwayml.com/errors）。HTTP 状态码为接口级错误；failureCode 为任务失败码：SAFETY.INPUT.* 表示输入未通过内容审核（不退还 credits），SAFETY.OUTPUT.* 表示输出未通过审核；INTERNAL.BAD_OUTPUT.* 为内部质量拒收。"
-    },
-    "rankings": [
-      {
-        "board": "lmarena-t2v",
-        "rank": 25,
-        "label": "runway-gen-4.5",
-        "score": 1224,
-        "ci": 9,
-        "samples": 41583,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "grok-imagine-video",
@@ -1687,87 +1359,7 @@
       "note": "官方定价页（docs.x.ai）在本环境无法访问，未核实单价；proto 无静态视频计费字段（计费信息运行时随响应返回）。",
       "observed_at": "2026-09-02",
       "source": "https://github.com/xai-org/xai-proto/blob/main/proto/xai/api/v1/video.proto"
-    },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 14,
-        "label": "grok-imagine-video",
-        "score": 1076,
-        "ci": 6,
-        "samples": 17540,
-        "release_date": "2026-01",
-        "price_usd_per_min": 4.2,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 25,
-        "label": "grok-imagine-video",
-        "score": 1062,
-        "ci": 5,
-        "samples": 19111,
-        "release_date": "2026-01",
-        "price_usd_per_min": 4.2,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 10,
-        "label": "grok-imagine-video-720p",
-        "score": 1415,
-        "ci": 4,
-        "samples": 528693,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 14,
-        "label": "grok-imagine-video-480p",
-        "score": 1384,
-        "ci": 8,
-        "samples": 19424,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 16,
-        "label": "grok-imagine-video-720p",
-        "score": 1344,
-        "ci": 7,
-        "samples": 157732,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-video-edit",
-        "rank": 7,
-        "label": "grok-imagine-video",
-        "score": 1258,
-        "ci": 10,
-        "samples": 13724,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-27",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "grok-imagine-video-1-5",
@@ -1902,35 +1494,7 @@
       "note": "官方定价页（docs.x.ai）在本环境无法访问，未核实单价；proto 无静态视频计费字段（计费信息运行时随响应返回）。",
       "observed_at": "2026-09-02",
       "source": "https://github.com/xai-org/xai-proto/blob/main/proto/xai/api/v1/video.proto"
-    },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 5,
-        "label": "grok-imagine-video-1.5",
-        "score": 1109,
-        "ci": 7,
-        "samples": 6366,
-        "release_date": "2026-05",
-        "price_usd_per_min": 8.4,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 6,
-        "label": "grok-imagine-video-1.5-720p",
-        "score": 1459,
-        "ci": 5,
-        "samples": 111667,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "hailuo-02",
@@ -1956,73 +1520,6 @@
       ],
       "note": "官方 legacy v1 端点（POST api.minimax.io/v1/video_generation）只有单一模型串 MiniMax-Hailuo-02（2025-06-18 发布，支持 1080p、最长 10s）；榜单 hailuo-02-pro/standard/fast 不是官方 API 档名。t2v 必需 model+prompt；i2v 需 first_frame_image；fl2v（首尾帧）是独立页且仅此模型支持（需 first+last 两图，输出分辨率随首帧图，尾帧与首帧尺寸不同会被裁切）。s2v 主体参考不支持（仅 S2V-01）。无任何音频参数；无 aspect_ratio 参数（输出比例由输入图决定或未公开）；镜头控制用 prompt 内 [command] 语法（15 种：Truck/Pan/Push/Pedestal/Tilt/Zoom/Shake/Tracking/Static，推荐 ≤3 个）。"
     },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 33,
-        "label": "hailuo-02-pro",
-        "score": 1228,
-        "ci": 11,
-        "samples": 21743,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 36,
-        "label": "hailuo-02-standard",
-        "score": 1223,
-        "ci": 10,
-        "samples": 21785,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 39,
-        "label": "hailuo-02-fast",
-        "score": 1193,
-        "ci": 11,
-        "samples": 22519,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 32,
-        "label": "hailuo-02-pro",
-        "score": 1198,
-        "ci": 12,
-        "samples": 9363,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 34,
-        "label": "hailuo-02-standard",
-        "score": 1180,
-        "ci": 12,
-        "samples": 9330,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "image": {
         "max_bytes": 20971520,
@@ -2207,34 +1704,6 @@
     "output_limits": {
       "max_duration_seconds": 10
     },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 27,
-        "label": "hailuo-2.3",
-        "score": 1262,
-        "ci": 5,
-        "samples": 357579,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 30,
-        "label": "hailuo-2.3",
-        "score": 1205,
-        "ci": 6,
-        "samples": 79981,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "pricing": {
       "currency": "USD",
       "unit": "request",
@@ -2318,34 +1787,6 @@
       ],
       "note": "阿里云百炼 HappyHorse（快乐小马）1.1 API 版，三个模型名：happyhorse-1.1-t2v（文生）、happyhorse-1.1-i2v（首帧图生）、happyhorse-1.1-r2v（多参考图生，最多 9 张参考图）。原生音画协同、人物口型与台词匹配（唇形同步），背景音效可经指令开关。官方 Model Studio help 页未检索到，本条目按官方开发者文章（developer.aliyun.com/article/1743772）核实。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 6,
-        "label": "HappyHorse-1.1",
-        "score": 1105,
-        "ci": 6,
-        "samples": 13757,
-        "release_date": "2026-06",
-        "price_usd_per_min": 9.9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 7,
-        "label": "HappyHorse-1.1",
-        "score": 1145,
-        "ci": 6,
-        "samples": 19429,
-        "release_date": "2026-06",
-        "price_usd_per_min": 9.9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      }
-    ],
     "input_limits": {
       "max_reference_images": 9,
       "image": {
@@ -2480,87 +1921,7 @@
     "errors": {
       "_missing": true,
       "note": "开源模型无 API 错误码（本无）。"
-    },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 8,
-        "label": "HappyHorse-1.0",
-        "score": 1087,
-        "ci": 7,
-        "samples": 8828,
-        "release_date": "2026-04",
-        "price_usd_per_min": 13.2,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 8,
-        "label": "HappyHorse-1.0",
-        "score": 1122,
-        "ci": 6,
-        "samples": 9711,
-        "release_date": "2026-04",
-        "price_usd_per_min": 13.2,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-video-edit",
-        "rank": 4,
-        "label": "HappyHorse-1.0",
-        "score": 1088,
-        "ci": 5,
-        "samples": 23465,
-        "release_date": "2026-04",
-        "price_usd_per_min": 27.04,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 8,
-        "label": "happyhorse-1.0",
-        "score": 1442,
-        "ci": 10,
-        "samples": 70699,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 8,
-        "label": "happyhorse-1.0",
-        "score": 1428,
-        "ci": 13,
-        "samples": 22112,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-video-edit",
-        "rank": 6,
-        "label": "happyhorse-1.0",
-        "score": 1307,
-        "ci": 14,
-        "samples": 3116,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-27",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "hunyuanvideo-1.5",
@@ -2616,35 +1977,7 @@
     "errors": {
       "_missing": true,
       "note": "开源模型无 API 错误码（本无）。"
-    },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 38,
-        "label": "hunyuan-video-1.5",
-        "score": 1197,
-        "ci": 16,
-        "samples": 5462,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 36,
-        "label": "hunyuan-video-1.5",
-        "score": 1169,
-        "ci": 16,
-        "samples": 4276,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "jimeng",
@@ -2824,35 +2157,7 @@
       "note": "开源权重（Hugging Face），本地推理；官方 GitHub 仓库未提供 API 计费信息。",
       "observed_at": "2026-09-02",
       "source": "https://github.com/kandinskylab/kandinsky-5"
-    },
-    "rankings": [
-      {
-        "board": "lmarena-t2v",
-        "rank": 35,
-        "label": "kandinsky-5.0-t2v-pro",
-        "score": 1172,
-        "ci": 20,
-        "samples": 2015,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": true,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 41,
-        "label": "kandinsky-5.0-t2v-lite",
-        "score": 1113,
-        "ci": 18,
-        "samples": 1468,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": true,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "kling-2-1",
@@ -2876,47 +2181,6 @@
       "capabilities": [],
       "note": "⚠️ 官方已宣布该模型（含 master 与 2.1）将于 2026-09-15 下线，请提前迁移到主力模型。只有 legacy V1 接口（POST /v1/videos/text2video、/image2video）：文生仅 kling-v2-1-master 支持（官方 t2v 枚举无 plain kling-v2-1）；i2v 同时有 kling-v2-1 与 kling-v2-1-master。榜单 kling-v2.1-standard ≈ 官方 kling-v2-1（仅 i2v，推断）、kling-v2.1-master = kling-v2-1-master（推断已标注）。master 只出单镜头；plain 支持首尾帧（image_tail，仅 1080P）；仅尾帧两档都不支持。两档均无声（native-audio 不支持，sound 恒 off）；无多镜头/运镜/动作控制/视频参考/主体控制。时长与分辨率按能力地图为 5s/10s、720P/1080P（无 4K）。生成结果 30 天后清理。"
     },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 32,
-        "label": "kling-v2.1-master",
-        "score": 1234,
-        "ci": 8,
-        "samples": 29824,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 34,
-        "label": "kling-v2.1-standard",
-        "score": 1228,
-        "ci": 8,
-        "samples": 29957,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 38,
-        "label": "kling-v2.1-master",
-        "score": 1162,
-        "ci": 10,
-        "samples": 14048,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "image": {
         "max_bytes": 10485760,
@@ -3068,34 +2332,6 @@
       "capabilities": [],
       "note": "官方新接口 POST /text-to-video/kling-2.5-turbo 与 /image-to-video/kling-2.5-turbo（另有 legacy model_name=kling-v2-5-turbo）。榜单名 kling-2.5-turbo-1080p 的 \"-1080p\" 后缀是榜单侧命名，官方模型就是 kling-2.5-turbo 取 1080p resolution。无声模型（无 audio 字段、native-audio 不支持）；无多镜头/运镜/动作控制/视频参考。i2v 支持仅首帧与首尾帧（首尾帧仅 1080P），不支持仅尾帧。无 4K、无 mode 档位（新接口只有 resolution 720p/1080p）。结果 30 天后清理。"
     },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 25,
-        "label": "kling-2.5-turbo-1080p",
-        "score": 1275,
-        "ci": 12,
-        "samples": 3796,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 26,
-        "label": "kling-2.5-turbo-1080p",
-        "score": 1219,
-        "ci": 17,
-        "samples": 2100,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "image": {
         "max_bytes": 52428800,
@@ -3248,60 +2484,6 @@
       "capabilities": [],
       "note": "官方 Open Platform 无独立 \"kling-2.6-pro\" 模型 slug：新接口为 kling-2.6（/text-to-video、/image-to-video、/motion-control 端点），legacy V1 接口 model_name=kling-v2-6 + mode:pro/std/4k（\"pro\"≈1080P 档，为推断映射）。audio= native|off，默认 off，原生音频仅 1080P；i2v 支持音色引用（≤2 个 voice，指定音色时 audio 不能为 off）。motion control 独立端点以参考视频驱动动作（人物朝向按 image/video 分：与视频一致时参考视频 ≤30s，与图一致时 ≤10s）。生成结果 30 天后清理。中国/新加坡两个 API 域名。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 27,
-        "label": "Kling 2.6 Pro (January)",
-        "score": 1002,
-        "ci": 7,
-        "samples": 8041,
-        "release_date": "2026-01",
-        "price_usd_per_min": 8.4,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 31,
-        "label": "Kling 2.6 Pro (January)",
-        "score": 984,
-        "ci": 7,
-        "samples": 8414,
-        "release_date": "2026-01",
-        "price_usd_per_min": 8.4,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 24,
-        "label": "kling-2.6-pro",
-        "score": 1293,
-        "ci": 8,
-        "samples": 202178,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 27,
-        "label": "kling-2.6-pro",
-        "score": 1216,
-        "ci": 7,
-        "samples": 73066,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "image": {
         "max_bytes": 52428800,
@@ -3687,139 +2869,7 @@
         "standard": "quota_exceeded",
         "user_message": "免费额度已用完"
       }
-    },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 16,
-        "label": "Kling 3.0 1080p (Pro)",
-        "score": 1071,
-        "ci": 6,
-        "samples": 16998,
-        "release_date": "2026-02",
-        "price_usd_per_min": 20.16,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 19,
-        "label": "Kling 3.0 720p (Standard)",
-        "score": 1067,
-        "ci": 6,
-        "samples": 16934,
-        "release_date": "2026-02",
-        "price_usd_per_min": 15.6,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 21,
-        "label": "Kling 3.0 Omni 1080p (Pro)",
-        "score": 1059,
-        "ci": 7,
-        "samples": 7875,
-        "release_date": "2026-02",
-        "price_usd_per_min": 16.8,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 22,
-        "label": "Kling 3.0 Omni 720p (Standard)",
-        "score": 1051,
-        "ci": 7,
-        "samples": 7839,
-        "release_date": "2026-02",
-        "price_usd_per_min": 13.44,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 9,
-        "label": "Kling 3.0 1080p (Pro)",
-        "score": 1108,
-        "ci": 5,
-        "samples": 22397,
-        "release_date": "2026-02",
-        "price_usd_per_min": 20.16,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 12,
-        "label": "Kling 3.0 720p (Standard)",
-        "score": 1100,
-        "ci": 5,
-        "samples": 21504,
-        "release_date": "2026-02",
-        "price_usd_per_min": 15.12,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 17,
-        "label": "Kling 3.0 Omni 720p (Standard)",
-        "score": 1089,
-        "ci": 6,
-        "samples": 9100,
-        "release_date": "2026-02",
-        "price_usd_per_min": 13.44,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 18,
-        "label": "Kling 3.0 Omni 1080p (Pro)",
-        "score": 1089,
-        "ci": 6,
-        "samples": 9293,
-        "release_date": "2026-02",
-        "price_usd_per_min": 16.8,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-video-edit",
-        "rank": 8,
-        "label": "Kling 3.0 Omni 1080p (Pro)",
-        "score": 1000,
-        "ci": 0,
-        "samples": 18909,
-        "release_date": "2026-02",
-        "price_usd_per_min": 10.91,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 17,
-        "label": "kling-v3-pro",
-        "score": 1356,
-        "ci": 6,
-        "samples": 180932,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "ltx-2",
@@ -3882,87 +2932,7 @@
     "errors": {
       "_missing": true,
       "note": "开源模型无 API 错误码（本无）。"
-    },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 33,
-        "label": "LTX-2 Fast",
-        "score": 930,
-        "ci": 8,
-        "samples": 6050,
-        "release_date": "2025-10",
-        "price_usd_per_min": 2.4,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 36,
-        "label": "LTX-2 Pro",
-        "score": 870,
-        "ci": 9,
-        "samples": 5919,
-        "release_date": "2025-10",
-        "price_usd_per_min": 3.6,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 36,
-        "label": "LTX-2 Fast",
-        "score": 942,
-        "ci": 8,
-        "samples": 6391,
-        "release_date": "2025-10",
-        "price_usd_per_min": 2.4,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 37,
-        "label": "LTX-2 Pro",
-        "score": 920,
-        "ci": 8,
-        "samples": 6373,
-        "release_date": "2025-10",
-        "price_usd_per_min": 3.6,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 43,
-        "label": "ltx-2-19b",
-        "score": 1155,
-        "ci": 5,
-        "samples": 235627,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": true,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 39,
-        "label": "ltx-2-19b",
-        "score": 1152,
-        "ci": 8,
-        "samples": 67980,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": true,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "ltx-2-3",
@@ -3987,60 +2957,6 @@
       "capabilities": [],
       "note": "官方 API 两档 ltx-2-3-fast / ltx-2-3-pro，最高都到 4K（这点与 2.5 不同：2.5 pro 只到 1080p）。支持文生/图生（末帧插值 last_frame_uri）/音频驱动（audio-to-video 仅 pro）；pro 另有 retake/extend/reframe/HDR 编辑端点（fast 无）。生成任务自带同步音频（generate_audio 默认 true，可关；官方 2.3 专属页未复述该参数，按共享端点行为）。auto duration（传 null 自选）仅 2.5 支持，2.3 不支持。camera_motion 参数存在于共享端点但 2.3 专属页未单列确认。开放权重适用 LTX-2 Community License（2026-01-05 版，营收 ≥$10M 实体需付费商用授权）。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 31,
-        "label": "LTX-2.3 Fast",
-        "score": 954,
-        "ci": 7,
-        "samples": 11056,
-        "release_date": "2026-03",
-        "price_usd_per_min": 2.4,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 32,
-        "label": "LTX-2.3 Pro",
-        "score": 952,
-        "ci": 7,
-        "samples": 10973,
-        "release_date": "2026-03",
-        "price_usd_per_min": 4.8,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 32,
-        "label": "LTX-2.3 Fast",
-        "score": 978,
-        "ci": 6,
-        "samples": 12780,
-        "release_date": "2026-03",
-        "price_usd_per_min": 2.4,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 33,
-        "label": "LTX-2.3 Pro",
-        "score": 959,
-        "ci": 6,
-        "samples": 12095,
-        "release_date": "2026-03",
-        "price_usd_per_min": 4.8,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      }
-    ],
     "input_limits": {
       "max_reference_images": 2,
       "max_reference_audios": 1,
@@ -4175,60 +3091,6 @@
       ],
       "note": "官方 API 两档 ltx-2-5-fast / ltx-2-5-pro（榜单行即这两档）；2026-08-11 发布，同时有开放权重（HF Lightricks/LTX-2.5，gated）与官方托管 API（api.ltx.io）。支持文生/图生（含末帧插值 last_frame_uri）/音频驱动（audio-to-video，非 scenes 枚举值，经 inputs.audio 表达）。fast 最高 4K、pro 最高 1080p；生成音频默认开（generate_audio 默认 true，可关）；原生多镜头；camera_motion 参数控制运镜。开放权重：Distilled/DFR 两条本地管线、LTX-2.x Community License（营收 ≥$10M 实体需付费商用授权）、本地最低显存官方两处口径不一致（16GB vs 32GB+）。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 23,
-        "label": "LTX-2.5 Fast",
-        "score": 1044,
-        "ci": 9,
-        "samples": 2722,
-        "release_date": "2026-08",
-        "price_usd_per_min": 7.8,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 26,
-        "label": "LTX-2.5 Pro",
-        "score": 1013,
-        "ci": 9,
-        "samples": 2586,
-        "release_date": "2026-08",
-        "price_usd_per_min": 10.2,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 26,
-        "label": "LTX-2.5 Fast",
-        "score": 1060,
-        "ci": 9,
-        "samples": 2726,
-        "release_date": "2026-08",
-        "price_usd_per_min": 7.8,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 27,
-        "label": "LTX-2.5 Pro",
-        "score": 1060,
-        "ci": 9,
-        "samples": 2792,
-        "release_date": "2026-08",
-        "price_usd_per_min": 10.2,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      }
-    ],
     "input_limits": {
       "max_reference_images": 2,
       "max_reference_audios": 1,
@@ -4469,35 +3331,7 @@
     "errors": {
       "_missing": true,
       "note": "官方文档未提供错误码语义表：OpenAPI 仅定义 Error 对象（detail 字符串，示例 'Invalid API key is provided'）与 default HTTP 响应，未展开具体错误码枚举。"
-    },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 44,
-        "label": "ray2",
-        "score": 1108,
-        "ci": 16,
-        "samples": 9521,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 44,
-        "label": "ray2",
-        "score": 1064,
-        "ci": 17,
-        "samples": 5222,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "magi-1",
@@ -4592,21 +3426,6 @@
       "capabilities": [],
       "note": "MAGI-2 Preview（官方 2026-08-05 发布，Apache-2.0，HF sand-ai/MAGI-2-preview 未 gated，约 307GB）。114B 总参数/每 token 激活约 6B（MagiMoE），官方定位 intermediate research release。只支持 T2V（纯文本）与 I2V（文本+一张首帧图），无视频输入/续写（与 MAGI-1 的 v2v 续写不同，也不再沿用 MAGI-1 的自回归 chunk 续写，改为统一序列+扩散）。开放权重侧生成含同步音轨（输出 mp4 内 mux）；托管 API（platform.sand.ai）仅 magi 公开、magi-2-preview 需联系 Sand.ai 开通，且 API 侧不支持音频条件。时长固定 10s；开放权重原生 512×896 → refiner 至 1088×1920，API 交付 540p/720p/1080p 且仅 16:9。文本编码器 Qwen3.5-27B、视频 VAE 取自 Wan2.2、音频 VAE stable-audio-open-1.0。推理需 8× NVIDIA Hopper。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 7,
-        "label": "MAGI-2 Preview",
-        "score": 1099,
-        "ci": 7,
-        "samples": 11933,
-        "release_date": "2026-08",
-        "price_usd_per_min": null,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      }
-    ],
     "input_limits": {
       "_missing": true,
       "note": "官方 README/模型卡未给出输入首帧图片的格式、大小、边长与比例硬约束（仅说明 I2V 接受一张首帧图）；无视频输入。",
@@ -4769,87 +3588,7 @@
         "standard": "provider_failed",
         "user_message": "服务端内部错误"
       }
-    },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 3,
-        "label": "MiniMax H3",
-        "score": 1186,
-        "ci": 8,
-        "samples": 7308,
-        "release_date": "2026-07",
-        "price_usd_per_min": 7.8,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 4,
-        "label": "MiniMax H3",
-        "score": 1227,
-        "ci": 7,
-        "samples": 8929,
-        "release_date": "2026-07",
-        "price_usd_per_min": 7.8,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-video-edit",
-        "rank": 2,
-        "label": "MiniMax H3",
-        "score": 1129,
-        "ci": 5,
-        "samples": 12936,
-        "release_date": "2026-07",
-        "price_usd_per_min": 7.8,
-        "open_weights": true,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 1,
-        "label": "minimax-h3",
-        "score": 1494,
-        "ci": 6,
-        "samples": 27308,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": true,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 6,
-        "label": "minimax-h3",
-        "score": 1460,
-        "ci": 10,
-        "samples": 5813,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": true,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-video-edit",
-        "rank": 3,
-        "label": "minimax-h3",
-        "score": 1392,
-        "ci": 19,
-        "samples": 962,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": true,
-        "as_of": "2026-08-27",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "minimax-h3-max-fal",
@@ -4872,34 +3611,6 @@
       "capabilities": [],
       "note": "fal 官方模型 minimax/h3-max（text-to-video 与 image-to-video 两个独立端点，POST fal.run/minimax/h3-max/*）。fal 后训练版 MiniMax H3，prompt 遵循与画面美学更强（页面自述）。本端点最高仅 480P/768P，无 1080P；fal 端点未暴露音频参数与输出音频字段（底层可能规划音效，但不可控）。i2v 变体：image_url 首帧（省略则按文生处理，默认 16:9）、end_image_url 尾帧做首尾帧生成，各至多 1 张。无 negative prompt/风格参数；enable_safety_checker 默认 true；prompt_expansion_mode=balanced/quality（改写力度，quality 最多约 30s）。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 1,
-        "label": "Minimax H3 Max (post-trained by fal)",
-        "score": 1202,
-        "ci": 9,
-        "samples": 5453,
-        "release_date": "2026-08",
-        "price_usd_per_min": 2.4,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 3,
-        "label": "Minimax H3 Max (post-trained by fal)",
-        "score": 1235,
-        "ci": 10,
-        "samples": 5372,
-        "release_date": "2026-08",
-        "price_usd_per_min": 2.4,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      }
-    ],
     "input_limits": {
       "additional_prompt": {
         "max_chars": 50000
@@ -5003,22 +3714,7 @@
     "errors": {
       "_missing": true,
       "note": "开源模型无 API 错误码（本无）。"
-    },
-    "rankings": [
-      {
-        "board": "lmarena-t2v",
-        "rank": 46,
-        "label": "mochi-v1",
-        "score": 1006,
-        "ci": 17,
-        "samples": 5851,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": true,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "pika-2.2",
@@ -5096,35 +3792,7 @@
     "errors": {
       "_missing": true,
       "note": "fal.ai 队列 API 无私有错误码表；任务状态经 QueueStatus（IN_QUEUE / IN_PROGRESS / COMPLETED）表达，错误经 HTTP 状态码返回。"
-    },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 46,
-        "label": "pika-v2.2",
-        "score": 996,
-        "ci": 14,
-        "samples": 8635,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 45,
-        "label": "pika-v2.2",
-        "score": 1008,
-        "ci": 15,
-        "samples": 5727,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "pixverse-v5-6",
@@ -5148,86 +3816,6 @@
       "capabilities": [],
       "note": "官方 model 值 v5.6（2026-01-26 发布；fusion 参考生视频版 2026-02-12）。无独立模型页，规格以通用 API 参考内的 v5.6 行与 Pricing 表为准。支持 t2v / i2v（单图）/ transition 首尾帧（2 图）/ fusion 参考生视频（image_references 1–7 张，type=subject/background，prompt 内 @ref_name）。只出单镜头（multi-clip 开关对 v5.6 无效，v5.5/v6 才有）。extend 不支持 v5.6（extend API model 枚举不含 v5.6）。inline 音频生成开关 generate_audio_switch 支持 v5.5/5.6/v6/c1（默认 false，有声额外计费）；sound_effect/lip-sync 参数只属 v5 及以下，v5.6 不支持。运镜 camera 参数官方未把 v5.6 列入（示例中为注释）。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 29,
-        "label": "PixVerse V5.6",
-        "score": 959,
-        "ci": 7,
-        "samples": 6547,
-        "release_date": "2026-02",
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 30,
-        "label": "PixVerse V5.6 (January)",
-        "score": 956,
-        "ci": 7,
-        "samples": 7883,
-        "release_date": "2026-01",
-        "price_usd_per_min": 14.62,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 34,
-        "label": "PixVerse V5.6",
-        "score": 949,
-        "ci": 7,
-        "samples": 6987,
-        "release_date": "2026-02",
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 35,
-        "label": "PixVerse V5.6 (January)",
-        "score": 946,
-        "ci": 7,
-        "samples": 8356,
-        "release_date": "2026-01",
-        "price_usd_per_min": 14.62,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 23,
-        "label": "pixverse-v5.6",
-        "score": 1299,
-        "ci": 7,
-        "samples": 126770,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 24,
-        "label": "pixverse-v5.6",
-        "score": 1240,
-        "ci": 11,
-        "samples": 32296,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "image": {
         "max_bytes": 20971520,
@@ -5623,35 +4211,7 @@
         "standard": "provider_failed",
         "user_message": "服务端内部错误"
       }
-    },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 18,
-        "label": "PixVerse V6",
-        "score": 1068,
-        "ci": 7,
-        "samples": 10130,
-        "release_date": "2026-03",
-        "price_usd_per_min": 6.9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 24,
-        "label": "PixVerse V6",
-        "score": 1074,
-        "ci": 6,
-        "samples": 10676,
-        "release_date": "2026-03",
-        "price_usd_per_min": 6.9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      }
-    ]
+    }
   },
   {
     "model_id": "runway-aleph-2-0",
@@ -5673,34 +4233,6 @@
       ],
       "note": "Runway 的 in-context 视频编辑模型 Aleph 2.0（API 模型串 aleph2；旧 id gen4_aleph 已于 2026-07-30 停用，废弃别名 aleph2_alpha；AA 榜 \"Aleph 2.0\"、LMArena 榜 runway-gen4-aleph 即此模型）。编辑一帧改动会传播到整段并跨镜头保持背景/光照不变；支持局部时间范围编辑与画幅扩展（expand/outpaint）。不生成新时长（成片时长=源视频时长，≤30s）。音频行为官方未明确（仅 ProRes 输出含 PCM 音轨为间接证据）。编辑所需关键帧图通常由图像模型先生成（另行计费）。"
     },
-    "rankings": [
-      {
-        "board": "aa-video-edit",
-        "rank": 7,
-        "label": "Aleph 2.0",
-        "score": 1013,
-        "ci": 5,
-        "samples": 20781,
-        "release_date": "2026-05",
-        "price_usd_per_min": 16.8,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
-      },
-      {
-        "board": "lmarena-video-edit",
-        "rank": 10,
-        "label": "runway-gen4-aleph",
-        "score": 1182,
-        "ci": 9,
-        "samples": 9818,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-27",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "reference_videos": {
         "min": 1,
@@ -5753,7 +4285,7 @@
       "tiers": {
         "aleph2": 0.28
       },
-      "note": "官方 API 28 credits/s、单笔最低 56 credits；credit=$0.01 → $0.28/s ≈ $16.8/分钟（与 AA 榜 price_usd_per_min=16.80 互证一致；单次 ≤30s 封顶 840 credits）。ProRes/PNG 序列 +5 credits/s；10-bit（sdr_rec709_10bit）档 +20 credits/s（>4MP 时 40）。app 内 Edit Studio 关键帧图另计（Gen-4 Image 8/图、Nano Banana Pro 20/图、GPT Image 2 5/图）。web credits 与 API credits 池独立。",
+      "note": "官方 API 28 credits/s、单笔最低 56 credits；credit=$0.01 → $0.28/s ≈ $16.8/分钟，单次 ≤30s 封顶 840 credits。ProRes/PNG 序列 +5 credits/s；10-bit（sdr_rec709_10bit）档 +20 credits/s（>4MP 时 40）。app 内 Edit Studio 关键帧图另计（Gen-4 Image 8/图、Nano Banana Pro 20/图、GPT Image 2 5/图）。web credits 与 API credits 池独立。",
       "observed_at": "2026-09-02",
       "source": "https://docs.dev.runwayml.com/guides/models"
     },
@@ -5828,21 +4360,6 @@
       "capabilities": [],
       "note": "Runway 官方没有把 Gen-4 Turbo 当独立基础模型：它是 Gen-4（图生视频）的高速/低成本档位，参数规格与 Gen-4 相同，仅速度更快、单价更低（Turbo 5 credits/s vs Gen-4 12 credits/s；官方建议先用 Turbo 迭代再切 Gen-4）。只支持图生视频（必须有输入图作为首帧），不支持纯文生；时长 5s/10s、24fps。官方该帮助文已标注为 older generation（现主推 Gen-4.5）。榜单模型名 runway-gen4-turbo 即此档位。"
     },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 45,
-        "label": "runway-gen4-turbo",
-        "score": 1052,
-        "ci": 13,
-        "samples": 6801,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "image": {
         "formats": [
@@ -5922,60 +4439,6 @@
       "capabilities": [],
       "note": "官方模型 doubao-seedance-1-0-pro-250528（另 pro fast = doubao-seedance-1-0-pro-fast-251015，速度最高快约 3 倍、价格直降 72%，首尾帧不支持）。lite 是独立拆分的两个模型 doubao-seedance-1.0-lite-t2v/i2v-250428，已于 2026-05-11 下线（官方建议迁移 doubao-seedance-2.0-fast-260128），其参数文档已从官方删除——本条目参数以 pro 为准，lite 相关字段无法核实。无声输出（generate_audio 仅 2.0/2.5/1.5 支持）；无参考视频/音频；无编辑/延长。frames 参数是 1.0 系列独有（可生成小数秒视频，帧数须为 25+4n、范围 [29,289]）。t2v 的 ratio 不支持 adaptive（i2v 可）。service_tier=flex 离线推理支持（价 50%）。"
     },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 26,
-        "label": "seedance-v1-pro",
-        "score": 1272,
-        "ci": 8,
-        "samples": 34019,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 40,
-        "label": "seedance-v1-lite",
-        "score": 1185,
-        "ci": 8,
-        "samples": 33734,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 33,
-        "label": "seedance-v1-pro",
-        "score": 1190,
-        "ci": 11,
-        "samples": 12120,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 42,
-        "label": "seedance-v1-lite",
-        "score": 1112,
-        "ci": 10,
-        "samples": 16177,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "image": {
         "max_bytes": 31457280,
@@ -6136,60 +4599,6 @@
       "capabilities": [],
       "note": "火山方舟模型 doubao-seedance-1-5-pro-251215（官方 2026-01-15 首发）。原生音视频联合生成，支持 文生 / 图生首帧 / 图生首尾帧 三种场景；不支持参考视频/参考音频、不支持编辑/延长（那是 2.5/2.0 能力）。图生场景图片数量：首帧 1 张、首尾帧 2 张。样片（Draft）模式仅 1.5 pro 支持且强制 480p；flex 离线推理价格约为在线一半（1.5 pro 支持，2.5/2.0 不支持）。任务异步，任务 ID 保留 7 天，结果 URL 24h/100 次。有声视频均为单声道。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 28,
-        "label": "Seedance 1.5 pro",
-        "score": 1000,
-        "ci": 0,
-        "samples": 11916,
-        "release_date": "2025-12",
-        "price_usd_per_min": 11.86,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 30,
-        "label": "Seedance 1.5 pro",
-        "score": 1000,
-        "ci": 0,
-        "samples": 13041,
-        "release_date": "2025-12",
-        "price_usd_per_min": 11.86,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 22,
-        "label": "seedance-v1.5-pro",
-        "score": 1307,
-        "ci": 7,
-        "samples": 245243,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 20,
-        "label": "seedance-v1.5-pro",
-        "score": 1256,
-        "ci": 7,
-        "samples": 75890,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "image": {
         "max_bytes": 31457280,
@@ -6402,60 +4811,6 @@
       "capabilities": [],
       "note": "⚠️ 官方 SDK 标注：Sora API 将于 2026-09-24 永久下线（\"scheduled to permanently shut down on September 24, 2026\"，openai SDK 视频方法 @deprecated），集成前务必确认。官方文档页当前不可达（403），本条目字段按官方 openai-node SDK（v7.9.0，与官方 OpenAPI spec 同源）核实。API 模型值：sora-2 / sora-2-pro（另快照 sora-2-2025-10-06 / sora-2-pro-2025-10-06 / sora-2-2025-12-08，即榜单所谓 Sora 2 (December)）。端点：POST /videos（生成）、/videos/edits（编辑）、/videos/extensions（延长）、/videos/{id}/remix、/videos/characters（角色）。全部为异步 job（status: queued/in_progress/completed/failed）。"
     },
-    "rankings": [
-      {
-        "board": "aa-t2v",
-        "rank": 14,
-        "label": "Sora 2 (December)",
-        "score": 1093,
-        "ci": 9,
-        "samples": 4910,
-        "release_date": "2025-12",
-        "price_usd_per_min": 6,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 22,
-        "label": "Sora 2 Pro",
-        "score": 1077,
-        "ci": 9,
-        "samples": 4937,
-        "release_date": "2025-09",
-        "price_usd_per_min": 30,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 9,
-        "label": "sora-2-pro",
-        "score": 1365,
-        "ci": 7,
-        "samples": 48782,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 17,
-        "label": "sora-2",
-        "score": 1341,
-        "ci": 6,
-        "samples": 65433,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "max_reference_images": 1,
       "image": {
@@ -6617,35 +4972,7 @@
       "note": "官方定价页（ai.google.dev/pricing）在本环境无法访问，未核实单价；Veo 2 为付费模型。",
       "observed_at": "2026-09-02",
       "source": "https://github.com/googleapis/python-genai/blob/main/google/genai/types.py"
-    },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 42,
-        "label": "veo-2",
-        "score": 1165,
-        "ci": 16,
-        "samples": 10303,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 37,
-        "label": "veo-2",
-        "score": 1164,
-        "ci": 16,
-        "samples": 6501,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "veo-3.1-i2v",
@@ -6709,243 +5036,7 @@
     "errors": {
       "_missing": true,
       "note": "本页未提供错误码表；响应含 error 对象但无具体错误码枚举。"
-    },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 9,
-        "label": "Veo 3.1",
-        "score": 1086,
-        "ci": 7,
-        "samples": 8858,
-        "release_date": "2026-01",
-        "price_usd_per_min": 24,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 12,
-        "label": "Veo 3.1 Preview",
-        "score": 1079,
-        "ci": 7,
-        "samples": 7532,
-        "release_date": "2025-10",
-        "price_usd_per_min": 24,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 13,
-        "label": "Veo 3.1 Fast Preview",
-        "score": 1079,
-        "ci": 7,
-        "samples": 7968,
-        "release_date": "2025-10",
-        "price_usd_per_min": 9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 15,
-        "label": "Veo 3.1 Fast",
-        "score": 1072,
-        "ci": 6,
-        "samples": 16474,
-        "release_date": "2026-01",
-        "price_usd_per_min": 9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 17,
-        "label": "Veo 3.1 Lite",
-        "score": 1070,
-        "ci": 7,
-        "samples": 8140,
-        "release_date": "2026-03",
-        "price_usd_per_min": 4.8,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 13,
-        "label": "Veo 3.1 Preview",
-        "score": 1097,
-        "ci": 6,
-        "samples": 8850,
-        "release_date": "2025-10",
-        "price_usd_per_min": 24,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 15,
-        "label": "Veo 3.1",
-        "score": 1092,
-        "ci": 6,
-        "samples": 9449,
-        "release_date": "2026-01",
-        "price_usd_per_min": 24,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 16,
-        "label": "Veo 3.1 Lite",
-        "score": 1089,
-        "ci": 6,
-        "samples": 8883,
-        "release_date": "2026-03",
-        "price_usd_per_min": 4.8,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 19,
-        "label": "Veo 3.1 Fast",
-        "score": 1086,
-        "ci": 5,
-        "samples": 20209,
-        "release_date": "2026-01",
-        "price_usd_per_min": 9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 20,
-        "label": "Veo 3.1 Fast Preview",
-        "score": 1086,
-        "ci": 6,
-        "samples": 7294,
-        "release_date": "2025-10",
-        "price_usd_per_min": 9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 11,
-        "label": "veo-3.1-audio",
-        "score": 1398,
-        "ci": 11,
-        "samples": 25114,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 12,
-        "label": "veo-3.1-audio-1080p",
-        "score": 1390,
-        "ci": 9,
-        "samples": 53121,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 13,
-        "label": "veo-3.1-fast-audio",
-        "score": 1385,
-        "ci": 9,
-        "samples": 99828,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 15,
-        "label": "veo-3.1-fast-audio-1080p",
-        "score": 1371,
-        "ci": 10,
-        "samples": 54411,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 10,
-        "label": "veo-3.1-audio",
-        "score": 1364,
-        "ci": 14,
-        "samples": 13705,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 11,
-        "label": "veo-3.1-audio-1080p",
-        "score": 1363,
-        "ci": 10,
-        "samples": 24972,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 12,
-        "label": "veo-3.1-fast-audio",
-        "score": 1361,
-        "ci": 10,
-        "samples": 39371,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 13,
-        "label": "veo-3.1-fast-audio-1080p",
-        "score": 1358,
-        "ci": 10,
-        "samples": 25768,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "vidu-q2",
@@ -7134,35 +5225,7 @@
         "standard": "provider_failed",
         "user_message": "服务端内部错误，请稍后重试"
       }
-    },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 31,
-        "label": "vidu-q2-turbo",
-        "score": 1243,
-        "ci": 17,
-        "samples": 2509,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 37,
-        "label": "vidu-q2-pro",
-        "score": 1223,
-        "ci": 17,
-        "samples": 2614,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   },
   {
     "model_id": "vidu-q3",
@@ -7187,73 +5250,6 @@
       "capabilities": [],
       "note": "官方现役文档已迁移至 platform.vidu.com/docs（旧 docs.platform.vidu.com 停在 Q2 时代）。Q3 档位：viduq3-pro（旗舰，文生/图生/首尾帧，支持音画同步与智能分镜）、viduq3-turbo（更快，另支持参考生视频）、viduq3-pro-fast（仅图生）、viduq3-mix/-drama/-ad（仅参考生视频）。audio 参数默认 true（Q3 专属，直出带声视频，含对白与音效），bgm 对 q3 不可用；movement_amplitude / style(general/anime) 对 q2/q3 无效。成片 24fps。上线：pro 2026-01-27，turbo 2026-02-11，reference2video 系 2026-04-13。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 20,
-        "label": "Vidu Q3 Pro",
-        "score": 1061,
-        "ci": 6,
-        "samples": 17218,
-        "release_date": "2026-01",
-        "price_usd_per_min": 9.6,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 24,
-        "label": "Vidu Q3 Turbo",
-        "score": 1037,
-        "ci": 9,
-        "samples": 3285,
-        "release_date": "2026-02",
-        "price_usd_per_min": 3.9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 23,
-        "label": "Vidu Q3 Pro",
-        "score": 1075,
-        "ci": 5,
-        "samples": 20048,
-        "release_date": "2026-01",
-        "price_usd_per_min": 9.6,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 28,
-        "label": "Vidu Q3 Turbo",
-        "score": 1031,
-        "ci": 9,
-        "samples": 2969,
-        "release_date": "2026-02",
-        "price_usd_per_min": 3.9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 16,
-        "label": "vidu-q3-pro",
-        "score": 1363,
-        "ci": 9,
-        "samples": 36684,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "image": {
         "max_bytes": 52428800,
@@ -7468,34 +5464,6 @@
       "capabilities": [],
       "note": "阿里通义万相 Wan 2.2 开源（Apache 2.0）视频生成模型，MoE 架构。官方模型卡（HuggingFace / ModelScope，本环境 HF 不可达、经 hf-mirror.com 镜像核实）列三个模型：Wan2.2-T2V-A14B（文生，480P/720P）、Wan2.2-I2V-A14B（图生首帧，480P/720P）、Wan2.2-TI2V-5B（文生+图生，720P，24fps）。LMArena 榜名 wan-v2.2-a14b 对应 A14B 双模型。开源模型无官方 API 计费，输出无声（模型卡未提及音频）。"
     },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 41,
-        "label": "wan-v2.2-a14b",
-        "score": 1170,
-        "ci": 10,
-        "samples": 27054,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": true,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 40,
-        "label": "wan-v2.2-a14b",
-        "score": 1132,
-        "ci": 15,
-        "samples": 10396,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": true,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "max_reference_images": 1,
       "image": {
@@ -7553,34 +5521,6 @@
       "capabilities": [],
       "note": "百炼 2.5 系列只有带 -preview 的两个 id：wan2.5-t2v-preview / wan2.5-i2v-preview（preview 即正式对外 API 名，无日期快照、无 -us/-flash 变体）。只支持文生与图生首帧（旧版协议，仅首帧生视频）。北京地域默认生成有声视频（自动配音或传 input.audio_url）；新加坡地域无声输出（仅 Text/Image→Video）。无 shot_type（多镜头仅 wan2.6）、无声开关不支持（那是 2.6-i2v-flash）。i2v 北京支持模型调优，新加坡不支持。"
     },
-    "rankings": [
-      {
-        "board": "lmarena-i2v",
-        "rank": 20,
-        "label": "wan2.5-i2v-preview",
-        "score": 1321,
-        "ci": 10,
-        "samples": 16913,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 23,
-        "label": "wan2.5-t2v-preview",
-        "score": 1247,
-        "ci": 9,
-        "samples": 30497,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "image": {
         "max_bytes": 20971520,
@@ -7720,60 +5660,6 @@
       "capabilities": [],
       "note": "百炼旧版协议（legacy，2025-12-03 发布）：wan2.6-t2v / wan2.6-i2v（无日期快照后缀；另有 -us/-flash 变体）。只支持生成：文生视频与图生视频-基于首帧（官方 legacy 文档明确\"仅支持首帧生视频\"，首尾帧/续写属 wan2.7）。参数体系与 2.7 不同：文生用 size=\"宽*高\"、图生用 resolution=\"720P/1080P\" 档位，无 aspect_ratio/duration_mode/generate_audio 等新式字段。默认输出有声视频（自动配音或 input.audio_url）；无声开关仅 wan2.6-i2v-flash 支持。shot_type(single/multi) 仅 wan2.6 系支持且需 prompt_extend=true。task_id 与视频 URL 24h 有效，查询接口 RPS 默认 20。"
     },
-    "rankings": [
-      {
-        "board": "aa-i2v",
-        "rank": 35,
-        "label": "Wan 2.6",
-        "score": 893,
-        "ci": 8,
-        "samples": 6393,
-        "release_date": "2025-12",
-        "price_usd_per_min": 9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 29,
-        "label": "Wan 2.6",
-        "score": 1028,
-        "ci": 6,
-        "samples": 7747,
-        "release_date": "2025-12",
-        "price_usd_per_min": 9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 21,
-        "label": "wan2.6-i2v",
-        "score": 1311,
-        "ci": 7,
-        "samples": 108068,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 19,
-        "label": "wan2.6-t2v",
-        "score": 1329,
-        "ci": 8,
-        "samples": 47267,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "image": {
         "max_bytes": 20971520,
@@ -7915,86 +5801,6 @@
       "capabilities": [],
       "note": "百炼无单一总页，按任务 4 篇：文生 text-to-video-api-reference（wan2.7-t2v / wan2.7-t2v-2026-06-12）、图生 image-to-video-general-api-reference（wan2.7-i2v-2026-04-25：首帧/首尾帧/首段续写）、参考生视频 wan-video-to-video-api-reference（wan2.7-r2v，图+视频+音色）、视频编辑 wan-video-editing-api-reference（wan2.7-videoedit）。全异步（创建任务+轮询），任务/结果链接 24h 有效，任务过期返回 task_status=UNKNOWN；查询 RPS 20；缺 X-DashScope-Async 头报错。有声为默认且不可关（无 audio 开关）；不再支持 size（改用 resolution+ratio）与 shot_type；无 duration=-1 智能时长（那是 Wan 3.0）。北京/新加坡两地可选。"
     },
-    "rankings": [
-      {
-        "board": "aa-t2v",
-        "rank": 6,
-        "label": "Wan2.7-260612",
-        "score": 1157,
-        "ci": 6,
-        "samples": 19399,
-        "release_date": "2026-06",
-        "price_usd_per_min": 9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-t2v",
-        "rank": 10,
-        "label": "Wan 2.7",
-        "score": 1106,
-        "ci": 7,
-        "samples": 6098,
-        "release_date": "2026-04",
-        "price_usd_per_min": 9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-i2v",
-        "rank": 11,
-        "label": "Wan 2.7",
-        "score": 1084,
-        "ci": 7,
-        "samples": 5592,
-        "release_date": "2026-04",
-        "price_usd_per_min": 9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-      },
-      {
-        "board": "aa-video-edit",
-        "rank": 5,
-        "label": "Wan 2.7",
-        "score": 1078,
-        "ci": 5,
-        "samples": 19212,
-        "release_date": "2026-04",
-        "price_usd_per_min": 16.9,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
-      },
-      {
-        "board": "lmarena-i2v",
-        "rank": 9,
-        "label": "wan2.7-i2v",
-        "score": 1427,
-        "ci": 5,
-        "samples": 66184,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      },
-      {
-        "board": "lmarena-t2v",
-        "rank": 15,
-        "label": "wan2.7-t2v",
-        "score": 1344,
-        "ci": 8,
-        "samples": 20882,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-26",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ],
     "input_limits": {
       "max_reference_materials": 5,
       "image": {
@@ -8301,47 +6107,6 @@
         "user_message": "参数冲突：reference_xx 与 first_frame/last_frame 不能同时传入"
       },
       "note": "页面仅列少量错误示例（InvalidApiKey、缺少异步头、InvalidParameter），未提供完整错误码表。"
-    },
-    "rankings": [
-      {
-        "board": "aa-t2v",
-        "rank": 2,
-        "label": "Wan 3.0",
-        "score": 1237,
-        "ci": 10,
-        "samples": 5529,
-        "release_date": "2026-08",
-        "price_usd_per_min": 12,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-      },
-      {
-        "board": "aa-video-edit",
-        "rank": 1,
-        "label": "Wan 3.0",
-        "score": 1190,
-        "ci": 7,
-        "samples": 5258,
-        "release_date": "2026-08",
-        "price_usd_per_min": 12,
-        "open_weights": null,
-        "as_of": "2026-09-02",
-        "url": "https://artificialanalysis.ai/video/leaderboard/video-editing"
-      },
-      {
-        "board": "lmarena-video-edit",
-        "rank": 1,
-        "label": "wan3.0",
-        "score": 1414,
-        "ci": 26,
-        "samples": 463,
-        "release_date": null,
-        "price_usd_per_min": null,
-        "open_weights": null,
-        "as_of": "2026-08-27",
-        "url": "https://lmarena.ai/leaderboard/video"
-      }
-    ]
+    }
   }
 ]

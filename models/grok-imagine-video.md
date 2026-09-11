@@ -75,19 +75,6 @@
 | 成片最大时长 | 15 秒 |
 | 画面比例模式 | client_choice |
 
-## 榜单数据
-
-| 榜单 | 榜上名称 | 排名 | 分数 | ±95%CI | 样本/票 | 发布日期 | 开放权重 | API价格(USD/分) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| AA·图生 | grok-imagine-video | 14 | 1076 | 6 | 17540 | 2026-01 | — | 4.20 |
-| AA·文生 | grok-imagine-video | 25 | 1062 | 5 | 19111 | 2026-01 | — | 4.20 |
-| LMArena·图生 | grok-imagine-video-720p | 10 | 1415 | 4 | 528693 | — | — | — |
-| LMArena·图生 | grok-imagine-video-480p | 14 | 1384 | 8 | 19424 | — | — | — |
-| LMArena·文生 | grok-imagine-video-720p | 16 | 1344 | 7 | 157732 | — | — | — |
-| LMArena·编辑 | grok-imagine-video | 7 | 1258 | 10 | 13724 | — | — | — |
-
-> 分数体系：AA=Elo，LMArena=Arena score，两者不可直接比较；价格是 AA「用创建者 API 默认设置生成 1 分钟 1080p 视频」的口径（同模型跨榜可能不同）。快照日期见各条 `rankings` 的 as_of 与条目 `fetched_at`。
-
 ## 价格
 
 

@@ -61,19 +61,6 @@ export interface ModelEntry {
     note?: string
   } | null
   errors?: Record<string, { standard: string; user_message?: string }>
-  rankings?: Array<{
-    board: string
-    label: string
-    rank?: number | null
-    score: number
-    ci?: number | null
-    samples?: number | null
-    release_date?: string | null
-    open_weights?: boolean | null
-    price_usd_per_min?: number | null
-    as_of: string
-    url: string
-  }>
 }
 `
 }

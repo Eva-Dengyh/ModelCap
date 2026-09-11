@@ -23,34 +23,6 @@
     "capabilities": [],
     "note": "官方文档托管于 Agnes AI 文档站（wiki.agnes-ai.com；AA 榜单标注厂商为 Sapiens AI，二者为同一产品线）。支持文生视频、首帧/首尾帧关键帧控制、多模态参考生视频（图/音频/视频混合，含视频运动/节奏参考）、音视频协同、多输出比例。三种 mode：text（禁传媒体）、keyframe（需 first_frame 或 last_frame）、reference（需至少一个 images/audios/videos）。参考素材均以公网 URL 传入。定价与错误码另见 pricing.md / code.md 页。"
   },
-  "rankings": [
-    {
-      "board": "aa-i2v",
-      "rank": 25,
-      "label": "Agnes-Video-2.5",
-      "score": 1034,
-      "ci": 8,
-      "samples": 5999,
-      "release_date": "2026-08",
-      "price_usd_per_min": 1.5,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-    },
-    {
-      "board": "aa-t2v",
-      "rank": 21,
-      "label": "Agnes-Video-2.5",
-      "score": 1080,
-      "ci": 9,
-      "samples": 5793,
-      "release_date": "2026-08",
-      "price_usd_per_min": 1.5,
-      "open_weights": null,
-      "as_of": "2026-09-02",
-      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-    }
-  ],
   "input_limits": {
     "_missing": true,
     "note": "官方文档未给出输入图片与参考视频的格式、大小、边长、比例、时长等硬约束（仅要求媒体 URL 公网可达且任务结束前不过期）。",

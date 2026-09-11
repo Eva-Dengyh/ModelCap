@@ -20,34 +20,6 @@
     "capabilities": [],
     "note": "官方新接口 POST /text-to-video/kling-2.5-turbo 与 /image-to-video/kling-2.5-turbo（另有 legacy model_name=kling-v2-5-turbo）。榜单名 kling-2.5-turbo-1080p 的 \"-1080p\" 后缀是榜单侧命名，官方模型就是 kling-2.5-turbo 取 1080p resolution。无声模型（无 audio 字段、native-audio 不支持）；无多镜头/运镜/动作控制/视频参考。i2v 支持仅首帧与首尾帧（首尾帧仅 1080P），不支持仅尾帧。无 4K、无 mode 档位（新接口只有 resolution 720p/1080p）。结果 30 天后清理。"
   },
-  "rankings": [
-    {
-      "board": "lmarena-i2v",
-      "rank": 25,
-      "label": "kling-2.5-turbo-1080p",
-      "score": 1275,
-      "ci": 12,
-      "samples": 3796,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    },
-    {
-      "board": "lmarena-t2v",
-      "rank": 26,
-      "label": "kling-2.5-turbo-1080p",
-      "score": 1219,
-      "ci": 17,
-      "samples": 2100,
-      "release_date": null,
-      "price_usd_per_min": null,
-      "open_weights": null,
-      "as_of": "2026-08-26",
-      "url": "https://lmarena.ai/leaderboard/video"
-    }
-  ],
   "input_limits": {
     "image": {
       "max_bytes": 52428800,
