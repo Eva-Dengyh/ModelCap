@@ -13,3 +13,6 @@ models/.raw/
 
 # Node.js dependencies
 node_modules/
+
+# Read-only source audit output
+source-audit-report.json

@@ -26,7 +26,8 @@
     "validate:catalog": "node skill/scripts/tools.mjs validate models/*.json",
     "validate:schema": "node skill/scripts/validate-schema.mjs models/*.json",
     "check:fresh": "node skill/scripts/check-fresh.mjs --max-days 180",
-    "build": "node skill/scripts/build-dist.mjs"
+    "build": "node skill/scripts/build-dist.mjs",
+    "audit:sources": "node skill/scripts/audit-sources.mjs"
   },
   "license": "MIT",
   "devDependencies": {
