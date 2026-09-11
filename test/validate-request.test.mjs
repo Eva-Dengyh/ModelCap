@@ -300,3 +300,67 @@ test('warns when supplied image metadata has no documented image-limit block', (
   assert.deepEqual(codes(result.warnings), ['CONSTRAINT_UNKNOWN'])
   assert.equal(result.warnings[0].path, '$.inputs.reference_images[0]')
 })
+
+test('still enforces input limits when task rules are undocumented', () => {
+  const withoutRules = structuredClone(model)
+  withoutRules.rules = {}
+
+  const result = validateModelRequest(withoutRules, {
+    task: 'generate',
+    inputs: { reference_images: [{}, {}] },
+  })
+
+  assert.equal(result.valid, false)
+  assert.deepEqual(codes(result.errors), ['INPUT_COUNT_EXCEEDED'])
+  assert.equal(
+    result.warnings.some((item) => item.code === 'CONSTRAINT_UNKNOWN' && item.path === '$.parameters'),
+    true,
+  )
+})
+
+test('rejects explicitly null parameter and input containers', () => {
+  const nullParameters = validateModelRequest(model, {
+    task: 'generate',
+    parameters: null,
+  })
+  const nullInputs = validateModelRequest(model, {
+    task: 'generate',
+    inputs: null,
+  })
+
+  assert.deepEqual(codes(nullParameters.errors), ['INVALID_PARAMETER_TYPE'])
+  assert.deepEqual(codes(nullInputs.errors), ['INVALID_PARAMETER_TYPE'])
+})
+
+test('rejects invalid scalar metadata types even when limits are unknown', () => {
+  const unknownLimits = structuredClone(model)
+  unknownLimits.input_limits.image = { max_bytes: null }
+  delete unknownLimits.input_limits.additional_prompt
+
+  const result = validateModelRequest(unknownLimits, {
+    task: 'generate',
+    inputs: { reference_images: [{ bytes: '500' }] },
+    additional_prompt: 123,
+  })
+
+  assert.equal(result.valid, false)
+  assert.deepEqual(codes(result.errors), ['INVALID_PARAMETER_TYPE', 'INVALID_PARAMETER_TYPE'])
+})
+
+test('rejects a non-boolean audio-generation flag', () => {
+  const result = validateModelRequest(model, {
+    task: 'generate',
+    parameters: { generate_audio: 'yes' },
+  })
+
+  assert.deepEqual(codes(result.errors), ['INVALID_PARAMETER_TYPE'])
+})
+
+test('rejects invalid reference-video metadata types', () => {
+  const result = validateModelRequest(model, {
+    task: 'generate',
+    inputs: { reference_videos: [{ duration_seconds: '5', format: 42 }] },
+  })
+
+  assert.deepEqual(codes(result.errors), ['INVALID_PARAMETER_TYPE', 'INVALID_PARAMETER_TYPE'])
+})

@@ -30,7 +30,10 @@ export interface ModelEntry {
     note?: string
   }>
   readonly input_limits?: Readonly<Record<string, unknown>>
-  readonly rules?: Readonly<Record<string, Readonly<Record<string, unknown>>>>
+  readonly rules?: Readonly<Record<
+    string,
+    Readonly<Record<string, unknown>> | string | boolean
+  >>
   readonly output_limits?: Readonly<Record<string, unknown>> | null
   readonly pricing?: Readonly<{
     currency?: 'CNY' | 'USD'
@@ -41,7 +44,7 @@ export interface ModelEntry {
     note?: string
   }> | null
   readonly errors?: Readonly<Record<string, Readonly<{
-    standard?: string
+    standard?: StandardError
     user_message?: string
   }> | string | boolean>>
 }

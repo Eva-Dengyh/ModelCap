@@ -98,7 +98,15 @@ function validateImages(limits, images, errors, warnings) {
       return
     }
 
-    if (image.bytes == null && imageLimits.max_bytes != null) {
+    if (image.bytes != null && (!Number.isFinite(image.bytes) || image.bytes < 0)) {
+      errors.push(issue(
+        'INVALID_PARAMETER_TYPE',
+        `${base}.bytes`,
+        'image byte size must be a non-negative finite number',
+        'non-negative number',
+        image.bytes,
+      ))
+    } else if (image.bytes == null && imageLimits.max_bytes != null) {
       warnUnknown(warnings, `${base}.bytes`, 'image byte size was not supplied')
     } else if (image.bytes != null && imageLimits.max_bytes == null) {
       warnUnknown(warnings, `${base}.bytes`, 'image byte limit is not documented')
@@ -112,7 +120,15 @@ function validateImages(limits, images, errors, warnings) {
       ))
     }
 
-    if (image.format == null && Array.isArray(imageLimits.formats)) {
+    if (image.format != null && typeof image.format !== 'string') {
+      errors.push(issue(
+        'INVALID_PARAMETER_TYPE',
+        `${base}.format`,
+        'image format must be a string',
+        'string',
+        image.format,
+      ))
+    } else if (image.format == null && Array.isArray(imageLimits.formats)) {
       warnUnknown(warnings, `${base}.format`, 'image format was not supplied')
     } else if (image.format != null && imageLimits.formats == null) {
       warnUnknown(warnings, `${base}.format`, 'allowed image formats are not documented')
@@ -129,6 +145,29 @@ function validateImages(limits, images, errors, warnings) {
       ))
     }
 
+    const widthSupplied = isPresent(image, 'width')
+    const heightSupplied = isPresent(image, 'height')
+    const invalidWidth = widthSupplied && (!Number.isFinite(image.width) || image.width <= 0)
+    const invalidHeight = heightSupplied && (!Number.isFinite(image.height) || image.height <= 0)
+    if (invalidWidth) {
+      errors.push(issue(
+        'INVALID_PARAMETER_TYPE',
+        `${base}.width`,
+        'image width must be a positive finite number',
+        'positive number',
+        image.width,
+      ))
+    }
+    if (invalidHeight) {
+      errors.push(issue(
+        'INVALID_PARAMETER_TYPE',
+        `${base}.height`,
+        'image height must be a positive finite number',
+        'positive number',
+        image.height,
+      ))
+    }
+
     const hasDimensions =
       Number.isFinite(image.width) && image.width > 0 &&
       Number.isFinite(image.height) && image.height > 0
@@ -139,7 +178,7 @@ function validateImages(limits, images, errors, warnings) {
       imageLimits.max_ratio,
     ].some((value) => value != null)
 
-    if (!hasDimensions && hasDimensionLimits) {
+    if (!hasDimensions && hasDimensionLimits && !invalidWidth && !invalidHeight) {
       warnUnknown(warnings, base, 'image dimensions were not supplied')
       return
     }
@@ -208,6 +247,17 @@ function validateVideos(limits, videos, errors, warnings) {
     }
 
     if (
+      video.duration_seconds != null &&
+      (!Number.isFinite(video.duration_seconds) || video.duration_seconds < 0)
+    ) {
+      errors.push(issue(
+        'INVALID_PARAMETER_TYPE',
+        `${base}.duration_seconds`,
+        'reference video duration must be a non-negative finite number',
+        'non-negative number',
+        video.duration_seconds,
+      ))
+    } else if (
       video.duration_seconds == null &&
       (videoLimits.min_duration_seconds != null || videoLimits.max_duration_seconds != null)
     ) {
@@ -233,7 +283,15 @@ function validateVideos(limits, videos, errors, warnings) {
       ))
     }
 
-    if (video.format == null && Array.isArray(videoLimits.formats)) {
+    if (video.format != null && typeof video.format !== 'string') {
+      errors.push(issue(
+        'INVALID_PARAMETER_TYPE',
+        `${base}.format`,
+        'reference video format must be a string',
+        'string',
+        video.format,
+      ))
+    } else if (video.format == null && Array.isArray(videoLimits.formats)) {
       warnUnknown(warnings, `${base}.format`, 'reference video format was not supplied')
     } else if (video.format != null && videoLimits.formats == null) {
       warnUnknown(warnings, `${base}.format`, 'allowed reference video formats are not documented')
@@ -257,9 +315,7 @@ function validateVideos(limits, videos, errors, warnings) {
 function validatePrompt(limits, prompt, errors, warnings) {
   if (prompt === undefined) return
   const max = limits.additional_prompt?.max_chars
-  if (max == null) {
-    warnUnknown(warnings, '$.additional_prompt', 'additional prompt limit is not documented')
-  } else if (typeof prompt !== 'string') {
+  if (typeof prompt !== 'string') {
     errors.push(issue(
       'INVALID_PARAMETER_TYPE',
       '$.additional_prompt',
@@ -267,6 +323,8 @@ function validatePrompt(limits, prompt, errors, warnings) {
       'string',
       prompt,
     ))
+  } else if (max == null) {
+    warnUnknown(warnings, '$.additional_prompt', 'additional prompt limit is not documented')
   } else if (prompt.length > max) {
     errors.push(issue(
       'PROMPT_TOO_LONG',
@@ -307,16 +365,19 @@ export function validateModelRequest(model, request) {
   }
 
   const rule = model.rules?.[task]
-  const parameters = request.parameters ?? {}
-  if (!parameters || typeof parameters !== 'object' || Array.isArray(parameters)) {
-    errors.push(issue(
-      'INVALID_PARAMETER_TYPE',
-      '$.parameters',
-      'parameters must be an object',
-      'object',
-      parameters,
-    ))
-    return finish()
+  let parameters = {}
+  if (isPresent(request, 'parameters')) {
+    if (!request.parameters || typeof request.parameters !== 'object' || Array.isArray(request.parameters)) {
+      errors.push(issue(
+        'INVALID_PARAMETER_TYPE',
+        '$.parameters',
+        'parameters must be an object',
+        'object',
+        request.parameters,
+      ))
+    } else {
+      parameters = request.parameters
+    }
   }
 
   if (!rule) {
@@ -325,10 +386,9 @@ export function validateModelRequest(model, request) {
       '$.parameters',
       'no task rules are documented',
     ))
-    return finish()
   }
 
-  const supported = rule.supported_parameters
+  const supported = rule?.supported_parameters
   for (const name of Object.keys(parameters)) {
     if (Array.isArray(supported) && !supported.includes(name)) {
       errors.push(issue(
@@ -349,7 +409,7 @@ export function validateModelRequest(model, request) {
 
   if (isPresent(parameters, 'duration')) {
     const value = parameters.duration
-    const limit = rule.duration_seconds
+    const limit = rule?.duration_seconds
     if (limit === undefined || limit === null) {
       warnings.push(issue(
         'CONSTRAINT_UNKNOWN',
@@ -395,7 +455,7 @@ export function validateModelRequest(model, request) {
   }
 
   if (isPresent(parameters, 'resolution')) {
-    if (rule.resolution == null) {
+    if (rule?.resolution == null) {
       warnings.push(issue(
         'CONSTRAINT_UNKNOWN',
         '$.parameters.resolution',
@@ -413,7 +473,7 @@ export function validateModelRequest(model, request) {
   }
 
   if (isPresent(parameters, 'aspect_ratio')) {
-    if (rule.aspect_ratio == null) {
+    if (rule?.aspect_ratio == null) {
       warnings.push(issue(
         'CONSTRAINT_UNKNOWN',
         '$.parameters.aspect_ratio',
@@ -430,7 +490,15 @@ export function validateModelRequest(model, request) {
     }
   }
 
-  if (parameters.generate_audio === true && rule.generate_audio === false) {
+  if (isPresent(parameters, 'generate_audio') && typeof parameters.generate_audio !== 'boolean') {
+    errors.push(issue(
+      'INVALID_PARAMETER_TYPE',
+      '$.parameters.generate_audio',
+      'generate_audio must be a boolean',
+      'boolean',
+      parameters.generate_audio,
+    ))
+  } else if (parameters.generate_audio === true && rule?.generate_audio === false) {
     errors.push(issue(
       'AUDIO_GENERATION_NOT_SUPPORTED',
       '$.parameters.generate_audio',
@@ -438,7 +506,7 @@ export function validateModelRequest(model, request) {
       false,
       true,
     ))
-  } else if (isPresent(parameters, 'generate_audio') && rule.generate_audio == null) {
+  } else if (isPresent(parameters, 'generate_audio') && rule?.generate_audio == null) {
     warnings.push(issue(
       'CONSTRAINT_UNKNOWN',
       '$.parameters.generate_audio',
@@ -446,8 +514,9 @@ export function validateModelRequest(model, request) {
     ))
   }
 
-  const inputs = request.inputs == null ? {} : request.inputs
-  if (typeof inputs !== 'object' || Array.isArray(inputs)) {
+  const hasInputs = isPresent(request, 'inputs')
+  const inputs = hasInputs ? request.inputs : {}
+  if (!inputs || typeof inputs !== 'object' || Array.isArray(inputs)) {
     errors.push(issue(
       'INVALID_PARAMETER_TYPE',
       '$.inputs',
