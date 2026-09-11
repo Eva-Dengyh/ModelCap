@@ -11,6 +11,7 @@
 ```
 ├── models/                 ← 结果：一个模型版本一个 json + md（50 个）
 ├── dist/                   ← 构建产物：catalog.json / index.json / catalog.d.ts
+├── src/                    ← 零运行时依赖的 Node.js SDK
 ├── update-history.json     ← 变更审计（added/changed/removed 快照）
 ├── skill/                  ← 录入与校验工具（AI 用）
 │   ├── SKILL.md            ← 录入流程说明
@@ -18,12 +19,14 @@
 │   │   └── model.schema.json   ← 数据格式定义（唯一权威）
 │   └── scripts/
 │       ├── tools.mjs        ← validate / render
+│       ├── validate-schema.mjs ← 完整 JSON Schema 校验
 │       ├── check-fresh.mjs  ← 新鲜度检查
+│       ├── audit-sources.mjs ← 只读来源 URL/哈希巡检
 │       ├── build-dist.mjs   ← 合并生成 dist/ 产物
 │       ├── build-history.mjs ← 变更审计
 │       ├── backfill-meta.mjs ← 回填元数据
 │       └── send-feishu.mjs  ← 飞书推送（可选）
-└── .github/workflows/      ← CI：校验 + 新鲜度 + 构建
+└── .github/workflows/      ← 确定性 CI + 定时来源巡检
 ```
 
 ## 收录 / 关注模型（视频生成）
@@ -57,34 +60,72 @@
 
 ## 怎么用
 
-**查一个模型**：直接读 `models/{model_id}.json`（程序）或 `.md`（人）。
+### Node.js SDK
 
-**在别的项目里集成**：把本仓库当数据源引入，读 JSON 即可。
+当前仓库已兼容 npm 包格式，但不声称已经发布到 npm registry；可以直接从 GitHub 安装：
+
+```bash
+npm install github:Eva-Dengyh/ModelCap
+```
+
+```js
+import {
+  getModel,
+  listModels,
+  normalizeError,
+  validateRequest,
+} from 'modelcap-catalog'
+
+const model = getModel('kling-2-6')
+const imageModels = listModels({ task: 'generate', input: 'reference_image' })
+
+const validation = validateRequest('kling-2-6', {
+  task: 'generate',
+  parameters: {
+    duration: 5,
+    resolution: '720p',
+    aspect_ratio: '16:9',
+    generate_audio: false,
+  },
+  inputs: {
+    reference_images: [{
+      bytes: 800_000,
+      format: 'png',
+      width: 1280,
+      height: 720,
+    }],
+  },
+})
+
+if (!validation.valid) console.error(validation.errors)
+if (validation.warnings.length) console.warn(validation.warnings)
+
+const normalized = normalizeError('agnes-video-2-5', 400)
+if (normalized) console.log(normalized.standard, normalized.user_message)
+```
+
+校验器只会拒绝结构化数据里明确写出的硬约束。资料缺失或为 `null` 时尽量给出 warning，不会把备注文字解释成可执行规则。ModelCap 不负责发送厂商请求、管理密钥、重试调用或评价生成质量。
+
+### 原始数据与维护
+
+可以直接读取 `models/{model_id}.json`（程序）或 `.md`（人），也可以把仓库作为原始数据子模块：
 
 ```bash
 git submodule add https://github.com/Eva-Dengyh/ModelCap.git libs/modelcap
 ```
 
-```python
-import json
-d = json.load(open("libs/modelcap/models/kling-v2-6.json"))
-rules = d["rules"]["generate"]
+统一产物包括 `dist/catalog.json`、`dist/index.json` 和 `dist/catalog.d.ts`。
 
-# 1. 参数校验（同一参数不同任务约束可能不同，如编辑任务时长强制 -1）
-if s < rules["duration_seconds"]["min"] or s > rules["duration_seconds"]["max"]:
-    raise ValueError("时长超限")
-
-# 2. 错误码归一化：供应商私有码 → 标准语义 standard
-standard = d["errors"].get(vendor_code, {}).get("standard")
-
-# 3. 选型/计费：结合 ability、rules 与 pricing（厂商计费）
+```bash
+npm test                 # SDK 与工具行为
+npm run validate:catalog # 目录领域规则校验
+npm run validate:schema  # 完整 Draft 2020-12 Schema 校验
+npm run build:check      # 生成物与模型 JSON 一致
+npm run ci               # 完整、确定性的 PR 门禁
+npm run audit:sources    # 输出实时 URL 元数据与正文哈希
 ```
 
-**直接消费统一产物**：`dist/catalog.json`（全量合并）、`dist/index.json`（model_id 索引）、`dist/catalog.d.ts`（TS 类型），由 `node skill/scripts/build-dist.mjs` 生成。
-
-**数据校验**：`node skill/scripts/tools.mjs validate models/*.json`；`skill/schema/model.schema.json` 可配合 JSON Schema 库（ajv / jsonschema）做类型校验。
-
-**维护工具**：`check-fresh.mjs` 检查 `fetched_at` 过期；`build-history.mjs` 生成 `update-history.json` 变更审计；CI 见 `.github/workflows/validate.yml`。
+来源巡检得到的 HTTP 变化和哈希只是人工复核信号，不代表模型事实一定变化。巡检不会修改模型 JSON，也不会推进 `fetched_at`；定时工作流只把报告上传为附件。`build-history.mjs` 继续生成 `update-history.json` 数据变更审计。
 
 **录入新模型**：见 [skill/SKILL.md](skill/SKILL.md)——用 AI 打开官方文档、按 schema 写 JSON、`skill/scripts/tools.mjs` 校验并渲染。
 
@@ -111,7 +152,7 @@ standard = d["errors"].get(vendor_code, {}).get("standard")
 
 ## 贡献
 
-新增或修正模型条目：按 [skill/SKILL.md](skill/SKILL.md) 流程走，产物进 `models/`，`node skill/scripts/tools.mjs validate models/*.json` 必须通过。
+新增或修正模型条目：按 [skill/SKILL.md](skill/SKILL.md) 流程走，产物进 `models/`，`npm run ci` 必须通过。
 
 ## 协议
 
