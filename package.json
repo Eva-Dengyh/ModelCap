@@ -1,0 +1,32 @@
+{
+  "name": "modelcap-catalog",
+  "version": "0.1.0",
+  "description": "Machine-readable video model capabilities and conservative request validation",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.mjs"
+    },
+    "./catalog.json": "./dist/catalog.json",
+    "./index.json": "./dist/index.json"
+  },
+  "files": [
+    "src",
+    "dist",
+    "LICENSE",
+    "README.md",
+    "README.zh-CN.md"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1"
+  }
+}
