@@ -1,6 +1,19 @@
 export type Task = 'generate' | 'edit' | 'extend'
 export type InputType = 'reference_video' | 'reference_image' | 'audio'
 export type Capability = 'lip-sync' | 'multi-shot' | 'camera-control'
+export type StandardError =
+  | 'content_violation.real_person'
+  | 'content_violation.safety'
+  | 'content_violation.audio'
+  | 'content_violation.copyright'
+  | 'invalid_parameter'
+  | 'quota_exceeded'
+  | 'timeout'
+  | 'interrupted'
+  | 'access_denied'
+  | 'provider_failed'
+  | 'output_processing_failed'
+  | 'settlement_failed'
 
 export interface ModelEntry {
   readonly model_id: string
@@ -105,6 +118,16 @@ export interface ValidationResult {
   readonly warnings: readonly ValidationIssue[]
 }
 
+export interface NormalizedProviderError {
+  readonly provider_code: string
+  readonly standard: StandardError
+  readonly user_message?: string
+}
+
 export function getModel(modelId: string): ModelEntry | undefined
 export function listModels(filter?: ModelFilter): ModelEntry[]
 export function validateRequest(modelId: string, request: ModelRequest): ValidationResult
+export function normalizeError(
+  modelId: string,
+  providerCode: string | number,
+): NormalizedProviderError | undefined
