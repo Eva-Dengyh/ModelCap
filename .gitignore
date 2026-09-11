@@ -10,3 +10,6 @@ models/.raw/
 
 # Local isolated development worktrees
 .worktrees/
+
+# Node.js dependencies
+node_modules/
