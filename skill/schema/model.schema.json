@@ -177,7 +177,7 @@
       "description": "输出（成片）约束。null = 官方未给出输出限制。",
       "properties": {
         "max_duration_seconds": { "type": ["number", "null"] },
-        "aspect_ratio_mode": { "enum": ["inherit_from_reference_video", "client_choice"] }
+        "aspect_ratio_mode": { "enum": ["inherit_from_reference_video", "client_choice", null] }
       }
     },
 

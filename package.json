@@ -22,7 +22,11 @@
     "README.zh-CN.md"
   ],
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "validate:catalog": "node skill/scripts/tools.mjs validate models/*.json",
+    "validate:schema": "node skill/scripts/validate-schema.mjs models/*.json",
+    "check:fresh": "node skill/scripts/check-fresh.mjs --max-days 180",
+    "build": "node skill/scripts/build-dist.mjs"
   },
   "license": "MIT",
   "devDependencies": {
