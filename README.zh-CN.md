@@ -108,6 +108,8 @@ if (normalized) console.log(normalized.standard, normalized.user_message)
 
 校验器只会拒绝结构化数据里明确写出的硬约束。资料缺失或为 `null` 时尽量给出 warning，不会把备注文字解释成可执行规则。ModelCap 不负责发送厂商请求、管理密钥、重试调用或评价生成质量。
 
+完整公开 API 和 TypeScript 类型见 [docs/API.md](docs/API.md)。
+
 ### 原始数据与维护
 
 可以直接读取 `models/{model_id}.json`（程序）或 `.md`（人），也可以把仓库作为原始数据子模块：
@@ -120,6 +122,7 @@ git submodule add https://github.com/Eva-Dengyh/ModelCap.git libs/modelcap
 
 ```bash
 npm test                 # SDK 与工具行为
+npm run typecheck        # TypeScript 公开类型消费检查
 npm run validate:catalog # 目录领域规则校验
 npm run validate:schema  # 完整 Draft 2020-12 Schema 校验
 npm run build:check      # 生成物与模型 JSON 一致

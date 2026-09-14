@@ -108,6 +108,8 @@ if (normalized) console.log(normalized.standard, normalized.user_message)
 
 Validation rejects only explicit structured hard constraints. Missing or `null` facts produce warnings where possible; prose notes are never interpreted as executable rules. ModelCap does not send provider requests, manage credentials, retry calls, or rank output quality.
 
+See [docs/API.md](docs/API.md) for the full public API and exported TypeScript types.
+
 ### Raw data and maintenance
 
 Read `models/{model_id}.json` (programs) or `.md` (humans), or add the repository as a raw-data submodule:
@@ -120,6 +122,7 @@ Unified artifacts are available as `dist/catalog.json`, `dist/index.json`, and `
 
 ```bash
 npm test                 # SDK and tooling behavior
+npm run typecheck        # TypeScript public type consumption
 npm run validate:catalog # domain-specific catalog checks
 npm run validate:schema  # full Draft 2020-12 schema checks
 npm run build:check      # generated artifacts match model JSON

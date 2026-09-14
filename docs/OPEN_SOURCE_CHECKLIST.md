@@ -35,8 +35,22 @@ npm run audit:sources
 
 - Decide whether the package name `modelcap-catalog` is available and final.
 - Update `package.json` version intentionally.
+- Update `CHANGELOG.md` with user-visible SDK and catalog changes.
+- Run `npm run typecheck` before publishing any SDK type changes.
 - Confirm `npm pack --dry-run --json` includes only the public SDK, generated catalog files, README files, and licenses.
+- Confirm `DATA_LICENSE.md` is included in the packed package.
+- Publish with npm provenance when possible:
+
+```bash
+npm publish --provenance
+```
+
 - Tag the release after CI passes.
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
 
 ## Announcement
 

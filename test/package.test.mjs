@@ -27,6 +27,9 @@ test('npm package contains the supported public surface only', () => {
       'dist/catalog.json',
       'dist/index.json',
       'LICENSE',
+      'DATA_LICENSE.md',
+      'CHANGELOG.md',
+      'docs/API.md',
       'README.md',
       'README.zh-CN.md',
     ]) {
@@ -44,9 +47,11 @@ test('npm package contains the supported public surface only', () => {
 test('package defines the complete reproducible CI gate', () => {
   const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'))
 
+  assert.equal(pkg.scripts.test, 'node --test test/*.test.mjs')
+  assert.equal(pkg.scripts.typecheck, 'tsc --noEmit')
   assert.equal(pkg.scripts['build:check'], 'npm run build && git diff --exit-code -- dist')
   assert.equal(
     pkg.scripts.ci,
-    'npm test && npm run validate:catalog && npm run validate:schema && npm run check:fresh && npm run build:check && npm run pack:check',
+    'npm test && npm run typecheck && npm run validate:catalog && npm run validate:schema && npm run check:fresh && npm run build:check && npm run pack:check',
   )
 })

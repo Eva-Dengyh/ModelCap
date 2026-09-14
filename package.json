@@ -34,23 +34,27 @@
     "dist",
     "LICENSE",
     "DATA_LICENSE.md",
+    "CHANGELOG.md",
+    "docs/API.md",
     "README.md",
     "README.zh-CN.md"
   ],
   "scripts": {
-    "test": "node --test",
+    "test": "node --test test/*.test.mjs",
     "validate:catalog": "node skill/scripts/tools.mjs validate models/*.json",
     "validate:schema": "node skill/scripts/validate-schema.mjs models/*.json",
     "check:fresh": "node skill/scripts/check-fresh.mjs --max-days 180",
+    "typecheck": "tsc --noEmit",
     "build": "node skill/scripts/build-dist.mjs",
     "build:check": "npm run build && git diff --exit-code -- dist",
     "pack:check": "npm pack --dry-run --json",
     "audit:sources": "node skill/scripts/audit-sources.mjs",
-    "ci": "npm test && npm run validate:catalog && npm run validate:schema && npm run check:fresh && npm run build:check && npm run pack:check"
+    "ci": "npm test && npm run typecheck && npm run validate:catalog && npm run validate:schema && npm run check:fresh && npm run build:check && npm run pack:check"
   },
   "license": "MIT",
   "devDependencies": {
     "ajv": "^8.20.0",
-    "ajv-formats": "^3.0.1"
+    "ajv-formats": "^3.0.1",
+    "typescript": "^7.0.2"
   }
 }

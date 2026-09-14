@@ -1,6 +1,9 @@
 export type Task = 'generate' | 'edit' | 'extend'
 export type InputType = 'reference_video' | 'reference_image' | 'audio'
 export type Capability = 'lip-sync' | 'multi-shot' | 'camera-control'
+export type Resolution = '360p' | '480p' | '540p' | '720p' | '768p' | '1080p' | '2k' | '4k'
+export type RatioMode = 'inherit_from_reference_video' | 'client_choice'
+export type DurationMode = 'inherit_from_reference_video' | 'client_choice' | 'explicit'
 export type StandardError =
   | 'content_violation.real_person'
   | 'content_violation.safety'
@@ -29,12 +32,12 @@ export interface ModelEntry {
     audio?: boolean | null
     note?: string
   }>
-  readonly input_limits?: Readonly<Record<string, unknown>>
+  readonly input_limits?: InputLimits
   readonly rules?: Readonly<Record<
     string,
-    Readonly<Record<string, unknown>> | string | boolean
+    TaskRule | string | boolean
   >>
-  readonly output_limits?: Readonly<Record<string, unknown>> | null
+  readonly output_limits?: OutputLimits | null
   readonly pricing?: Readonly<{
     currency?: 'CNY' | 'USD'
     unit?: string
@@ -47,6 +50,84 @@ export interface ModelEntry {
     standard?: StandardError
     user_message?: string
   }> | string | boolean>>
+}
+
+export interface NumericRange {
+  readonly min?: number | null
+  readonly max?: number | null
+  readonly step?: number | null
+}
+
+export interface InputCountRange {
+  readonly min?: number | null
+  readonly max?: number | null
+}
+
+export interface MediaLimits {
+  readonly max_bytes?: number | null
+  readonly formats?: readonly string[] | null
+  readonly min_side_px?: number | null
+  readonly max_side_px?: number | null
+  readonly min_ratio?: number | null
+  readonly max_ratio?: number | null
+  readonly min_duration_seconds?: number | null
+  readonly max_duration_seconds?: number | null
+}
+
+export interface InputLimits {
+  readonly reference_videos?: InputCountRange
+  readonly max_reference_images?: number | null
+  readonly max_reference_videos?: number | null
+  readonly max_reference_audios?: number | null
+  readonly max_reference_materials?: number | null
+  readonly image?: MediaLimits
+  readonly video?: MediaLimits
+  readonly additional_prompt?: Readonly<{ max_chars?: number | null }>
+  readonly _missing?: boolean | readonly string[]
+  readonly note?: string
+  readonly [name: string]: unknown
+}
+
+export interface AudioRule {
+  readonly max_reference_audios?: number | null
+  readonly extra_charge?: boolean | null
+}
+
+export interface ConditionalRule {
+  readonly when: Readonly<{
+    readonly parameters?: Readonly<Record<string, readonly unknown[] | unknown>>
+    readonly inputs?: Readonly<Record<
+      'reference_images' | 'reference_videos' | 'reference_audios',
+      Readonly<{ min_count?: number | null; max_count?: number | null }>
+    >>
+  }>
+  readonly constraints: TaskRuleConstraints
+  readonly note?: string
+}
+
+export interface TaskRuleConstraints {
+  readonly duration_seconds?: NumericRange | -1 | null
+  readonly resolution?: readonly Resolution[] | null
+  readonly aspect_ratio?: readonly string[] | null
+  readonly ratio_mode?: RatioMode | null
+  readonly duration_mode?: DurationMode | null
+  readonly generate_audio?: boolean | null
+  readonly audio?: AudioRule
+  readonly max_total_video_duration_seconds?: number | null
+  readonly forbidden_parameters?: readonly string[]
+}
+
+export interface TaskRule extends TaskRuleConstraints {
+  readonly supported_parameters?: readonly string[]
+  readonly conditional_rules?: readonly ConditionalRule[]
+  readonly note?: string
+  readonly [name: string]: unknown
+}
+
+export interface OutputLimits {
+  readonly max_duration_seconds?: number | null
+  readonly aspect_ratio_mode?: 'inherit_from_reference_video' | 'client_choice' | null
+  readonly [name: string]: unknown
 }
 
 export interface ModelFilter {
