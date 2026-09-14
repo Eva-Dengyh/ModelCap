@@ -131,6 +131,18 @@ npm run ci               # complete deterministic pull-request gate
 npm run audit:sources    # live URL metadata and body hashes as JSON
 ```
 
+### CLI
+
+Use the command line interface to inspect the catalog or validate a request file:
+
+```bash
+node bin/modelcap.mjs list --task generate --input reference_image
+node bin/modelcap.mjs get wan-3.0
+node bin/modelcap.mjs validate wan-3.0 examples/request-invalid.json
+```
+
+When installed as a package, the binary is available as `modelcap`. See [docs/CLI.md](docs/CLI.md).
+
 Source-audit HTTP changes and hashes are review signals, not proof that model facts changed. The audit never edits model JSON or advances `fetched_at`; the scheduled workflow uploads its report as an artifact for human review. `build-history.mjs` continues to generate the `update-history.json` data-change audit.
 
 **Add a new model**: see [CONTRIBUTING.md](CONTRIBUTING.md) and [skill/SKILL.md](skill/SKILL.md) — use official provider documentation, write JSON per the schema, then validate and render with `skill/scripts/tools.mjs`.

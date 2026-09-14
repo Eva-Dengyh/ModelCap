@@ -27,15 +27,19 @@ test('npm package contains the supported public surface only', () => {
       'dist/catalog.json',
       'dist/index.json',
       'src/model-ids.d.ts',
+      'bin/modelcap.mjs',
       'LICENSE',
       'DATA_LICENSE.md',
       'CHANGELOG.md',
       'docs/API.md',
+      'docs/CLI.md',
       'docs/VERSIONING.md',
       'examples/filter-models.mjs',
       'examples/validate-request.mjs',
       'examples/normalize-error.mjs',
       'examples/typescript-consumer.ts',
+      'examples/request-invalid.json',
+      'examples/request-valid.json',
       'README.md',
       'README.zh-CN.md',
     ]) {
@@ -55,7 +59,7 @@ test('package defines the complete reproducible CI gate', () => {
 
   assert.equal(pkg.scripts.test, 'node --test test/*.test.mjs')
   assert.equal(pkg.scripts.typecheck, 'tsc --noEmit')
-  assert.equal(pkg.scripts['examples:check'], 'node examples/filter-models.mjs && node examples/validate-request.mjs && node examples/normalize-error.mjs')
+  assert.equal(pkg.scripts['examples:check'], 'node examples/filter-models.mjs && node examples/validate-request.mjs && node examples/normalize-error.mjs && node bin/modelcap.mjs list --task generate --input reference_image && node bin/modelcap.mjs get wan-3.0 && node bin/modelcap.mjs validate wan-3.0 examples/request-valid.json')
   assert.equal(pkg.scripts['build:check'], 'npm run build && git diff --exit-code -- dist src/model-ids.d.ts')
   assert.equal(
     pkg.scripts.ci,

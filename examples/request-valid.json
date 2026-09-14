@@ -1,0 +1,7 @@
+{
+  "task": "generate",
+  "parameters": {
+    "duration": 5,
+    "resolution": "1080p"
+  }
+}

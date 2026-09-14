@@ -177,6 +177,8 @@ node examples/validate-request.mjs
 node examples/normalize-error.mjs
 ```
 
+For command-line usage, see [CLI.md](CLI.md).
+
 ## Catalog Data
 
 The same data is also available through JSON exports:

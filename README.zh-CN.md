@@ -131,6 +131,18 @@ npm run ci               # 完整、确定性的 PR 门禁
 npm run audit:sources    # 输出实时 URL 元数据与正文哈希
 ```
 
+### CLI
+
+可以用命令行直接查目录或校验请求文件：
+
+```bash
+node bin/modelcap.mjs list --task generate --input reference_image
+node bin/modelcap.mjs get wan-3.0
+node bin/modelcap.mjs validate wan-3.0 examples/request-invalid.json
+```
+
+作为 npm 包安装后，可直接使用 `modelcap` 命令。详见 [docs/CLI.md](docs/CLI.md)。
+
 来源巡检得到的 HTTP 变化和哈希只是人工复核信号，不代表模型事实一定变化。巡检不会修改模型 JSON，也不会推进 `fetched_at`；定时工作流只把报告上传为附件。`build-history.mjs` 继续生成 `update-history.json` 数据变更审计。
 
 **录入新模型**：见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [skill/SKILL.md](skill/SKILL.md)——使用官方文档、按 schema 写 JSON、`skill/scripts/tools.mjs` 校验并渲染。

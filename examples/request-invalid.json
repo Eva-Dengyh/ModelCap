@@ -1,0 +1,15 @@
+{
+  "task": "generate",
+  "parameters": {
+    "duration": 12,
+    "resolution": "1080p"
+  },
+  "inputs": {
+    "reference_videos": [
+      {
+        "duration_seconds": 20,
+        "format": "mp4"
+      }
+    ]
+  }
+}
