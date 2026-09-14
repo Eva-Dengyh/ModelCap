@@ -1,0 +1,31 @@
+name: Source change
+description: Report a provider documentation, redirect, or pricing source change.
+title: "[Source]: "
+labels:
+  - source-audit
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Source URL
+      placeholder: https://example.com/docs/model
+    validations:
+      required: true
+  - type: input
+    id: model_ids
+    attributes:
+      label: Affected model IDs
+      description: Comma-separated model IDs if known.
+      placeholder: wan-3.0, wan-2-7
+  - type: textarea
+    id: observed_change
+    attributes:
+      label: What changed?
+      description: Include status codes, redirects, text changes, or pricing updates.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Paste a short excerpt or audit output summary. Do not include secrets.

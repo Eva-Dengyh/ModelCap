@@ -2,9 +2,11 @@
 
 [English](README.md) · [中文](README.zh-CN.md)
 
-机器可读的 AI 模型能力知识库——**一个模型版本一个 JSON 条目**，把参数约束、任务差异、错误码归因、定价固化下来，供程序直接 import 校验，也给人看渲染后的 markdown。
+面向 AI 视频模型的机器可读能力目录和保守请求校验器——**一个模型版本一个 JSON 条目**，把参数约束、任务差异、错误码归因、定价固化下来，供程序直接 import 校验，也给人看渲染后的 markdown。
 
 > 为什么做：每接一个模型就要重新踩一遍"参数取错、约束过期、错误码看不懂"的坑。这里把踩过的认知沉淀成结构化数据，后人不再踩。
+
+ModelCap 面向做模型路由、AI 视频工具、Provider SDK 封装、产品表单校验的开发者。它不是质量排行榜，也不声称判断哪个模型“最好”。
 
 ## 结构
 
@@ -127,7 +129,7 @@ npm run audit:sources    # 输出实时 URL 元数据与正文哈希
 
 来源巡检得到的 HTTP 变化和哈希只是人工复核信号，不代表模型事实一定变化。巡检不会修改模型 JSON，也不会推进 `fetched_at`；定时工作流只把报告上传为附件。`build-history.mjs` 继续生成 `update-history.json` 数据变更审计。
 
-**录入新模型**：见 [skill/SKILL.md](skill/SKILL.md)——用 AI 打开官方文档、按 schema 写 JSON、`skill/scripts/tools.mjs` 校验并渲染。
+**录入新模型**：见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [skill/SKILL.md](skill/SKILL.md)——使用官方文档、按 schema 写 JSON、`skill/scripts/tools.mjs` 校验并渲染。
 
 ## 能力分类
 
@@ -157,4 +159,4 @@ npm run audit:sources    # 输出实时 URL 元数据与正文哈希
 
 ## 协议
 
-代码与工具 MIT；模型条目数据 CC BY 4.0（详见 [LICENSE](LICENSE)）。
+代码与工具 MIT（详见 [LICENSE](LICENSE)）；模型条目数据 CC BY 4.0（详见 [DATA_LICENSE.md](DATA_LICENSE.md)）。

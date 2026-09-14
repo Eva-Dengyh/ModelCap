@@ -3,6 +3,21 @@
   "version": "0.1.0",
   "description": "Machine-readable video model capabilities and conservative request validation",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eva-Dengyh/ModelCap.git"
+  },
+  "homepage": "https://github.com/Eva-Dengyh/ModelCap#readme",
+  "bugs": {
+    "url": "https://github.com/Eva-Dengyh/ModelCap/issues"
+  },
+  "keywords": [
+    "ai-video",
+    "model-catalog",
+    "capability-catalog",
+    "request-validation",
+    "video-generation"
+  ],
   "engines": {
     "node": ">=20"
   },
@@ -18,6 +33,7 @@
     "src",
     "dist",
     "LICENSE",
+    "DATA_LICENSE.md",
     "README.md",
     "README.zh-CN.md"
   ],

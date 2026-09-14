@@ -2,9 +2,11 @@
 
 [English](README.md) · [中文](README.zh-CN.md)
 
-A machine-readable knowledge base of AI model capabilities — **one JSON entry per model version**, capturing parameter constraints, task differences, error-code attribution, and pricing for direct import and validation by programs, plus human-readable rendered markdown.
+A machine-readable capability catalog and conservative request validator for AI video models — **one JSON entry per model version**, capturing parameter constraints, task differences, error-code attribution, and pricing for direct import by programs, plus human-readable rendered markdown.
 
 > Why: every time you integrate a model you re-trip over the same pitfalls — wrong parameters, stale constraints, unreadable error codes. This repo turns that accumulated knowledge into structured data so no one has to relearn it.
+
+ModelCap is for developers building model routers, AI video tools, provider SDK wrappers, or internal product forms. It is not a quality ranking system and does not claim to measure which model is "best."
 
 ## Structure
 
@@ -127,7 +129,7 @@ npm run audit:sources    # live URL metadata and body hashes as JSON
 
 Source-audit HTTP changes and hashes are review signals, not proof that model facts changed. The audit never edits model JSON or advances `fetched_at`; the scheduled workflow uploads its report as an artifact for human review. `build-history.mjs` continues to generate the `update-history.json` data-change audit.
 
-**Add a new model**: see [skill/SKILL.md](skill/SKILL.md) — open official docs with AI, write JSON per the schema, then validate and render with `skill/scripts/tools.mjs`.
+**Add a new model**: see [CONTRIBUTING.md](CONTRIBUTING.md) and [skill/SKILL.md](skill/SKILL.md) — use official provider documentation, write JSON per the schema, then validate and render with `skill/scripts/tools.mjs`.
 
 ## Capability dimensions
 
@@ -157,4 +159,4 @@ To add or fix a model entry, follow [skill/SKILL.md](skill/SKILL.md); output goe
 
 ## License
 
-Code and tooling MIT; model entry data CC BY 4.0 (see [LICENSE](LICENSE)).
+Code and tooling are MIT (see [LICENSE](LICENSE)). Model entry data is CC BY 4.0 (see [DATA_LICENSE.md](DATA_LICENSE.md)).
