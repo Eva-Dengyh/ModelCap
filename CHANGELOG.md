@@ -27,6 +27,7 @@ Initial public SDK-ready release.
 - JSON Schema validation, catalog validation, source freshness checks, build checks, type checks, and package dry-run checks.
 - Runnable JavaScript examples and TypeScript consumer examples.
 - `modelcap` CLI with `list`, `get`, and `validate` commands.
+- Release readiness checks that align package version, changelog entries, CLI packaging, and release documentation.
 - Open-source contribution, security, data license, and issue-template documentation.
 
 ### Policy

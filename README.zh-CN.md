@@ -128,6 +128,7 @@ npm run validate:catalog # 目录领域规则校验
 npm run validate:schema  # 完整 Draft 2020-12 Schema 校验
 npm run build:check      # 生成物与模型 JSON 一致
 npm run ci               # 完整、确定性的 PR 门禁
+npm run release:check    # 发布前完整门禁 + 发布元信息检查
 npm run audit:sources    # 输出实时 URL 元数据与正文哈希
 ```
 
@@ -146,6 +147,8 @@ node bin/modelcap.mjs validate wan-3.0 examples/request-invalid.json
 来源巡检得到的 HTTP 变化和哈希只是人工复核信号，不代表模型事实一定变化。巡检不会修改模型 JSON，也不会推进 `fetched_at`；定时工作流只把报告上传为附件。`build-history.mjs` 继续生成 `update-history.json` 数据变更审计。
 
 **录入新模型**：见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [skill/SKILL.md](skill/SKILL.md)——使用官方文档、按 schema 写 JSON、`skill/scripts/tools.mjs` 校验并渲染。
+
+**正式发布**：见 [docs/RELEASE.md](docs/RELEASE.md)。发布门禁会在 npm 发布或打 tag 前检查 CI、打包内容、CLI 是否入包，以及 package 版本是否和 CHANGELOG 对齐。
 
 ## 能力分类
 

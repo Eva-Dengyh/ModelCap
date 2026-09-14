@@ -33,6 +33,7 @@ test('npm package contains the supported public surface only', () => {
       'CHANGELOG.md',
       'docs/API.md',
       'docs/CLI.md',
+      'docs/RELEASE.md',
       'docs/VERSIONING.md',
       'examples/filter-models.mjs',
       'examples/validate-request.mjs',
@@ -61,8 +62,16 @@ test('package defines the complete reproducible CI gate', () => {
   assert.equal(pkg.scripts.typecheck, 'tsc --noEmit')
   assert.equal(pkg.scripts['examples:check'], 'node examples/filter-models.mjs && node examples/validate-request.mjs && node examples/normalize-error.mjs && node bin/modelcap.mjs list --task generate --input reference_image && node bin/modelcap.mjs get wan-3.0 && node bin/modelcap.mjs validate wan-3.0 examples/request-valid.json')
   assert.equal(pkg.scripts['build:check'], 'npm run build && git diff --exit-code -- dist src/model-ids.d.ts')
+  assert.equal(pkg.scripts['release:check'], 'npm run ci && node skill/scripts/check-release.mjs')
   assert.equal(
     pkg.scripts.ci,
     'npm test && npm run typecheck && npm run examples:check && npm run validate:catalog && npm run validate:schema && npm run check:fresh && npm run build:check && npm run pack:check',
   )
+})
+
+test('package version has a matching changelog release section', () => {
+  const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'))
+  const changelog = readFileSync(new URL('../CHANGELOG.md', import.meta.url), 'utf8')
+
+  assert.match(changelog, new RegExp(`^## ${pkg.version} - \\d{4}-\\d{2}-\\d{2}$`, 'm'))
 })

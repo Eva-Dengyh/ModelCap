@@ -128,6 +128,7 @@ npm run validate:catalog # domain-specific catalog checks
 npm run validate:schema  # full Draft 2020-12 schema checks
 npm run build:check      # generated artifacts match model JSON
 npm run ci               # complete deterministic pull-request gate
+npm run release:check    # full pre-release gate plus release metadata checks
 npm run audit:sources    # live URL metadata and body hashes as JSON
 ```
 
@@ -146,6 +147,8 @@ When installed as a package, the binary is available as `modelcap`. See [docs/CL
 Source-audit HTTP changes and hashes are review signals, not proof that model facts changed. The audit never edits model JSON or advances `fetched_at`; the scheduled workflow uploads its report as an artifact for human review. `build-history.mjs` continues to generate the `update-history.json` data-change audit.
 
 **Add a new model**: see [CONTRIBUTING.md](CONTRIBUTING.md) and [skill/SKILL.md](skill/SKILL.md) — use official provider documentation, write JSON per the schema, then validate and render with `skill/scripts/tools.mjs`.
+
+**Cut a release**: see [docs/RELEASE.md](docs/RELEASE.md). The release gate checks CI, package contents, CLI inclusion, and package-version-to-changelog alignment before npm publishing or tagging.
 
 ## Capability dimensions
 

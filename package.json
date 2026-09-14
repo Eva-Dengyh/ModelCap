@@ -41,6 +41,7 @@
     "CHANGELOG.md",
     "docs/API.md",
     "docs/CLI.md",
+    "docs/RELEASE.md",
     "docs/VERSIONING.md",
     "examples",
     "README.md",
@@ -56,6 +57,7 @@
     "build": "node skill/scripts/build-dist.mjs",
     "build:check": "npm run build && git diff --exit-code -- dist src/model-ids.d.ts",
     "pack:check": "npm pack --dry-run --json",
+    "release:check": "npm run ci && node skill/scripts/check-release.mjs",
     "audit:sources": "node skill/scripts/audit-sources.mjs",
     "ci": "npm test && npm run typecheck && npm run examples:check && npm run validate:catalog && npm run validate:schema && npm run check:fresh && npm run build:check && npm run pack:check"
   },
