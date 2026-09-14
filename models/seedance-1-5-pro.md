@@ -34,7 +34,7 @@
 | 参考音频上限 | 0 |
 | 音频额外计费 | 是 |
 
-> 支持参数：aspect_ratio、duration、generate_audio、reference_audio、resolution
+> 支持参数：aspect_ratio、camera_fixed、duration、generate_audio、reference_audio、resolution
 
 > 备注：时长 [4,12] 或 -1（智能选择），默认 720p（480p/720p/1080p），ratio 默认 adaptive。图生：首帧 1 图 / 首尾帧 2 图；指定 ratio 与图片不一致时居中裁剪，尾帧与首帧比例不一致时以首帧为主自动裁剪尾帧。camera_fixed 仅文生场景支持（参考图场景不支持）；seed ∈ [-1, 2^31-1]。prompt 建议长度：中文 ≤500 字 / 英文 ≤1000 词（官方为建议非硬上限）。有声/无声分档计费（非 2.x 的同价）。输出无 4K/mov。
 

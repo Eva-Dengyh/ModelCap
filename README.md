@@ -148,6 +148,7 @@ Each model entry describes capabilities along four dimensions:
 - Different versions in the same series (2.0 vs 2.5) often differ in parameters; keep separate entries.
 - Third-party leaderboard ranks, scores, sample counts, and leaderboard prices are not stored.
 - `rules.{task}.supported_parameters` lists the parameter names that task accepts (e.g. duration/resolution/generate_audio) for quick client-side feature detection.
+- `rules.{task}.conditional_rules` stores documented context-specific constraints, such as 1080p-only duration limits or video-input total-duration caps.
 - `pricing.observed_at` / `pricing.source` record when and where the price was seen — prices change, trust them.
 
 ## Contributing

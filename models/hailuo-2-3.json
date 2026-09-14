@@ -51,6 +51,24 @@
         "1080p"
       ],
       "generate_audio": false,
+      "conditional_rules": [
+        {
+          "when": {
+            "parameters": {
+              "resolution": [
+                "1080p"
+              ]
+            }
+          },
+          "constraints": {
+            "duration_seconds": {
+              "min": 6,
+              "max": 6
+            }
+          },
+          "note": "1080P output is only documented for 6s."
+        }
+      ],
       "note": "时长/分辨率档位耦合（原文表）：MiniMax-Hailuo-2.3 在 768P 下时长可选 6 或 10 秒、1080P 下仅 6 秒；分辨率 6s 档默认 768P（可改 1080P），10s 档仅 768P。prompt 上限 2000 字符。API 不暴露画面比例参数（无 aspect_ratio），比例由输出档位决定，非客户端可选。prompt_optimizer 默认 true，fast_pretreatment 默认 false（仅 Hailuo-2.3 与 Hailuo-02 生效）。I2V 首帧图要求 JPG/JPEG/PNG/WebP、<20MB、短边 >300px、宽高比 2:5~5:2。成片 24fps（models-intro 规格表）。",
       "supported_parameters": [
         "duration",

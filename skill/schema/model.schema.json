@@ -167,6 +167,100 @@
               "extra_charge": { "type": ["boolean", "null"] }
             }
           },
+          "max_total_video_duration_seconds": {
+            "type": ["number", "null"],
+            "description": "参考视频总时长 + 输出时长的硬上限。通常放在 conditional_rules 中，只在特定输入存在时生效。"
+          },
+          "forbidden_parameters": {
+            "type": "array",
+            "description": "该上下文明确禁止传入的参数名。通常放在 conditional_rules 中，表示某参数只在部分场景可用。",
+            "items": { "type": "string" }
+          },
+          "conditional_rules": {
+            "type": "array",
+            "description": "条件化硬约束。when 命中后，把 constraints 叠加到该任务的基础规则上；只录入官方明确写出的条件。",
+            "items": {
+              "type": "object",
+              "required": ["when", "constraints"],
+              "properties": {
+                "when": {
+                  "type": "object",
+                  "properties": {
+                    "parameters": {
+                      "type": "object",
+                      "description": "参数取值条件；数组表示任一值命中，标量表示精确匹配。",
+                      "additionalProperties": {
+                        "oneOf": [
+                          { "type": "array", "items": { "type": ["string", "number", "boolean", "null"] } },
+                          { "type": ["string", "number", "boolean", "null"] }
+                        ]
+                      }
+                    },
+                    "inputs": {
+                      "type": "object",
+                      "description": "输入素材数量条件。",
+                      "properties": {
+                        "reference_images": {
+                          "type": "object",
+                          "properties": {
+                            "min_count": { "type": ["integer", "null"] },
+                            "max_count": { "type": ["integer", "null"] }
+                          }
+                        },
+                        "reference_videos": {
+                          "type": "object",
+                          "properties": {
+                            "min_count": { "type": ["integer", "null"] },
+                            "max_count": { "type": ["integer", "null"] }
+                          }
+                        },
+                        "reference_audios": {
+                          "type": "object",
+                          "properties": {
+                            "min_count": { "type": ["integer", "null"] },
+                            "max_count": { "type": ["integer", "null"] }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "constraints": {
+                  "type": "object",
+                  "properties": {
+                    "duration_seconds": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "min": { "type": ["number", "null"] },
+                            "max": { "type": ["number", "null"] },
+                            "step": { "type": ["number", "null"] }
+                          }
+                        },
+                        {
+                          "const": -1,
+                          "description": "固定 -1 = 由服务端决定，客户端禁止自定义。"
+                        },
+                        { "type": "null", "description": "官方未给出该条件下的时长约束。" }
+                      ]
+                    },
+                    "resolution": { "type": ["array", "null"], "items": { "enum": ["360p", "480p", "540p", "720p", "768p", "1080p", "2k", "4k"] } },
+                    "aspect_ratio": { "type": ["array", "null"], "items": { "type": "string", "pattern": "^\\d+:\\d+$|^adaptive$" } },
+                    "ratio_mode": { "enum": ["inherit_from_reference_video", "client_choice", null] },
+                    "duration_mode": { "enum": ["inherit_from_reference_video", "client_choice", "explicit", null] },
+                    "generate_audio": { "type": ["boolean", "null"] },
+                    "max_total_video_duration_seconds": { "type": ["number", "null"] },
+                    "forbidden_parameters": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  }
+                },
+                "note": { "type": "string" }
+              }
+            }
+          },
           "note": { "type": "string" }
         }
       }

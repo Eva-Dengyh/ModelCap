@@ -73,6 +73,24 @@
       "ratio_mode": "client_choice",
       "duration_mode": "client_choice",
       "generate_audio": true,
+      "conditional_rules": [
+        {
+          "when": {
+            "inputs": {
+              "reference_videos": {
+                "min_count": 1
+              }
+            }
+          },
+          "constraints": {
+            "duration_seconds": {
+              "min": 2,
+              "max": 10
+            }
+          },
+          "note": "R2V requests with reference video input are documented as 2-10s."
+        }
+      ],
       "note": "各子任务差异：t2v 时长 [2,15] 默认 5；i2v（首帧/首尾帧）同样 [2,15] 默认 5，但无 ratio 参数、输出比例尽量与首帧/首段视频一致；r2v 含参考视频时时长 [2,10]、不含 [2,15]（默认 5），参考图+参考视频合计 ≤5 且至少 1 个，首帧图最多 1 张，含首帧图时忽略 ratio。i2v 首帧图仅支持单一角色；多镜头靠 prompt，无 shot_type。图片格式 JPEG/JPG/PNG(不支持透明)/BMP/WEBP、≤20MB、单边 240~8000px、比例 1:8~8:1；音频 wav/mp3、2~30s、≤15MB；negative_prompt ≤500 字。",
       "supported_parameters": [
         "aspect_ratio",

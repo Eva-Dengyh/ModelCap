@@ -53,6 +53,24 @@
         "1080p"
       ],
       "generate_audio": false,
+      "conditional_rules": [
+        {
+          "when": {
+            "parameters": {
+              "resolution": [
+                "1080p"
+              ]
+            }
+          },
+          "constraints": {
+            "duration_seconds": {
+              "min": 6,
+              "max": 6
+            }
+          },
+          "note": "1080P output is only documented for 6s."
+        }
+      ],
       "note": "时长/分辨率按任务与档位耦合：t2v 768P(默认) 可选 6/10s、1080P 仅 6s（720P 不支持）；i2v 额外支持 512P 且 512P/768P 可 6/10s、1080P 仅 6s（512P 未在 schema 分辨率枚举中，未录入）；fl2v 同 t2v 且不支持 512P。默认 6s。prompt_optimizer 默认 true；fast_pretreatment 默认 false（仅对 Hailuo-2.3 与 Hailuo-02 生效）。fps 官方未公开。prompt ≤2000 字符。",
       "supported_parameters": [
         "duration",

@@ -111,6 +111,74 @@ test('accepts a request satisfying every documented parameter constraint', () =>
   assert.deepEqual(result, { valid: true, errors: [], warnings: [] })
 })
 
+test('rejects duration using a matching conditional parameter rule', () => {
+  const conditional = structuredClone(model)
+  conditional.rules.generate.duration_seconds = { min: 2, max: 30 }
+  conditional.rules.generate.conditional_rules = [{
+    when: { parameters: { resolution: ['1080p'] } },
+    constraints: { duration_seconds: { min: 6, max: 6 } },
+    note: '1080p output is documented as 6s only.',
+  }]
+  conditional.rules.generate.resolution = ['720p', '1080p']
+
+  const rejected = validateModelRequest(conditional, {
+    task: 'generate',
+    parameters: { resolution: '1080p', duration: 10 },
+  })
+  const accepted = validateModelRequest(conditional, {
+    task: 'generate',
+    parameters: { resolution: '720p', duration: 8 },
+  })
+
+  assert.deepEqual(codes(rejected.errors), ['DURATION_OUT_OF_RANGE'])
+  assert.equal(accepted.valid, true)
+})
+
+test('rejects total input and output video duration from a conditional input rule', () => {
+  const conditional = structuredClone(model)
+  conditional.rules.generate.duration_seconds = { min: 2, max: 30 }
+  conditional.input_limits.video.max_duration_seconds = 30
+  conditional.rules.generate.conditional_rules = [{
+    when: { inputs: { reference_videos: { min_count: 1 } } },
+    constraints: { max_total_video_duration_seconds: 30 },
+    note: 'when a reference video is supplied, input video duration plus output duration must fit the cap.',
+  }]
+
+  const result = validateModelRequest(conditional, {
+    task: 'generate',
+    parameters: { duration: 12 },
+    inputs: { reference_videos: [{ duration_seconds: 20, format: 'mp4' }] },
+  })
+
+  assert.deepEqual(codes(result.errors), ['TOTAL_VIDEO_DURATION_EXCEEDED'])
+})
+
+test('rejects a parameter forbidden by a matching conditional input rule', () => {
+  const conditional = structuredClone(model)
+  conditional.rules.generate.supported_parameters = [
+    ...conditional.rules.generate.supported_parameters,
+    'camera_fixed',
+  ]
+  conditional.rules.generate.conditional_rules = [{
+    when: { inputs: { reference_images: { min_count: 1 } } },
+    constraints: { forbidden_parameters: ['camera_fixed'] },
+    note: 'camera_fixed is not available for image-conditioned generation.',
+  }]
+
+  const rejected = validateModelRequest(conditional, {
+    task: 'generate',
+    parameters: { camera_fixed: true },
+    inputs: { reference_images: [{ bytes: 900, format: 'png', width: 512, height: 512 }] },
+  })
+  const accepted = validateModelRequest(conditional, {
+    task: 'generate',
+    parameters: { camera_fixed: true },
+  })
+
+  assert.deepEqual(codes(rejected.errors), ['PARAMETER_NOT_ALLOWED_IN_CONTEXT'])
+  assert.equal(accepted.valid, true)
+})
+
 test('reports unknown constraints as warnings instead of hard failures', () => {
   const unknowns = structuredClone(model)
   unknowns.rules.generate.duration_seconds = null

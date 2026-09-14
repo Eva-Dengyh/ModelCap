@@ -148,6 +148,7 @@ npm run audit:sources    # 输出实时 URL 元数据与正文哈希
 - 同系列不同版本（2.0 vs 2.5）参数往往不同，各自独立条目。
 - 不收录第三方榜单排名、分数、样本量或榜单价格。
 - `rules.{task}.supported_parameters` 列出该任务支持的参数名（如 duration/resolution/generate_audio），供客户端快速判断可传哪些参数。
+- `rules.{task}.conditional_rules` 记录官方明确写出的上下文限制，例如 1080p 只支持某个时长，或有参考视频时输入+输出总时长封顶。
 - `pricing.observed_at` / `pricing.source` 记录价格快照日期与来源——价格会变，以它们为准。
 
 ## 贡献

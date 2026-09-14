@@ -22,6 +22,87 @@ function warnUnknown(warnings, path, message) {
   warnings.push(issue('CONSTRAINT_UNKNOWN', path, message))
 }
 
+function inputCount(inputs, name) {
+  const values = inputs?.[name]
+  return Array.isArray(values) ? values.length : 0
+}
+
+function matchesConditionalRule(conditional, parameters, inputs) {
+  const when = conditional?.when ?? {}
+  const parameterConditions = when.parameters ?? {}
+  for (const [name, expected] of Object.entries(parameterConditions)) {
+    if (!isPresent(parameters, name)) return false
+    const actual = parameters[name]
+    if (Array.isArray(expected)) {
+      if (!expected.includes(actual)) return false
+    } else if (actual !== expected) {
+      return false
+    }
+  }
+
+  const inputConditions = when.inputs ?? {}
+  for (const [name, range] of Object.entries(inputConditions)) {
+    const count = inputCount(inputs, name)
+    if (range?.min_count != null && count < range.min_count) return false
+    if (range?.max_count != null && count > range.max_count) return false
+  }
+
+  return true
+}
+
+function mergeRule(baseRule, conditionalRules, parameters, inputs) {
+  if (!baseRule) return baseRule
+  let effective = baseRule
+  for (const conditional of conditionalRules ?? []) {
+    if (!matchesConditionalRule(conditional, parameters, inputs)) continue
+    effective = {
+      ...effective,
+      ...(conditional.constraints ?? {}),
+      conditional_rules: effective.conditional_rules,
+    }
+  }
+  return effective
+}
+
+function validateTotalVideoDuration(rule, parameters, inputs, errors, warnings) {
+  const max = rule?.max_total_video_duration_seconds
+  if (max == null) return
+  if (!isPresent(parameters, 'duration')) {
+    warnUnknown(
+      warnings,
+      '$.parameters.duration',
+      'duration is required to validate total video duration',
+    )
+    return
+  }
+  if (!Number.isFinite(parameters.duration)) return
+
+  let total = parameters.duration
+  for (let index = 0; index < inputs.reference_videos.length; index += 1) {
+    const duration = inputs.reference_videos[index]?.duration_seconds
+    if (duration == null) {
+      warnUnknown(
+        warnings,
+        `$.inputs.reference_videos[${index}].duration_seconds`,
+        'reference video duration is required to validate total video duration',
+      )
+      return
+    }
+    if (!Number.isFinite(duration)) return
+    total += duration
+  }
+
+  if (total > max) {
+    errors.push(issue(
+      'TOTAL_VIDEO_DURATION_EXCEEDED',
+      '$',
+      'input video duration plus output duration exceeds the documented maximum',
+      max,
+      total,
+    ))
+  }
+}
+
 function validateInputCounts(limits, inputs, errors, hasReferenceVideos) {
   const images = inputs.reference_images
   const videos = inputs.reference_videos
@@ -364,7 +445,7 @@ export function validateModelRequest(model, request) {
     return finish()
   }
 
-  const rule = model.rules?.[task]
+  const baseRule = model.rules?.[task]
   let parameters = {}
   if (isPresent(request, 'parameters')) {
     if (!request.parameters || typeof request.parameters !== 'object' || Array.isArray(request.parameters)) {
@@ -380,7 +461,51 @@ export function validateModelRequest(model, request) {
     }
   }
 
-  if (!rule) {
+  const hasInputs = isPresent(request, 'inputs')
+  const inputs = hasInputs ? request.inputs : {}
+  let safeInputs = {
+    reference_images: [],
+    reference_videos: [],
+    reference_audios: [],
+  }
+  let canValidateInputs = false
+  if (!inputs || typeof inputs !== 'object' || Array.isArray(inputs)) {
+    errors.push(issue(
+      'INVALID_PARAMETER_TYPE',
+      '$.inputs',
+      'inputs must be an object',
+      'object',
+      inputs,
+    ))
+  } else {
+    canValidateInputs = true
+    for (const name of ['reference_images', 'reference_videos', 'reference_audios']) {
+      if (isPresent(inputs, name) && !Array.isArray(inputs[name])) {
+        errors.push(issue(
+          'INVALID_PARAMETER_TYPE',
+          `$.inputs.${name}`,
+          `${name} must be an array`,
+          'array',
+          inputs[name],
+        ))
+      }
+    }
+
+    safeInputs = {
+      reference_images: Array.isArray(inputs.reference_images) ? inputs.reference_images : [],
+      reference_videos: Array.isArray(inputs.reference_videos) ? inputs.reference_videos : [],
+      reference_audios: Array.isArray(inputs.reference_audios) ? inputs.reference_audios : [],
+    }
+  }
+
+  const rule = mergeRule(
+    baseRule,
+    baseRule?.conditional_rules,
+    parameters,
+    safeInputs,
+  )
+
+  if (!baseRule) {
     warnings.push(issue(
       'CONSTRAINT_UNKNOWN',
       '$.parameters',
@@ -389,6 +514,9 @@ export function validateModelRequest(model, request) {
   }
 
   const supported = rule?.supported_parameters
+  const forbidden = Array.isArray(rule?.forbidden_parameters)
+    ? rule.forbidden_parameters
+    : []
   for (const name of Object.keys(parameters)) {
     if (Array.isArray(supported) && !supported.includes(name)) {
       errors.push(issue(
@@ -403,6 +531,15 @@ export function validateModelRequest(model, request) {
         'PARAMETER_SUPPORT_UNKNOWN',
         `$.parameters.${name}`,
         'supported parameter list is not documented',
+      ))
+    }
+    if (forbidden.includes(name)) {
+      errors.push(issue(
+        'PARAMETER_NOT_ALLOWED_IN_CONTEXT',
+        `$.parameters.${name}`,
+        'parameter is not allowed in this documented request context',
+        'omit parameter',
+        name,
       ))
     }
   }
@@ -514,34 +651,7 @@ export function validateModelRequest(model, request) {
     ))
   }
 
-  const hasInputs = isPresent(request, 'inputs')
-  const inputs = hasInputs ? request.inputs : {}
-  if (!inputs || typeof inputs !== 'object' || Array.isArray(inputs)) {
-    errors.push(issue(
-      'INVALID_PARAMETER_TYPE',
-      '$.inputs',
-      'inputs must be an object',
-      'object',
-      inputs,
-    ))
-  } else {
-    for (const name of ['reference_images', 'reference_videos', 'reference_audios']) {
-      if (isPresent(inputs, name) && !Array.isArray(inputs[name])) {
-        errors.push(issue(
-          'INVALID_PARAMETER_TYPE',
-          `$.inputs.${name}`,
-          `${name} must be an array`,
-          'array',
-          inputs[name],
-        ))
-      }
-    }
-
-    const safeInputs = {
-      reference_images: Array.isArray(inputs.reference_images) ? inputs.reference_images : [],
-      reference_videos: Array.isArray(inputs.reference_videos) ? inputs.reference_videos : [],
-      reference_audios: Array.isArray(inputs.reference_audios) ? inputs.reference_audios : [],
-    }
+  if (canValidateInputs) {
     const limits = model.input_limits ?? {}
     validateInputCounts(
       limits,
@@ -551,6 +661,7 @@ export function validateModelRequest(model, request) {
     )
     validateImages(limits, safeInputs.reference_images, errors, warnings)
     validateVideos(limits, safeInputs.reference_videos, errors, warnings)
+    validateTotalVideoDuration(rule, parameters, safeInputs, errors, warnings)
   }
   validatePrompt(model.input_limits ?? {}, request.additional_prompt, errors, warnings)
 
