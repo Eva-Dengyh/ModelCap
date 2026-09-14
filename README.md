@@ -123,6 +123,7 @@ Unified artifacts are available as `dist/catalog.json`, `dist/index.json`, and `
 ```bash
 npm test                 # SDK and tooling behavior
 npm run typecheck        # TypeScript public type consumption
+npm run examples:check   # runnable SDK examples
 npm run validate:catalog # domain-specific catalog checks
 npm run validate:schema  # full Draft 2020-12 schema checks
 npm run build:check      # generated artifacts match model JSON
@@ -155,6 +156,7 @@ Each model entry describes capabilities along four dimensions:
 - `rules.{task}.supported_parameters` lists the parameter names that task accepts (e.g. duration/resolution/generate_audio) for quick client-side feature detection.
 - `rules.{task}.conditional_rules` stores documented context-specific constraints, such as 1080p-only duration limits or video-input total-duration caps.
 - `pricing.observed_at` / `pricing.source` record when and where the price was seen — prices change, trust them.
+- SDK compatibility and catalog-data compatibility are described in [docs/VERSIONING.md](docs/VERSIONING.md).
 
 ## Contributing
 

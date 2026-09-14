@@ -4,6 +4,7 @@ import {
   normalizeError,
   validateRequest,
   type ConditionalRule,
+  type ModelId,
   type ModelEntry,
   type TaskRule,
   type ValidationIssue,
@@ -13,6 +14,10 @@ const imageModels: ModelEntry[] = listModels({
   task: 'generate',
   input: 'reference_image',
 })
+
+const modelId: ModelId = 'wan-3.0'
+// @ts-expect-error misspelled model IDs should not satisfy the generated ModelId union.
+const invalidModelId: ModelId = 'wan-999'
 
 const wan = getModel('wan-3.0')
 
@@ -39,4 +44,4 @@ const result = validateRequest('wan-3.0', {
 const issue: ValidationIssue | undefined = result.errors[0]
 const normalized = normalizeError('wan-3.0', 'InvalidParameter')
 
-console.log(issue?.code, normalized?.standard)
+console.log(modelId, invalidModelId, issue?.code, normalized?.standard)

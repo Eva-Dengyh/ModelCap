@@ -123,6 +123,7 @@ git submodule add https://github.com/Eva-Dengyh/ModelCap.git libs/modelcap
 ```bash
 npm test                 # SDK 与工具行为
 npm run typecheck        # TypeScript 公开类型消费检查
+npm run examples:check   # 可运行 SDK 示例
 npm run validate:catalog # 目录领域规则校验
 npm run validate:schema  # 完整 Draft 2020-12 Schema 校验
 npm run build:check      # 生成物与模型 JSON 一致
@@ -155,6 +156,7 @@ npm run audit:sources    # 输出实时 URL 元数据与正文哈希
 - `rules.{task}.supported_parameters` 列出该任务支持的参数名（如 duration/resolution/generate_audio），供客户端快速判断可传哪些参数。
 - `rules.{task}.conditional_rules` 记录官方明确写出的上下文限制，例如 1080p 只支持某个时长，或有参考视频时输入+输出总时长封顶。
 - `pricing.observed_at` / `pricing.source` 记录价格快照日期与来源——价格会变，以它们为准。
+- SDK 兼容性和目录数据兼容性见 [docs/VERSIONING.md](docs/VERSIONING.md)。
 
 ## 贡献
 

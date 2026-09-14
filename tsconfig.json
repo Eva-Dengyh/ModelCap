@@ -15,6 +15,7 @@
   },
   "include": [
     "src/**/*.d.ts",
+    "examples/**/*.ts",
     "test/types-consumption.ts"
   ]
 }

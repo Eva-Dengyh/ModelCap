@@ -8,6 +8,8 @@ Use this before announcing ModelCap publicly or publishing a package.
 - README avoids leaderboard or quality-ranking claims.
 - `CONTRIBUTING.md` explains official-source-only contribution rules.
 - `SECURITY.md` explains secret handling and vulnerability reporting.
+- `docs/API.md` and runnable `examples/` demonstrate the public SDK.
+- `docs/VERSIONING.md` explains SDK and catalog-data compatibility.
 - `LICENSE` covers code and SDK tooling.
 - `DATA_LICENSE.md` covers model entry data and generated catalog artifacts.
 
@@ -37,6 +39,7 @@ npm run audit:sources
 - Update `package.json` version intentionally.
 - Update `CHANGELOG.md` with user-visible SDK and catalog changes.
 - Run `npm run typecheck` before publishing any SDK type changes.
+- Run `npm run examples:check` before publishing documentation or example changes.
 - Confirm `npm pack --dry-run --json` includes only the public SDK, generated catalog files, README files, and licenses.
 - Confirm `DATA_LICENSE.md` is included in the packed package.
 - Publish with npm provenance when possible:

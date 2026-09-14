@@ -136,6 +136,7 @@ The package exports public types for catalog consumers:
 import type {
   ConditionalRule,
   InputLimits,
+  ModelId,
   ModelEntry,
   ModelFilter,
   ModelRequest,
@@ -149,6 +150,32 @@ import type {
 ```
 
 The types are intentionally permissive where providers expose model-specific fields. Stable, commonly consumed fields are typed directly; unknown extension fields remain allowed.
+
+`ModelId` is generated from the committed catalog:
+
+```ts
+import { validateRequest, type ModelId } from 'modelcap-catalog'
+
+const modelId: ModelId = 'wan-3.0'
+
+validateRequest(modelId, {
+  task: 'generate',
+  parameters: { duration: 5 },
+})
+```
+
+Use `ModelId` when your application stores catalog-backed IDs and wants editor autocomplete. Keep plain `string` for user input or provider IDs that may not exist in ModelCap yet.
+
+## Examples
+
+Runnable examples live in `examples/`:
+
+```bash
+npm run examples:check
+node examples/filter-models.mjs
+node examples/validate-request.mjs
+node examples/normalize-error.mjs
+```
 
 ## Catalog Data
 

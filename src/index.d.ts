@@ -1,3 +1,5 @@
+export type { ModelId } from './model-ids.js'
+
 export type Task = 'generate' | 'edit' | 'extend'
 export type InputType = 'reference_video' | 'reference_image' | 'audio'
 export type Capability = 'lip-sync' | 'multi-shot' | 'camera-control'

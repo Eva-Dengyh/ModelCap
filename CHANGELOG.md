@@ -11,6 +11,7 @@ Initial public SDK-ready release.
 ### Added
 
 - Machine-readable catalog for 50 AI video model versions.
+- Generated `ModelId` TypeScript union from committed catalog model IDs.
 - Zero-runtime-dependency Node.js SDK exports:
   - `getModel`
   - `listModels`
@@ -24,6 +25,7 @@ Initial public SDK-ready release.
   - `dist/index.json`
   - `dist/catalog.d.ts`
 - JSON Schema validation, catalog validation, source freshness checks, build checks, type checks, and package dry-run checks.
+- Runnable JavaScript examples and TypeScript consumer examples.
 - Open-source contribution, security, data license, and issue-template documentation.
 
 ### Policy
