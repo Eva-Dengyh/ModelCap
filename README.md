@@ -6,6 +6,8 @@ A machine-readable capability catalog and conservative request validator for AI 
 
 > Why: every time you integrate a model you re-trip over the same pitfalls — wrong parameters, stale constraints, unreadable error codes. This repo turns that accumulated knowledge into structured data so no one has to relearn it.
 
+Current release: `v0.1.0`. Install from the GitHub release tag until the npm registry package is published.
+
 ModelCap is for developers building model routers, AI video tools, provider SDK wrappers, or internal product forms. It is not a quality ranking system and does not claim to measure which model is "best."
 
 ## Structure
@@ -64,10 +66,10 @@ The directory contains additional model series. Incomplete entries use `_missing
 
 ### Node.js SDK
 
-The package is npm-compatible but is not claimed as published to the npm registry. Install it from GitHub:
+The package is npm-compatible. Until the npm registry package is published, install the stable GitHub release tag:
 
 ```bash
-npm install github:Eva-Dengyh/ModelCap
+npm install github:Eva-Dengyh/ModelCap#v0.1.0
 ```
 
 ```js
@@ -142,7 +144,13 @@ node bin/modelcap.mjs get wan-3.0
 node bin/modelcap.mjs validate wan-3.0 examples/request-invalid.json
 ```
 
-When installed as a package, the binary is available as `modelcap`. See [docs/CLI.md](docs/CLI.md).
+When installed from the GitHub release tag, the most stable package-local invocation is:
+
+```bash
+node node_modules/modelcap-catalog/bin/modelcap.mjs list --task generate
+```
+
+When installed from a registry package, the binary is available as `modelcap`. See [docs/CLI.md](docs/CLI.md).
 
 Source-audit HTTP changes and hashes are review signals, not proof that model facts changed. The audit never edits model JSON or advances `fetched_at`; the scheduled workflow uploads its report as an artifact for human review. `build-history.mjs` continues to generate the `update-history.json` data-change audit.
 

@@ -3,10 +3,18 @@
 The `modelcap` command lets you inspect the catalog and validate request JSON without writing application code.
 
 ```bash
-npm install github:Eva-Dengyh/ModelCap
+npm install github:Eva-Dengyh/ModelCap#v0.1.0
 ```
 
-When installed as a package, run:
+Until the npm registry package is published, the most stable package-local invocation is:
+
+```bash
+node node_modules/modelcap-catalog/bin/modelcap.mjs list --task generate --input reference_image
+node node_modules/modelcap-catalog/bin/modelcap.mjs get wan-3.0
+node node_modules/modelcap-catalog/bin/modelcap.mjs validate wan-3.0 examples/request-invalid.json
+```
+
+When installed from a registry package, run:
 
 ```bash
 modelcap list --task generate --input reference_image

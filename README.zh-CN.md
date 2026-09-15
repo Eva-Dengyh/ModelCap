@@ -6,6 +6,8 @@
 
 > 为什么做：每接一个模型就要重新踩一遍"参数取错、约束过期、错误码看不懂"的坑。这里把踩过的认知沉淀成结构化数据，后人不再踩。
 
+当前版本：`v0.1.0`。npm registry 正式发布前，推荐从 GitHub release tag 安装。
+
 ModelCap 面向做模型路由、AI 视频工具、Provider SDK 封装、产品表单校验的开发者。它不是质量排行榜，也不声称判断哪个模型“最好”。
 
 ## 结构
@@ -64,10 +66,10 @@ ModelCap 面向做模型路由、AI 视频工具、Provider SDK 封装、产品�
 
 ### Node.js SDK
 
-当前仓库已兼容 npm 包格式，但不声称已经发布到 npm registry；可以直接从 GitHub 安装：
+当前仓库已兼容 npm 包格式；npm registry 正式发布前，推荐从稳定 GitHub release tag 安装：
 
 ```bash
-npm install github:Eva-Dengyh/ModelCap
+npm install github:Eva-Dengyh/ModelCap#v0.1.0
 ```
 
 ```js
@@ -142,7 +144,13 @@ node bin/modelcap.mjs get wan-3.0
 node bin/modelcap.mjs validate wan-3.0 examples/request-invalid.json
 ```
 
-作为 npm 包安装后，可直接使用 `modelcap` 命令。详见 [docs/CLI.md](docs/CLI.md)。
+从 GitHub release tag 安装后，最稳的包内调用方式是：
+
+```bash
+node node_modules/modelcap-catalog/bin/modelcap.mjs list --task generate
+```
+
+从 registry 包安装后，可直接使用 `modelcap` 命令。详见 [docs/CLI.md](docs/CLI.md)。
 
 来源巡检得到的 HTTP 变化和哈希只是人工复核信号，不代表模型事实一定变化。巡检不会修改模型 JSON，也不会推进 `fetched_at`；定时工作流只把报告上传为附件。`build-history.mjs` 继续生成 `update-history.json` 数据变更审计。
 
